@@ -17,11 +17,14 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/scripts/install-lib.sh"
 
 # ── Install component by name (non-fatal on failure) ────────────────
+FAILED_COMPONENTS=()
+
 install_component() {
     local name="$1"
     local script="$SCRIPT_DIR/scripts/install-${name}.sh"
     if [ -x "$script" ]; then
         bash "$script" || {
+            FAILED_COMPONENTS+=("$name")
             err "Component '$name' failed — continuing with remaining components."
             err "If this is a C++ applet (systray/icontasks), install build deps and re-run:"
             err "  ./install.sh $name"
@@ -215,4 +218,8 @@ case "${1:-menu}" in
 esac
 
 echo ""
+if [ "${#FAILED_COMPONENTS[@]}" -gt 0 ]; then
+    err "Finished WITH FAILURES: ${FAILED_COMPONENTS[*]}"
+    exit 1
+fi
 info "Done."
