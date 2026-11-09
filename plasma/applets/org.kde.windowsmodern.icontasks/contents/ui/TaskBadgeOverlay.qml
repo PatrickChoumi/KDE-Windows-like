@@ -78,8 +78,21 @@ Item {
         onHeightChanged: maskShaderSource.scheduleUpdate()
     }
 
-    Kirigami.Badge {
+    Rectangle {
         id: badgeRect
+
+        property real badgePadding: Math.floor(root.badgeScaleFactor * 2)
+        property string text: {
+            let unreadCount = task.smartLauncherItem.count;
+            if (unreadCount > 9999) {
+                return i18nc("'k' is a suffix for 'thousand'; keep to one character or else the badge could overflow!", "9k+");
+            } else if (unreadCount > 999) {
+                let rounded = Math.floor(unreadCount / 1000);
+                return i18nc("'k' is a suffix for 'thousand'; keep to one character or else the badge could overflow!", "%1k", rounded);
+            } else {
+                return unreadCount.toLocaleString(Qt.locale(), 'f', 0);
+            }
+        }
 
         anchors.right: parent.right
         anchors.rightMargin: root.extraHorizontalOffset
@@ -90,21 +103,22 @@ Item {
         }
 
         visible: task.smartLauncherItem.countVisible
+        color: Kirigami.Theme.highlightColor
+        radius: height / 2
+        width: taskBadgeLabel.implicitWidth + badgePadding * 2
+        height: taskBadgeLabel.implicitHeight + badgePadding * 2
 
-        padding: Math.floor(root.badgeScaleFactor * 2)
-
-        font.pointSize: Math.floor((Kirigami.Theme.smallFont.pointSize * root.badgeScaleFactor))
-
-        text: {
-            let unreadCount = task.smartLauncherItem.count;
-            if (unreadCount > 9999) {
-                return i18nc("'k' is a suffix for 'thousand'; keep to one character or else the badge could overflow!", "9k+");
-            } else if (unreadCount > 999) {
-                let rounded = Math.floor(unreadCount / 1000);
-                return i18nc("'k' is a suffix for 'thousand'; keep to one character or else the badge could overflow!", "%1k", rounded);
-            } else {
-               return unreadCount.toLocaleString(Qt.locale(), 'f', 0);
-            }
+        Text {
+            id: taskBadgeLabel
+            anchors.centerIn: parent
+            text: badgeRect.text
+            color: Kirigami.Theme.highlightedTextColor
+            font.pointSize: Math.max(1, Math.floor(
+                Kirigami.Theme.smallFont.pointSize * root.badgeScaleFactor
+            ))
+            font.weight: Font.DemiBold
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
         }
     }
 }
