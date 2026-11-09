@@ -193,9 +193,24 @@ Item {
                     height: Kirigami.Units.iconSizes.smallMedium
                     visible: !root.thumbnailMode && root.index === 0 && toolTipDelegate.smartLauncherCountVisible
 
-                    Kirigami.Badge {
+                    Rectangle {
+                        id: tooltipCountBadge
                         anchors.centerIn: parent
-                        text: toolTipDelegate.smartLauncherCount
+                        color: Kirigami.Theme.highlightColor
+                        radius: height / 2
+                        width: tooltipCountText.implicitWidth + Kirigami.Units.smallSpacing * 2
+                        height: tooltipCountText.implicitHeight + Kirigami.Units.smallSpacing
+
+                        Text {
+                            id: tooltipCountText
+                            anchors.centerIn: parent
+                            text: String(toolTipDelegate.smartLauncherCount)
+                            color: Kirigami.Theme.highlightedTextColor
+                            font.pointSize: Kirigami.Theme.smallFont.pointSize
+                            font.weight: Font.DemiBold
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
