@@ -6,8 +6,11 @@ export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p $XDG_RUNTIME_DIR; chmod 700 $XDG_RUNTI
 export KWIN_COMPOSE=Q QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=KDE
 export KDE_FULL_SESSION=true LC_ALL=C.UTF-8 WAYLAND_DISPLAY=wayland-ci
 
+# Diagnostic : bibliothèques manquantes du plugin QPA de KWin
+P=$(find /usr -name 'libwayland-org.kde.kwin.qpa.so' 2>/dev/null | head -1); echo "plugin: $P" > "$OUT/ldd.txt"
+[ -n "$P" ] && ldd "$P" 2>&1 | grep -i "not found" >> "$OUT/ldd.txt"; echo "kwin ldd:" >> "$OUT/ldd.txt"; ldd /usr/bin/kwin_wayland 2>&1 | grep -i "not found" >> "$OUT/ldd.txt"
 cp /usr/bin/kwin_wayland /tmp/kwin_nocap   # la copie perd la capability setcap, refusée en conteneur
-/tmp/kwin_nocap --virtual --width 1920 --height 1080 --socket wayland-ci --no-lockscreen > "$OUT/kwin.log" 2>&1 &
+env -u QT_QPA_PLATFORM QT_DEBUG_PLUGINS=1 /tmp/kwin_nocap --virtual --width 1920 --height 1080 --socket wayland-ci --no-lockscreen > "$OUT/kwin.log" 2>&1 &
 sleep 8
 plasmashell > "$OUT/plasmashell.log" 2>&1 &
 sleep 25
