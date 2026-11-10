@@ -1,0 +1,38 @@
+name: screenshots
+
+on:
+  push:
+    branches: [dev]
+    paths: ['.github/workflows/screenshots.yml', 'ci/**']
+  workflow_dispatch:
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    container: ubuntu:26.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Paquets Plasma (session virtuelle)
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 \
+            plasma-desktop plasma-workspace kwin-wayland spectacle systemsettings \
+            qt6-wayland qt6-svg-plugins kvantum libgl1-mesa-dri libegl-mesa0 libgbm1 mesa-vulkan-drivers \
+            fonts-inter fonts-noto-core imagemagick xdg-user-dirs
+      - uses: actions/checkout@v4
+      - name: Installer le thème (sans reset du layout)
+        run: |
+          export HOME=/root
+          for c in themes icons; do bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+          ls ~/.local/share/color-schemes ~/.local/share/plasma/desktoptheme 2>&1 | head
+      - name: Session et captures
+        run: |
+          export HOME=/root
+          dbus-run-session -- bash ci/screenshot.sh shots || true
+          ls -l shots
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: shots/
