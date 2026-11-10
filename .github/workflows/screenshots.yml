@@ -17,9 +17,13 @@ jobs:
         run: |
           apt-get update
           apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 \
-            plasma-desktop plasma-workspace kwin-wayland spectacle systemsettings \
-            qt6-wayland qt6-svg-plugins kvantum libgl1-mesa-dri libegl-mesa0 libgbm1 mesa-vulkan-drivers \
-            fonts-inter fonts-noto-core imagemagick xdg-user-dirs
+            plasma-desktop plasma-workspace kwin-wayland systemsettings \
+            qt6-wayland libgl1-mesa-dri libegl-mesa0 libgbm1 fonts-inter fonts-noto-core imagemagick xdg-user-dirs
+          # Paquets dont le nom varie : on essaie plusieurs candidats.
+          for group in "kde-spectacle spectacle" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+            ok=0; for p in $group; do apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; ok=1; break; }; done
+            [ $ok = 1 ] || echo "::warning::aucun paquet trouvé parmi : $group"
+          done
       - uses: actions/checkout@v4
       - name: Installer le thème (sans reset du layout)
         run: |
