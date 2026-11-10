@@ -26,4 +26,10 @@ kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle kvantum-dark
 kwriteconfig6 --file kdeglobals --group Icons --key Theme windows-modern
 sleep 10
 shot 02-theme-windows
+# --- look-and-feel complet du dépôt (layout inclus ; session jetable, le reset est sans risque) ---
+WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' -o -name '*.png' \) 2>/dev/null | head -1)
+[ -n "$WP" ] && plasma-apply-wallpaperimage "$WP" >> "$OUT/apply.log" 2>&1
+plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/apply.log" 2>&1
+sleep 15
+shot 03-lookandfeel-dark
 ps aux | grep -E "Xvfb|kwin|plasmashell|kactivity" | grep -v grep | cut -c1-120 > "$OUT/ps.txt"
