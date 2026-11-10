@@ -33,3 +33,4 @@ plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/ap
 sleep 15
 shot 03-lookandfeel-dark
 ps aux | grep -E "Xvfb|kwin|plasmashell|kactivity" | grep -v grep | cut -c1-120 > "$OUT/ps.txt"
+# trigger
