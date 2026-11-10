@@ -11,6 +11,10 @@ permissions:
 
 jobs:
   shots:
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [native, fork]
     runs-on: ubuntu-latest
     container: ubuntu:26.04
     env:
@@ -31,7 +35,8 @@ jobs:
             [ $ok = 1 ] || echo "::warning::aucun paquet trouvé parmi : $group"
           done
       - uses: actions/checkout@v4
-      - name: Compiler et installer l'Icon Tasks corrigé
+      - name: Compiler et installer l'Icon Tasks corrigé (variante fork)
+        if: matrix.variant == 'fork'
         timeout-minutes: 25
         run: |
           apt-get install -y --no-install-recommends cmake ninja-build build-essential extra-cmake-modules qt6-base-dev qt6-declarative-dev \
@@ -54,10 +59,11 @@ jobs:
           export HOME=/root
           dbus-run-session -- bash ci/screenshot.sh shots || true
           ls -l shots
+          echo "${{ matrix.variant }}" > shots/VARIANT.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: screenshots
+          name: screenshots-${{ matrix.variant }}
           path: shots/
       - name: Publier les captures sur la branche ci-shots (consultables sans télécharger d'artefact)
         if: always()
@@ -68,4 +74,4 @@ jobs:
           git config user.name "ci" && git config user.email "ci@users.noreply.github.com"
           echo "run $GITHUB_RUN_ID $(date -u +%FT%TZ)" > RUN.txt
           git add -A && git commit -qm "screenshots run $GITHUB_RUN_ID"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-shots
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-shots:ci-shots-${{ matrix.variant }}

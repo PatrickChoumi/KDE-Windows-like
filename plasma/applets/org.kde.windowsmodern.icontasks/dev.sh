@@ -71,7 +71,8 @@ pkexec bash -s <<INSTALLEOF
 set -e
 mkdir -p "$PLUGIN_DST"
 cp "$PLUGIN_SRC" "$PLUGIN_DST/"
-rm -rf "$KPACKAGE_DIR"
+# NB: ne JAMAIS supprimer $KPACKAGE_DIR : /usr/share/plasma/plasmoids/org.kde.plasma.icontasks appartient
+# au paquet plasma-desktop-data (metadata officielle de l'applet icônes seules).
 echo "Installed."
 INSTALLEOF
 
