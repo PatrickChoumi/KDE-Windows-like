@@ -15,6 +15,7 @@ info "Installing panel layout template..."
 ensure_dir "$LAYOUT_DIR"
 rm -rf "$LAYOUT_DIR/org.kde.windowsmodern.panel"
 cp -r "$src" "$LAYOUT_DIR/"
+resolve_layout_applets "$LAYOUT_DIR/org.kde.windowsmodern.panel/contents/layout.js"
 
 # Refresh sycoca so the template is discoverable in "Add Panel".
 command -v kbuildsycoca6 &>/dev/null && kbuildsycoca6 2>/dev/null || true

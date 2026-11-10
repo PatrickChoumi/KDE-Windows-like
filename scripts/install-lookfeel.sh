@@ -19,6 +19,7 @@ cp -r "$SRC_DIR/plasma/look-and-feel/org.kde.windowsmodern.dark" "$LOOKFEEL_DIR/
 step "Light theme"
 rm -rf "$LOOKFEEL_DIR/org.kde.windowsmodern.light"
 cp -r "$SRC_DIR/plasma/look-and-feel/org.kde.windowsmodern.light" "$LOOKFEEL_DIR/"
+for v in dark light; do resolve_layout_applets "$LOOKFEEL_DIR/org.kde.windowsmodern.$v/contents/layouts/org.kde.plasma.desktop-layout.js"; done
 
 info "Global themes installed."
 
