@@ -34,7 +34,7 @@ jobs:
       - name: Installer le thème (sans reset du layout)
         run: |
           export HOME=/root
-          for c in themes icons lookfeel layout; do bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+          for c in themes icons showdesk startmenu digitalclock lookfeel layout; do bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
           ls ~/.local/share/color-schemes ~/.local/share/plasma/desktoptheme 2>&1 | head
       - name: Session et captures
         run: |
