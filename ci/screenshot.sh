@@ -6,7 +6,8 @@ export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p $XDG_RUNTIME_DIR; chmod 700 $XDG_RUNTI
 export KWIN_COMPOSE=Q QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=KDE
 export KDE_FULL_SESSION=true LC_ALL=C.UTF-8 WAYLAND_DISPLAY=wayland-ci
 
-kwin_wayland --virtual --width 1920 --height 1080 --socket wayland-ci --no-lockscreen > "$OUT/kwin.log" 2>&1 &
+cp /usr/bin/kwin_wayland /tmp/kwin_nocap   # la copie perd la capability setcap, refusée en conteneur
+/tmp/kwin_nocap --virtual --width 1920 --height 1080 --socket wayland-ci --no-lockscreen > "$OUT/kwin.log" 2>&1 &
 sleep 8
 plasmashell > "$OUT/plasmashell.log" 2>&1 &
 sleep 25
