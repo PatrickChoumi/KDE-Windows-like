@@ -210,3 +210,32 @@ lookfeel_id() {
         *)     echo "org.kde.windowsmodern.dark" ;;
     esac
 }
+
+# ── Résolution des applets d'un layout ────────────────────────────────
+# Plasma's scripting addWidget() renvoie un objet même si l'applet n'est pas installée
+# (=> carré « applet manquante »). On remplace donc, À L'INSTALLATION, chaque applet
+# windowsmodern.* absente par son équivalent natif.
+applet_available() {
+    local id="$1"
+    [ -d "${APPLETS_DIR:-$HOME/.local/share/plasma/plasmoids}/$id" ] && return 0
+    [ -d "/usr/share/plasma/plasmoids/$id" ] && return 0
+    ls /usr/lib/*/qt6/plugins/plasma/applets/"$id".so /usr/lib*/qt6/plugins/plasma/applets/"$id".so \
+       "$HOME"/.local/lib*/qt6/plugins/plasma/applets/"$id".so 2>/dev/null | grep -q . && return 0
+    return 1
+}
+
+resolve_layout_applets() {
+    local file="$1" pair custom native
+    [ -f "$file" ] || return 0
+    for pair in \
+        "org.kde.windowsmodern.startmenu=org.kde.plasma.kickoff" \
+        "org.kde.windowsmodern.systemtray=org.kde.plasma.systemtray" \
+        "org.kde.windowsmodern.digitalclock=org.kde.plasma.digitalclock" \
+        "org.kde.windowsmodern.showdesktop=org.kde.plasma.showdesktop"; do
+        custom="${pair%%=*}"; native="${pair##*=}"
+        if ! applet_available "$custom"; then
+            sed -i "s/addWidget(\"$custom\")/addWidget(\"$native\")/" "$file"
+            warn "Applet $custom absente : le layout utilisera $native"
+        fi
+    done
+}
