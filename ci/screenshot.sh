@@ -9,8 +9,9 @@ export KDE_FULL_SESSION=true LC_ALL=C.UTF-8 WAYLAND_DISPLAY=wayland-ci
 # Diagnostic : bibliothèques manquantes du plugin QPA de KWin
 P=$(find /usr -name 'libwayland-org.kde.kwin.qpa.so' 2>/dev/null | head -1); echo "plugin: $P" > "$OUT/ldd.txt"
 [ -n "$P" ] && ldd "$P" 2>&1 | grep -i "not found" >> "$OUT/ldd.txt"; echo "kwin ldd:" >> "$OUT/ldd.txt"; ldd /usr/bin/kwin_wayland 2>&1 | grep -i "not found" >> "$OUT/ldd.txt"
-cp /usr/bin/kwin_wayland /tmp/kwin_nocap   # la copie perd la capability setcap, refusée en conteneur
-env -u QT_QPA_PLATFORM QT_DEBUG_PLUGINS=1 /tmp/kwin_nocap --virtual --width 1920 --height 1080 --socket wayland-ci --no-lockscreen > "$OUT/kwin.log" 2>&1 &
+getcap /usr/bin/kwin_wayland >> "$OUT/ldd.txt" 2>&1; setcap -r /usr/bin/kwin_wayland >> "$OUT/ldd.txt" 2>&1; getcap /usr/bin/kwin_wayland >> "$OUT/ldd.txt" 2>&1
+ln -sf /usr/bin/kwin_wayland /tmp/kwin_nocap
+env -u QT_QPA_PLATFORM QT_DEBUG_PLUGINS=1 /usr/bin/kwin_wayland --virtual --width 1920 --height 1080 --socket wayland-ci --no-lockscreen > "$OUT/kwin.log" 2>&1 &
 sleep 8
 plasmashell > "$OUT/plasmashell.log" 2>&1 &
 sleep 25
