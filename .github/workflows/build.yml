@@ -1,0 +1,66 @@
+name: build-and-check
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  icontasks:
+    runs-on: ubuntu-latest
+    # Cible : Ubuntu 26.04 (Plasma 6.6). Si l'image n'existe pas, remplacer par ubuntu:25.10.
+    container: ubuntu:26.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      APP: plasma/applets/org.kde.windowsmodern.icontasks
+    steps:
+      - name: Dépendances de compilation
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends git ca-certificates build-essential cmake ninja-build \
+            extra-cmake-modules qt6-base-dev qt6-declarative-dev qt6-tools-dev \
+            libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6coreaddons-dev \
+            libkf6windowsystem-dev libkf6kio-dev libkf6service-dev libkf6xmlgui-dev \
+            libkf6notifications-dev libplasma-dev plasma-workspace-dev \
+            plasma-activities-dev plasma-activities-stats-dev libksysguard-dev \
+            binutils
+      - uses: actions/checkout@v4
+
+      - name: Garde-fou API (chaînes interdites sous Plasma 6.6)
+        run: |
+          if grep -rnE "Kirigami\.Badge|filterByCurrentVirtualDesktop" plasma; then
+            echo "::error::API incompatible avec Plasma 6.6 détectée"; exit 1
+          fi
+
+      - name: Configuration
+        run: cmake -S "$APP" -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+      - name: Compilation
+        run: cmake --build build
+      - name: Contrôle du plugin compilé
+        run: |
+          so=$(find build -name 'org.kde.plasma.icontasks.so' | head -1)
+          test -n "$so" || { echo "::error::plugin introuvable"; exit 1; }
+          ls -l "$so"
+          if strings "$so" | grep -q "Kirigami.Badge"; then echo "::error::Kirigami.Badge dans le .so"; exit 1; fi
+      - name: qmllint (informatif)
+        continue-on-error: true
+        run: |
+          QML=$(command -v qmllint6 || command -v qmllint || ls /usr/lib/qt6/bin/qmllint 2>/dev/null)
+          [ -n "$QML" ] && "$QML" "$APP"/contents/ui/*.qml || echo "qmllint indisponible"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: icontasks-so
+          path: build/**/org.kde.plasma.icontasks.so
+
+  shell-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: bash -n sur tous les scripts
+        run: |
+          fail=0
+          for f in install.sh uninstall.sh verify-all.sh scripts/*.sh plasma/applets/*/dev.sh; do
+            [ -f "$f" ] && ! bash -n "$f" && { echo "::error file=$f::erreur de syntaxe"; fail=1; }
+          done
+          exit $fail
