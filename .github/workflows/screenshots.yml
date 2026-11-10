@@ -31,6 +31,19 @@ jobs:
             [ $ok = 1 ] || echo "::warning::aucun paquet trouvé parmi : $group"
           done
       - uses: actions/checkout@v4
+      - name: Compiler et installer l'Icon Tasks corrigé
+        timeout-minutes: 25
+        run: |
+          apt-get install -y --no-install-recommends cmake ninja-build build-essential extra-cmake-modules qt6-base-dev qt6-declarative-dev \
+            libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6coreaddons-dev libkf6windowsystem-dev libkf6kio-dev \
+            libkf6service-dev libkf6xmlgui-dev libkf6notifications-dev libplasma-dev plasma-workspace-dev libksysguard-dev \
+            libplasmaactivities-dev libplasmaactivitiesstats-dev
+          APP=plasma/applets/org.kde.windowsmodern.icontasks
+          cmake -S $APP -B /tmp/ib -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+          cmake --build /tmp/ib
+          so=$(find /tmp/ib -name org.kde.plasma.icontasks.so | head -1)
+          install -m 0644 "$so" /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/
+          ls -l /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/org.kde.plasma.icontasks.so
       - name: Installer le thème (sans reset du layout)
         run: |
           export HOME=/root
