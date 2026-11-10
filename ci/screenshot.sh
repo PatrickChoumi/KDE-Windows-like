@@ -1,28 +1,29 @@
 #!/bin/bash
-# Session Plasma virtuelle (KWin Wayland sans écran) + captures. Usage : ci/screenshot.sh <dossier_sortie>
+# Session Plasma virtuelle X11 (Xvfb + kwin_x11) + captures ImageMagick. Usage : ci/screenshot.sh <dossier_sortie>
 set -u
 OUT="${1:-shots}"; mkdir -p "$OUT"
 export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p $XDG_RUNTIME_DIR; chmod 700 $XDG_RUNTIME_DIR
-export KWIN_COMPOSE=Q QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=KDE
-export KDE_FULL_SESSION=true LC_ALL=C.UTF-8 WAYLAND_DISPLAY=wayland-ci
+export DISPLAY=:99 QT_QPA_PLATFORM=xcb XDG_SESSION_TYPE=x11 XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true
+export LC_ALL=C.UTF-8 LIBGL_ALWAYS_SOFTWARE=1 QT_QUICK_BACKEND=software KWIN_COMPOSE=Q
 
-# Diagnostic : bibliothèques manquantes du plugin QPA de KWin
-P=$(find /usr -name 'libwayland-org.kde.kwin.qpa.so' 2>/dev/null | head -1); echo "plugin: $P" > "$OUT/ldd.txt"
-[ -n "$P" ] && ldd "$P" 2>&1 | grep -i "not found" >> "$OUT/ldd.txt"; echo "kwin ldd:" >> "$OUT/ldd.txt"; ldd /usr/bin/kwin_wayland 2>&1 | grep -i "not found" >> "$OUT/ldd.txt"
-getcap /usr/bin/kwin_wayland >> "$OUT/ldd.txt" 2>&1; setcap -r /usr/bin/kwin_wayland >> "$OUT/ldd.txt" 2>&1; getcap /usr/bin/kwin_wayland >> "$OUT/ldd.txt" 2>&1
-ln -sf /usr/bin/kwin_wayland /tmp/kwin_nocap
-env -u QT_QPA_PLATFORM QT_DEBUG_PLUGINS=1 /usr/bin/kwin_wayland --virtual --width 1920 --height 1080 --socket wayland-ci --no-lockscreen > "$OUT/kwin.log" 2>&1 &
-sleep 8
+Xvfb :99 -screen 0 1920x1080x24 +extension GLX +render -noreset > "$OUT/xvfb.log" 2>&1 &
+sleep 3
+kwin_x11 > "$OUT/kwin.log" 2>&1 &
+sleep 4
+for d in /usr/libexec/kactivitymanagerd /usr/bin/kactivitymanagerd /usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd; do
+  [ -x "$d" ] && { "$d" > "$OUT/kactivities.log" 2>&1 & echo "kactivitymanagerd: $d" > "$OUT/info.txt"; break; }
+done
+sleep 3
 plasmashell > "$OUT/plasmashell.log" 2>&1 &
 sleep 25
-shot() { spectacle -b -n -f -o "$OUT/$1.png" > "$OUT/spectacle-$1.log" 2>&1; sleep 2; ls -l "$OUT/$1.png" 2>&1; }
+shot() { import -window root "$OUT/$1.png" > "$OUT/import-$1.log" 2>&1; ls -l "$OUT/$1.png" 2>&1; }
 shot 01-defaut
 
-# --- thème Windows Modern (composants sans reset du layout) ---
-plasma-apply-colorscheme WindowsModernDark                  >> "$OUT/apply.log" 2>&1
-plasma-apply-desktoptheme Windows-modern-dark               >> "$OUT/apply.log" 2>&1
+# --- thème Windows Modern (sans reset du layout) ---
+plasma-apply-colorscheme WindowsModernDark    >> "$OUT/apply.log" 2>&1
+plasma-apply-desktoptheme Windows-modern-dark >> "$OUT/apply.log" 2>&1
 kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle kvantum-dark
 kwriteconfig6 --file kdeglobals --group Icons --key Theme windows-modern
-sleep 8
+sleep 10
 shot 02-theme-windows
-ps aux | grep -E "kwin|plasmashell" | grep -v grep | cut -c1-120 > "$OUT/ps.txt"
+ps aux | grep -E "Xvfb|kwin|plasmashell|kactivity" | grep -v grep | cut -c1-120 > "$OUT/ps.txt"
