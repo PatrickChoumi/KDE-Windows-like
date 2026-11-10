@@ -18,13 +18,17 @@ jobs:
       - name: Dépendances de compilation
         run: |
           apt-get update
-          apt-get install -y --no-install-recommends git ca-certificates build-essential cmake ninja-build \
-            extra-cmake-modules qt6-base-dev qt6-declarative-dev qt6-tools-dev \
-            libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6coreaddons-dev \
-            libkf6windowsystem-dev libkf6kio-dev libkf6service-dev libkf6xmlgui-dev \
-            libkf6notifications-dev libplasma-dev plasma-workspace-dev \
-            plasma-activities-dev plasma-activities-stats-dev libksysguard-dev \
-            binutils
+          apt-get install -y --no-install-recommends git ca-certificates build-essential cmake ninja-build binutils
+          # Chaque paquet séparément : un nom inconnu est signalé sans tout arrêter.
+          for p in extra-cmake-modules qt6-base-dev qt6-declarative-dev qt6-tools-dev \
+                   libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6coreaddons-dev \
+                   libkf6windowsystem-dev libkf6kio-dev libkf6service-dev libkf6xmlgui-dev \
+                   libkf6notifications-dev libplasma-dev plasma-workspace-dev libksysguard-dev; do
+            apt-get install -y --no-install-recommends "$p" || echo "::warning::paquet introuvable : $p"
+          done
+          # Les noms des paquets « activities » varient : on les cherche.
+          echo "Candidats activities :"; apt-cache search --names-only 'activities.*(-dev)$' | tee /tmp/act.txt
+          apt-get install -y --no-install-recommends $(cut -d' ' -f1 /tmp/act.txt) || true
       - uses: actions/checkout@v4
 
       - name: Garde-fou API (chaînes interdites sous Plasma 6.6)
