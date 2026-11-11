@@ -42,6 +42,15 @@ kquitapp6 plasmashell >> "$OUT/apply.log" 2>&1; sleep 3; pkill -x plasmashell 2>
 plasmashell > "$OUT/plasmashell-restart.log" 2>&1 &
 sleep 20
 shot 05-apres-redemarrage-plasmashell
+# --- test direct de résolution d'icônes via Kirigami.Icon ---
+QMLBIN=$(command -v qml6 || command -v qml || ls /usr/lib/qt6/bin/qml 2>/dev/null | head -1)
+echo "qml: $QMLBIN" > "$OUT/icon-qml.log"
+if [ -n "$QMLBIN" ]; then
+  "$QMLBIN" ci/icon-test.qml >> "$OUT/icon-qml.log" 2>&1 &
+  sleep 8
+  shot 06-test-icones
+  pkill -f icon-test.qml 2>/dev/null
+fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
   echo "== theme (kcmicons / kdeglobals)"; kreadconfig6 --file kcmicons --group Icons --key Theme; kreadconfig6 --file kdeglobals --group Icons --key Theme

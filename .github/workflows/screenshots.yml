@@ -30,7 +30,7 @@ jobs:
             plasma-desktop plasma-workspace kwin-x11 kactivitymanagerd xvfb systemsettings \
             qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 fonts-inter fonts-noto-core imagemagick xdg-user-dirs
           # Paquets dont le nom varie : on essaie plusieurs candidats.
-          for group in "kde-spectacle spectacle" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+          for group in "qt6-declarative-dev-tools qt6-declarative-tools" "kde-spectacle spectacle" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
             ok=0; for p in $group; do apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; ok=1; break; }; done
             [ $ok = 1 ] || echo "::warning::aucun paquet trouvé parmi : $group"
           done
