@@ -4,7 +4,7 @@ set -u
 OUT="${1:-shots}"; mkdir -p "$OUT"
 export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p $XDG_RUNTIME_DIR; chmod 700 $XDG_RUNTIME_DIR
 export DISPLAY=:99 QT_QPA_PLATFORM=xcb XDG_SESSION_TYPE=x11 XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true
-export LC_ALL=C.UTF-8 LIBGL_ALWAYS_SOFTWARE=1 QT_QUICK_BACKEND=software KWIN_COMPOSE=Q
+export LC_ALL=C.UTF-8 LIBGL_ALWAYS_SOFTWARE=1 QT_QUICK_BACKEND=software KWIN_COMPOSE=N
 
 Xvfb :99 -screen 0 1920x1080x24 +extension GLX +render -noreset > "$OUT/xvfb.log" 2>&1 &
 sleep 3
@@ -33,7 +33,7 @@ plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/ap
 sleep 15
 shot 03-lookandfeel-dark
 # --- fenêtres ouvertes : la barre en icônes seules n'est visible que s'il y a des tâches ---
-konsole > "$OUT/konsole.log" 2>&1 &
+konsole -e bash > "$OUT/konsole.log" 2>&1 &
 dolphin > "$OUT/dolphin.log" 2>&1 &
 sleep 15
 shot 04-fenetres-ouvertes
