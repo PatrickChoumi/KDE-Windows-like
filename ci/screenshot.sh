@@ -55,7 +55,10 @@ else
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
-  echo "== theme (kcmicons / kdeglobals)"; kreadconfig6 --file kcmicons --group Icons --key Theme; kreadconfig6 --file kdeglobals --group Icons --key Theme
+  echo "== theme"; echo "kcmicons=[$(kreadconfig6 --file kcmicons --group Icons --key Theme)]"; echo "kdeglobals=[$(kreadconfig6 --file kdeglobals --group Icons --key Theme)]"
+  echo "== env"; env | grep -E "^(HOME|XDG_[A-Z_]*|QT_QPA_PLATFORMTHEME|KDE_[A-Z_]*)=" 
+  echo "== kdeglobals (sections Icons/General)"; grep -n -B1 -A3 "^\[Icons\]" "${XDG_CONFIG_HOME:-$HOME/.config}/kdeglobals" 2>&1 | head -12
+  echo "== fichiers de config"; ls -l "${XDG_CONFIG_HOME:-$HOME/.config}"/kdeglobals "${XDG_CONFIG_HOME:-$HOME/.config}"/kcmicons 2>&1
   echo "== fichiers"; ls -l /usr/share/icons/windows-modern/places/start-here*.svg /usr/share/icons/windows-modern/apps/start-here*.svg 2>&1
   echo "== index.theme (Inherits)"; grep -n "^Inherits\|^Directories" /usr/share/icons/windows-modern/index.theme | cut -c1-200
   echo "== themes breeze presents"; ls -d /usr/share/icons/breeze* 2>&1
