@@ -32,5 +32,10 @@ WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' 
 plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/apply.log" 2>&1
 sleep 15
 shot 03-lookandfeel-dark
+# --- fenêtres ouvertes : la barre en icônes seules n'est visible que s'il y a des tâches ---
+konsole > "$OUT/konsole.log" 2>&1 &
+dolphin > "$OUT/dolphin.log" 2>&1 &
+sleep 15
+shot 04-fenetres-ouvertes
 ps aux | grep -E "Xvfb|kwin|plasmashell|kactivity" | grep -v grep | cut -c1-120 > "$OUT/ps.txt"
 # trigger
