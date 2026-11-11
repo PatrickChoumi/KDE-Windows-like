@@ -23,6 +23,11 @@ jobs:
       - name: Paquets Plasma (session virtuelle)
         timeout-minutes: 20
         run: |
+          for i in 1 2 3; do getent hosts archive.ubuntu.com >/dev/null && break; echo "::warning::DNS KO ($i) resolv.conf: $(grep -v '^#' /etc/resolv.conf | tr '\n' ' ')"; sleep 10; done
+          if ! getent hosts archive.ubuntu.com >/dev/null; then
+            printf 'nameserver 8.8.8.8\nnameserver 1.1.1.1\n' > /etc/resolv.conf
+            getent hosts archive.ubuntu.com >/dev/null && echo "::warning::DNS repli 8.8.8.8 OK" || echo "::warning::DNS toujours KO apres repli"
+          fi
           apt-get update 2>&1 | tee /tmp/apt-update.log | tail -5 || true
           grep -E '^(E:|W:|Err)' /tmp/apt-update.log | head -5 | while read -r l; do echo "::warning::apt-update: $l"; done
           echo 'tzdata tzdata/Areas select Etc' | debconf-set-selections 2>/dev/null || true
