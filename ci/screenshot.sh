@@ -37,5 +37,14 @@ konsole -e bash > "$OUT/konsole.log" 2>&1 &
 dolphin > "$OUT/dolphin.log" 2>&1 &
 sleep 15
 shot 04-fenetres-ouvertes
+# --- diagnostic de l'icône du bouton Démarrer ---
+{
+  echo "== theme (kcmicons / kdeglobals)"; kreadconfig6 --file kcmicons --group Icons --key Theme; kreadconfig6 --file kdeglobals --group Icons --key Theme
+  echo "== fichiers"; ls -l /root/.local/share/icons/windows-modern/places/start-here*.svg /root/.local/share/icons/windows-modern/apps/start-here*.svg 2>&1
+  echo "== index.theme (Inherits)"; grep -n "^Inherits\|^Directories" /root/.local/share/icons/windows-modern/index.theme | cut -c1-200
+  echo "== themes breeze presents"; ls -d /usr/share/icons/breeze* 2>&1
+  echo "== appletsrc : icon/kickoff"; grep -n "kickoff\|^icon=\|icon=" /root/.config/plasma-org.kde.plasma.desktop-appletsrc 2>&1 | head -20
+  echo "== plasmashell : icon"; grep -in "icon" "$OUT/plasmashell.log" | head -10
+} > "$OUT/icon-diag.txt" 2>&1
 ps aux | grep -E "Xvfb|kwin|plasmashell|kactivity" | grep -v grep | cut -c1-120 > "$OUT/ps.txt"
 # trigger
