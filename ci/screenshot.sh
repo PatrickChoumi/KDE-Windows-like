@@ -43,7 +43,8 @@ plasmashell > "$OUT/plasmashell-restart.log" 2>&1 &
 sleep 20
 shot 05-apres-redemarrage-plasmashell
 # --- test direct de résolution d'icônes via Kirigami.Icon ---
-QMLBIN=$(command -v qml6 || command -v qml || ls /usr/lib/qt6/bin/qml 2>/dev/null | head -1)
+QMLBIN=$(command -v qml6 || command -v qml || find /usr/lib /usr/bin -maxdepth 4 \( -name qml -o -name qml6 -o -name qml-qt6 \) -type f 2>/dev/null | head -1)
+dpkg -L qt6-declarative-dev-tools 2>/dev/null | grep -i "bin/" > "$OUT/qml-files.txt"
 echo "qml: $QMLBIN" > "$OUT/icon-qml.log"
 if [ -n "$QMLBIN" ]; then
   "$QMLBIN" ci/icon-test.qml >> "$OUT/icon-qml.log" 2>&1 &
