@@ -1,10 +1,12 @@
 import QtQuick
-import QtQuick.Window
+import QtTest
 import org.kde.kirigami as Kirigami
 
-// Diagnostic : étiquette + icône résolue par Kirigami.Icon (même chemin que le bouton Démarrer).
-Window {
-    visible: true; x: 0; y: 0; width: 900; height: 160; color: "#303030"
+// Diagnostic : icônes résolues par Kirigami.Icon (même chemin que le bouton Démarrer).
+// Lancé via qmltestrunner (seul lanceur QML présent dans qt6-declarative-dev-tools).
+TestCase {
+    name: "icons"; when: windowShown; visible: true; width: 900; height: 160
+    Rectangle { anchors.fill: parent; color: "#303030" }
     Row {
         anchors.centerIn: parent; spacing: 24
         Repeater {
@@ -16,4 +18,5 @@ Window {
             }
         }
     }
+    function test_wait() { wait(12000) }
 }
