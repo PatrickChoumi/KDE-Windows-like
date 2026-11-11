@@ -58,7 +58,7 @@
   <rect id="focus-bottomright" width="2" height="2" x="-30" y="154" rx="0" ry="0" style="fill:none" />
   <g id="focus-center" transform="translate(-157,28)">
     <rect id="rect1929" width="26" height="26" x="100" y="99" rx="4" ry="4" fill="#FFFFFF" fill-opacity="0.09" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1" />
-    <rect id="rect2616" width="10" height="2" x="108" y="123" rx="1" ry="1" class="ColorScheme-ViewHover" style="fill:#4CC2FF;fill-opacity:1" />
+    <rect id="rect2616" width="16" height="3" x="105" y="122" rx="1.5" ry="1.5" class="ColorScheme-ViewHover" style="fill:#4CC2FF;fill-opacity:1" />
   </g>
   <rect id="minimized-topleft" width="2" height="2" x="-58" y="-12.000009" rx="0" ry="0" style="fill:none" />
   <rect id="minimized-top" width="26" height="2" x="-55" y="-12.000009" rx="0" ry="0" style="fill:none;stroke-width:3.60555" />
@@ -70,7 +70,7 @@
   <rect id="minimized-bottomright" width="2" height="2" x="-28" y="17.999994" rx="0" ry="0" style="fill:none" />
   <g id="minimized-center" transform="translate(-155,-108)">
     <rect id="rect1929-3" width="26" height="26" x="100" y="99" rx="3" ry="3" style="fill:none" />
-    <rect id="rect2616-1" width="4" height="2" x="111" y="123" rx="1" ry="1" class="ColorScheme-Text" fill="#858585" style="opacity:1" />
+    <rect id="rect2616-1" width="6" height="3" x="110" y="122" rx="1.5" ry="1.5" class="ColorScheme-Text" fill="#858585" style="opacity:1" />
   </g>
   <rect id="hover-topleft" width="2" height="2" x="-60" y="80" rx="0" ry="0" style="fill:none" />
   <rect id="hover-top" width="26" height="2" x="-57" y="80" rx="0" ry="0" style="fill:none;stroke-width:3.60555" />
