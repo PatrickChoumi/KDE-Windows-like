@@ -37,6 +37,11 @@ konsole -e bash > "$OUT/konsole.log" 2>&1 &
 dolphin > "$OUT/dolphin.log" 2>&1 &
 sleep 15
 shot 04-fenetres-ouvertes
+# --- test : plasmashell relancé après le changement de thème d'icônes (cache d'icônes périmé ?) ---
+kquitapp6 plasmashell >> "$OUT/apply.log" 2>&1; sleep 3; pkill -x plasmashell 2>/dev/null; sleep 2
+plasmashell > "$OUT/plasmashell-restart.log" 2>&1 &
+sleep 20
+shot 05-apres-redemarrage-plasmashell
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
   echo "== theme (kcmicons / kdeglobals)"; kreadconfig6 --file kcmicons --group Icons --key Theme; kreadconfig6 --file kdeglobals --group Icons --key Theme
