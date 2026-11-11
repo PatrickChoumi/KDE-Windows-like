@@ -34,8 +34,8 @@ jobs:
           echo 'tzdata tzdata/Zones/Etc select UTC' | debconf-set-selections 2>/dev/null || true
           timeout 900 apt-get install -y --no-install-recommends -o Dpkg::Options::=--force-confnew git ca-certificates dbus dbus-x11 \
             plasma-desktop plasma-workspace kwin-x11 kactivitymanagerd xvfb systemsettings \
-            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 fonts-inter fonts-noto-core imagemagick xdg-user-dirs 2>&1 | tee /tmp/apt-install.log | tail -3
-          rc=${PIPESTATUS[0]}
+            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 fonts-inter fonts-noto-core imagemagick xdg-user-dirs > /tmp/apt-install.log 2>&1
+          rc=$?; tail -3 /tmp/apt-install.log
           if [ $rc != 0 ]; then echo "::error::apt install rc=$rc: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit $rc; fi
           # Paquets dont le nom varie : on essaie plusieurs candidats.
           for group in "qt6-declarative-dev-tools qt6-declarative-tools" "kde-spectacle spectacle" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
