@@ -25,6 +25,16 @@ it with every implementation batch and once more at the end of a work session.
 | `scripts/test-visual-regression.sh` | Keeps the comparison tool deterministic and CI-testable without a GUI. | Run locally or in GitHub Actions. |
 | `.github/workflows/quality.yml` | Runs the visual-tool contract tests and ShellCheck on pushes and pull requests. | GitHub Actions workflow **Quality**. |
 
+### Test record
+
+- 2026-11-10 — GitHub Actions run #1, workflow **Quality**, commit
+  `35608692eb2ddbadf43f1e29c9bd807bf108dc2f`: **passed**.
+- The run installed ImageMagick and ShellCheck, passed the identical-image
+  and changed-image contract checks, and linted both visual scripts.
+- The local Codex environment did not have ImageMagick, so image execution was
+  deliberately delegated to this successful CI run rather than treated as a
+  local visual result.
+
 ### Deliberate constraints
 
 - CI cannot prove Plasma pixel parity: it lacks the target Wayland/KWin session.
