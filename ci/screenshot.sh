@@ -44,6 +44,7 @@ sleep 20
 shot 05-apres-redemarrage-plasmashell
 # --- test direct de résolution d'icônes via Kirigami.Icon (qmltestrunner) ---
 QTR=/usr/lib/qt6/bin/qmltestrunner
+for f in start-here start-here-kde; do echo "== svgtoqml $f"; /usr/lib/qt6/bin/svgtoqml /usr/share/icons/windows-modern/places/$f.svg "$OUT/$f.qml" 2>&1 | head -15; done > "$OUT/svgtoqml.log" 2>&1
 if [ -x "$QTR" ]; then
   QT_QPA_PLATFORM=xcb "$QTR" -input ci/icon-test.qml > "$OUT/icon-qml.log" 2>&1 &
   sleep 9
