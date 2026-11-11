@@ -67,7 +67,7 @@ function createWindowsModernPanel(screenId) {
     start.writeConfig("icon", "start-here");
 
     // 3. Icon-only task manager — custom Win11 style, or fall back to stock.
-    var tasks = panel.addWidget("org.kde.plasma.icontasks");
+    var tasks = panel.addWidget("org.kde.windowsmodern.icontasks");
     if (!tasks) { tasks = panel.addWidget("org.kde.plasma.taskmanager"); }
     tasks.currentConfigGroup = new Array("General");
     tasks.writeConfig("launchers", "");

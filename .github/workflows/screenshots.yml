@@ -46,9 +46,9 @@ jobs:
           APP=plasma/applets/org.kde.windowsmodern.icontasks
           cmake -S $APP -B /tmp/ib -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
           cmake --build /tmp/ib
-          so=$(find /tmp/ib -name org.kde.plasma.icontasks.so | head -1)
+          so=$(find /tmp/ib -name org.kde.windowsmodern.icontasks.so | head -1)
           install -m 0644 "$so" /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/
-          ls -l /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/org.kde.plasma.icontasks.so
+          ls -l /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/org.kde.windowsmodern.icontasks.so
       - name: Installer le thème (sans reset du layout)
         run: |
           export HOME=/root

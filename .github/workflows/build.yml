@@ -43,7 +43,7 @@ jobs:
         run: cmake --build build
       - name: Contrôle du plugin compilé
         run: |
-          so=$(find build -name 'org.kde.plasma.icontasks.so' | head -1)
+          so=$(find build -name 'org.kde.windowsmodern.icontasks.so' | head -1)
           test -n "$so" || { echo "::error::plugin introuvable"; exit 1; }
           ls -l "$so"
           if strings "$so" | grep -q "Kirigami.Badge"; then echo "::error::Kirigami.Badge dans le .so"; exit 1; fi
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: icontasks-so
-          path: build/**/org.kde.plasma.icontasks.so
+          path: build/**/org.kde.windowsmodern.icontasks.so
 
   shell-syntax:
     runs-on: ubuntu-latest

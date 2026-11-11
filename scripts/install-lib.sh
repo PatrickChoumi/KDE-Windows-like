@@ -231,7 +231,8 @@ resolve_layout_applets() {
         "org.kde.windowsmodern.startmenu=org.kde.plasma.kickoff" \
         "org.kde.windowsmodern.systemtray=org.kde.plasma.systemtray" \
         "org.kde.windowsmodern.digitalclock=org.kde.plasma.digitalclock" \
-        "org.kde.windowsmodern.showdesktop=org.kde.plasma.showdesktop"; do
+        "org.kde.windowsmodern.showdesktop=org.kde.plasma.showdesktop" \
+        "org.kde.windowsmodern.icontasks=org.kde.plasma.taskmanager"; do
         custom="${pair%%=*}"; native="${pair##*=}"
         if ! applet_available "$custom"; then
             sed -i "s/addWidget(\"$custom\")/addWidget(\"$native\")/" "$file"
