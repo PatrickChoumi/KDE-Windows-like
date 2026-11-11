@@ -12,7 +12,7 @@ set -euo pipefail
 
 SRC_DIR="$(cd "$(dirname "$0")" && pwd)"
 BUILD_DIR="$SRC_DIR/build"
-APP_ID="org.kde.plasma.icontasks"
+APP_ID="org.kde.windowsmodern.icontasks"
 LAYOUT_FILE="$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
 
 BOLD="\033[1m"; GREEN="\033[32m"; YELLOW="\033[33m"; RED="\033[31m"; RESET="\033[0m"
@@ -48,13 +48,15 @@ info "Stopping plasmashell..."
 systemctl --user stop plasma-plasmashell.service 2>/dev/null || true
 sleep 1
 
-# ── Migrate old plugin-id references in the layout ─────────────────
-# Any panel config that still uses the legacy org.kde.windowsmodern.icontasks
-# ID must be updated, otherwise plasmashell will write plugin=metadata.
-if grep -q "org.kde.windowsmodern.icontasks" "$LAYOUT_FILE" 2>/dev/null; then
-    info "Migrating legacy plugin references in layout..."
-    sed -i "s/org\.kde\.windowsmodern\.icontasks/org.kde.plasma.icontasks/g" "$LAYOUT_FILE"
-fi
+# ── Garde-fou : l'identifiant ne doit jamais être celui d'un paquet natif ──
+# (collision = Plasma lit les métadonnées du paquet et ignore notre .so)
+for p in "/usr/share/plasma/plasmoids/${APP_ID}" "/usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/${APP_ID}.so" "/usr/lib64/qt6/plugins/plasma/applets/${APP_ID}.so"; do
+    if [ -e "$p" ] && owner=$(dpkg -S "$p" 2>/dev/null); then
+        err "L'identifiant ${APP_ID} appartient déjà à un paquet : $owner"
+        err "Abandon : aucun fichier système n'a été modifié."
+        exit 1
+    fi
+done
 
 # ── Fix layout if corrupted ───────────────────────────────────────
 if grep -q "plugin=metadata" "$LAYOUT_FILE" 2>/dev/null; then
@@ -71,8 +73,8 @@ pkexec bash -s <<INSTALLEOF
 set -e
 mkdir -p "$PLUGIN_DST"
 cp "$PLUGIN_SRC" "$PLUGIN_DST/"
-# NB: ne JAMAIS supprimer $KPACKAGE_DIR : /usr/share/plasma/plasmoids/org.kde.plasma.icontasks appartient
-# au paquet plasma-desktop-data (metadata officielle de l'applet icônes seules).
+# NB: on n'installe que le .so du fork (identifiant propre) et on ne supprime rien dans /usr/share :
+# /usr/share/plasma/plasmoids/org.kde.plasma.icontasks appartient à plasma-desktop-data (applet native).
 echo "Installed."
 INSTALLEOF
 
@@ -81,12 +83,6 @@ rm -rf "$HOME/.local/share/plasma/plasmoids/${APP_ID}" 2>/dev/null || true
 rm -f "$HOME/.local/lib64/qt6/plugins/plasma/applets/${APP_ID}.so" 2>/dev/null || true
 rm -f "$HOME/.local/lib/qt6/plugins/plasma/applets/${APP_ID}.so" 2>/dev/null || true
 
-# Remove the old .so under the legacy plugin ID
-rm -f "$HOME/.local/lib64/qt6/plugins/plasma/applets/org.kde.windowsmodern.icontasks.so" 2>/dev/null || true
-rm -f "$HOME/.local/lib/qt6/plugins/plasma/applets/org.kde.windowsmodern.icontasks.so" 2>/dev/null || true
-rm -rf "$HOME/.local/share/plasma/plasmoids/org.kde.windowsmodern.icontasks" 2>/dev/null || true
-pkexec rm -f /usr/lib64/qt6/plugins/plasma/applets/org.kde.windowsmodern.icontasks.so 2>/dev/null || true
-pkexec rm -rf /usr/share/plasma/plasmoids/org.kde.windowsmodern.icontasks 2>/dev/null || true
 info "Installed."
 
 # ── Start plasmashell ────────────────────────────────────────────
