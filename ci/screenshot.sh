@@ -37,6 +37,11 @@ WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' 
 [ -n "$WP" ] && plasma-apply-wallpaperimage "$WP" >> "$OUT/apply.log" 2>&1
 plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/apply.log" 2>&1; echo "lookandfeel exit=$?" >> "$OUT/apply.log"
 ic apres-lookandfeel
+# plasma-apply-lookandfeel --resetLayout vide [Icons] Theme de kdeglobals (mesuré : 2795 -> 2745 octets) :
+# on remet le thème d'icônes puis on prévient les applications (signal KGlobalSettings IconChanged).
+kwriteconfig6 --file kdeglobals --group Icons --key Theme windows-modern
+dbus-send --session --type=signal /KGlobalSettings org.kde.KGlobalSettings.notifyChange int32:4 int32:0 >> "$OUT/apply.log" 2>&1
+ic apres-remise-du-theme-icones
 sleep 15
 shot 03-lookandfeel-dark
 # --- fenêtres ouvertes : la barre en icônes seules n'est visible que s'il y a des tâches ---
