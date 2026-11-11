@@ -152,7 +152,25 @@ apply_lookandfeel() {
     fi
     info "Applying $id ${reset_flag:+with layout reset}..."
     plasma-apply-lookandfeel -a "$id" $reset_flag
+    ensure_icon_theme windows-modern
     bash "$SRC_DIR/scripts/set-wallpaper.sh" || true
+}
+
+# plasma-apply-lookandfeel --resetLayout can leave [Icons] Theme empty in kdeglobals
+# (measured in CI: windows-modern before, empty after). Without an active theme,
+# "start-here" is not found and the Start button shows a generic file icon.
+# Only touches the setting when the pack is installed and the value is not already set.
+ensure_icon_theme() {
+    local theme="$1" current
+    command -v kreadconfig6 &>/dev/null && command -v kwriteconfig6 &>/dev/null || return 0
+    [ -d "$ICONS_DIR/$theme" ] || return 0
+    current="$(kreadconfig6 --file kdeglobals --group Icons --key Theme 2>/dev/null || true)"
+    if [ "$current" != "$theme" ]; then
+        step "Icon theme was '${current:-empty}' after applying the theme → restoring $theme"
+        kwriteconfig6 --file kdeglobals --group Icons --key Theme "$theme"
+        command -v dbus-send &>/dev/null && dbus-send --session --type=signal /KGlobalSettings \
+            org.kde.KGlobalSettings.notifyChange int32:4 int32:0 2>/dev/null || true
+    fi
 }
 
 # Set the Application Style (widgetStyle) so Kvantum actually renders.
