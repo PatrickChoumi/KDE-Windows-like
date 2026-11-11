@@ -16,20 +16,27 @@ done
 sleep 3
 plasmashell > "$OUT/plasmashell.log" 2>&1 &
 sleep 25
+ic() { echo "$1: [$(kreadconfig6 --file kdeglobals --group Icons --key Theme)] kdeglobals=$(stat -c %s ${XDG_CONFIG_HOME:-$HOME/.config}/kdeglobals 2>&1)" >> "$OUT/icon-trace.txt"; }
 shot() { import -window root "$OUT/$1.png" > "$OUT/import-$1.log" 2>&1; ls -l "$OUT/$1.png" 2>&1; }
 shot 01-defaut
+ic apres-01
 
 # --- thème Windows Modern (sans reset du layout) ---
 plasma-apply-colorscheme WindowsModernDark    >> "$OUT/apply.log" 2>&1
+ic apres-colorscheme-ET-avant-desktoptheme-sera-mesure-ici
 plasma-apply-desktoptheme Windows-modern-dark >> "$OUT/apply.log" 2>&1
+ic apres-desktoptheme
 kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle kvantum-dark
 kwriteconfig6 --file kdeglobals --group Icons --key Theme windows-modern
+ic apres-kwriteconfig-icons
 sleep 10
 shot 02-theme-windows
+ic apres-02
 # --- look-and-feel complet du dépôt (layout inclus ; session jetable, le reset est sans risque) ---
 WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' -o -name '*.png' \) 2>/dev/null | head -1)
 [ -n "$WP" ] && plasma-apply-wallpaperimage "$WP" >> "$OUT/apply.log" 2>&1
-plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/apply.log" 2>&1
+plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/apply.log" 2>&1; echo "lookandfeel exit=$?" >> "$OUT/apply.log"
+ic apres-lookandfeel
 sleep 15
 shot 03-lookandfeel-dark
 # --- fenêtres ouvertes : la barre en icônes seules n'est visible que s'il y a des tâches ---
