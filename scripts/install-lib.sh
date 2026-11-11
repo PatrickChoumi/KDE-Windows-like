@@ -216,11 +216,15 @@ lookfeel_id() {
 # (=> carré « applet manquante »). On remplace donc, À L'INSTALLATION, chaque applet
 # windowsmodern.* absente par son équivalent natif.
 applet_available() {
-    local id="$1"
+    local id="$1" f
     [ -d "${APPLETS_DIR:-$HOME/.local/share/plasma/plasmoids}/$id" ] && return 0
     [ -d "/usr/share/plasma/plasmoids/$id" ] && return 0
-    ls /usr/lib/*/qt6/plugins/plasma/applets/"$id".so /usr/lib*/qt6/plugins/plasma/applets/"$id".so \
-       "$HOME"/.local/lib*/qt6/plugins/plasma/applets/"$id".so 2>/dev/null | grep -q . && return 0
+    # Boucle [ -e ] et non « ls | grep -q » : avec pipefail, un glob sans correspondance
+    # faisait échouer la détection d'un .so pourtant présent (faux négatif).
+    for f in /usr/lib/*/qt6/plugins/plasma/applets/"$id".so /usr/lib*/qt6/plugins/plasma/applets/"$id".so \
+             "$HOME"/.local/lib*/qt6/plugins/plasma/applets/"$id".so; do
+        [ -e "$f" ] && return 0
+    done
     return 1
 }
 
