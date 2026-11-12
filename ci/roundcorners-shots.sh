@@ -19,18 +19,27 @@ state() {
     echo "kwinrc: $(kreadconfig6 --file kwinrc --group Plugins --key kwin4_effect_shapecornersEnabled)"
   } >> "$OUT/etat.txt"
 }
-cropwin() {  # $1 = nom ; recadre les 4 coins (zoom x8) de la fenêtre Konsole
-  local id geo x y w h
+cropwin() {  # $1 = nom ; recadre les 4 coins du cadre de la fenêtre Konsole (zoom x8), d'après _NET_FRAME_EXTENTS
+  local id x y w h l r t b ext fx fy fw fh
   id=$(xdotool search --onlyvisible --class konsole 2>/dev/null | head -1)
   [ -n "$id" ] || { echo "pas de fenêtre konsole" >> "$OUT/etat.txt"; return; }
   eval "$(xdotool getwindowgeometry --shell "$id")"; x=$X; y=$Y; w=$WIDTH; h=$HEIGHT
-  echo "$1 : konsole client ${w}x${h}+${x}+${y} ; extents=$(xprop -id "$id" _NET_FRAME_EXTENTS 2>&1)" >> "$OUT/etat.txt"
-  # Coins du cadre (barre de titre 32 px au-dessus du client) : fenêtres 40x40 autour de chaque angle.
-  local fx=$((x-1)) fy=$((y-33)) fw=$((w+2)) fh=$((h+34))
+  ext=$(xprop -id "$id" _NET_FRAME_EXTENTS | sed 's/.*= //; s/,//g'); read -r l r t b <<<"$ext"
+  echo "$1 : client ${w}x${h}+${x}+${y} extents l=$l r=$r t=$t b=$b" >> "$OUT/etat.txt"
+  fx=$((x-l)); fy=$((y-t)); fw=$((w+l+r)); fh=$((h+t+b))
   convert "$OUT/$1.png" -crop 40x40+$((fx-4))+$((fy-4)) +repage -scale 800% "$OUT/$1-coin-haut-gauche.png"
   convert "$OUT/$1.png" -crop 40x40+$((fx+fw-36))+$((fy-4)) +repage -scale 800% "$OUT/$1-coin-haut-droit.png"
   convert "$OUT/$1.png" -crop 40x40+$((fx-4))+$((fy+fh-36)) +repage -scale 800% "$OUT/$1-coin-bas-gauche.png"
   convert "$OUT/$1.png" -crop 40x40+$((fx+fw-36))+$((fy+fh-36)) +repage -scale 800% "$OUT/$1-coin-bas-droit.png"
+}
+waitdeco() {  # attend que la décoration Aurorae (barre 32 px) soit appliquée à Konsole
+  local id i
+  for i in $(seq 1 20); do
+    id=$(xdotool search --onlyvisible --class konsole 2>/dev/null | head -1)
+    [ -n "$id" ] && xprop -id "$id" _NET_FRAME_EXTENTS 2>/dev/null | grep -q '= 4, 4, 32, 4' && { echo "décoration prête après ${i}x2 s" >> "$OUT/etat.txt"; return; }
+    sleep 2
+  done
+  echo "décoration Aurorae NON confirmée (extents attendus 4,4,32,4)" >> "$OUT/etat.txt"
 }
 
 Xvfb :99 -screen 0 1920x1080x24 +extension GLX +render -noreset > "$OUT/xvfb.log" 2>&1 &
@@ -48,7 +57,8 @@ WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' 
 [ -n "$WP" ] && plasma-apply-wallpaperimage "$WP" >> "$OUT/apply.log" 2>&1
 konsole -e bash > "$OUT/konsole.log" 2>&1 &
 dolphin > "$OUT/dolphin.log" 2>&1 &
-sleep 12
+sleep 6
+waitdeco
 cp /root/.config/kwinrc "$OUT/kwinrc-avant.txt" 2>/dev/null || true
 
 state "1-avant"; shot 01-avant; cropwin 01-avant
