@@ -5,6 +5,8 @@ Avant toute modification de ce dépôt, lis dans cet ordre :
 1. `docs/METHODE-DE-TRAVAIL.md` : la méthode exacte (contraintes de l'utilisateur, boucle de travail, outils, CI, leçons techniques, état actuel). **À respecter.**
 2. `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md` : le plan par phases pour approcher Windows 11 sur KDE Plasma 6.6.
 
+3. `docs/FONCTIONNALITES-WIN11.md` : liste de toutes les fonctionnalités à reproduire, avec leur état (références visuelles dans `docs/reference-win11/`).
+
 Points essentiels (détails dans la méthode) :
 - Répondre en français, de façon courte ; un correctif = un commit, une chose à la fois.
 - Travailler sur la branche `dev`, jamais de commande destructive, ne rien supprimer dans `/usr/share`.

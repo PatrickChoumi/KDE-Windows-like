@@ -3,10 +3,10 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 7).
+> Dernière mise à jour : 2026-11-12 (version 8).
 
 ## 1. Cadre et contraintes de l'utilisateur
-- Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.
+- Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
 - Consommer le moins de tokens possible : réponses courtes, pas de recap des étapes, une action à la fois quand il le demande.
 - Ne jamais lancer de commande destructive, ne rien supprimer sans sauvegarde, ne pas mettre à jour toute la distribution, ne pas réinstaller Ubuntu, préserver données, favoris et configurations.
 - Ne jamais croire qu'un script a réussi parce qu'il affiche « Done » : vérifier le résultat réel (journal, présence du fichier, `dpkg -V`, capture).
