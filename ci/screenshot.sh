@@ -135,6 +135,10 @@ if command -v xdotool >/dev/null; then
   xdotool mousemove 860 1056; sleep 1; xdotool click 3; sleep 3
   shot 14-menu-power-user
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
+  # survol du bouton Fermer de Dolphin (fond rouge #C42B1C attendu)
+  xdotool mousemove 1316 238; sleep 1; xdotool mousemove 1320 240; sleep 2
+  shot 15-survol-fermer
+  xdotool mousemove 1200 500
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
