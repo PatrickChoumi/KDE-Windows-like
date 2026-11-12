@@ -59,6 +59,7 @@ install_everything() {
     install_component themes
     install_component icons
     install_component showdesk
+    install_component shortcuts
     install_component startmenu
     install_component systray
     install_component icontasks
@@ -95,6 +96,7 @@ install_all_applets() {
     export WM_BATCH=1
     info "Installing all applets..."
     install_component showdesk
+    install_component shortcuts
     install_component startmenu
     install_component systray
     install_component icontasks
@@ -187,6 +189,7 @@ case "${1:-menu}" in
         echo "    lookfeel       Global themes (asks Light/Dark)"
         echo "    layout         Panel layout template"
         echo "    showdesk       Show Desktop applet"
+        echo "    shortcuts      Search / Task View taskbar buttons"
         echo "    startmenu      Start Menu applet"
         echo "    systray        System Tray (C++ — needs compiler)"
         echo "    icontasks      Icon Tasks taskbar (C++ — needs compiler)"

@@ -45,6 +45,12 @@ if (!start) { start = panel.addWidget("org.kde.plasma.kickoff"); }
 start.currentConfigGroup = new Array("General");
 start.writeConfig("icon", "start-here");
 
+// 2b. Search and Task View buttons (Win11), right after Start.
+var search = panel.addWidget("org.kde.windowsmodern.shortcutbutton");
+if (search) { search.currentConfigGroup = new Array("General"); search.writeConfig("action", "search"); }
+var taskview = panel.addWidget("org.kde.windowsmodern.shortcutbutton");
+if (taskview) { taskview.currentConfigGroup = new Array("General"); taskview.writeConfig("action", "taskview"); }
+
 // 3. Icon-only task manager — custom Win11 style, or fall back to stock.
 var tasks = panel.addWidget("org.kde.windowsmodern.icontasks");
 if (!tasks) { tasks = panel.addWidget("org.kde.plasma.taskmanager"); }
@@ -93,8 +99,10 @@ peek.writeConfig("size", "6");
 // Ensure correct ordering by index.
 spacerLeft.index = 0;
 start.index = 1;
-tasks.index = 2;
-spacerRight.index = 3;
-tray.index = 4;
-clock.index = 5;
-peek.index = 6;
+if (search) { search.index = 2; }
+if (taskview) { taskview.index = 3; }
+tasks.index = 4;
+spacerRight.index = 5;
+tray.index = 6;
+clock.index = 7;
+peek.index = 8;
