@@ -33,13 +33,14 @@ ColumnLayout {
 
     function navigateUp() {
         if (favoritesListView.count > 0) {
-            favoritesListView.currentIndex = Math.max(0, favoritesListView.currentIndex - 1);
+            favoritesListView.currentIndex = Math.max(0, favoritesListView.currentIndex - favoritesListView.columns);
         }
     }
 
     function navigateDown() {
         if (favoritesListView.count > 0) {
-            favoritesListView.currentIndex = Math.min(favoritesListView.count - 1, favoritesListView.currentIndex + 1);
+            favoritesListView.currentIndex = Math.min(favoritesListView.count - 1,
+                                                      Math.max(0, favoritesListView.currentIndex) + favoritesListView.columns);
         }
     }
 
@@ -76,21 +77,20 @@ ColumnLayout {
         }
     }
 
-    // ── Pinned favorites vertical list ──────────────────────────────────
-    ListView {
+    // ── Grille « Épinglé » : 6 colonnes, tuiles icône 32 px + libellé ────
+    GridView {
         id: favoritesListView
         Layout.fillWidth: true
         Layout.fillHeight: true
         clip: true
         interactive: true
-        spacing: Kirigami.Units.smallSpacing / 2
         boundsBehavior: Flickable.StopAtBounds
         currentIndex: -1
+        readonly property int columns: 6
+        cellWidth: Math.floor(width / columns)
+        cellHeight: 84
 
-        // Drag-reorder tracking.  draggingIndex is the index currently
-        // being dragged (or -1); dropTargetIndex is where it would land
-        // if released (or -1).  Delegates read these to show the drop
-        // indicator and lift the dragged row.
+        // Suivi du glisser-déposer (utilisé par le menu contextuel / futurs usages).
         property int draggingIndex: -1
         property int dropTargetIndex: -1
 
@@ -98,17 +98,16 @@ ColumnLayout {
             policy: PlasmaComponents3.ScrollBar.AsNeeded
         }
 
-        delegate: ListItemDelegate {
-            iconSize: Kirigami.Units.iconSizes.smallMedium
-            dragEnabled: true
-        }
+        delegate: PinnedTile {}
 
         highlightMoveDuration: 0
 
         Keys.onUpPressed: event => {
-            if (currentIndex <= 0) {
+            if (currentIndex < columns) {
                 event.accepted = true;
                 pinnedPage.keyNavUpFromList();
+            } else {
+                event.accepted = false;
             }
         }
     }
