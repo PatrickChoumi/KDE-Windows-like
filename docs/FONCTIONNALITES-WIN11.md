@@ -59,7 +59,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 3.9 | Recherche immédiate en tapant dès l'ouverture ; touche Windows (Meta) ouvre/ferme | 🟡 |
 | 3.10 | Animation d'ouverture (glissement vers le haut + fondu, ~200 ms) | ⬜ |
 | 3.11 | Fermeture au clic extérieur et à `Échap` | 🟡 |
-| 3.12 | Clic droit sur le bouton Démarrer : menu « Power User » (Win+X) | ⬜ |
+| 3.12 | Clic droit sur le bouton Démarrer : menu « Power User » (Win+X) | 🟡 15 entrées au clic droit (CI 43214957855) ; menu Qt natif avec entrées Plasma en plus, sans séparateurs ni sous-menu ; clics non testés |
 
 ## 4. Recherche (réf. [12])
 | # | Fonctionnalité | État |
