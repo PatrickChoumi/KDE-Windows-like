@@ -162,15 +162,9 @@ Item {
         FocusScope {
             id: rootItem
 
-            readonly property int leftColumnWidth: Kirigami.Units.gridUnit * 14
-            readonly property int rightColumnWidth: Kirigami.Units.gridUnit * 10
-            // Height derived from ~10 list rows + header + padding rather
-            // than a fixed grid-unit count.
-            readonly property int rowHeight: Kirigami.Units.gridUnit * 2
-            readonly property int mainContentHeight: rowHeight * 12 + Kirigami.Units.gridUnit * 2
-
-            width: leftColumnWidth + rightColumnWidth + Kirigami.Units.gridUnit * 3
-            height: mainContentHeight + bottomBar.height + Kirigami.Units.gridUnit * 3
+            // Dimensions Win11 : ~640 x 720 px (chrome compris).
+            width: 640
+            height: 720
             focus: true
 
             // Note: do NOT auto-redirect to the search field here.
@@ -225,14 +219,14 @@ Item {
             // ── Two-column main content area ──────────────────────────────
             RowLayout {
                 id: mainColumns
-                anchors.top: parent.top
+                anchors.top: bottomBar.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.bottom: bottomBar.top
-                anchors.topMargin: Kirigami.Units.gridUnit
-                anchors.bottomMargin: Kirigami.Units.gridUnit
-                anchors.leftMargin: Kirigami.Units.gridUnit
-                anchors.rightMargin: Kirigami.Units.gridUnit
+                anchors.bottom: footerBar.top
+                anchors.topMargin: 12
+                anchors.bottomMargin: 8
+                anchors.leftMargin: 32
+                anchors.rightMargin: 32
                 spacing: 0
 
                 // ── Left column: pinned / all-apps / search ─────────────────
@@ -240,8 +234,6 @@ Item {
                     id: leftColumn
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    Layout.preferredWidth: rootItem.leftColumnWidth
-                    Layout.rightMargin: Kirigami.Units.mediumSpacing
                     spacing: Kirigami.Units.smallSpacing
 
                     PinnedPage {
@@ -277,113 +269,18 @@ Item {
                         }
                     }
                 }
-
-                // ── Vertical separator ───────────────────────────────────────
-                Rectangle {
-                    id: columnSeparator
-                    Layout.preferredWidth: 1
-                    Layout.fillHeight: true
-                    color: Kirigami.Theme.textColor
-                    opacity: Theme.separatorOpacity
-                }
-
-                // ── Right column: avatar + system locations ────────────────
-                ColumnLayout {
-                    id: rightColumn
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.preferredWidth: rootItem.rightColumnWidth
-                    Layout.rightMargin: Kirigami.Units.mediumSpacing
-                    spacing: Kirigami.Units.smallSpacing
-                    visible: Plasmoid.configuration.showRightColumn
-
-                    // ── User avatar (circular) ──────────────────────────────
-                    Item {
-                        id: avatarArea
-                        Layout.alignment: Qt.AlignHCenter
-                        Layout.topMargin: Kirigami.Units.smallSpacing
-                        Layout.bottomMargin: Kirigami.Units.smallSpacing
-                        width: Kirigami.Units.iconSizes.medium
-                        height: width
-
-                        Image {
-                            id: userAvatar
-                            anchors.fill: parent
-                            source: {
-                                var faceUrl = kuser.faceIconUrl.toString()
-                                if (faceUrl !== "") return faceUrl
-                                return "file:///usr/share/icons/breeze/apps/48/kuser.svg"
-                            }
-                            cache: false
-                            fillMode: Image.PreserveAspectCrop
-                            visible: source !== ""
-                            layer.enabled: true
-                            layer.effect: OpacityMask {
-                                maskSource: Rectangle {
-                                    width: avatarArea.width
-                                    height: avatarArea.height
-                                    radius: avatarArea.width / 2
-                                }
-                            }
-                        }
-
-                        Rectangle {
-                            anchors.fill: parent
-                            radius: width / 2
-                            color: "transparent"
-                            border.width: 1
-                            border.color: Qt.rgba(Kirigami.Theme.textColor.r,
-                                                   Kirigami.Theme.textColor.g,
-                                                   Kirigami.Theme.textColor.b, Theme.buttonBorderOpacity)
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            cursorShape: Qt.PointingHandCursor
-                            onClicked: executable.exec("systemsettings kcm_users")
-                        }
-                    }
-
-                    PlasmaComponents3.Label {
-                        text: i18n("Places")
-                        color: Kirigami.Theme.textColor
-                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 0.95
-                        font.weight: Font.DemiBold
-                        Layout.leftMargin: Kirigami.Units.largeSpacing
-                    }
-
-                    SystemLocationsColumn {
-                        id: systemLocations
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        executable: executable
-                    }
-                }
             }
 
-            // ── Compound bottom bar: [Search field] + [Shut down >] ────────
-            Rectangle {
-                id: bottomBar
-                width: parent.width
-                height: bottomBarContent.implicitHeight + Kirigami.Units.gridUnit
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: Kirigami.Units.gridUnit
-                anchors.left: parent.left
-                anchors.leftMargin: Kirigami.Units.gridUnit
-                anchors.right: parent.right
-                anchors.rightMargin: Kirigami.Units.gridUnit
-                Kirigami.Theme.colorSet: Kirigami.Theme.Header
-                Kirigami.Theme.inherit: false
-                color: "transparent"
 
-                Rectangle {
-                    anchors.top: parent.top
-                    width: parent.width
-                    height: 1
-                    color: Kirigami.Theme.textColor
-                    opacity: Theme.separatorOpacity
-                }
+            // ── Champ de recherche en haut (Win11) ──────────────────────────
+            Item {
+                id: bottomBar
+                height: bottomBarContent.implicitHeight + 32
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: 32
+                anchors.right: parent.right
+                anchors.rightMargin: 32
 
                 BottomBar {
                     id: bottomBarContent
@@ -424,11 +321,36 @@ Item {
                         }
                     }
                     onTabOut: rootItem.focusActivePageResults()
+                }
+            }
+
+            // ── Pied de menu : avatar + nom à gauche, alimentation à droite ──
+            Rectangle {
+                id: footerBar
+                height: 64
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.04)
+
+                Rectangle {
+                    anchors.top: parent.top
+                    width: parent.width
+                    height: 1
+                    color: Kirigami.Theme.textColor
+                    opacity: Theme.separatorOpacity
+                }
+
+                FooterBar {
+                    id: footerContent
+                    anchors.fill: parent
+                    anchors.leftMargin: 32
+                    anchors.rightMargin: 32
                     onPowerMenuRequested: {
-                        powerMenu.visualParent = bottomBarContent.splitButton;
+                        powerMenu.visualParent = footerContent.powerButton;
                         powerMenu.open();
                     }
-                    onPowerShutdownRequested: powerMenu.triggerShutdown()
+                    onAvatarClicked: executable.exec("systemsettings kcm_users")
                 }
             }
 
