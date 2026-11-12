@@ -24,15 +24,13 @@ Item {
     signal activated
 
     width: parent ? parent.width : Kirigami.Units.gridUnit * 10
-    height: Math.floor(Kirigami.Units.gridUnit * 1.6)
+    height: 36
 
     Rectangle {
         anchors.fill: parent
         anchors.margins: 1
-        radius: Kirigami.Units.smallSpacing / 2
-        color: option.optionEnabled && hoverArea.containsMouse
-               ? Kirigami.Theme.hoverColor
-               : "transparent"
+        radius: 4
+        color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.06)
         opacity: option.optionEnabled && hoverArea.containsMouse ? Theme.opacityFull : Theme.opacityHidden
         Behavior on opacity { NumberAnimation { duration: 80 } }
     }
@@ -41,12 +39,12 @@ Item {
         id: powerRow
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: Kirigami.Units.smallSpacing
-        spacing: Kirigami.Units.smallSpacing
+        anchors.leftMargin: 12
+        spacing: 12
 
         Kirigami.Icon {
-            Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-            Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+            Layout.preferredWidth: 16
+            Layout.preferredHeight: 16
             source: option.iconSource
             opacity: option.optionEnabled ? Theme.opacityFull : Theme.disabledIconOpacity
         }
@@ -54,7 +52,7 @@ Item {
         PlasmaComponents3.Label {
             text: option.label
             color: option.optionEnabled ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
-            font.pointSize: Kirigami.Theme.defaultFont.pointSize - 1
+            font.pointSize: Kirigami.Theme.defaultFont.pointSize
         }
     }
 

@@ -52,7 +52,7 @@ Item {
         readonly property real panelWidth: Kirigami.Units.gridUnit * 10
         width: panelWidth
         height: powerColumn.implicitHeight + Kirigami.Units.smallSpacing
-        radius: Kirigami.Units.smallSpacing
+        radius: 8
         color: Kirigami.Theme.backgroundColor
         border.width: 1
         border.color: Qt.rgba(Kirigami.Theme.textColor.r,
@@ -70,32 +70,24 @@ Item {
             anchors.topMargin: Kirigami.Units.smallSpacing / 2
             spacing: 0
 
-            PowerOption {
-                iconSource: "system-lock-screen"
-                label: i18n("Lock")
-                optionEnabled: sessionManager.canLock
-                onActivated: {
-                    sessionManager.lock()
-                    root.close()
-                }
-            }
-
-            PowerOption {
-                iconSource: "system-log-out"
-                label: i18n("Log out")
-                optionEnabled: sessionManager.canLogout
-                onActivated: {
-                    sessionManager.requestLogout()
-                    root.close()
-                }
-            }
-
+            // Ordre Windows 11 : Veille, Arrêter, Redémarrer ; Verrouiller / Fermer la session
+            // (dans le menu de l'avatar sous Win11) restent accessibles sous le séparateur.
             PowerOption {
                 iconSource: "system-suspend"
                 label: i18n("Sleep")
                 optionEnabled: sessionManager.canSuspend
                 onActivated: {
                     sessionManager.suspend()
+                    root.close()
+                }
+            }
+
+            PowerOption {
+                iconSource: "system-shutdown"
+                label: i18n("Shut down")
+                optionEnabled: sessionManager.canShutdown
+                onActivated: {
+                    sessionManager.requestShutdown()
                     root.close()
                 }
             }
@@ -120,11 +112,21 @@ Item {
             }
 
             PowerOption {
-                iconSource: "system-shutdown"
-                label: i18n("Shut down")
-                optionEnabled: sessionManager.canShutdown
+                iconSource: "system-lock-screen"
+                label: i18n("Lock")
+                optionEnabled: sessionManager.canLock
                 onActivated: {
-                    sessionManager.requestShutdown()
+                    sessionManager.lock()
+                    root.close()
+                }
+            }
+
+            PowerOption {
+                iconSource: "system-log-out"
+                label: i18n("Log out")
+                optionEnabled: sessionManager.canLogout
+                onActivated: {
+                    sessionManager.requestLogout()
                     root.close()
                 }
             }
