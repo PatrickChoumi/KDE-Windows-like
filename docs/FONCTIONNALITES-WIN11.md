@@ -25,7 +25,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 1.13 | Champ de recherche intégré à la barre (variante [04] [20] [22]) | ❌ |
 | 1.14 | Fond de barre translucide type Mica/acrylique, sombre ou clair selon le thème | ⬜ (non vérifiable en CI : pas de composition) |
 | 1.15 | Barre non flottante, bord à bord, ombre/liseré supérieur d'1 px | 🟡 |
-| 1.16 | État « attention » (icône qui clignote / pastille orange) | ⬜ (rendu perdu avec le cadre SVG invisible) |
+| 1.16 | État « attention » (icône qui clignote / pastille orange) | ✅ fond orange + pastille orange 16x3 (CI 43178371494) |
 | 1.17 | Indicateur de progression (téléchargement/copie) sous l'icône | ⬜ |
 | 1.18 | Badges de notification sur les icônes | 🟡 `TaskBadgeOverlay.qml` |
 | 1.19 | Barre sur écrans multiples (applications par écran) | 🟡 |
