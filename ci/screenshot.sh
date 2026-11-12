@@ -64,6 +64,13 @@ if [ -x "$QTR" ]; then
 else
   echo "qmltestrunner absent" > "$OUT/icon-qml.log"
 fi
+# --- état « attention » : Konsole (inactive) réclame l'attention ---
+if command -v wmctrl >/dev/null; then
+  wmctrl -r Konsole -b add,demand_attention >> "$OUT/apply.log" 2>&1; sleep 2
+  shot 08-attention
+else
+  echo "wmctrl absent" > "$OUT/wmctrl.log"
+fi
 # --- survol du bord droit : le trait « Afficher le bureau » doit apparaître (invisible au repos) ---
 if command -v xdotool >/dev/null; then
   xdotool mousemove 1200 500; sleep 1
