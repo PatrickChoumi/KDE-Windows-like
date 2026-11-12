@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 9).
+> Dernière mise à jour : 2026-11-12 (version 10).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -62,6 +62,7 @@
 - `kwin_wayland` en conteneur : capability refusée ; la CI utilise X11 (Xvfb) pour pouvoir capturer.
 - `install.sh all` et `--resetLayout` réécrivent le panneau : à éviter sur la machine réelle, acceptables dans la CI jetable.
 - KWin ignore `wmctrl -b add,demands_attention` (état vide sur `_NET_WM_STATE`) : pour tester l'état « attention » en CI, un script KWin (`loadScript` via dbus, `w.demandsAttention = true`) fonctionne (run 43178371494).
+- **Boutons Recherche / Vue des tâches** : un seul applet QML `org.kde.windowsmodern.shortcutbutton` (clé `General/action` = `search`|`taskview`), tuile 48 px, icône 24 px (SVG masqués dans `contents/icons/`). Recherche = `qdbus6 org.kde.krunner /App org.kde.krunner.App.display`, Vue des tâches = `qdbus6 org.kde.kglobalaccel /component/kwin … invokeShortcut Overview`, lancés via `P5Support.DataSource` (moteur `executable`). Le clic ne se teste pas en CI (le journal montre `kglobalaccel`, portail, PipeWire et udisks absents : bruit d'environnement, pas dû à l'applet) : à vérifier sur la machine réelle. Sans applet installée, `resolve_layout_applets` retire ses lignes du layout.
 - `qt6-declarative-dev-tools` ne fournit pas `qml` (runtime) mais `qmltestrunner` : utilisable pour tester du QML dans la CI.
 
 ## 6. État et prochaine étape
@@ -69,7 +70,8 @@
 - Limites connues : rendu CI sans composition (barre ni translucide ni flottante) ; non testé sur la machine réelle ; l'indicateur n'est dessiné que pour une barre horizontale (`!vertical`) ; l'état « progression » n'a plus de rendu propre (cadre SVG invisible) ; couleurs de survol/actif (6 % / 9 % / 12 % du texte) non comparées à une référence Windows 11 (Phase 0 : références non capturées).
 - Compromis accepté : avec un identifiant propre, le menu Démarrer ne propose plus « Ajouter au gestionnaire de tâches » (libkicker ne reconnaît pas le fork).
 - Côté utilisateur : 3 commits locaux non poussés (metadata Id, exit code icontasks, résumé d'échecs `install.sh`) ; le commit « metadata Id » est contraire au retrait de l'`Id` (conflit probable au pull).
-- Ensuite (plan, Phase 1) : icônes Recherche et Vue des tâches (1.12), translucidité Mica / marges flottantes 8 px (impossible à valider en CI sans composition) ; puis Phase 2 (menu Démarrer).
+- Validé aussi (run 43186295862, commit `c237b85`) : boutons Recherche et Vue des tâches entre Démarrer et les applications, `build-and-check` vert.
+- Ensuite : format de date de l'horloge (2.3), puis Phase 2 (menu Démarrer : capture « menu ouvert » en CI d'abord). Translucidité Mica / marges flottantes : impossible à valider en CI sans composition.
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
