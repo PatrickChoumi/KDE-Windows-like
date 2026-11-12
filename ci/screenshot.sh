@@ -91,6 +91,17 @@ if command -v xdotool >/dev/null; then
 else
   echo "xdotool absent" > "$OUT/xdotool.log"
 fi
+# --- historique « récents » (KActivities) pour la section Recommandés du menu ---
+printf 'notes de test\n' > /tmp/ci-notes.txt; printf '%%PDF-1.4\n' > /tmp/ci-rapport.pdf
+: > "$OUT/recents-seed.log"
+for u in "applications:org.kde.konsole.desktop" "file:///tmp/ci-notes.txt" "applications:org.kde.dolphin.desktop" "file:///tmp/ci-rapport.pdf"; do
+  for ev in 1 3; do   # 1 = Opened, 3 = Closed
+    dbus-send --session --print-reply --dest=org.kde.ActivityManager /ActivityManager/Resources \
+      org.kde.ActivityManager.Resources.RegisterResourceEvent string:kicker uint32:0 string:"$u" uint32:$ev >> "$OUT/recents-seed.log" 2>&1
+    sleep 1
+  done
+done
+sleep 3
 # --- menu Démarrer ouvert (clic sur le bouton Démarrer, centré sur la barre) ---
 if command -v xdotool >/dev/null; then
   L0=$(wc -l < "$OUT/plasmashell.log" 2>/dev/null || echo 0)
