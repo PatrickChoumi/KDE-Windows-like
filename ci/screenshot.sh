@@ -64,15 +64,18 @@ if [ -x "$QTR" ]; then
 else
   echo "qmltestrunner absent" > "$OUT/icon-qml.log"
 fi
-# --- état « attention » : Konsole (inactive) réclame l'attention ---
-if command -v wmctrl >/dev/null; then
-  wmctrl -l > "$OUT/wmctrl.log" 2>&1; wmctrl -r Konsole -b add,demands_attention >> "$OUT/wmctrl.log" 2>&1; echo "exit=$?" >> "$OUT/wmctrl.log"; sleep 2
-  for id in $(wmctrl -l | awk '/Konsole|Dolphin/{print $1}'); do echo "== $id $(xprop -id $id WM_NAME 2>&1 | head -1)" >> "$OUT/wmctrl.log"; xprop -id $id _NET_WM_STATE 2>&1 >> "$OUT/wmctrl.log"; done
-  xprop -root _NET_ACTIVE_WINDOW >> "$OUT/wmctrl.log" 2>&1
-  shot 08-attention
-else
-  echo "wmctrl absent" > "$OUT/wmctrl.log"
-fi
+# --- état « attention » : un script KWin met demandsAttention sur la fenêtre Konsole (inactive) ---
+cat > "$OUT/attention.js" <<'JS'
+for (const w of workspace.windowList()) {
+    if (w.caption.indexOf("Konsole") >= 0) { w.demandsAttention = true; print("attention-script: " + w.caption + " -> " + w.demandsAttention); }
+}
+JS
+SID=$(dbus-send --session --print-reply --dest=org.kde.KWin /Scripting org.kde.kwin.Scripting.loadScript string:"$OUT/attention.js" string:ci-attention 2>&1 | awk '/int32/{print $2}')
+echo "script id=[$SID]" > "$OUT/attention.log"
+dbus-send --session --print-reply --dest=org.kde.KWin /Scripting/Script$SID org.kde.kwin.Script.run >> "$OUT/attention.log" 2>&1
+sleep 2
+for id in $(wmctrl -l 2>/dev/null | awk '/Konsole/{print $1}'); do xprop -id $id _NET_WM_STATE >> "$OUT/attention.log" 2>&1; done
+shot 08-attention
 # --- survol du bord droit : le trait « Afficher le bureau » doit apparaître (invisible au repos) ---
 if command -v xdotool >/dev/null; then
   xdotool mousemove 1200 500; sleep 1
