@@ -19,6 +19,10 @@ Item {
     readonly property bool current: GridView.isCurrentItem && GridView.view.activeFocus
 
     Accessible.name: model.display !== undefined ? model.display : ""
+
+    Component.onCompleted: console.log("windowsmodern.startmenu: tile " + itemIndex + " display=" + model.display
+        + " decoration=" + model.decoration + " size=" + width + "x" + height + " pos=" + x + "," + y
+        + " visible=" + visible + " cell=" + (GridView.view ? GridView.view.cellWidth + "x" + GridView.view.cellHeight + " view=" + GridView.view.width + "x" + GridView.view.height : "noview"))
     Accessible.role: Accessible.Button
 
     Rectangle {
