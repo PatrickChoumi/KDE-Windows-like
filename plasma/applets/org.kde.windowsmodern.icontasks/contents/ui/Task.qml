@@ -471,6 +471,10 @@ FloatingToolTipArea {
             rightMargin: ((task.inPopup || task.tasksRoot.vertical) && taskList.columns > 1) ? TaskManagerApplet.LayoutMetrics.iconMargin : 0
         }
 
+        // Win11 : le fond et l'indicateur sont dessinés par win11Button / win11Indicator (ci-dessous) ;
+        // le cadre du thème n'est gardé que pour ses marges.
+        opacity: 0
+
         imagePath: "widgets/tasks"
         property bool isHovered: task.highlighted && Plasmoid.configuration.taskHoverEffect
         property string basePrefix: "normal"
@@ -518,6 +522,43 @@ FloatingToolTipArea {
                 }
             }
         }
+    }
+
+    // Fond du bouton façon Windows 11 : 40 px de haut dans la barre de 48 px, rayon 4 px.
+    Rectangle {
+        id: win11Button
+        visible: !task.inPopup && !task.tasksRoot.vertical
+        anchors {
+            fill: frame
+            topMargin: 4
+            bottomMargin: 4
+            leftMargin: 2
+            rightMargin: 2
+        }
+        radius: 4
+        color: {
+            if (task.model.IsActive) return Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, task.highlighted ? 0.12 : 0.09);
+            if (task.highlighted) return Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.06);
+            return "transparent";
+        }
+        Behavior on color { ColorAnimation { duration: 100 } }
+    }
+
+    // Indicateur d'activité : pastille 16x3 px (fenêtre active) ou 6x3 px (ouverte), en bas du bouton.
+    Rectangle {
+        id: win11Indicator
+        visible: !task.inPopup && !task.tasksRoot.vertical && task.model.IsWindow
+        anchors {
+            horizontalCenter: frame.horizontalCenter
+            bottom: frame.bottom
+            bottomMargin: 3
+        }
+        width: task.model.IsActive ? 16 : 6
+        height: 3
+        radius: 1.5
+        color: task.model.IsActive ? Kirigami.Theme.highlightColor
+                                   : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.6)
+        Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
     }
 
     Loader {
