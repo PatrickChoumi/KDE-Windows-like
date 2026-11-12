@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 6).
+> Dernière mise à jour : 2026-11-12 (version 7).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.
@@ -55,6 +55,7 @@
 - Le fichier `start-here.svg` du pack est valide (rendu rsvg et Qt direct OK) ; `kcmicons` n'est pas lu par KIconTheme (seul `kdeglobals` compte).
 - **Barre de tâches (rendu)** : le thème Plasma `widgets/tasks.svg` (9 tranches, préfixes `north-*` pour un panneau en bas) donnait des boutons carrés pleine hauteur avec un liseré de 3 px **en haut**. Une pastille centrée est impossible dans un cadre 9 tranches : fond et indicateur sont donc dessinés en QML dans `Task.qml` (`win11Button`, `win11Indicator`), le cadre SVG étant gardé invisible (`opacity: 0`) pour ses marges. Valeurs : bouton inset 4 px haut/bas et 2 px côtés, rayon 4 ; pastille 16x3 (active, couleur d'accent) / 6x3 (ouverte, texte à 60 %), 3 px au-dessus du bas, animation de largeur 150 ms. Pas de pastille pour un lanceur sans fenêtre.
 - **Icônes de la barre** : `Kirigami.Icon` remplissait tout le conteneur (~32 px de boîte, 28 px visibles). Fixée à 24 px centrée dans `Task.qml` (hors popup de groupe). Le pack d'icônes a une marge interne : une boîte de 24 px donne ~20 px de contenu visible (même valeur que le bouton Démarrer) ; ne pas confondre les deux mesures. Largeur de bouton déjà conforme : 44 px avec 4 px d'écart (tâche de 48 px moins 2 px de marge de chaque côté).
+- **« Afficher le bureau »** : l'applet du fork (`org.kde.windowsmodern.showdesktop`, 6 px) était déjà conforme à Win11 : invisible au repos, trait vertical de 1 px sur 50 % de la hauteur au survol. Vérifié par captures `07-bureau-repos` / `07-bureau-survol` (souris placée avec `xdotool`, installé par la CI). Défaut corrigé : le trait était centré sur toute la zone cliquable (qui s'étend jusqu'au bord de l'écran) et tombait sur le dernier chiffre de l'horloge (x=1912) ; il est ancré à 2 px du bord droit (x=1917, 4 px après l'horloge). Le job `native` utilise aussi cet applet (seuls icontasks/systray/… sont remplacés).
 - `kquitapp6` n'existe pas dans le conteneur CI : le « redémarrage » de plasmashell passe par `pkill`.
 - L'erreur `kf.package: Could not find required file "mainscript" … org.kde.plasma.icontasks/` apparaît aussi sans le fork (panneau par défaut de Plasma dans le conteneur) : elle n'est pas causée par le fork.
 - Plasma 6.6 : `filterByVirtualDesktop` (plus `filterByCurrentVirtualDesktop`), pas de `Kirigami.Badge`.
@@ -63,11 +64,11 @@
 - `qt6-declarative-dev-tools` ne fournit pas `qml` (runtime) mais `qmltestrunner` : utilisable pour tester du QML dans la CI.
 
 ## 6. État et prochaine étape
-- Validé par capture CI du 2026-11-12 (run 43172342952, commit `6dbf8fa`) : fork sous identifiant propre, barre 48 px en icônes seules, bouton Démarrer avec le logo Windows 11, boutons arrondis 44 px / écart 4 px, icônes 24 px, pastille d'activité en bas 16x3 / 6x3, `build-and-check` vert (qmllint compris).
+- Validé par capture CI du 2026-11-12 (run 43174550056, commit `0aef4f1`) : fork sous identifiant propre, barre 48 px en icônes seules, bouton Démarrer avec le logo Windows 11, boutons arrondis 44 px / écart 4 px, icônes 24 px, pastille d'activité en bas 16x3 / 6x3, « Afficher le bureau » (trait au survol, bord droit), `build-and-check` vert (qmllint compris).
 - Limites connues : rendu CI sans composition (barre ni translucide ni flottante) ; non testé sur la machine réelle ; l'indicateur n'est dessiné que pour une barre horizontale (`!vertical`) ; états « attention » et « progression » n'ont plus de rendu propre (cadre SVG invisible) ; couleurs de survol/actif (6 % / 9 % / 12 % du texte) non comparées à une référence Windows 11 (Phase 0 : références non capturées).
 - Compromis accepté : avec un identifiant propre, le menu Démarrer ne propose plus « Ajouter au gestionnaire de tâches » (libkicker ne reconnaît pas le fork).
 - Côté utilisateur : 3 commits locaux non poussés (metadata Id, exit code icontasks, résumé d'échecs `install.sh`) ; le commit « metadata Id » est contraire au retrait de l'`Id` (conflit probable au pull).
-- Ensuite (plan, Phase 1) : bouton « Afficher le bureau » en bord fin et séparateur, état « attention » (rendu perdu), animation de survol ; puis Phase 2 (menu Démarrer).
+- Ensuite (plan, Phase 1) : état « attention » (rendu perdu), translucidité Mica / marges flottantes 8 px (impossible à valider en CI sans composition) ; puis Phase 2 (menu Démarrer).
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
