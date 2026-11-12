@@ -96,6 +96,9 @@ if command -v xdotool >/dev/null; then
   L0=$(wc -l < "$OUT/plasmashell.log" 2>/dev/null || echo 0)
   xdotool mousemove 860 1056; sleep 1; xdotool click 1; sleep 4
   shot 09-menu-demarrer
+  # vue « Toutes les applications » : clic sur le bouton « All apps » du menu ouvert
+  xdotool mousemove 1198 403; sleep 1; xdotool click 1; sleep 3
+  shot 10-toutes-applications
   { echo "== lignes plasmashell.log après le clic (depuis $L0)"; tail -n +$((L0+1)) "$OUT/plasmashell.log" 2>/dev/null | head -40; } > "$OUT/startmenu.log" 2>&1
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
