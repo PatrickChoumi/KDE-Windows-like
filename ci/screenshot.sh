@@ -66,7 +66,7 @@ else
 fi
 # --- état « attention » : Konsole (inactive) réclame l'attention ---
 if command -v wmctrl >/dev/null; then
-  wmctrl -r Konsole -b add,demand_attention >> "$OUT/apply.log" 2>&1; sleep 2
+  wmctrl -l > "$OUT/wmctrl.log" 2>&1; wmctrl -r Konsole -b add,demands_attention >> "$OUT/wmctrl.log" 2>&1; echo "exit=$?" >> "$OUT/wmctrl.log"; sleep 2
   shot 08-attention
 else
   echo "wmctrl absent" > "$OUT/wmctrl.log"
