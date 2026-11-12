@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 13).
+> Dernière mise à jour : 2026-11-12 (version 14).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -66,6 +66,9 @@
 - **`applet_available` en root** : `kpackagetool6` installe dans `~/.local/share/plasma/plasmoids` même en root (CI), alors que `APPLETS_DIR` vaut `/usr/share/plasma/plasmoids` en root. Le test ne regardait pas `~/.local` : le menu du fork était jugé absent et le layout retombait sur Kickoff (capture 09 du run 43188663895). Corrigé (`fafd1f5`). Toujours vérifier dans `icon-diag.txt` (`plugin=`) quel applet est réellement chargé.
 - **Favoris du menu Démarrer en CI** : « Entry is not valid » tant que le cache des services n'existe pas. Il faut `XDG_MENU_PREFIX=plasma-` puis `kbuildsycoca6 --noincremental` **avant** de (re)lancer plasmashell (`applications.menu` seul est introuvable en conteneur ; seul `plasma-applications.menu` existe). Fait dans `ci/screenshot.sh` (étape 05).
 - **Menu Démarrer Win11** : `BottomBar.qml` = champ de recherche seul (placé en haut), `FooterBar.qml` = avatar + nom + alimentation, `PinnedTile.qml` = tuile icône 32 px + libellé ; `PinnedPage.qml` = `GridView` 6 colonnes. Les délégués utilisent `root`, `sharedContextMenu` et `kicker` par portée dynamique (comme `ListItemDelegate`).
+- **Menu Démarrer, « Recommandés »** : `PinnedPage.qml` = grille « Épinglé » à hauteur fixe (3 lignes × 84 px) puis section « Recommended » (`RecommendedTile.qml`, grille 2 colonnes × 52 px). Le `rootModel` (flat) expose, mesuré en CI (journal `qml: windowsmodern.startmenu: rootModel rows = …` dans `plasmashell.log`) : `Applications | Files | KICKER_ALL_MODEL`, **aucune description ne contient « recent »** : les récents sont les lignes « Applications » et « Files » placées *avant* `KICKER_ALL_MODEL`. Seule « Applications » est branchée ; sans application récente (CI), le texte d'état vide de Win11 s'affiche. Contenu non validable en CI.
+- **Correction (c266a8b)** : la modification de `tasks.svg` (pastilles 16x3 / 6x3) n'a aucun effet visible, le cadre SVG est invisible et la pastille vient de `Task.qml` ; les mesures 16x3 des captures sont celles du QML.
+- **CI et réseau** : le conteneur `ubuntu:26.04` a perdu la résolution DNS le 11/11 (« Could not resolve archive.ubuntu.com ») ; `screenshots.yml` réessaie puis bascule sur 8.8.8.8. Le shell des `run:` du conteneur est `sh` (dash) : pas de `PIPESTATUS`. Les journaux de job sont illisibles depuis le bac à sable (domaine blob bloqué) : lire les messages via `check-runs/<job>/annotations` (`::warning::`/`::error::`).
 - `qt6-declarative-dev-tools` ne fournit pas `qml` (runtime) mais `qmltestrunner` : utilisable pour tester du QML dans la CI.
 
 ## 6. État et prochaine étape
@@ -75,6 +78,7 @@
 - Côté utilisateur : 3 commits locaux non poussés (metadata Id, exit code icontasks, résumé d'échecs `install.sh`) ; le commit « metadata Id » est contraire au retrait de l'`Id` (conflit probable au pull).
 - Validé aussi (run 43186295862, commit `c237b85`) : boutons Recherche et Vue des tâches entre Démarrer et les applications, `build-and-check` vert.
 - Horloge : date `M/d/yyyy` validée (run 43187508732, commit `9c688b3`, via `dateFormat=custom` dans les layouts) ; l'heure suit la locale (24 h dans la CI).
+- Section « Recommandés » ajoutée (commits `3dede2b`, `6fadc00`, run 43198228291) : en-tête, grille 2×3 liée aux applications récentes, état vide Win11 ; non vu avec du contenu.
 - Menu Démarrer au format Win11 validé en CI (run 43193526420, commit `e2ebf91`) : recherche en haut, grille « Épinglé » 6 colonnes, pied avatar + alimentation. Reste : section « Recommandés », vue « Toutes les applications » en grille, menu d'alimentation, liseré d'accent, rayon/ombre.
 - (historique) Menu Démarrer du fork chargé et ouvert en CI (capture `09-menu-demarrer`, run 43189631314) : centré, mais disposition type Win10 (recherche en bas, colonne Places, pas de Recommandés).
 - Ensuite : Phase 2 (menu Démarrer : capture « menu ouvert » en CI d'abord). Translucidité Mica / marges flottantes : impossible à valider en CI sans composition.
