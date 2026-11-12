@@ -153,6 +153,7 @@ apply_lookandfeel() {
     info "Applying $id ${reset_flag:+with layout reset}..."
     plasma-apply-lookandfeel -a "$id" $reset_flag
     ensure_icon_theme windows-modern
+    case "$id" in *light) ensure_window_decoration light ;; *) ensure_window_decoration dark ;; esac
     bash "$SRC_DIR/scripts/set-wallpaper.sh" || true
 }
 
@@ -170,6 +171,25 @@ ensure_icon_theme() {
         kwriteconfig6 --file kdeglobals --group Icons --key Theme "$theme"
         command -v dbus-send &>/dev/null && dbus-send --session --type=signal /KGlobalSettings \
             org.kde.KGlobalSettings.notifyChange int32:4 int32:0 2>/dev/null || true
+    fi
+}
+
+# Mesuré en CI : après plasma-apply-lookandfeel, [org.kde.kdecoration2] de kwinrc est vide alors que
+# le thème Aurorae est installé et déclaré dans les « defaults » du look-and-feel → KWin garde Breeze.
+# On écrit la décoration nous-mêmes (seulement si le thème est installé) puis on recharge KWin.
+ensure_window_decoration() {
+    local variant="$1" theme current
+    theme="__aurorae__svg__windows-modern-${variant}-aurorae"
+    command -v kreadconfig6 &>/dev/null && command -v kwriteconfig6 &>/dev/null || return 0
+    [ -d "$AURORAE_DIR/windows-modern-${variant}-aurorae" ] || return 0
+    current="$(kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme 2>/dev/null || true)"
+    if [ "$current" != "$theme" ]; then
+        step "Window decoration was '${current:-empty}' → setting $theme"
+        kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library org.kde.kwin.aurorae
+        kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme "$theme"
+        kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key ButtonsOnLeft "M"
+        kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key ButtonsOnRight "IAX"
+        dbus-send --session --dest=org.kde.KWin /KWin org.kde.KWin.reconfigure 2>/dev/null || true
     fi
 }
 
