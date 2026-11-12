@@ -182,6 +182,9 @@ ensure_window_decoration() {
     theme="__aurorae__svg__windows-modern-${variant}-aurorae"
     command -v kreadconfig6 &>/dev/null && command -v kwriteconfig6 &>/dev/null || return 0
     [ -d "$AURORAE_DIR/windows-modern-${variant}-aurorae" ] || return 0
+    if ! ls /usr/lib/*/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so /usr/lib*/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so >/dev/null 2>&1; then
+        warn "Plugin de décoration Aurorae introuvable : installe le paquet kwin-style-aurorae (sinon KWin garde Breeze)."
+    fi
     current="$(kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme 2>/dev/null || true)"
     if [ "$current" != "$theme" ]; then
         step "Window decoration was '${current:-empty}' → setting $theme"
