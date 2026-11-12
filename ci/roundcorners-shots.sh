@@ -74,7 +74,11 @@ cp /root/.config/kwinrc "$OUT/kwinrc-apres.txt" 2>/dev/null || true
 kw /Effects org.kde.kwin.Effects.loadEffect string:kwin4_effect_shapecorners >> "$OUT/etat.txt" 2>&1
 sleep 4
 state "2b-apres-loadEffect"; shot 02b-apres-loadEffect; cropwin 02b-apres-loadEffect
-kwin_x11 --replace > "$OUT/kwin-replace.log" 2>&1 &
+SO=$(dpkg -L kwin-effect-roundcorners | grep '\.so$' | head -1)
+{ echo "SO=$SO"; ldd "$SO" 2>&1 | grep -i "not found" || echo "ldd: aucune lib manquante"; strings "$SO" | grep -i -m3 "shapecorners"; } > "$OUT/so-diag.txt" 2>&1
+kw /Effects org.freedesktop.DBus.Properties.Get string:org.kde.kwin.Effects string:loadedEffects > "$OUT/loaded-effects.txt" 2>&1
+kw /Effects org.kde.kwin.Effects.listOfEffects > "$OUT/list-effects.txt" 2>&1
+QT_DEBUG_PLUGINS=1 QT_LOGGING_RULES="kwin_core*=true;kwin_effects*=true;kwin*.debug=true" kwin_x11 --replace > "$OUT/kwin-replace.log" 2>&1 &
 sleep 10
 state "2c-apres-kwin-replace"; shot 02c-apres-kwin-replace; cropwin 02c-apres-kwin-replace
 
