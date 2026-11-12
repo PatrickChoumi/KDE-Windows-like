@@ -38,7 +38,8 @@ confirm() {
     read -r -p "$1 [o/N] " a; [[ "$a" =~ ^[oOyY]$ ]]
 }
 
-is_installed() { dpkg -s "$PKG" 2>/dev/null | grep -q '^Status: install ok installed'; }
+# Pas de « cmd | grep -q » : sous pipefail, grep -q ferme le tube et la commande amont renvoie 141 (SIGPIPE).
+is_installed() { local o; o="$(dpkg -s "$PKG" 2>/dev/null || true)"; grep -q '^Status: install ok installed' <<<"$o"; }
 
 plugin_file() {
     # Chemin réel du .so, d'après le contenu du paquet (pas de chemin supposé).
@@ -94,10 +95,11 @@ do_install() {
     $SUDO apt-get update
 
     # 3. Disponibilité + simulation : aucun retrait de paquet toléré
-    apt-cache policy "$PKG" | grep -q 'Candidate: [^(]' || die "$PKG sans candidat pour cette version d'Ubuntu"
+    local pol; pol="$(apt-cache policy "$PKG" 2>&1 || true)"
+    grep -q 'Candidate: [^(]' <<<"$pol" || die "$PKG sans candidat pour cette version d'Ubuntu"
     local sim; sim="$(apt-get install -s "$PKG")"
     echo "$sim" | grep -E '^(Inst|Remv|Conf) ' || true
-    if echo "$sim" | grep -q '^Remv '; then die "la simulation retirerait des paquets : abandon"; fi
+    if grep -q '^Remv ' <<<"$sim"; then die "la simulation retirerait des paquets : abandon"; fi
     confirm "Installer $PKG (et seulement lui) ?" || die "installation refusée (sauvegarde : $bdir)"
 
     # 4. Installation d'un seul paquet, sans recommandations
@@ -112,7 +114,8 @@ do_install() {
         o="$(dpkg -S "$f" 2>/dev/null | cut -d: -f1 | sort -u | tr '\n' ' ')"
         [ "$o" = "$PKG " ] || die "$f appartient à : $o (rien n'est activé)"
     done < <(dpkg -L "$PKG")
-    if dpkg -V "$PKG" | grep -v '/usr/share/locale/'; then die "dpkg -V signale des écarts (rien n'est activé)"; fi
+    local vout; vout="$(dpkg -V "$PKG" 2>&1 || true)"; vout="$(grep -v '/usr/share/locale/' <<<"$vout" || true)"
+    [ -z "$vout" ] || { echo "$vout"; die "dpkg -V signale des écarts (rien n'est activé)"; }
     info "Contrôles de paquet OK."
 
     # 6. Activation + rechargement ; retour arrière si l'écriture n'est pas relue
