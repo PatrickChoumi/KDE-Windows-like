@@ -1,0 +1,61 @@
+name: roundcorners-shots
+
+# Feature 5.1 : exécute le vrai scripts/install-roundcorners.sh dans une VM jetable (ubuntu:26.04),
+# avec une session KWin composée (OpenGL logiciel), et publie les captures sur la branche ci-shots-roundcorners.
+on:
+  workflow_dispatch:
+  push:
+    branches: [dev]
+    paths: ['.github/workflows/roundcorners-shots.yml', 'ci/roundcorners-shots.sh', 'scripts/install-roundcorners.sh']
+
+permissions:
+  contents: write
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    container: ubuntu:26.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Paquets Plasma (session virtuelle) + PPA des coins arrondis
+        timeout-minutes: 25
+        run: |
+          for i in 1 2 3; do getent hosts archive.ubuntu.com >/dev/null && break; sleep 10; done
+          getent hosts archive.ubuntu.com >/dev/null || printf 'nameserver 8.8.8.8\nnameserver 1.1.1.1\n' > /etc/resolv.conf
+          apt-get update
+          apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 gpg software-properties-common \
+            plasma-desktop plasma-workspace kwin-x11 kactivitymanagerd xvfb systemsettings \
+            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs x11-utils xdotool > /tmp/apt-install.log 2>&1 \
+            || { echo "::error::apt install: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit 1; }
+          for group in "kwin-style-aurorae aurorae" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+            for p in $group; do apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
+          done
+          # Le script ajoute lui-même le PPA s'il manque ; on le laisse faire (c'est ce qu'on teste), RC_YES=1 côté script.
+      - uses: actions/checkout@v4
+      - name: Installer le thème du dépôt
+        run: |
+          export HOME=/root
+          for c in themes icons lookfeel; do bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+      - name: Session composée, install-roundcorners.sh (install, status, undo) et captures
+        run: |
+          export HOME=/root
+          mkdir -p shots
+          dbus-run-session -- bash ci/roundcorners-shots.sh shots || true
+          ls -l shots
+          echo "== etat"; cat shots/etat.txt 2>&1 | head -60
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: roundcorners-shots
+          path: shots/
+      - name: Publier les captures sur la branche ci-shots-roundcorners
+        if: always()
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          rm -rf /tmp/pub && mkdir /tmp/pub && cp -r shots/. /tmp/pub/ 2>/dev/null || true
+          cd /tmp/pub && git init -q -b ci-shots
+          git config user.name ci && git config user.email ci@users.noreply.github.com
+          echo "run $GITHUB_RUN_ID $(date -u +%FT%TZ)" > RUN.txt
+          git add -A && git commit -qm "roundcorners shots run $GITHUB_RUN_ID"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-shots:ci-shots-roundcorners
