@@ -237,6 +237,9 @@ applet_available() {
     local id="$1" f
     [ -d "${APPLETS_DIR:-$HOME/.local/share/plasma/plasmoids}/$id" ] && return 0
     [ -d "/usr/share/plasma/plasmoids/$id" ] && return 0
+    # kpackagetool6 installe par défaut dans ~/.local, même en root (cas de la CI) : sans ce test,
+    # un applet QML installé ainsi était jugé absent et remplacé par l'équivalent natif (Kickoff).
+    [ -d "$HOME/.local/share/plasma/plasmoids/$id" ] && return 0
     # Boucle [ -e ] et non « ls | grep -q » : avec pipefail, un glob sans correspondance
     # faisait échouer la détection d'un .so pourtant présent (faux négatif).
     for f in /usr/lib/*/qt6/plugins/plasma/applets/"$id".so /usr/lib*/qt6/plugins/plasma/applets/"$id".so \
