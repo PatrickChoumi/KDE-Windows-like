@@ -70,6 +70,14 @@ bash scripts/install-roundcorners.sh status > "$OUT/status-apres-install.txt" 2>
 state "2-apres-install"; shot 02-apres-install; cropwin 02-apres-install
 cp /root/.config/kwinrc "$OUT/kwinrc-apres.txt" 2>/dev/null || true
 
+# --- diagnostic : reconfigure a-t-il suffi ? sinon loadEffect, puis redemarrage de KWin ---
+kw /Effects org.kde.kwin.Effects.loadEffect string:kwin4_effect_shapecorners >> "$OUT/etat.txt" 2>&1
+sleep 4
+state "2b-apres-loadEffect"; shot 02b-apres-loadEffect; cropwin 02b-apres-loadEffect
+kwin_x11 --replace > "$OUT/kwin-replace.log" 2>&1 &
+sleep 10
+state "2c-apres-kwin-replace"; shot 02c-apres-kwin-replace; cropwin 02c-apres-kwin-replace
+
 RC_YES=1 bash scripts/install-roundcorners.sh undo > "$OUT/undo.log" 2>&1; echo "undo exit=$?" >> "$OUT/undo.log"
 sleep 8
 bash scripts/install-roundcorners.sh status > "$OUT/status-apres-undo.txt" 2>&1
