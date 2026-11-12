@@ -48,11 +48,11 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 ## 3. Menu Démarrer (réf. [09] [13] [24] [08])
 | # | Fonctionnalité | État |
 |---|---|---|
-| 3.1 | Fenêtre flottante centrée au-dessus de la barre, rayon 8 px, ombre, fond translucide (clair et sombre) | 🟡 applet `windowsmodern.startmenu` présent, non validé |
-| 3.2 | Champ de recherche en haut (« Type here to search » / « Search for apps, settings, and documents ») avec liseré d'accent en bas quand actif | 🟡 |
-| 3.3 | Section **Épinglé** : grille 6 colonnes × 3 lignes, icône 32 px + libellé sous l'icône, bouton « Toutes les applications > » | 🟡 |
-| 3.4 | Section **Recommandés** : 2 colonnes × 3, icône + nom + « ajouté récemment / il y a 4 h » ; bouton « Plus > » | 🟡 |
-| 3.5 | Pied de menu : avatar + nom d'utilisateur à gauche, bouton alimentation à droite | 🟡 |
+| 3.1 | Fenêtre flottante centrée au-dessus de la barre, rayon 8 px, ombre, fond translucide (clair et sombre) | 🟡 s'ouvre centré, fond sombre (CI 43189631314) ; taille ~490×580 (Win11 : ~640×720), rayon/ombre non mesurés |
+| 3.2 | Champ de recherche en haut (« Type here to search ») avec liseré d'accent en bas quand actif | ⬜ actuellement **en bas** du menu (« Search programs and files ») |
+| 3.3 | Section **Épinglé** : grille 6 colonnes × 3 lignes, icône 32 px + libellé sous l'icône, bouton « Toutes les applications > » | 🟡 « Pinned » + « All apps » présents ; liste vide en CI (pas d'apps épinglées), pas de grille 6 colonnes vue |
+| 3.4 | Section **Recommandés** : 2 colonnes × 3, icône + nom + « ajouté récemment / il y a 4 h » ; bouton « Plus > » | ⬜ remplacée par une colonne « Places » (style Win10/KDE) |
+| 3.5 | Pied de menu : avatar + nom d'utilisateur à gauche, bouton alimentation à droite | 🟡 bouton « Shut down » à droite ; pas d'avatar/nom en pied |
 | 3.6 | Vue « Toutes les applications » (réf. [08]) : liste en grille alphabétique avec bouton « Retour » | ⬜ |
 | 3.7 | Menu d'alimentation : Suspendre / Arrêter / Redémarrer avec icônes fines (réf. [07]) | ⬜ |
 | 3.8 | Épingler / désépingler, réorganiser par glisser-déposer, dossiers d'épinglés | ⬜ |
