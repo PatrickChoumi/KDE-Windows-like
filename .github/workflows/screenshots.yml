@@ -38,7 +38,7 @@ jobs:
           rc=$?; tail -3 /tmp/apt-install.log
           if [ $rc != 0 ]; then echo "::error::apt install rc=$rc: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit $rc; fi
           # Paquets dont le nom varie : on essaie plusieurs candidats.
-          for group in "qt6-declarative-dev-tools qt6-declarative-tools" "kde-spectacle spectacle" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+          for group in "xdotool" "qt6-declarative-dev-tools qt6-declarative-tools" "kde-spectacle spectacle" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
             ok=0; for p in $group; do apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; ok=1; break; }; done
             [ $ok = 1 ] || echo "::warning::aucun paquet trouvé parmi : $group"
           done

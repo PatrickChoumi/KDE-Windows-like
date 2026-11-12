@@ -64,6 +64,16 @@ if [ -x "$QTR" ]; then
 else
   echo "qmltestrunner absent" > "$OUT/icon-qml.log"
 fi
+# --- survol du bord droit : le trait « Afficher le bureau » doit apparaître (invisible au repos) ---
+if command -v xdotool >/dev/null; then
+  xdotool mousemove 1200 500; sleep 1
+  shot 07-bureau-repos
+  xdotool mousemove 1917 1056; sleep 2
+  shot 07-bureau-survol
+  xdotool mousemove 1200 500
+else
+  echo "xdotool absent" > "$OUT/xdotool.log"
+fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
   echo "== theme"; echo "kcmicons=[$(kreadconfig6 --file kcmicons --group Icons --key Theme)]"; echo "kdeglobals=[$(kreadconfig6 --file kdeglobals --group Icons --key Theme)]"
