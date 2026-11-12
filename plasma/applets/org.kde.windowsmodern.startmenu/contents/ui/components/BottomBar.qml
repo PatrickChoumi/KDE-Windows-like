@@ -58,6 +58,17 @@ RowLayout {
                                    Kirigami.Theme.textColor.g,
                                    Kirigami.Theme.textColor.b, Theme.fieldBorderOpacity)
             Behavior on border.color { ColorAnimation { duration: 100 } }
+
+            // Liseré d'accent de 2 px en bas quand le champ a le focus (Win11)
+            Rectangle {
+                anchors { left: parent.left; right: parent.right; bottom: parent.bottom
+                          leftMargin: 4; rightMargin: 4 }
+                height: 2
+                radius: 1
+                color: Kirigami.Theme.highlightColor
+                opacity: searchFieldInput.activeFocus ? 1 : 0
+                Behavior on opacity { NumberAnimation { duration: 100 } }
+            }
         }
 
         onTextChanged: bottomBar.searchTextChanged(text)
