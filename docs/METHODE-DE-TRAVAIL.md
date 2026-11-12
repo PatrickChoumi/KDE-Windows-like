@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 22).
+> Dernière mise à jour : 2026-11-12 (version 23).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -93,7 +93,8 @@
 
 - Coins arrondis (5.1) : job `roundcorners` de `build.yml` (conteneur ubuntu:26.04, PPA matinlotfali). Résultat : paquet `kwin-effect-roundcorners 0.11.0.0.6.6.6~kubuntu26041` installable, aucun fichier d'un autre paquet touché, `ldd` OK une fois KWin installé. Le paquet n'a AUCUNE ligne Depends (n'impose pas KWin 6.6.6 : à recompiler/réinstaller après une mise à jour de KWin). Dans le conteneur, kwin-wayland=6.6.6 mais kwin-x11=6.6.4 (versions décalées). Diagnostic publié sur `ci-logs-roundcorners` (`diag.txt`).
 - Leçon CI : les journaux de job ne sont pas lisibles depuis le bac à sable (blob.core.windows.net bloqué) ; les annotations de l'API donnent seulement le code de sortie. Publier un `diag.txt` sur une branche `ci-logs-*`. Dans une étape `bash -e`, un `grep` sans résultat arrête tout : ajouter `|| true`. Un `ldd` dans un conteneur nu (sans KWin/Qt) donne de faux « not found ».
-- Ensuite : script `install-roundcorners.sh` (sauvegarde, `apt -s`, installation, activation via `kwriteconfig6`/`qdbus` , retour arrière), puis test sur la vraie machine.
+- `scripts/install-roundcorners.sh` écrit (commit de la v23) : `install` (sauvegarde `~/backup-kde-roundcorners-*`, PPA après confirmation, `apt-get install -s` avec refus si `Remv`, un seul paquet, contrôle `dpkg -L/-S/-V` et présence de `kwin4_effect_shapecorners.so`, activation `[Plugins] kwin4_effect_shapecornersEnabled=true`, relecture, `qdbus6 … reconfigure`), `undo`, `status`. Testé avec stubs (`kwriteconfig6`, `apt-get`, `dpkg`…) : cycle install/status/undo OK. Piège : sans stub de `add-apt-repository`, le script l'appelle vraiment. Non lancé sur la vraie machine ; non inclus dans `install.sh all`. Les clés de réglage du rayon (`kwinrc`) ne sont pas écrites : non vérifiées, rayon par défaut de l'effet.
+- Ensuite : test sur la vraie machine par Patrick (`scripts/install-roundcorners.sh`), puis 3.10 (animation d'ouverture du menu).
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
