@@ -26,6 +26,40 @@ ColumnLayout {
     signal backRequested
     signal keyNavUpFromList
 
+    // Saut par lettre (Win11) : clic sur un en-tête de lettre -> grille de l'alphabet.
+    property bool showAlphabet: false
+    property var letterRows: ({})
+    readonly property var alphabet: ["#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                                     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+    function letterKey(name) {
+        var c = String(name || "").charAt(0).normalize("NFD").charAt(0).toUpperCase();
+        return /[A-Z]/.test(c) ? c : "#";
+    }
+
+    function openAlphabet() {
+        var m = allAppsListView.model;
+        var rows = {};
+        if (m) {
+            for (var i = 0; i < m.rowCount(); i++) {
+                var key = letterKey(m.data(m.index(i, 0), Qt.DisplayRole));
+                if (!(key in rows)) rows[key] = i;
+            }
+        }
+        letterRows = rows;
+        console.log("windowsmodern.startmenu: alphabet rows = " + JSON.stringify(rows));
+        showAlphabet = true;
+    }
+
+    function jumpToLetter(key) {
+        showAlphabet = false;
+        if (key in letterRows) {
+            allAppsListView.positionViewAtIndex(letterRows[key], ListView.Beginning);
+            allAppsListView.currentIndex = letterRows[key];
+            console.log("windowsmodern.startmenu: jump to " + key + " (row " + letterRows[key] + ")");
+        }
+    }
+
     function tryActivate(row) {
         if (allAppsListView.count > 0) {
             allAppsListView.currentIndex = Math.min(row, allAppsListView.count - 1);
@@ -73,13 +107,14 @@ ColumnLayout {
             text: i18n("Back")
             buttonHeight: 25
             Layout.rightMargin: Kirigami.Units.mediumSpacing
-            onClicked: allAppsPage.backRequested()
+            onClicked: allAppsPage.showAlphabet ? allAppsPage.showAlphabet = false : allAppsPage.backRequested()
         }
     }
 
     // ── All apps vertical list ───────────────────────────────────────────
     ListView {
         id: allAppsListView
+        visible: !allAppsPage.showAlphabet
         Layout.fillWidth: true
         Layout.fillHeight: true
         clip: true
@@ -107,7 +142,15 @@ ColumnLayout {
                 width: 32
                 height: 32
                 radius: 4
-                color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.06)
+                color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, letterMouse.containsMouse ? 0.12 : 0.06)
+
+                MouseArea {
+                    id: letterMouse
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: allAppsPage.openAlphabet()
+                }
 
                 PlasmaComponents3.Label {
                     anchors.centerIn: parent
@@ -128,6 +171,54 @@ ColumnLayout {
             if (currentIndex <= 0) {
                 event.accepted = true;
                 allAppsPage.keyNavUpFromList();
+            }
+        }
+    }
+
+    // ── Grille de l'alphabet : 6 colonnes, tuiles 56 px ; lettres sans application grisées ──
+    Item {
+        id: alphabetView
+        visible: allAppsPage.showAlphabet
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+
+        Grid {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.topMargin: 16
+            columns: 6
+            spacing: 6
+
+            Repeater {
+                model: allAppsPage.alphabet
+
+                delegate: Rectangle {
+                    required property string modelData
+                    readonly property bool available: modelData in allAppsPage.letterRows
+
+                    width: 56
+                    height: 56
+                    radius: 4
+                    color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b,
+                                   available && cell.containsMouse ? 0.12 : 0.06)
+
+                    PlasmaComponents3.Label {
+                        anchors.centerIn: parent
+                        text: parent.modelData
+                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.2
+                        font.weight: Font.DemiBold
+                        opacity: parent.available ? 1.0 : 0.35
+                    }
+
+                    MouseArea {
+                        id: cell
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        enabled: parent.available
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: allAppsPage.jumpToLetter(parent.modelData)
+                    }
+                }
             }
         }
     }
