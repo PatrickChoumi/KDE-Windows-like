@@ -23,6 +23,80 @@ ColumnLayout {
     property alias favoritesList: favoritesListView
     property alias recommendedList: recommendedListView
 
+    // Modèles Kicker des éléments récents (posés par MenuRepresentation) ; la liste
+    // « Recommended » les fusionne (application, fichier, application…) sur 6 entrées.
+    property var recentAppsModel: null
+    property var recentFilesModel: null
+    property var recommendedEntries: []
+
+    function rebuildRecommended() {
+        var apps = [], files = [];
+        function collect(rep, kind, out) {
+            for (var i = 0; i < rep.count; i++) {
+                var it = rep.itemAt(i);
+                if (it) out.push({ display: it.entryDisplay, decoration: it.entryDecoration,
+                                   description: it.entryDescription, disabled: false,
+                                   kind: kind, srcIndex: i });
+            }
+        }
+        collect(appsRepeater, 0, apps);
+        collect(filesRepeater, 1, files);
+        var out = [];
+        while (out.length < 6 && (apps.length > 0 || files.length > 0)) {
+            if (apps.length > 0) out.push(apps.shift());
+            if (out.length < 6 && files.length > 0) out.push(files.shift());
+        }
+        recommendedEntries = out;
+        console.log("windowsmodern.startmenu: recommended entries = " + out.length
+                    + " [" + out.map(function (e) { return (e.kind === 0 ? "app:" : "file:") + e.display; }).join(" | ") + "]");
+    }
+
+    function activateRecommended(i) {
+        var e = recommendedEntries[i];
+        if (!e) return;
+        var m = (e.kind === 0) ? recentAppsModel : recentFilesModel;
+        if (m) {
+            m.trigger(e.srcIndex, "", null);
+            root.closeMenu();
+        }
+    }
+
+    Timer {
+        id: rebuildTimer
+        interval: 80
+        onTriggered: pinnedPage.rebuildRecommended()
+    }
+
+    // Lecteurs invisibles : un délégué par élément récent expose ses rôles par leur nom.
+    Item {
+        visible: false
+        Layout.preferredWidth: 0
+        Layout.preferredHeight: 0
+
+        Repeater {
+            id: appsRepeater
+            model: pinnedPage.recentAppsModel
+            delegate: Item {
+                readonly property var entryDisplay: model.display
+                readonly property var entryDecoration: model.decoration
+                readonly property string entryDescription: ("description" in model && model.description !== undefined) ? model.description : ""
+                Component.onCompleted: rebuildTimer.restart()
+                Component.onDestruction: rebuildTimer.restart()
+            }
+        }
+        Repeater {
+            id: filesRepeater
+            model: pinnedPage.recentFilesModel
+            delegate: Item {
+                readonly property var entryDisplay: model.display
+                readonly property var entryDecoration: model.decoration
+                readonly property string entryDescription: ("description" in model && model.description !== undefined) ? model.description : ""
+                Component.onCompleted: rebuildTimer.restart()
+                Component.onDestruction: rebuildTimer.restart()
+            }
+        }
+    }
+
     signal showAllAppsRequested
     signal keyNavUpFromList
 
@@ -153,8 +227,10 @@ ColumnLayout {
         readonly property int columns: 2
         cellWidth: Math.floor(width / columns)
         cellHeight: 52
+        model: pinnedPage.recommendedEntries
         delegate: RecommendedTile {}
         highlightMoveDuration: 0
+        function activateEntry(i) { pinnedPage.activateRecommended(i); }
 
         PlasmaComponents3.Label {
             anchors.centerIn: parent
