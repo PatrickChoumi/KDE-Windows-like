@@ -52,6 +52,8 @@ effect_enabled() {
 reload_kwin() {
     if command -v qdbus6 >/dev/null 2>&1 && qdbus6 org.kde.KWin /KWin reconfigure >/dev/null 2>&1; then
         info "KWin rechargé."
+    elif command -v dbus-send >/dev/null 2>&1 && dbus-send --session --print-reply --dest=org.kde.KWin /KWin org.kde.KWin.reconfigure >/dev/null 2>&1; then
+        info "KWin rechargé (dbus-send)."
     else
         warn "KWin non joignable (session absente ?) : l'effet sera pris en compte à la prochaine session."
     fi

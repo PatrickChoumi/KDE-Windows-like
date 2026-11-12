@@ -1,0 +1,69 @@
+#!/bin/bash
+# Feature 5.1 : session KWin X11 AVEC composition OpenGL logicielle (llvmpipe), puis exécution du VRAI
+# scripts/install-roundcorners.sh (install, status, undo) avec captures avant / après / après retour arrière.
+# Usage : ci/roundcorners-shots.sh <dossier_sortie>   (à lancer sous dbus-run-session, HOME=/root, en root)
+set -u
+OUT="${1:-shots}"; mkdir -p "$OUT"
+export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p $XDG_RUNTIME_DIR; chmod 700 $XDG_RUNTIME_DIR
+export DISPLAY=:99 QT_QPA_PLATFORM=xcb XDG_SESSION_TYPE=x11 XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true
+export LC_ALL=C.UTF-8 LIBGL_ALWAYS_SOFTWARE=1 QT_QUICK_BACKEND=software
+export KWIN_COMPOSE="${RC_COMPOSE:-O2}"
+shot() { import -window root "$OUT/$1.png" > "$OUT/import-$1.log" 2>&1; ls -l "$OUT/$1.png" 2>&1; }
+kw() { dbus-send --session --print-reply --dest=org.kde.KWin "$@" 2>&1; }
+state() {
+  {
+    echo "== $1"
+    kw /Compositor org.freedesktop.DBus.Properties.Get string:org.kde.kwin.Compositing string:active | tr '\n' ' '; echo
+    kw /Compositor org.freedesktop.DBus.Properties.Get string:org.kde.kwin.Compositing string:compositingType | tr '\n' ' '; echo
+    kw /Effects org.freedesktop.DBus.Properties.Get string:org.kde.kwin.Effects string:loadedEffects | tr -s ' \n' ' ' | grep -o 'shapecorners' || echo "(effet shapecorners non chargé)"
+    echo "kwinrc: $(kreadconfig6 --file kwinrc --group Plugins --key kwin4_effect_shapecornersEnabled)"
+  } >> "$OUT/etat.txt"
+}
+cropwin() {  # $1 = nom ; recadre les 4 coins (zoom x8) de la fenêtre Konsole
+  local id geo x y w h
+  id=$(xdotool search --onlyvisible --class konsole 2>/dev/null | head -1)
+  [ -n "$id" ] || { echo "pas de fenêtre konsole" >> "$OUT/etat.txt"; return; }
+  eval "$(xdotool getwindowgeometry --shell "$id")"; x=$X; y=$Y; w=$WIDTH; h=$HEIGHT
+  echo "$1 : konsole client ${w}x${h}+${x}+${y} ; extents=$(xprop -id "$id" _NET_FRAME_EXTENTS 2>&1)" >> "$OUT/etat.txt"
+  # Coins du cadre (barre de titre 32 px au-dessus du client) : fenêtres 40x40 autour de chaque angle.
+  local fx=$((x-1)) fy=$((y-33)) fw=$((w+2)) fh=$((h+34))
+  convert "$OUT/$1.png" -crop 40x40+$((fx-4))+$((fy-4)) +repage -scale 800% "$OUT/$1-coin-haut-gauche.png"
+  convert "$OUT/$1.png" -crop 40x40+$((fx+fw-36))+$((fy-4)) +repage -scale 800% "$OUT/$1-coin-haut-droit.png"
+  convert "$OUT/$1.png" -crop 40x40+$((fx-4))+$((fy+fh-36)) +repage -scale 800% "$OUT/$1-coin-bas-gauche.png"
+  convert "$OUT/$1.png" -crop 40x40+$((fx+fw-36))+$((fy+fh-36)) +repage -scale 800% "$OUT/$1-coin-bas-droit.png"
+}
+
+Xvfb :99 -screen 0 1920x1080x24 +extension GLX +render -noreset > "$OUT/xvfb.log" 2>&1 &
+sleep 3
+kwin_x11 > "$OUT/kwin.log" 2>&1 &
+sleep 5
+plasmashell > "$OUT/plasmashell.log" 2>&1 &
+sleep 20
+plasma-apply-colorscheme WindowsModernDark >> "$OUT/apply.log" 2>&1
+plasma-apply-desktoptheme Windows-modern-dark >> "$OUT/apply.log" 2>&1
+( source scripts/install-lib.sh; ensure_icon_theme windows-modern; ensure_window_decoration dark ) >> "$OUT/apply.log" 2>&1
+dbus-send --session --dest=org.kde.KWin /KWin org.kde.KWin.reconfigure >/dev/null 2>&1
+sleep 5
+WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' -o -name '*.png' \) 2>/dev/null | head -1)
+[ -n "$WP" ] && plasma-apply-wallpaperimage "$WP" >> "$OUT/apply.log" 2>&1
+konsole -e bash > "$OUT/konsole.log" 2>&1 &
+dolphin > "$OUT/dolphin.log" 2>&1 &
+sleep 12
+cp /root/.config/kwinrc "$OUT/kwinrc-avant.txt" 2>/dev/null || true
+
+state "1-avant"; shot 01-avant; cropwin 01-avant
+
+# --- le VRAI script, en root (pas de sudo), PPA déjà présent dans le conteneur ---
+RC_YES=1 bash scripts/install-roundcorners.sh install > "$OUT/install.log" 2>&1; echo "install exit=$?" >> "$OUT/install.log"
+sleep 8
+bash scripts/install-roundcorners.sh status > "$OUT/status-apres-install.txt" 2>&1
+state "2-apres-install"; shot 02-apres-install; cropwin 02-apres-install
+cp /root/.config/kwinrc "$OUT/kwinrc-apres.txt" 2>/dev/null || true
+
+RC_YES=1 bash scripts/install-roundcorners.sh undo > "$OUT/undo.log" 2>&1; echo "undo exit=$?" >> "$OUT/undo.log"
+sleep 8
+bash scripts/install-roundcorners.sh status > "$OUT/status-apres-undo.txt" 2>&1
+state "3-apres-undo"; shot 03-apres-undo; cropwin 03-apres-undo
+cp /root/.config/kwinrc "$OUT/kwinrc-apres-undo.txt" 2>/dev/null || true
+
+ps aux | grep -E "Xvfb|kwin|plasmashell" | grep -v grep | cut -c1-120 > "$OUT/ps.txt"
