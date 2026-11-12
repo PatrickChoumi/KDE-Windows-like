@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 18).
+> Dernière mise à jour : 2026-11-12 (version 19).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -73,7 +73,7 @@
 - **Grille de l'alphabet (All apps)** : `AllAppsPage.qml` lit le modèle trié avec `m.rowCount()`, `m.index(i,0)` et `m.data(idx, Qt.DisplayRole)` (accès QML valide sur `KSortFilterProxyModel`, mesuré en CI : `alphabet rows = {"D":0,"E":1,"I":2,"K":3,"S":5}`). Captures `12-alphabet` (clic sur l'en-tête « D » à 693,445, après fermeture du popup d'alimentation par un clic à 1030,600) et `13-saut-lettre` (clic sur « S » à 867,653). **Les `console.log` du menu après le redémarrage de plasmashell (étape 05) sont dans `plasmashell-restart.log`, pas dans `plasmashell.log`.**
 - **Menu d'alimentation** (`ShutdownMenu.qml`, `PowerOption.qml`) : popup interne au menu (pas une fenêtre, sinon `hideOnWindowDeactivate` ferme tout). Capture CI `11-menu-alimentation` (clic xdotool sur le bouton du pied de menu à 1228,995, pris après la 10). Avant : 5 lignes ~29 px, coins 4 px, Lock/Log out en tête ; après : Sleep / Shut down / Restart, séparateur, Lock / Log out, lignes 36 px. En CI les actions sont grisées (pas de logind) : seul le rendu est validé, pas le clic.
 - **Menu Power User (Win+X)** : `Plasmoid.contextualActions` de `main.qml` du menu Démarrer (clic droit sur le bouton), commandes lancées par `P5Support.DataSource` (moteur `executable`, source `winxRunner`). Plasma ajoute lui-même ses entrées natives (Configure, Show Alternatives, Widgets, Panel) sous les nôtres, et le menu est le menu Qt natif (pas de séparateurs ni de sous-menu « Shut down or sign out » : `PlasmaCore.Action` à plat). Capture CI `14-menu-power-user` (clic droit xdotool bouton 3 à 860,1056). Les clics sur les entrées ne sont pas testés en CI.
-- `qt6-declarative-dev-tools` ne fournit pas `qml` (runtime) mais `qmltestrunner` : utilisable pour tester du QML dans la CI.
+- **Champ de recherche du menu** : liseré d'accent de 2 px en bas (marges 4 px, rayon 1) ajouté dans le `background` du `TextField` de `BottomBar.qml`, visible avec `activeFocus` (fondu 100 ms). Vu en CI sur `09-menu-demarrer` (run 43217058274, commit `a28b010`) : le champ a le focus à l'ouverture. `qml` (runtime) mais `qmltestrunner` : utilisable pour tester du QML dans la CI.
 
 ## 6. État et prochaine étape
 - Validé par capture CI du 2026-11-12 (run 43174550056, commit `0aef4f1`) : fork sous identifiant propre, barre 48 px en icônes seules, bouton Démarrer avec le logo Windows 11, boutons arrondis 44 px / écart 4 px, icônes 24 px, pastille d'activité en bas 16x3 / 6x3, état « attention » (fond orange + pastille orange 16x3, run 43178371494, commit `62cca84`), « Afficher le bureau » (trait au survol, bord droit), `build-and-check` vert (qmllint compris).
@@ -86,6 +86,7 @@
 - Menu Démarrer au format Win11 validé en CI (run 43193526420, commit `e2ebf91`) : recherche en haut, grille « Épinglé » 6 colonnes, pied avatar + alimentation. Reste : section « Recommandés », vue « Toutes les applications » en grille, menu d'alimentation, liseré d'accent, rayon/ombre.
 - (historique) Menu Démarrer du fork chargé et ouvert en CI (capture `09-menu-demarrer`, run 43189631314) : centré, mais disposition type Win10 (recherche en bas, colonne Places, pas de Recommandés).
 - Menu Power User (Win+X) en place (run 43214957855, commit `f65eb36`) : 15 entrées au clic droit sur Démarrer, `build-and-check` vert.
+- Liseré d'accent du champ de recherche validé (3.2).
 - Ensuite : Phase 2 (menu Démarrer : capture « menu ouvert » en CI d'abord). Translucidité Mica / marges flottantes : impossible à valider en CI sans composition.
 
 ## 7. Quand modifier ce document
