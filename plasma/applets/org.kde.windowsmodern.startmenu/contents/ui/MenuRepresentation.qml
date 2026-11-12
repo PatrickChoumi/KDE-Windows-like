@@ -546,13 +546,15 @@ Item {
 
         function setModels() {
             pinnedPage.favoritesList.model = globalFavorites;
-            // Recommandés : première ligne du rootModel dont la description parle de « recent ».
+            // Recommandés : applications récentes = première ligne « Applications » placée avant
+            // KICKER_ALL_MODEL (mesuré en CI : lignes « Applications | Files | KICKER_ALL_MODEL »).
             var rec = null, descs = [];
             for (var i = 0; i < rootModel.rowCount(); i++) {
                 var m = rootModel.modelForRow(i);
                 if (!m) continue;
                 descs.push(String(m.description));
-                if (!rec && /recent/i.test(String(m.description))) rec = m;
+                if (m.description === "KICKER_ALL_MODEL") break;
+                if (!rec && m.description === "Applications") rec = m;
             }
             console.log("windowsmodern.startmenu: rootModel rows = [" + descs.join(" | ") + "] ; recommended = "
                         + (rec ? rec.description + " (" + rec.count + ")" : "none"));
