@@ -102,6 +102,10 @@ if command -v xdotool >/dev/null; then
   # menu d'alimentation : clic sur le bouton du pied de menu
   xdotool mousemove 1228 995; sleep 1; xdotool click 1; sleep 2
   shot 11-menu-alimentation
+  # grille de l'alphabet : un clic ferme le popup d'alimentation, puis clic sur l'en-tête de lettre « D »
+  xdotool mousemove 1030 600; sleep 1; xdotool click 1; sleep 1
+  xdotool mousemove 693 445; sleep 1; xdotool click 1; sleep 2
+  shot 12-alphabet
   { echo "== lignes plasmashell.log après le clic (depuis $L0)"; tail -n +$((L0+1)) "$OUT/plasmashell.log" 2>/dev/null | head -40; } > "$OUT/startmenu.log" 2>&1
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
