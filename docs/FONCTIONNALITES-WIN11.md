@@ -53,7 +53,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 3.3 | Section **Épinglé** : grille 6 colonnes × 3 lignes, icône 32 px + libellé sous l'icône, bouton « Toutes les applications > » | ✅ 6 colonnes (pas 96 px), icône 32 px + libellé, « All apps » ; 3 lignes et glisser-déposer non testés |
 | 3.4 | Section **Recommandés** : 2 colonnes × 3, icône + nom + sous-titre ; bouton « More > » | 🟡 section, grille 2×3 et texte d'état vide en place, liée aux applications récentes (CI 43198228291, commit `6fadc00`) ; contenu non vu en CI (aucun récent), fichiers récents (ligne « Files ») non branchés |
 | 3.5 | Pied de menu : avatar + nom d'utilisateur à gauche, bouton alimentation à droite | ✅ avatar + nom, bouton alimentation icône seule (avatar vide en CI : pas d'image de compte) |
-| 3.6 | Vue « Toutes les applications » (réf. [08]) : liste en grille alphabétique avec bouton « Retour » | ⬜ |
+| 3.6 | Vue « Toutes les applications » (réf. [08]) : liste alphabétique avec en-têtes de lettre et bouton « Retour » | 🟡 liste + en-têtes de lettre + « Back » validés (CI 43199983158, commit `b4956b9`) ; pas de grille de lettres cliquable pour sauter à une lettre |
 | 3.7 | Menu d'alimentation : Suspendre / Arrêter / Redémarrer avec icônes fines (réf. [07]) | ⬜ |
 | 3.8 | Épingler / désépingler, réorganiser par glisser-déposer, dossiers d'épinglés | ⬜ |
 | 3.9 | Recherche immédiate en tapant dès l'ouverture ; touche Windows (Meta) ouvre/ferme | 🟡 |
