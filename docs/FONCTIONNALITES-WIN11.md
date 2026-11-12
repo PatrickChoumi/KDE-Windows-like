@@ -21,7 +21,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 1.9 | Aperçu miniature de la fenêtre au survol (vignette + titre + bouton fermer) | 🟡 tooltip natif, non stylé |
 | 1.10 | Menu contextuel d'une icône (liste de tâches récentes, épingler, fermer la fenêtre) | 🟡 natif |
 | 1.11 | Clic du milieu = nouvelle instance ; survol + molette = changer de fenêtre | 🟡 natif |
-| 1.12 | Icônes « Recherche », « Vue des tâches », « Widgets », « Discussion/Teams » à côté du Démarrer (réf. [14] [09] [24]) | ⬜ |
+| 1.12 | Icônes « Recherche » et « Vue des tâches » à côté du Démarrer (réf. [14] [09] [24]) | ✅ rendu vu en CI (run 43186295862, pas de 48 px) ; clic non testé en CI (pas de kglobalaccel/KRunner) ; « Widgets » et « Discussion » : ⬜ |
 | 1.13 | Champ de recherche intégré à la barre (variante [04] [20] [22]) | ❌ |
 | 1.14 | Fond de barre translucide type Mica/acrylique, sombre ou clair selon le thème | ⬜ (non vérifiable en CI : pas de composition) |
 | 1.15 | Barre non flottante, bord à bord, ombre/liseré supérieur d'1 px | 🟡 |
