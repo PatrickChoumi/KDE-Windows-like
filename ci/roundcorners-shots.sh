@@ -42,6 +42,9 @@ waitdeco() {  # attend que la décoration Aurorae (barre 32 px) soit appliquée 
   echo "décoration Aurorae NON confirmée (extents attendus 4,4,32,4)" >> "$OUT/etat.txt"
 }
 
+# Le conteneur melange kwin-x11 6.6.4 et libkwin6 6.6.6 : KWin refuse alors un effet compile pour 6.6.6 (IID exact). On aligne kwin-x11.
+KV=$(dpkg-query -W -f='${Version}' kwin-common 2>/dev/null)
+{ echo "kwin-common=$KV kwin-x11=$(dpkg-query -W -f='${Version}' kwin-x11 2>/dev/null)"; apt-get install -y --no-install-recommends "kwin-x11=$KV" 2>&1 | tail -4; echo "kwin-x11 apres=$(dpkg-query -W -f='${Version}' kwin-x11 2>/dev/null)"; } > "$OUT/align-kwin.txt" 2>&1
 Xvfb :99 -screen 0 1920x1080x24 +extension GLX +render -noreset > "$OUT/xvfb.log" 2>&1 &
 sleep 3
 kwin_x11 > "$OUT/kwin.log" 2>&1 &
