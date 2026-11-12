@@ -607,7 +607,12 @@ FloatingToolTipArea {
         Kirigami.Icon {
             id: icon
 
-            anchors.fill: parent
+            // Win11 : icône de 24 px centrée dans le bouton (hors popup de groupe, qui garde sa taille).
+            readonly property real win11Size: Math.min(24, parent.width, parent.height)
+            anchors.fill: task.inPopup ? parent : undefined
+            anchors.centerIn: task.inPopup ? undefined : parent
+            width: task.inPopup ? parent.width : win11Size
+            height: task.inPopup ? parent.height : win11Size
 
             active: task.highlighted
             enabled: true
