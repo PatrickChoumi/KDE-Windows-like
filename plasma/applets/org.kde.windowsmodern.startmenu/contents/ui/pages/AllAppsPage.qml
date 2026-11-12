@@ -92,6 +92,32 @@ ColumnLayout {
             policy: PlasmaComponents3.ScrollBar.AsNeeded
         }
 
+        // En-têtes de lettre façon Win11 (A, B, C…) : le modèle est trié par nom.
+        section.property: "display"
+        section.criteria: ViewSection.FirstCharacter
+        section.delegate: Item {
+            required property string section
+            width: ListView.view ? ListView.view.width : 0
+            height: 44
+
+            Rectangle {
+                anchors.left: parent.left
+                anchors.leftMargin: 6
+                anchors.verticalCenter: parent.verticalCenter
+                width: 32
+                height: 32
+                radius: 4
+                color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.06)
+
+                PlasmaComponents3.Label {
+                    anchors.centerIn: parent
+                    text: parent.parent.section.toUpperCase()
+                    font.weight: Font.DemiBold
+                    color: Kirigami.Theme.textColor
+                }
+            }
+        }
+
         delegate: ListItemDelegate {
             iconSize: Kirigami.Units.iconSizes.smallMedium
         }
