@@ -71,6 +71,9 @@ state "2-apres-install"; shot 02-apres-install; cropwin 02-apres-install
 cp /root/.config/kwinrc "$OUT/kwinrc-apres.txt" 2>/dev/null || true
 
 # --- diagnostic : reconfigure a-t-il suffi ? sinon loadEffect, puis redemarrage de KWin ---
+# CI = session X11 : kwin_x11 scanne kwin-x11/effects/plugins, pas kwin/effects/plugins (chemin du paquet, utilise par kwin_wayland).
+X11DIR=/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/effects/plugins
+mkdir -p "$X11DIR" && ln -sf /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins/kwin4_effect_shapecorners.so "$X11DIR/" && echo "lien X11 cree : $X11DIR" >> "$OUT/etat.txt"
 kw /Effects org.kde.kwin.Effects.loadEffect string:kwin4_effect_shapecorners >> "$OUT/etat.txt" 2>&1
 sleep 4
 state "2b-apres-loadEffect"; shot 02b-apres-loadEffect; cropwin 02b-apres-loadEffect
