@@ -123,7 +123,11 @@ PlasmoidItem {
                              Kirigami.Theme.textColor.b, 0.5)
             width: 1
             height: parent.height * 0.5
-            anchors.centerIn: parent
+            // Collé au bord de l'écran (la zone cliquable s'étend jusqu'au bord) : centré sur toute la zone,
+            // le trait tombait sur le dernier chiffre de l'horloge (mesuré en CI : x=1912 pour une barre de 1920).
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            anchors.rightMargin: root.horizontal ? 2 : 0
             opacity: mouseArea.state === "hover" || mouseArea.state === "pressed" ? 1 : 0
             Behavior on opacity { OpacityAnimator { duration: Kirigami.Units.shortDuration; easing.type: Easing.InOutQuad } }
         }
