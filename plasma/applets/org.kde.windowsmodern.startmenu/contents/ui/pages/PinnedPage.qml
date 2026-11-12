@@ -21,6 +21,7 @@ ColumnLayout {
     spacing: Kirigami.Units.largeSpacing
 
     property alias favoritesList: favoritesListView
+    property alias recommendedList: recommendedListView
 
     signal showAllAppsRequested
     signal keyNavUpFromList
@@ -81,7 +82,7 @@ ColumnLayout {
     GridView {
         id: favoritesListView
         Layout.fillWidth: true
-        Layout.fillHeight: true
+        Layout.preferredHeight: cellHeight * 3
         clip: true
         interactive: true
         boundsBehavior: Flickable.StopAtBounds
@@ -109,6 +110,60 @@ ColumnLayout {
             } else {
                 event.accepted = false;
             }
+        }
+    }
+
+    // ── Section « Recommended » : 2 colonnes × 3, icône 32 px + nom + sous-titre ──
+    RowLayout {
+        id: recommendedHeader
+        Layout.fillWidth: true
+        Layout.topMargin: Kirigami.Units.smallSpacing
+        spacing: Kirigami.Units.smallSpacing
+
+        PlasmaComponents3.Label {
+            text: i18n("Recommended")
+            color: Kirigami.Theme.textColor
+            font.pointSize: Kirigami.Theme.defaultFont.pointSize * 0.95
+            font.weight: Font.DemiBold
+            Layout.alignment: Qt.AlignVCenter
+        }
+
+        Item { Layout.fillWidth: true }
+
+        AToolButton {
+            buttonHeight: 25
+            flat: true
+            iconName: "go-next"
+            text: i18n("More")
+            visible: recommendedListView.count > 0
+            Layout.rightMargin: Kirigami.Units.mediumSpacing
+            onClicked: pinnedPage.showAllAppsRequested()
+        }
+    }
+
+    GridView {
+        id: recommendedListView
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Layout.minimumHeight: 52 * 3
+        clip: true
+        interactive: false
+        boundsBehavior: Flickable.StopAtBounds
+        currentIndex: -1
+        readonly property int columns: 2
+        cellWidth: Math.floor(width / columns)
+        cellHeight: 52
+        delegate: RecommendedTile {}
+        highlightMoveDuration: 0
+
+        PlasmaComponents3.Label {
+            anchors.centerIn: parent
+            width: parent.width - 32
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
+            opacity: 0.6
+            visible: recommendedListView.count === 0
+            text: i18n("To show your recent files and new apps, turn them on in Settings.")
         }
     }
 }
