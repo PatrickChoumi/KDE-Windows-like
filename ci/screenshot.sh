@@ -49,6 +49,8 @@ dolphin > "$OUT/dolphin.log" 2>&1 &
 sleep 15
 shot 04-fenetres-ouvertes
 # --- test : plasmashell relancé après le changement de thème d'icônes (cache d'icônes périmé ?) ---
+# Cache des services (.desktop) : sans lui, les favoris du menu Démarrer sont « Entry is not valid » (vu en CI).
+kbuildsycoca6 --noincremental > "$OUT/sycoca.log" 2>&1
 kquitapp6 plasmashell >> "$OUT/apply.log" 2>&1; sleep 3; pkill -x plasmashell 2>/dev/null; sleep 2
 plasmashell > "$OUT/plasmashell-restart.log" 2>&1 &
 sleep 20
