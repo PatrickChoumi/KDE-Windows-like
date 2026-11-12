@@ -76,9 +76,8 @@ Item {
 
     function launch() {
         var view = tile.GridView.view;
-        if (view && view.model && typeof view.model.trigger === "function") {
-            view.model.trigger(tile.itemIndex, "", null);
-            root.closeMenu();
+        if (view && typeof view.activateEntry === "function") {
+            view.activateEntry(tile.itemIndex);
         }
     }
 
