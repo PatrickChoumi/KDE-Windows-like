@@ -536,7 +536,10 @@ FloatingToolTipArea {
             rightMargin: 2
         }
         radius: 4
+        // Fenêtre qui réclame l'attention : fond orange (Win11), prioritaire sur les autres états.
+        readonly property color attentionColor: "#F7630C"
         color: {
+            if (task.model.IsDemandingAttention) return Qt.rgba(0.969, 0.388, 0.047, task.highlighted ? 0.55 : 0.42);
             if (task.model.IsActive) return Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, task.highlighted ? 0.12 : 0.09);
             if (task.highlighted) return Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.06);
             return "transparent";
@@ -553,10 +556,11 @@ FloatingToolTipArea {
             bottom: frame.bottom
             bottomMargin: 3
         }
-        width: task.model.IsActive ? 16 : 6
+        width: (task.model.IsActive || task.model.IsDemandingAttention) ? 16 : 6
         height: 3
         radius: 1.5
-        color: task.model.IsActive ? Kirigami.Theme.highlightColor
+        color: task.model.IsDemandingAttention ? win11Button.attentionColor
+             : task.model.IsActive ? Kirigami.Theme.highlightColor
                                    : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.6)
         Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
     }
