@@ -39,7 +39,7 @@ plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/ap
 ic apres-lookandfeel
 # plasma-apply-lookandfeel --resetLayout vide [Icons] Theme (mesuré : 2795 -> 2745 octets) :
 # on appelle la fonction des scripts utilisateur (scripts/install-lib.sh) pour la valider en conditions réelles.
-( source scripts/install-lib.sh; ensure_icon_theme windows-modern ) >> "$OUT/apply.log" 2>&1
+( source scripts/install-lib.sh; ensure_icon_theme windows-modern; ensure_window_decoration dark ) >> "$OUT/apply.log" 2>&1
 ic apres-remise-du-theme-icones
 sleep 15
 shot 03-lookandfeel-dark
