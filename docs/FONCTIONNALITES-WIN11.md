@@ -72,7 +72,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 ## 5. Fenêtres (réf. [06] [16] [17] [18] [21])
 | # | Fonctionnalité | État |
 |---|---|---|
-| 5.1 | Coins arrondis 8 px sur les 4 angles, liseré 1 px, ombre douce | ⬜ (effet KWin à vérifier, P4) |
+| 5.1 | Coins arrondis 8 px sur les 4 angles, liseré 1 px, ombre douce | 🟡 effet KDE Rounded Corners 0.11.0 (PPA `ppa:matinlotfali/kde-rounded-corners`) : installable sur ubuntu:26.04, fichiers sans conflit, liens OK contre KWin 6.6.6 (run 43245109790, commit `b3e94e5`). Rendu non vérifiable en CI (pas de composition) ; script d'installation et test sur la vraie machine à faire |
 | 5.2 | Barre de titre 32 px, titre aligné à gauche avec icône 16 px | ✅ 32 px, titre à gauche, icône (CI 43228942810) ; nécessite le paquet `kwin-style-aurorae` |
 | 5.3 | Boutons réduire / agrandir / fermer : 46×32 px, glyphes fins, fond de survol, fermeture en rouge `#C42B1C` | ✅ vérifié par capture CI (run 43232159100, commit `843ac40`) : 46×32 px, glyphes fins, survol de fermeture `#C42B1C` mesuré sur 46×32 px |
 | 5.4 | Fenêtre inactive : titre et glyphes atténués | 🟡 |

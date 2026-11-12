@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 21).
+> Dernière mise à jour : 2026-11-12 (version 22).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -90,6 +90,10 @@
 - Décorations Windows 11 actives en CI (run 43228942810, commit `e8bcb42`) : titre à gauche avec icône, boutons réduire/agrandir/fermer 46 px de large, barre de titre 32 px. Reste : coins arrondis (KWin), ombre.
 - Survol rouge de fermeture validé (5.3 ✅) : zone `#C42B1C` mesurée 46×32 px sur la capture `15-survol-fermer` (run 43232159100, commit `843ac40`). Ensuite : 5.1 (disponibilité d'un effet KWin de coins arrondis sur Ubuntu 26.04), puis 3.10 (animation d'ouverture du menu).
 - Ensuite : Phase 2 (menu Démarrer : capture « menu ouvert » en CI d'abord). Translucidité Mica / marges flottantes : impossible à valider en CI sans composition.
+
+- Coins arrondis (5.1) : job `roundcorners` de `build.yml` (conteneur ubuntu:26.04, PPA matinlotfali). Résultat : paquet `kwin-effect-roundcorners 0.11.0.0.6.6.6~kubuntu26041` installable, aucun fichier d'un autre paquet touché, `ldd` OK une fois KWin installé. Le paquet n'a AUCUNE ligne Depends (n'impose pas KWin 6.6.6 : à recompiler/réinstaller après une mise à jour de KWin). Dans le conteneur, kwin-wayland=6.6.6 mais kwin-x11=6.6.4 (versions décalées). Diagnostic publié sur `ci-logs-roundcorners` (`diag.txt`).
+- Leçon CI : les journaux de job ne sont pas lisibles depuis le bac à sable (blob.core.windows.net bloqué) ; les annotations de l'API donnent seulement le code de sortie. Publier un `diag.txt` sur une branche `ci-logs-*`. Dans une étape `bash -e`, un `grep` sans résultat arrête tout : ajouter `|| true`. Un `ldd` dans un conteneur nu (sans KWin/Qt) donne de faux « not found ».
+- Ensuite : script `install-roundcorners.sh` (sauvegarde, `apt -s`, installation, activation via `kwriteconfig6`/`qdbus` , retour arrière), puis test sur la vraie machine.
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
