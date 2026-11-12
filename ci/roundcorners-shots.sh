@@ -67,6 +67,10 @@ cp /root/.config/kwinrc "$OUT/kwinrc-avant.txt" 2>/dev/null || true
 state "1-avant"; shot 01-avant; cropwin 01-avant
 
 # --- le VRAI script, en root (pas de sudo), PPA déjà présent dans le conteneur ---
+# kwin-x11 n'existe qu'en 6.6.4 : pour valider le RENDU en X11, on installe d'abord le build du PPA compile pour 6.6.4 s'il existe.
+apt-cache madison kwin-effect-roundcorners > "$OUT/madison.txt" 2>&1
+V64=$(awk '{print $3}' "$OUT/madison.txt" | grep -F '6.6.4' | head -1)
+if [ -n "$V64" ]; then apt-get install -y --no-install-recommends "kwin-effect-roundcorners=$V64" > "$OUT/install-664.log" 2>&1; echo "build 6.6.4 installe : $V64" >> "$OUT/etat.txt"; else echo "pas de build 6.6.4 au PPA" >> "$OUT/etat.txt"; fi
 RC_YES=1 bash scripts/install-roundcorners.sh install > "$OUT/install.log" 2>&1; echo "install exit=$?" >> "$OUT/install.log"
 sleep 8
 bash scripts/install-roundcorners.sh status > "$OUT/status-apres-install.txt" 2>&1
