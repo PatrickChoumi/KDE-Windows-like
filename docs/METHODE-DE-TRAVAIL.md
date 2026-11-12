@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 10).
+> Dernière mise à jour : 2026-11-12 (version 11).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -71,7 +71,8 @@
 - Compromis accepté : avec un identifiant propre, le menu Démarrer ne propose plus « Ajouter au gestionnaire de tâches » (libkicker ne reconnaît pas le fork).
 - Côté utilisateur : 3 commits locaux non poussés (metadata Id, exit code icontasks, résumé d'échecs `install.sh`) ; le commit « metadata Id » est contraire au retrait de l'`Id` (conflit probable au pull).
 - Validé aussi (run 43186295862, commit `c237b85`) : boutons Recherche et Vue des tâches entre Démarrer et les applications, `build-and-check` vert.
-- Ensuite : format de date de l'horloge (2.3), puis Phase 2 (menu Démarrer : capture « menu ouvert » en CI d'abord). Translucidité Mica / marges flottantes : impossible à valider en CI sans composition.
+- Horloge : date `M/d/yyyy` validée (run 43187508732, commit `9c688b3`, via `dateFormat=custom` dans les layouts) ; l'heure suit la locale (24 h dans la CI).
+- Ensuite : Phase 2 (menu Démarrer : capture « menu ouvert » en CI d'abord). Translucidité Mica / marges flottantes : impossible à valider en CI sans composition.
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
