@@ -67,6 +67,8 @@ fi
 # --- état « attention » : Konsole (inactive) réclame l'attention ---
 if command -v wmctrl >/dev/null; then
   wmctrl -l > "$OUT/wmctrl.log" 2>&1; wmctrl -r Konsole -b add,demands_attention >> "$OUT/wmctrl.log" 2>&1; echo "exit=$?" >> "$OUT/wmctrl.log"; sleep 2
+  for id in $(wmctrl -l | awk '/Konsole|Dolphin/{print $1}'); do echo "== $id $(xprop -id $id WM_NAME 2>&1 | head -1)" >> "$OUT/wmctrl.log"; xprop -id $id _NET_WM_STATE 2>&1 >> "$OUT/wmctrl.log"; done
+  xprop -root _NET_ACTIVE_WINDOW >> "$OUT/wmctrl.log" 2>&1
   shot 08-attention
 else
   echo "wmctrl absent" > "$OUT/wmctrl.log"
