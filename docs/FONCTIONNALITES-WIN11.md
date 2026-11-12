@@ -49,7 +49,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | # | Fonctionnalité | État |
 |---|---|---|
 | 3.1 | Fenêtre flottante centrée au-dessus de la barre, rayon 8 px, ombre, fond translucide (clair et sombre) | 🟡 centré, 640×720 px, fond sombre (CI 43193526420) ; rayon 8 px / ombre / translucidité non mesurés (pas de composition en CI) |
-| 3.2 | Champ de recherche en haut (« Search for apps, settings, and documents ») avec liseré d'accent en bas quand actif | 🟡 en haut, rayon 4 px ; liseré d'accent ⬜ |
+| 3.2 | Champ de recherche en haut (« Search for apps, settings, and documents ») avec liseré d'accent en bas quand actif | ✅ en haut, rayon 4 px, liseré d'accent 2 px au focus (CI 43217058274) |
 | 3.3 | Section **Épinglé** : grille 6 colonnes × 3 lignes, icône 32 px + libellé sous l'icône, bouton « Toutes les applications > » | ✅ 6 colonnes (pas 96 px), icône 32 px + libellé, « All apps » ; 3 lignes et glisser-déposer non testés |
 | 3.4 | Section **Recommandés** : 2 colonnes × 3, icône + nom + sous-titre ; bouton « More > » | 🟡 section, grille 2×3 et texte d'état vide en place, liée aux applications récentes (CI 43198228291, commit `6fadc00`) ; contenu non vu en CI (aucun récent), fichiers récents (ligne « Files ») non branchés |
 | 3.5 | Pied de menu : avatar + nom d'utilisateur à gauche, bouton alimentation à droite | ✅ avatar + nom, bouton alimentation icône seule (avatar vide en CI : pas d'image de compte) |
