@@ -86,6 +86,14 @@ if command -v xdotool >/dev/null; then
 else
   echo "xdotool absent" > "$OUT/xdotool.log"
 fi
+# --- menu Démarrer ouvert (clic sur le bouton Démarrer, centré sur la barre) ---
+if command -v xdotool >/dev/null; then
+  L0=$(wc -l < "$OUT/plasmashell.log" 2>/dev/null || echo 0)
+  xdotool mousemove 860 1056; sleep 1; xdotool click 1; sleep 4
+  shot 09-menu-demarrer
+  { echo "== lignes plasmashell.log après le clic (depuis $L0)"; tail -n +$((L0+1)) "$OUT/plasmashell.log" 2>/dev/null | head -40; } > "$OUT/startmenu.log" 2>&1
+  xdotool key Escape; sleep 1; xdotool mousemove 1200 500
+fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
   echo "== theme"; echo "kcmicons=[$(kreadconfig6 --file kcmicons --group Icons --key Theme)]"; echo "kdeglobals=[$(kreadconfig6 --file kdeglobals --group Icons --key Theme)]"
