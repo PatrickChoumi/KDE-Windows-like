@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 19).
+> Dernière mise à jour : 2026-11-12 (version 20).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -87,6 +87,7 @@
 - (historique) Menu Démarrer du fork chargé et ouvert en CI (capture `09-menu-demarrer`, run 43189631314) : centré, mais disposition type Win10 (recherche en bas, colonne Places, pas de Recommandés).
 - Menu Power User (Win+X) en place (run 43214957855, commit `f65eb36`) : 15 entrées au clic droit sur Démarrer, `build-and-check` vert.
 - Liseré d'accent du champ de recherche validé (3.2).
+- Décorations Windows 11 actives en CI (run 43228942810, commit `e8bcb42`) : titre à gauche avec icône, boutons réduire/agrandir/fermer 46 px de large, barre de titre 32 px. Reste : survol rouge de fermeture non vu, coins arrondis (KWin), ombre.
 - Ensuite : Phase 2 (menu Démarrer : capture « menu ouvert » en CI d'abord). Translucidité Mica / marges flottantes : impossible à valider en CI sans composition.
 
 ## 7. Quand modifier ce document
