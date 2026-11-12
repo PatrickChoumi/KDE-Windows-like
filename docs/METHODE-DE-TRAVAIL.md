@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 14).
+> Dernière mise à jour : 2026-11-12 (version 15).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -69,6 +69,7 @@
 - **Menu Démarrer, « Recommandés »** : `PinnedPage.qml` = grille « Épinglé » à hauteur fixe (3 lignes × 84 px) puis section « Recommended » (`RecommendedTile.qml`, grille 2 colonnes × 52 px). Le `rootModel` (flat) expose, mesuré en CI (journal `qml: windowsmodern.startmenu: rootModel rows = …` dans `plasmashell.log`) : `Applications | Files | KICKER_ALL_MODEL`, **aucune description ne contient « recent »** : les récents sont les lignes « Applications » et « Files » placées *avant* `KICKER_ALL_MODEL`. Seule « Applications » est branchée ; sans application récente (CI), le texte d'état vide de Win11 s'affiche. Contenu non validable en CI.
 - **Correction (c266a8b)** : la modification de `tasks.svg` (pastilles 16x3 / 6x3) n'a aucun effet visible, le cadre SVG est invisible et la pastille vient de `Task.qml` ; les mesures 16x3 des captures sont celles du QML.
 - **CI et réseau** : le conteneur `ubuntu:26.04` a perdu la résolution DNS le 11/11 (« Could not resolve archive.ubuntu.com ») ; `screenshots.yml` réessaie puis bascule sur 8.8.8.8. Le shell des `run:` du conteneur est `sh` (dash) : pas de `PIPESTATUS`. Les journaux de job sont illisibles depuis le bac à sable (domaine blob bloqué) : lire les messages via `check-runs/<job>/annotations` (`::warning::`/`::error::`).
+- **Vue « Toutes les applications »** : `AllAppsPage.qml` = `ListView` avec `section.property: "display"` + `ViewSection.FirstCharacter` (modèle trié par nom), tuile de lettre 32 px. Capture CI `10-toutes-applications` (clic xdotool sur « All apps » à 1198,403 après la 09). **Deux runs `screenshots` simultanés (push + dispatch) se disputent la branche `ci-shots-<variante>`** : l'un peut échouer à la publication ; ne lancer un dispatch que si le push n'a pas déjà déclenché le workflow (changement dans `ci/**`), et vérifier `RUN.txt`.
 - `qt6-declarative-dev-tools` ne fournit pas `qml` (runtime) mais `qmltestrunner` : utilisable pour tester du QML dans la CI.
 
 ## 6. État et prochaine étape
