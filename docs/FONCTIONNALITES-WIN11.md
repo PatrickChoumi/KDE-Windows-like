@@ -54,7 +54,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 3.4 | Section **Recommandés** : 2 colonnes × 3, icône + nom + sous-titre ; bouton « More > » | 🟡 section, grille 2×3 et texte d'état vide en place, liée aux applications récentes (CI 43198228291, commit `6fadc00`) ; contenu non vu en CI (aucun récent), fichiers récents (ligne « Files ») non branchés |
 | 3.5 | Pied de menu : avatar + nom d'utilisateur à gauche, bouton alimentation à droite | ✅ avatar + nom, bouton alimentation icône seule (avatar vide en CI : pas d'image de compte) |
 | 3.6 | Vue « Toutes les applications » (réf. [08]) : liste alphabétique avec en-têtes de lettre et bouton « Retour » | 🟡 liste + en-têtes de lettre + « Back » validés (CI 43199983158, commit `b4956b9`) ; pas de grille de lettres cliquable pour sauter à une lettre |
-| 3.7 | Menu d'alimentation : Suspendre / Arrêter / Redémarrer avec icônes fines (réf. [07]) | ⬜ |
+| 3.7 | Menu d'alimentation : Suspendre / Arrêter / Redémarrer avec icônes fines (réf. [07]) | 🟡 ordre Win11, lignes 36 px, icônes 16 px, coins 8 px (CI 43202074169, commit `ca96b8f`) ; Lock / Log out gardés sous un séparateur ; actions grisées en CI (pas de logind), non testées ; pas d'ombre ni d'animation |
 | 3.8 | Épingler / désépingler, réorganiser par glisser-déposer, dossiers d'épinglés | ⬜ |
 | 3.9 | Recherche immédiate en tapant dès l'ouverture ; touche Windows (Meta) ouvre/ferme | 🟡 |
 | 3.10 | Animation d'ouverture (glissement vers le haut + fondu, ~200 ms) | ⬜ |
