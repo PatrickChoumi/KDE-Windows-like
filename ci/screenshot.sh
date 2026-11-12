@@ -122,6 +122,10 @@ if command -v xdotool >/dev/null; then
   shot 13-saut-lettre
   { echo "== lignes plasmashell.log après le clic (depuis $L0)"; tail -n +$((L0+1)) "$OUT/plasmashell.log" 2>/dev/null | head -40; } > "$OUT/startmenu.log" 2>&1
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
+  # menu Power User (Win+X) : clic droit sur le bouton Démarrer, menu fermé ensuite par Échap
+  xdotool mousemove 860 1056; sleep 1; xdotool click 3; sleep 3
+  shot 14-menu-power-user
+  xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
