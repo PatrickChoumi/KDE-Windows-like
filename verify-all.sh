@@ -36,7 +36,7 @@ echo " Layout:"
 # Applets
 echo ""
 echo " Applets:"
-for applet in showdesktop startmenu digitalclock; do
+for applet in showdesktop shortcutbutton startmenu digitalclock; do
     d="$SCRIPT_DIR/plasma/applets/org.kde.windowsmodern.$applet"
     [ -d "$d" ] && [ -f "$d/metadata.json" ] && pass "$applet" || fail "$applet missing"
 done

@@ -261,4 +261,10 @@ resolve_layout_applets() {
             warn "Applet $custom absente : le layout utilisera $native"
         fi
     done
+    # Pas d'équivalent natif : addWidget() renvoie un objet même si l'applet est absente,
+    # on retire donc les lignes du bouton Recherche / Vue des tâches.
+    if ! applet_available "org.kde.windowsmodern.shortcutbutton"; then
+        sed -i '/shortcutbutton/d;/if (search)/d;/if (taskview)/d' "$file"
+        warn "Applet shortcutbutton absente : boutons Recherche / Vue des tâches omis"
+    fi
 }

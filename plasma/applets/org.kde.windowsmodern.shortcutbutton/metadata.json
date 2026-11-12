@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [{ "Name": "Patrick Choumi", "Email": "noreply@users.noreply.github.com" }],
+        "Category": "Windows and Tasks",
+        "Description": "Windows 11 taskbar button: Search (KRunner) or Task View (KWin Overview).",
+        "EnabledByDefault": true,
+        "FormFactors": ["desktop"],
+        "Icon": "system-search",
+        "Id": "org.kde.windowsmodern.shortcutbutton",
+        "License": "GPL-3.0-or-later",
+        "Name": "Taskbar Button (Windows Modern)",
+        "Version": "1.0.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

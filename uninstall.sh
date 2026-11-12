@@ -89,6 +89,9 @@ uninstall_component() {
             rm_path "$LAYOUT_DIR/org.kde.windowsmodern.panel"
             info "Panel layout uninstalled."
             ;;
+        shortcuts)
+            rm_path "$APPLETS_DIR/org.kde.windowsmodern.shortcutbutton"
+            ;;
         showdesk)
             rm_path "$APPLETS_DIR/org.kde.windowsmodern.showdesktop"
             info "Show Desktop uninstalled."
@@ -157,14 +160,14 @@ uninstall_component() {
             bash "$SRC_DIR/scripts/uninstall-greeter-system.sh"
             ;;
         all)
-            for c in themes icons lookfeel layout showdesk startmenu systray icontasks digitalclock sessionlock greeter; do
+            for c in themes icons lookfeel layout showdesk shortcuts startmenu systray icontasks digitalclock sessionlock greeter; do
                 uninstall_component "$c"
             done
             reset_kwin_borders
             ;;
         *)
             err "Unknown component: $name"
-            echo "Available: themes, icons, lookfeel, layout, showdesk, startmenu, systray, icontasks, digitalclock, sessionlock, greeter, greetersystem, all"
+            echo "Available: themes, icons, lookfeel, layout, showdesk, shortcuts, startmenu, systray, icontasks, digitalclock, sessionlock, greeter, greetersystem, all"
             exit 1
             ;;
     esac
@@ -180,6 +183,7 @@ case "${1:-}" in
         echo "  lookfeel   Global themes"
         echo "  layout     Panel layout template"
         echo "  showdesk   Show Desktop applet"
+        echo "  shortcuts  Search / Task View buttons"
         echo "  startmenu  Start Menu applet"
     echo "  systray    System Tray"
     echo "  icontasks  Icon Tasks taskbar"
