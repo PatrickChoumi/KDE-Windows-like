@@ -85,6 +85,9 @@ clock.currentConfigGroup = new Array("Appearance");
 clock.writeConfig("autoFontAndSize", "true");
 clock.writeConfig("showDate", "true");
 clock.writeConfig("dateDisplayFormat", "2");
+// Win11 : date courte M/d/yyyy (ex. 11/12/2026), indépendante de la locale.
+clock.writeConfig("dateFormat", "custom");
+clock.writeConfig("customDateFormat", "M/d/yyyy");
 clock.writeConfig("showSeconds", "0");
 clock.writeConfig("use24hFormat", "1");
 clock.writeConfig("compactPadding", "0.18");
