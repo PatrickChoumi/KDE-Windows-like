@@ -109,6 +109,7 @@ jobs:
       - name: Publier le diagnostic sur la branche ci-logs-roundcorners
         if: always()
         run: |
+          set +e
           mkdir -p /tmp/pub && cd /tmp/pub
           {
             echo "== os"; head -3 /etc/os-release
@@ -118,8 +119,8 @@ jobs:
             echo "== proprietaires"
             for f in $(dpkg -L kwin-effect-roundcorners 2>/dev/null | while read x; do [ -f "$x" ] && echo "$x"; done); do echo "$f -> $(dpkg -S "$f" 2>&1 | cut -d: -f1 | sort -u | tr '\n' ' ')"; done
             echo "== dpkg -V"; dpkg -V kwin-effect-roundcorners 2>&1; echo "rc=$?"
-            echo "== Depends"; apt-cache show kwin-effect-roundcorners | grep -E '^(Depends|Recommends):'
-            echo "== kwin installé"; dpkg -l 'kwin*' 'libkf6kcmutils*' 2>&1 | grep '^ii' | cut -c1-90
+            echo "== Depends"; apt-cache show kwin-effect-roundcorners | grep -E '^(Depends|Recommends):' || echo '(aucune ligne Depends/Recommends)'
+            echo "== kwin installé"; dpkg -l 'kwin*' 'libkf6kcmutils*' 2>&1 | grep '^ii' | cut -c1-90; true
             echo "== ldd"
             for so in $(dpkg -L kwin-effect-roundcorners 2>/dev/null | grep -E '\.so$'); do echo "$so"; ldd "$so" 2>&1 | grep -iE "not found" || echo "  ldd OK"; done
           } > diag.txt 2>&1
