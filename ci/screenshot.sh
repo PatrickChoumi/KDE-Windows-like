@@ -43,6 +43,13 @@ ic apres-lookandfeel
 ic apres-remise-du-theme-icones
 sleep 15
 shot 03-lookandfeel-dark
+# --- diagnostic décoration de fenêtre (Aurorae) : thème installé ? kwinrc ? ---
+{
+  echo "== kwinrc [org.kde.kdecoration2]"; kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key library; kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme
+  kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key ButtonsOnRight; kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key BorderSize
+  echo "== aurorae dirs"; ls -d /usr/share/aurorae/themes/* "$HOME"/.local/share/aurorae/themes/* 2>&1
+  echo "== look-and-feel defaults (decoration)"; grep -n -A3 "kdecoration2" /usr/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults "$HOME"/.local/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults 2>&1
+} > "$OUT/decoration-diag.txt" 2>&1
 # --- fenêtres ouvertes : la barre en icônes seules n'est visible que s'il y a des tâches ---
 konsole -e bash > "$OUT/konsole.log" 2>&1 &
 dolphin > "$OUT/dolphin.log" 2>&1 &
