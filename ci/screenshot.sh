@@ -48,6 +48,8 @@ shot 03-lookandfeel-dark
   echo "== kwinrc [org.kde.kdecoration2]"; kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key library; kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme
   kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key ButtonsOnRight; kreadconfig6 --file kwinrc --group org.kde.kdecoration2 --key BorderSize
   echo "== aurorae dirs"; ls -d /usr/share/aurorae/themes/* "$HOME"/.local/share/aurorae/themes/* 2>&1
+  echo "== plugin aurorae"; find / -xdev \( -iname "*aurorae*.so" -o -iname "*aurorae*qmltypes" \) 2>/dev/null | head; ls /usr/lib/*/qt6/plugins/org.kde.kdecoration3 2>&1 | head
+  echo "== paquets kwin/decoration installés"; dpkg -l | awk '/kwin|decoration|breeze/{print $2}' | head -30
   echo "== look-and-feel defaults (decoration)"; grep -n -A3 "kdecoration2" /usr/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults "$HOME"/.local/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults 2>&1
 } > "$OUT/decoration-diag.txt" 2>&1
 # --- fenêtres ouvertes : la barre en icônes seules n'est visible que s'il y a des tâches ---
