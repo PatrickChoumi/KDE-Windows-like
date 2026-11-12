@@ -74,11 +74,15 @@ cp /root/.config/kwinrc "$OUT/kwinrc-apres.txt" 2>/dev/null || true
 kw /Effects org.kde.kwin.Effects.loadEffect string:kwin4_effect_shapecorners >> "$OUT/etat.txt" 2>&1
 sleep 4
 state "2b-apres-loadEffect"; shot 02b-apres-loadEffect; cropwin 02b-apres-loadEffect
-SO=$(dpkg -L kwin-effect-roundcorners | grep '\.so$' | head -1)
-{ echo "SO=$SO"; ldd "$SO" 2>&1 | grep -i "not found" || echo "ldd: aucune lib manquante"; strings "$SO" | grep -i -m3 "shapecorners"; } > "$OUT/so-diag.txt" 2>&1
+SO=$(dpkg -L kwin-effect-roundcorners | grep 'effects/plugins/.*\.so$' | head -1)
+{ echo "SO=$SO"; ls -la "$(dirname "$SO")" | head -40; echo "--- ldd"; ldd "$SO" 2>&1 | grep -i -E "not found|kwin" || echo "ldd: rien de manquant"
+  echo "--- metadonnees (chaines)"; grep -a -o -E '[[:print:]]{4,}' "$SO" | grep -i -E 'kplugin|"Id"|^Id$|shapecorners|Category|EnabledByDefault|org\.kde' | head -25
+  echo "--- versions"; dpkg-query -W -f='${Package}=${Version}\n' kwin-x11 kwin-wayland kwin-common libkwin6 kwin-effect-roundcorners 2>&1 | head
+  echo "--- dossiers effets"; ls /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins | head -50
+} > "$OUT/so-diag.txt" 2>&1
 kw /Effects org.freedesktop.DBus.Properties.Get string:org.kde.kwin.Effects string:loadedEffects > "$OUT/loaded-effects.txt" 2>&1
 kw /Effects org.kde.kwin.Effects.listOfEffects > "$OUT/list-effects.txt" 2>&1
-QT_DEBUG_PLUGINS=1 QT_LOGGING_RULES="kwin_core*=true;kwin_effects*=true;kwin*.debug=true" kwin_x11 --replace > "$OUT/kwin-replace.log" 2>&1 &
+QT_DEBUG_PLUGINS=1 QT_LOGGING_RULES="kwin_core*=true;kf.coreaddons*=true;kf.plugin*=true;kwin_effects*=true" kwin_x11 --replace > "$OUT/kwin-replace.log" 2>&1 &
 sleep 10
 state "2c-apres-kwin-replace"; shot 02c-apres-kwin-replace; cropwin 02c-apres-kwin-replace
 
