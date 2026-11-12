@@ -106,6 +106,9 @@ if command -v xdotool >/dev/null; then
   xdotool mousemove 1030 600; sleep 1; xdotool click 1; sleep 1
   xdotool mousemove 693 445; sleep 1; xdotool click 1; sleep 2
   shot 12-alphabet
+  # saut vers la lettre « S » (tuile à 867,653) : retour à la liste, journal « jump to S »
+  xdotool mousemove 867 653; sleep 1; xdotool click 1; sleep 2
+  shot 13-saut-lettre
   { echo "== lignes plasmashell.log après le clic (depuis $L0)"; tail -n +$((L0+1)) "$OUT/plasmashell.log" 2>/dev/null | head -40; } > "$OUT/startmenu.log" 2>&1
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
