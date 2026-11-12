@@ -58,6 +58,8 @@ jobs:
           path: build/**/org.kde.windowsmodern.icontasks.so
 
   roundcorners:
+    permissions:
+      contents: write
     # Feature 5.1 : l'effet KWin de coins arrondis est-il installable sur Ubuntu 26.04 ? (conteneur jetable)
     runs-on: ubuntu-latest
     container: ubuntu:26.04
@@ -95,6 +97,27 @@ jobs:
           dpkg-query -W -f='kwin-wayland=${Version}\n' kwin-wayland 2>/dev/null || true
           so=$(dpkg -L kwin-effect-roundcorners | grep -E '\.so$' | head -1)
           ldd "$so" | grep -i "not found" && { echo "::error::dépendances manquantes pour $so"; exit 1; } || echo "ldd : OK"
+
+      - name: Publier le diagnostic sur la branche ci-logs-roundcorners
+        if: always()
+        run: |
+          mkdir -p /tmp/pub && cd /tmp/pub
+          {
+            echo "== os"; head -3 /etc/os-release
+            echo "== policy"; apt-cache policy kwin-effect-roundcorners
+            echo "== dpkg -l kwin*"; dpkg -l 'kwin*' 2>&1 | head -30
+            echo "== dpkg -L"; dpkg -L kwin-effect-roundcorners 2>&1
+            echo "== proprietaires"
+            for f in $(dpkg -L kwin-effect-roundcorners 2>/dev/null | while read x; do [ -f "$x" ] && echo "$x"; done); do echo "$f -> $(dpkg -S "$f" 2>&1 | cut -d: -f1 | sort -u | tr '\n' ' ')"; done
+            echo "== dpkg -V"; dpkg -V kwin-effect-roundcorners 2>&1; echo "rc=$?"
+            echo "== ldd"
+            for so in $(dpkg -L kwin-effect-roundcorners 2>/dev/null | grep -E '\.so$'); do echo "$so"; ldd "$so" 2>&1 | grep -iE "not found" || echo "  ldd OK"; done
+          } > diag.txt 2>&1
+          apt-get install -y --no-install-recommends git >/dev/null 2>&1
+          echo "run $GITHUB_RUN_ID $(date -u +%FT%TZ)" > RUN.txt
+          git init -q -b ci-logs && git config user.name ci && git config user.email ci@users.noreply.github.com
+          git add -A && git commit -qm "roundcorners run $GITHUB_RUN_ID"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs:ci-logs-roundcorners
 
   shell-syntax:
     runs-on: ubuntu-latest
