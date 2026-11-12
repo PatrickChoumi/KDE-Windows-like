@@ -86,18 +86,26 @@ jobs:
           apt-get install -y --no-install-recommends kwin-effect-roundcorners
       - name: Contrôle du résultat réel
         run: |
-          dpkg -L kwin-effect-roundcorners | grep -E '\.so$|\.frag$|\.json$' || { echo "::error::aucun fichier d'effet installé"; exit 1; }
+          dpkg -L kwin-effect-roundcorners | grep -E '\.so$|\.frag$' || { echo "::error::aucun fichier d'effet installé"; exit 1; }
           # Aucun fichier du paquet ne doit appartenir à un autre paquet.
           for f in $(dpkg -L kwin-effect-roundcorners | while read x; do [ -f "$x" ] && echo "$x"; done); do
             o=$(dpkg -S "$f" 2>/dev/null | cut -d: -f1 | sort -u | tr '\n' ' ')
-            case "$o" in "kwin-effect-roundcorners ") ;; *) echo "::warning::$f appartient à : $o" ;; esac
+            case "$o" in "kwin-effect-roundcorners ") ;; *) echo "::error::$f appartient à : $o"; exit 1 ;; esac
           done
-          dpkg -V kwin-effect-roundcorners && echo "dpkg -V : OK"
-          # Le plugin est lié à la version de KWin : on la note.
-          dpkg-query -W -f='kwin-wayland=${Version}\n' kwin-wayland 2>/dev/null || true
-          so=$(dpkg -L kwin-effect-roundcorners | grep -E '\.so$' | head -1)
-          ldd "$so" | grep -i "not found" && { echo "::error::dépendances manquantes pour $so"; exit 1; } || echo "ldd : OK"
-
+          # Les traductions manquent dans l'image Docker (path-exclude) : on ne les compte pas.
+          if dpkg -V kwin-effect-roundcorners | grep -v '/usr/share/locale/'; then echo "::error::dpkg -V signale des écarts"; exit 1; fi
+          echo "dpkg -V : OK"
+      - name: Édition de liens contre le vrai KWin 6.6 (kwin + KF6 installés)
+        run: |
+          # Dans le conteneur nu, ni KWin ni Qt n'existent : ldd y est sans valeur. On installe le vrai KWin.
+          apt-get install -y --no-install-recommends kwin-wayland kwin-x11 libepoxy0 libkf6kcmutils6
+          dpkg-query -W -f='${Package}=${Version}\n' kwin-wayland kwin-x11 kwin-effect-roundcorners
+          bad=0
+          for so in $(dpkg -L kwin-effect-roundcorners | grep -E '\.so$'); do
+            echo "$so"; if ldd "$so" | grep -i "not found"; then bad=1; fi
+          done
+          [ "$bad" = 0 ] || { echo "::error::bibliothèques introuvables avec KWin installé"; exit 1; }
+          echo "ldd : OK"
       - name: Publier le diagnostic sur la branche ci-logs-roundcorners
         if: always()
         run: |
@@ -110,6 +118,8 @@ jobs:
             echo "== proprietaires"
             for f in $(dpkg -L kwin-effect-roundcorners 2>/dev/null | while read x; do [ -f "$x" ] && echo "$x"; done); do echo "$f -> $(dpkg -S "$f" 2>&1 | cut -d: -f1 | sort -u | tr '\n' ' ')"; done
             echo "== dpkg -V"; dpkg -V kwin-effect-roundcorners 2>&1; echo "rc=$?"
+            echo "== Depends"; apt-cache show kwin-effect-roundcorners | grep -E '^(Depends|Recommends):'
+            echo "== kwin installé"; dpkg -l 'kwin*' 'libkf6kcmutils*' 2>&1 | grep '^ii' | cut -c1-90
             echo "== ldd"
             for so in $(dpkg -L kwin-effect-roundcorners 2>/dev/null | grep -E '\.so$'); do echo "$so"; ldd "$so" 2>&1 | grep -iE "not found" || echo "  ldd OK"; done
           } > diag.txt 2>&1
