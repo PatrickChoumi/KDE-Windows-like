@@ -11,7 +11,10 @@
 
 Fichiers de la feature 5.1 : `scripts/install-roundcorners.sh`, `ci/roundcorners-desktop.sh`, `.github/workflows/roundcorners-desktop.yml` (**version de référence**, bureau complet, branche `ci-out/roundcorners-desktop`) ; ancienne version sans barre des tâches ni fond : `ci/roundcorners-shots.sh` (X11 nu) ; essai Wayland : `ci/roundcorners-wayland.sh`, `.github/workflows/roundcorners-wayland.yml` (lancement manuel).
 
-## Ce que ça valide (et ce que ça ne valide pas)
+## MISE À JOUR 2026-11-13 : le rendu des coins EST validé sur une VM réelle
+Les paragraphes « non validé » ci-dessous décrivent l'ancien essai en conteneur. Le rendu est désormais validé avec `roundcorners-vm.yml` (runner sans conteneur, KWin Wayland sur DRM, OpenGL) : voir `docs/METHODE-DE-TRAVAIL.md`, section « VM réelle sans conteneur ». Pour toute nouvelle feature visuelle sur KWin, partir de `ci/roundcorners-vm.sh`, pas du conteneur.
+
+## Ce que ça valide (et ce que ça ne valide pas) — essai en conteneur, obsolète pour le rendu
 - Validé en VM (run 43284005954 puis 43290304941) : ajout du PPA, simulation `apt -s`, installation d'un seul paquet, contrôles `dpkg`, écriture/relecture dans `kwinrc`, `undo` complet (paquet retiré, `kwinrc` identique à l'original), `status` fidèle.
 - **Non validé : le rendu des coins.** Dans la VM, `kwin_x11` est en 6.6.4 alors que le plugin est compilé pour 6.6.6 (IID `org.kde.kwin.EffectPluginFactory6.6.6`) : KWin refuse l'effet, `loadEffect` répond `false`, les coins restent carrés après installation. Le script le détecte et l'affiche (« activé dans kwinrc mais NON chargé par KWin »).
 - Test de rendu forcé (run 43366267322, CI seulement) : copie du `.so` dont l'IID 6.6.6 est réécrit en 6.6.4 → l'effet se charge (« ShapeCorners: shaders loaded »), puis **`kwin_x11` 6.6.4 plante en boucle (signal 11, 4 plantages)** : le plugin 6.6.6 est incompatible avec ce binaire. Le contrôle de version de KWin protège donc d'un plantage ; ne jamais contourner l'IID sur une vraie machine.
