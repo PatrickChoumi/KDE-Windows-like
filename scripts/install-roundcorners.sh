@@ -122,6 +122,7 @@ do_install() {
 
     # 2. Dépôt PPA (modifie les sources apt : confirmation explicite)
     if ! grep -rqs "matinlotfali/kde-rounded-corners" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
+        command -v add-apt-repository >/dev/null || die "add-apt-repository introuvable : installer d'abord le paquet software-properties-common (sudo apt install software-properties-common). Rien n'a été modifié (sauvegarde : $bdir)"
         confirm "Ajouter le PPA $PPA aux sources apt ?" || die "PPA refusé, rien n'a été modifié (sauvegarde : $bdir)"
         $SUDO add-apt-repository -y "$PPA"
     fi
