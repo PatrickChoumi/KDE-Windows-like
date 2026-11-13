@@ -1,7 +1,7 @@
 name: roundcorners-wayland
 
 # Feature 5.1 : exécute le vrai scripts/install-roundcorners.sh dans une VM jetable (ubuntu:26.04),
-# avec kwin_wayland --virtual (6.6.6, même version que le plugin), et publie les captures sur la branche ci-shots-roundcorners-wayland.
+# avec kwin_wayland --virtual (6.6.6, même version que le plugin), et publie les captures sur la branche ci-out/roundcorners-wayland.
 on:
   workflow_dispatch:
 
