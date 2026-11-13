@@ -49,14 +49,16 @@ Item {
     Plasmoid.status: root.visible ? PlasmaCore.Types.RequiresAttentionStatus : PlasmaCore.Types.PassiveStatus
 
     // 3.10 : l'animation vit hors du Dialog (dont l'enfant par défaut doit être un Item).
+    // Le glissement porte sur le CONTENU (rootItem.slideY), pas sur la fenêtre : le Dialog replace la fenêtre pour qu'elle
+    // reste au-dessus de la barre (mesuré en CI : y 340 -> 304 en 25 ms), donc un glissement de fenêtre est annulé.
     ParallelAnimation {
         id: openAnimation
-        NumberAnimation { target: root; property: "y"; from: root.targetY + root.openSlide; to: root.targetY
+        NumberAnimation { target: rootItem; property: "slideY"; from: root.openSlide; to: 0
                           duration: root.openDuration; easing.type: Easing.OutCubic }
         NumberAnimation { target: root; property: "opacity"; from: 0; to: 1
                           duration: root.openDuration; easing.type: Easing.OutCubic }
-        onStarted: console.log("StartMenu anim: debut t=" + Date.now() + " y=" + root.y + " cible=" + root.targetY)
-        onFinished: console.log("StartMenu anim: fin t=" + Date.now() + " y=" + root.y + " opacite=" + root.opacity)
+        onStarted: console.log("StartMenu anim: debut t=" + Date.now() + " slideY=" + rootItem.slideY)
+        onFinished: console.log("StartMenu anim: fin t=" + Date.now() + " slideY=" + rootItem.slideY + " opacite=" + root.opacity)
     }
 
     PlasmaCore.Dialog {
@@ -97,6 +99,7 @@ Item {
             } else {
                 openAnimation.stop();
                 opacity = 1;
+                rootItem.slideY = 0;
                 leftColumnState = 0;
                 sharedContextMenu.close();
                 powerMenu.close();
@@ -106,18 +109,14 @@ Item {
         onHeightChanged: if (visible) reposition()
         onWidthChanged: if (visible) reposition()
 
-        // Position verticale finale (la fenêtre glisse jusqu'ici à l'ouverture).
-        property int targetY: 0
-        // 3.10 — animation d'ouverture Win11 : glissement vers le haut (32 px) + fondu, ~200 ms.
+        // 3.10 — animation d'ouverture Win11 : le contenu glisse vers le haut (32 px) + fondu de la fenêtre, ~200 ms.
         // Durée 0 si les animations sont désactivées (Kirigami.Units.longDuration === 0).
         readonly property int openDuration: Kirigami.Units.longDuration === 0 ? 0 : 200
         readonly property int openSlide: 32
 
         function reposition() {
             var pos = popupPosition(width, height);
-            x = pos.x;
-            targetY = pos.y;
-            if (!openAnimation.running) y = pos.y;
+            x = pos.x; y = pos.y;
         }
 
         function playOpenAnimation() {
@@ -127,11 +126,10 @@ Item {
             }
             openAnimation.stop();
             opacity = 0;
+            rootItem.slideY = openSlide;
             openAnimation.start();
         }
 
-        // Trace de la position à chaque image pendant l'animation (mesurée en CI).
-        onYChanged: if (openAnimation.running) console.log("StartMenu anim: t=" + Date.now() + " y=" + y + " opacite=" + opacity.toFixed(2))
 
         function toggle() {
             main.visible = !main.visible
@@ -204,6 +202,11 @@ Item {
             width: 640
             height: 720
             focus: true
+
+            // 3.10 : décalage vertical du contenu pendant l'animation d'ouverture (32 px -> 0).
+            property real slideY: 0
+            transform: Translate { y: rootItem.slideY }
+            onSlideYChanged: if (openAnimation.running) console.log("StartMenu anim: t=" + Date.now() + " slideY=" + slideY.toFixed(1) + " opacite=" + root.opacity.toFixed(2))
 
             // Note: do NOT auto-redirect to the search field here.
             // onFocusChanged fires when any child calls forceActiveFocus(),
