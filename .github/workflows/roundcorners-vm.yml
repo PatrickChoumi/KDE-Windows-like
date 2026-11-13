@@ -47,7 +47,7 @@ jobs:
       - name: Installer le paquet du PPA à la main (l'apt de cette VM n'indexe pas le PPA)
         run: |
           mkdir -p shots; sudo chmod 777 shots
-          {
+          (
             cd /tmp; B=https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu
             echo "== Packages.gz"; curl -sSL -o /tmp/Packages.gz -w "http=%{http_code} taille=%{size_download}\n" "$B/dists/resolute/main/binary-amd64/Packages.gz"
             zcat /tmp/Packages.gz > /tmp/ppa-Packages 2>&1; echo "zcat exit=$?"; grep -E '^(Package|Version|Filename|Depends):' /tmp/ppa-Packages | head -12
@@ -57,7 +57,7 @@ jobs:
               sudo dpkg -i "/tmp/$(basename "$F")" 2>&1 | tail -5
             fi
             echo "== etat"; dpkg -l kwin-effect-roundcorners 2>&1 | tail -2
-          } > shots/manual-install.txt 2>&1 || true
+          ) > shots/manual-install.txt 2>&1 || true
           cat shots/manual-install.txt
       - name: Installer le thème du dépôt (root)
         run: |
