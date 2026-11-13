@@ -2,7 +2,7 @@ name: screenshots
 
 on:
   push:
-    branches: [dev]
+    branches: [main]
     paths: ['.github/workflows/screenshots.yml', 'ci/**']
   workflow_dispatch:
 

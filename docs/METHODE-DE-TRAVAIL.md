@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 26).
+> Dernière mise à jour : 2026-11-13 (version 27).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -17,15 +17,14 @@
 
 ## 2. Où est le travail
 - Dépôt : `PatrickChoumi/KDE-Windows-like` (fork de Jeysef/KDE-Windows-Modern, GPL-3.0).
-- `main` = stable (contient 3 correctifs : Kirigami.Badge x2, filterByVirtualDesktop).
-- `dev` = travail en cours (correctifs, CI, scripts). On fusionne dans `main` après validation visuelle.
-- Branches `ci-shots-native` et `ci-shots-fork` = captures et journaux du dernier run (écrasées à chaque run).
+- **Deux branches seulement** (règle de Patrick, 2026-11-13) : `main` = le code (on travaille et on pousse dessus) ; `ci-out` = sorties de la CI (un seul commit orphelin recréé à chaque publication, un sous-dossier par workflow : `fork/`, `native/`, `roundcorners/`, `roundcorners-desktop/`, `roundcorners-wayland/`, `roundcorners-diag/`). Ne pas recréer d'autre branche : travailler sur `main`, marquer les états validés par un tag `stable-AAAA-MM-JJ`.
+- Sauvegardes : tags `archive/codex-visual-regression` (ancienne PR n°1, 2 commits : `quality.yml`, `scripts/visual-regression.sh`, docs) et `archive/main-avant-2026-11-13` (ancien `main`). Pour ressusciter : `git branch <nom> <tag>`.
 
 ## 3. Boucle de travail (un correctif à la fois)
 1. Lire l'état réel (code, journaux CI, captures) avant de conclure. Ne pas supposer.
 2. Un correctif = un commit, message `fix(...)`/`ci(...)`/`feat(...)`/`docs(...)`, avec les lignes d'attribution de l'outil utilisé. Pour Claude :
    `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>` et `Claude-Session: <url de session>`.
-3. Pousser sur `dev`, laisser la CI tourner, lire le résultat, corriger.
+3. Pousser sur `main`, laisser la CI tourner, lire le résultat, corriger.
 4. Dire clairement ce qui est vérifié, ce qui est supposé, et ce qui n'a pas été testé.
 5. Si une conclusion précédente se révèle fausse, le dire immédiatement avec la preuve (déjà arrivé : « pas d'icontasks natif » était faux ; « l'icône générique = icontasks » était faux : c'était le bouton Démarrer, sans thème d'icônes actif).
 6. Quand la cause n'est pas évidente : instrumenter la CI (trace par étape, test isolé) plutôt que deviner.
@@ -35,11 +34,11 @@
 
 ## 4. Outils et accès
 - Clonage et push : `gh`/`git` via le proxy ; le dépôt est ajouté à la session avec droit d'écriture. Avant de pousser : `git fetch origin dev`.
-- Les artefacts GitHub Actions ne sont pas téléchargeables depuis le bac à sable (accès refusé) → la CI publie captures et journaux sur les branches `ci-shots-<variante>`, lues par `git clone --depth 1 -b ci-shots-<variante>`. Vérifier `RUN.txt` (id du run) pour être sûr de lire le bon run.
+- Les artefacts GitHub Actions ne sont pas téléchargeables depuis le bac à sable (accès refusé) → la CI publie captures et journaux sur la branche `ci-out` (sous-dossier par workflow, via `ci/publish.sh`), lue par `git clone --depth 1 -b ci-out`. Vérifier `RUN.txt` (id du run) pour être sûr de lire le bon run.
 - CI (`.github/workflows/`) :
   - `build.yml` (`build-and-check`) : garde-fou API (chaînes interdites `Kirigami.Badge`, `filterByCurrentVirtualDesktop`), compilation de l'Icon Tasks sur `ubuntu:26.04`, `qmllint`, syntaxe des scripts.
   - `screenshots.yml` : matrice `native`/`fork`, session X11 virtuelle (Xvfb + `kwin_x11` en `KWIN_COMPOSE=N` + plasmashell), captures `01-defaut`, `02-theme-windows`, `03-lookandfeel-dark`, `04-fenetres-ouvertes` (Konsole + Dolphin ouverts : seule capture qui montre la barre de tâches), `05-apres-redemarrage-plasmashell`, `06-test-icones` (Kirigami.Icon via `qmltestrunner`, `ci/icon-test.qml`). Journaux de diagnostic : `icon-diag.txt`, `icon-trace.txt`, `svgtoqml.log`. Un run dure 4–15 min.
-  - **Déclenchement** : `screenshots.yml` ne démarre au push que si `ci/**` ou son propre fichier change. Après un changement ailleurs (QML, `scripts/`…), lancer : `gh workflow run screenshots.yml --repo PatrickChoumi/KDE-Windows-like --ref dev`. Attendre ensuite les deux workflows (`build-and-check` et `screenshots`) sur le même commit, et ne pas boucler plus de ~9 min par commande (limite 10 min) : reprendre l'attente dans une commande suivante.
+  - **Déclenchement** : `screenshots.yml` ne démarre au push que si `ci/**` ou son propre fichier change. Après un changement ailleurs (QML, `scripts/`…), lancer : `gh workflow run screenshots.yml --repo PatrickChoumi/KDE-Windows-like --ref main`. Attendre ensuite les deux workflows (`build-and-check` et `screenshots`) sur le même commit, et ne pas boucler plus de ~9 min par commande (limite 10 min) : reprendre l'attente dans une commande suivante.
   - La CI tourne en **root** : les paquets d'icônes vont dans `/usr/share/icons`, pas `~/.local`.
 - Tout nouveau workflow de test part de `screenshots.yml` (environnement complet, voir §1) ; un workflow qui échoue doit être rouge (étape de vérification finale), jamais « vert » avec `|| true`.
 - Vérifier une capture : recadrer la barre (`convert x.png -crop 700x80+610+1000`) avant de la lire pour économiser les tokens ; zoom `-scale 800%` pour juger les pixels. Mesures par pixel avec Python/PIL.
@@ -100,6 +99,7 @@
 - Bureau complet en VM (workflow `roundcorners-desktop`, run 43366267322, comme `screenshots.yml` : fond, barre Win11, layout, Icon Tasks du fork) : install/undo OK, `kwinrc` identique après undo. Test forcé (IID réécrit, CI seulement) : l'effet se charge puis `kwin_x11` 6.6.4 plante (4×SIGSEGV) → ne jamais contourner l'IID ; les coins arrondis ne sont vérifiables qu'en Wayland sur la vraie machine.
 - Ensuite : test sur la vraie machine par Patrick (`scripts/install-roundcorners.sh`), puis 3.10 (animation d'ouverture du menu).
 - Animation d'ouverture du menu (3.10) validée (run 43380171516, commit `dc4ccfc`) : la trace `anim/trace.txt` montre 32 px → 0 et opacité 0 → 1 en 197 ms ; la capture à 106 ms diffère de l'état final, les suivantes sont identiques. Le premier essai (`cc59fbe`) ne bougeait pas : le `Dialog` replace la fenêtre, le glissement doit porter sur le contenu. Ensuite : zone de notification (2.4 bouton notifications + pastille, 2.6/2.7 centre rapide), ou 4.x recherche, ou test réel des coins arrondis par Patrick.
+- Nettoyage des branches (2026-11-13, v27) : 10 branches → 2 (`main`, `ci-out`). `dev` fusionné dans `main` (avance rapide, 0 commit perdu) puis supprimé ; les 7 branches `ci-*` supprimées (les 6 workflows publient maintenant dans `ci-out` par `ci/publish.sh`) ; PR n°1 (`codex/visual-regression-foundation`) fermée, ses commits gardés dans le tag `archive/codex-visual-regression` (non fusionnés : à reprendre si utile). Les liens `ci-shots-*` des anciennes notes sont obsolètes : lire `ci-out/<dossier>`.
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.

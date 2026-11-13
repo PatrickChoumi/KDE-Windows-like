@@ -1,11 +1,11 @@
 name: roundcorners-shots
 
 # Feature 5.1 : exécute le vrai scripts/install-roundcorners.sh dans une VM jetable (ubuntu:26.04),
-# avec une session KWin composée (OpenGL logiciel), et publie les captures sur la branche ci-shots-roundcorners.
+# avec une session KWin composée (OpenGL logiciel), et publie les captures sur la branche ci-out/roundcorners.
 on:
   workflow_dispatch:
   push:
-    branches: [dev]
+    branches: [main]
     paths: ['.github/workflows/roundcorners-shots.yml', 'ci/roundcorners-shots.sh', 'scripts/install-roundcorners.sh']
 
 permissions:

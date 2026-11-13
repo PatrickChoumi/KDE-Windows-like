@@ -9,7 +9,7 @@
 4. Un déclencheur `paths:` limite le workflow aux fichiers concernés ; `workflow_dispatch` permet de le relancer à la main.
 5. Lire les résultats **réels** : un job vert ne prouve rien si l'étape finit par `|| true`. Regarder `install.log`, `status-*.txt`, `kwinrc-*.txt`, `etat.txt` et les pixels.
 
-Fichiers de la feature 5.1 : `scripts/install-roundcorners.sh`, `ci/roundcorners-desktop.sh`, `.github/workflows/roundcorners-desktop.yml` (**version de référence**, bureau complet, branche `ci-shots-roundcorners-desktop`) ; ancienne version sans barre des tâches ni fond : `ci/roundcorners-shots.sh` (X11 nu) ; essai Wayland : `ci/roundcorners-wayland.sh`, `.github/workflows/roundcorners-wayland.yml` (lancement manuel).
+Fichiers de la feature 5.1 : `scripts/install-roundcorners.sh`, `ci/roundcorners-desktop.sh`, `.github/workflows/roundcorners-desktop.yml` (**version de référence**, bureau complet, branche `ci-out/roundcorners-desktop`) ; ancienne version sans barre des tâches ni fond : `ci/roundcorners-shots.sh` (X11 nu) ; essai Wayland : `ci/roundcorners-wayland.sh`, `.github/workflows/roundcorners-wayland.yml` (lancement manuel).
 
 ## Ce que ça valide (et ce que ça ne valide pas)
 - Validé en VM (run 43284005954 puis 43290304941) : ajout du PPA, simulation `apt -s`, installation d'un seul paquet, contrôles `dpkg`, écriture/relecture dans `kwinrc`, `undo` complet (paquet retiré, `kwinrc` identique à l'original), `status` fidèle.
@@ -33,5 +33,5 @@ Fichiers de la feature 5.1 : `scripts/install-roundcorners.sh`, `ci/roundcorners
 ## Recette pour une nouvelle feature
 1. Écrire le script avec sauvegarde, simulation, contrôles, activation relue, `undo`, `status`.
 2. Copier `roundcorners-shots.yml` et `ci/roundcorners-shots.sh`, adapter les paquets, l'état et le recadrage.
-3. Pousser sur `dev`, attendre le run, cloner la branche `ci-shots-<feature>`, lire `etat.txt` et regarder les images.
+3. Pousser sur `main`, attendre le run, cloner la branche `ci-out` (dossier `<feature>`), lire `etat.txt` et regarder les images.
 4. Corriger tant que les journaux montrent un écart ; ne mettre « ✅ » dans `docs/FONCTIONNALITES-WIN11.md` que si une capture ou une mesure le prouve.

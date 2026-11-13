@@ -3,7 +3,7 @@ name: roundcorners-desktop
 on:
   workflow_dispatch:
   push:
-    branches: [dev]
+    branches: [main]
     paths: ['.github/workflows/roundcorners-desktop.yml', 'ci/roundcorners-desktop.sh', 'scripts/install-roundcorners.sh']
 
 permissions:

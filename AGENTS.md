@@ -10,5 +10,5 @@ Avant toute modification de ce dépôt, lis dans cet ordre :
 Points essentiels (détails dans la méthode) :
 - Répondre en français, de façon courte ; un correctif = un commit, une chose à la fois.
 - Travailler sur la branche `dev`, jamais de commande destructive, ne rien supprimer dans `/usr/share`.
-- Valider par la CI (`build-and-check` + captures `ci-shots-fork` / `ci-shots-native`), mesurer les pixels avant de corriger, ne jamais croire un « Done ».
+- Valider par la CI (`build-and-check` + captures `ci-out/fork` / `ci-out/native`), mesurer les pixels avant de corriger, ne jamais croire un « Done ».
 - Après chaque correctif validé : mettre à jour `docs/METHODE-DE-TRAVAIL.md` (§5 leçons, §6 état).
