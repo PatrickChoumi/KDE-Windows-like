@@ -1,0 +1,55 @@
+name: desktop-vm
+
+# Bureau Plasma complet sur la VRAIE VM (runner ubuntu-latest sans conteneur) : KWin Wayland sur DRM, OpenGL gl2.
+# Sert à valider ce que le Xvfb de screenshots.yml ne peut pas montrer (translucidité, flou, barre flottante, ombres).
+# Publie sur ci-out/desktop-vm.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['ci/desktop-vm.sh', 'ci/drm-grab.py', '.github/workflows/desktop-vm.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  desktop:
+    runs-on: ubuntu-latest
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - uses: actions/checkout@v4
+      - name: Paquets Plasma, outils de compilation (sudo)
+        timeout-minutes: 25
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 \
+            plasma-desktop plasma-workspace kwin-wayland kactivitymanagerd systemsettings qt6-wayland libcap2-bin dolphin konsole \
+            libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs \
+            cmake ninja-build build-essential extra-cmake-modules qt6-base-dev qt6-declarative-dev \
+            libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6coreaddons-dev libkf6windowsystem-dev libkf6kio-dev \
+            libkf6service-dev libkf6xmlgui-dev libkf6notifications-dev libplasma-dev plasma-workspace-dev libksysguard-dev \
+            libplasmaactivities-dev libplasmaactivitiesstats-dev > /tmp/apt-install.log 2>&1 \
+            || { echo "::error::apt install: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit 1; }
+          for group in "kde-spectacle spectacle" "kwin-style-aurorae aurorae" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+            for p in $group; do sudo apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
+          done
+      - name: Compiler et installer l'Icon Tasks du fork
+        timeout-minutes: 25
+        run: |
+          APP=plasma/applets/org.kde.windowsmodern.icontasks
+          cmake -S $APP -B /tmp/ib -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+          cmake --build /tmp/ib
+          so=$(find /tmp/ib -name org.kde.windowsmodern.icontasks.so | head -1)
+          sudo install -m 0644 "$so" /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/
+      - name: Installer le thème (root, sans reset du layout)
+        run: |
+          for c in themes icons showdesk shortcuts notifybutton startmenu digitalclock lookfeel layout; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+      - name: Session Wayland (DRM, gl2) et captures
+        run: |
+          mkdir -p shots; sudo chmod 777 shots
+          sudo -E env HOME=/root dbus-run-session -- bash ci/desktop-vm.sh shots || true
+          sudo chmod -R a+rwX shots
+          ls -l shots | head -30; echo "== etat"; cat shots/etat.txt 2>&1 | head -40
+      - name: Publier sur ci-out
+        if: always()
+        run: GITHUB_TOKEN=${{ github.token }} bash ci/publish.sh shots desktop-vm
