@@ -46,12 +46,19 @@ jobs:
           cat shots/apt-ppa-diag.txt
       - name: Installer le paquet du PPA à la main (l'apt de cette VM n'indexe pas le PPA)
         run: |
-          cd /tmp; B=https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu
-          curl -fsSL "$B/dists/resolute/main/binary-amd64/Packages.gz" | zcat > /tmp/ppa-Packages 2>/tmp/ppa-curl.err || echo "::warning::Packages.gz illisible : $(cat /tmp/ppa-curl.err)"
-          F=$(awk '/^Package: kwin-effect-roundcorners$/{p=1} p&&/^Filename:/{print $2; exit}' /tmp/ppa-Packages)
-          echo "Filename: $F" | tee -a shots/apt-ppa-diag.txt
-          [ -n "$F" ] && curl -fsSLO "$B/$F" && sudo dpkg -i "/tmp/$(basename "$F")" 2>&1 | tail -3 || echo "::warning::installation manuelle du paquet impossible"
-          dpkg -l kwin-effect-roundcorners | tail -1
+          mkdir -p shots; sudo chmod 777 shots
+          {
+            cd /tmp; B=https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu
+            echo "== Packages.gz"; curl -sSL -o /tmp/Packages.gz -w "http=%{http_code} taille=%{size_download}\n" "$B/dists/resolute/main/binary-amd64/Packages.gz"
+            zcat /tmp/Packages.gz > /tmp/ppa-Packages 2>&1; echo "zcat exit=$?"; grep -E '^(Package|Version|Filename|Depends):' /tmp/ppa-Packages | head -12
+            F=$(awk '/^Package: kwin-effect-roundcorners$/{p=1} p&&/^Filename:/{print $2; exit}' /tmp/ppa-Packages); echo "Filename: [$F]"
+            if [ -n "$F" ]; then
+              curl -sSL -o "/tmp/$(basename "$F")" -w "deb http=%{http_code} taille=%{size_download}\n" "$B/$F"
+              sudo dpkg -i "/tmp/$(basename "$F")" 2>&1 | tail -5
+            fi
+            echo "== etat"; dpkg -l kwin-effect-roundcorners 2>&1 | tail -2
+          } > shots/manual-install.txt 2>&1 || true
+          cat shots/manual-install.txt
       - name: Installer le thème du dépôt (root)
         run: |
           for c in themes icons lookfeel; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
