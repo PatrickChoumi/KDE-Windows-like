@@ -29,6 +29,17 @@ jobs:
             for p in $group; do sudo apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
           done
           dpkg -l 'kwin*' | grep '^ii' | cut -c1-80
+      - name: Diagnostic apt du PPA sur cette VM
+        run: |
+          mkdir -p shots; sudo chmod 777 shots
+          { sudo add-apt-repository -y ppa:matinlotfali/kde-rounded-corners; sudo apt-get update 2>&1 | tail -15
+            echo "== policy"; apt-cache policy kwin-effect-roundcorners
+            echo "== listes"; ls -l /var/lib/apt/lists | grep -i rounded
+            echo "== architectures"; dpkg --print-architecture; dpkg --print-foreign-architectures
+            echo "== sources"; cat /etc/apt/sources.list.d/*rounded* 2>&1
+            echo "== apt-config"; apt-config dump | grep -iE "Architectures|Languages|IndexTargets" | head
+          } > shots/apt-ppa-diag.txt 2>&1 || true
+          cat shots/apt-ppa-diag.txt
       - name: Installer le thème du dépôt (root)
         run: |
           for c in themes icons lookfeel; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
