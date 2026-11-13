@@ -114,7 +114,18 @@ sleep 3
 # --- menu Démarrer ouvert (clic sur le bouton Démarrer, centré sur la barre) ---
 if command -v xdotool >/dev/null; then
   L0=$(wc -l < "$OUT/plasmashell.log" 2>/dev/null || echo 0)
-  xdotool mousemove 860 1056; sleep 1; xdotool click 1; sleep 4
+  xdotool mousemove 860 1056; sleep 1
+  # 3.10 : captures rapprochées pendant l'animation d'ouverture (heure en ms avant chaque capture ; planche de contact)
+  mkdir -p "$OUT/anim"; : > "$OUT/anim/times.txt"
+  T0=$(date +%s%3N); echo "clic $T0" >> "$OUT/anim/times.txt"
+  xdotool click 1
+  for i in 1 2 3 4 5 6 7 8; do
+    echo "f$i $(( $(date +%s%3N) - T0 ))" >> "$OUT/anim/times.txt"
+    import -window root "$OUT/anim/f$i.png" > /dev/null 2>&1
+  done
+  for i in 1 2 3 4 5 6 7 8; do convert "$OUT/anim/f$i.png" -crop 700x780+610+260 +repage -resize 50% "$OUT/anim/c$i.png" 2>/dev/null; done
+  montage "$OUT"/anim/c[1-8].png -tile 8x1 -geometry +2+2 -background '#444' "$OUT/anim-planche.png" > /dev/null 2>&1
+  sleep 3
   shot 09-menu-demarrer
   # vue « Toutes les applications » : clic sur le bouton « All apps » du menu ouvert
   xdotool mousemove 1198 403; sleep 1; xdotool click 1; sleep 3

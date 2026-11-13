@@ -12,6 +12,7 @@
 - Ne jamais croire qu'un script a réussi parce qu'il affiche « Done » : vérifier le résultat réel (journal, présence du fichier, `dpkg -V`, capture).
 - Focus actuel : travailler **sur GitHub** (l'utilisateur ne veut plus de commandes à exécuter chez lui, sauf nécessité).
 - Offre Claude gratuite : pas de contrôle de l'ordinateur, pas de navigateur piloté, pas de tâches planifiées.
+- **Tester dans l'environnement complet** (consigne du 2026-11-13) : tout test visuel ou système se fait dans le même environnement que `screenshots.yml` — conteneur `ubuntu:26.04` avec bureau Windows 11 complet (look-and-feel, layout, fond d'écran, barre des tâches, Icon Tasks du fork, Konsole + Dolphin ouverts). Jamais sur un bureau nu (captures noires sans barre). Partir de `screenshots.yml` / `ci/screenshot.sh` et n'y ajouter que le nécessaire (composition `KWIN_COMPOSE=O2` pour les effets KWin, `gpg software-properties-common` pour les PPA). Méthode détaillée : `docs/TESTER-DANS-UNE-VM-CI.md`.
 - L'utilisateur écrit en français : répondre en français.
 
 ## 2. Où est le travail
@@ -40,6 +41,7 @@
   - `screenshots.yml` : matrice `native`/`fork`, session X11 virtuelle (Xvfb + `kwin_x11` en `KWIN_COMPOSE=N` + plasmashell), captures `01-defaut`, `02-theme-windows`, `03-lookandfeel-dark`, `04-fenetres-ouvertes` (Konsole + Dolphin ouverts : seule capture qui montre la barre de tâches), `05-apres-redemarrage-plasmashell`, `06-test-icones` (Kirigami.Icon via `qmltestrunner`, `ci/icon-test.qml`). Journaux de diagnostic : `icon-diag.txt`, `icon-trace.txt`, `svgtoqml.log`. Un run dure 4–15 min.
   - **Déclenchement** : `screenshots.yml` ne démarre au push que si `ci/**` ou son propre fichier change. Après un changement ailleurs (QML, `scripts/`…), lancer : `gh workflow run screenshots.yml --repo PatrickChoumi/KDE-Windows-like --ref dev`. Attendre ensuite les deux workflows (`build-and-check` et `screenshots`) sur le même commit, et ne pas boucler plus de ~9 min par commande (limite 10 min) : reprendre l'attente dans une commande suivante.
   - La CI tourne en **root** : les paquets d'icônes vont dans `/usr/share/icons`, pas `~/.local`.
+- Tout nouveau workflow de test part de `screenshots.yml` (environnement complet, voir §1) ; un workflow qui échoue doit être rouge (étape de vérification finale), jamais « vert » avec `|| true`.
 - Vérifier une capture : recadrer la barre (`convert x.png -crop 700x80+610+1000`) avant de la lire pour économiser les tokens ; zoom `-scale 800%` pour juger les pixels. Mesures par pixel avec Python/PIL.
 - Pas de KDE dans le bac à sable : tester les scripts avec des commandes simulées (stubs `kreadconfig6`/`kwriteconfig6` dans un `PATH` temporaire) et les QML par la CI.
 
