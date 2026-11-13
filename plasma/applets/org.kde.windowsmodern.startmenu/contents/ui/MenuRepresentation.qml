@@ -48,6 +48,17 @@ Item {
 
     Plasmoid.status: root.visible ? PlasmaCore.Types.RequiresAttentionStatus : PlasmaCore.Types.PassiveStatus
 
+    // 3.10 : l'animation vit hors du Dialog (dont l'enfant par défaut doit être un Item).
+    ParallelAnimation {
+        id: openAnimation
+        NumberAnimation { target: root; property: "y"; from: root.targetY + root.openSlide; to: root.targetY
+                          duration: root.openDuration; easing.type: Easing.OutCubic }
+        NumberAnimation { target: root; property: "opacity"; from: 0; to: 1
+                          duration: root.openDuration; easing.type: Easing.OutCubic }
+        onStarted: console.log("StartMenu anim: debut t=" + Date.now() + " y=" + root.y + " cible=" + root.targetY)
+        onFinished: console.log("StartMenu anim: fin t=" + Date.now() + " y=" + root.y + " opacite=" + root.opacity)
+    }
+
     PlasmaCore.Dialog {
         id: root
 
@@ -117,16 +128,6 @@ Item {
             openAnimation.stop();
             opacity = 0;
             openAnimation.start();
-        }
-
-        ParallelAnimation {
-            id: openAnimation
-            NumberAnimation { target: root; property: "y"; from: root.targetY + root.openSlide; to: root.targetY
-                              duration: root.openDuration; easing.type: Easing.OutCubic }
-            NumberAnimation { target: root; property: "opacity"; from: 0; to: 1
-                              duration: root.openDuration; easing.type: Easing.OutCubic }
-            onStarted: console.log("StartMenu anim: debut t=" + Date.now() + " y=" + root.y + " cible=" + root.targetY)
-            onFinished: console.log("StartMenu anim: fin t=" + Date.now() + " y=" + root.y + " opacite=" + root.opacity)
         }
 
         // Trace de la position à chaque image pendant l'animation (mesurée en CI).
