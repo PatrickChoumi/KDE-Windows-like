@@ -18,13 +18,15 @@ ls -l /dev/dri > "$OUT/dri.txt" 2>&1; env | grep -E "^(QT_|WAYLAND|XDG_|EGL|LIBG
 # Le backend --virtual de KWin 6.6 ne sait faire que du QPainter (pas d'OpenGL, donc pas d'effet) ; Xvfb (pas de DRI3) et un sway
 # pixman (pas de dmabuf) ne conviennent pas non plus. Sur la VRAIE VM, /dev/dri/card1 existe : backend DRM de KWin, Mesa llvmpipe (kms_swrast).
 # KWIN_WAYLAND_NO_PERMISSION_CHECKS=1 autorise spectacle (sinon « The process is not authorized to take a screenshot »).
+# Le numéro du périphérique DRM varie d'une VM à l'autre (card0 ou card1) : premier présent.
+DRMDEV=$(ls /dev/dri/card* 2>/dev/null | head -1); echo "DRMDEV=$DRMDEV" >> "$OUT/dri.txt"
 SHOTMODE=spectacle; KDESOCK=wayland-0; KWPID=""; RET=""
 launch_kwin() {  # $1 = étiquette, $2 = drm-noop | drm-builtin | virtual
   local tag="$1" mode="$2" rules="kwin_*=true;kwin.*=true;qt.qpa.*=true;qt.core.plugin.loader=false;qt.core.plugin.factoryloader=false"
   local common=(KWIN_WAYLAND_NO_PERMISSION_CHECKS=1 LIBGL_ALWAYS_SOFTWARE=1 QT_LOGGING_RULES="$rules")
   case "$mode" in
-    drm-noop)    env "${common[@]}" KWIN_COMPOSE=O2 LIBSEAT_BACKEND=noop KWIN_DRM_DEVICES=/dev/dri/card1 "$KW" --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
-    drm-builtin) env "${common[@]}" KWIN_COMPOSE=O2 LIBSEAT_BACKEND=builtin KWIN_DRM_DEVICES=/dev/dri/card1 "$KW" --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
+    drm-noop)    env "${common[@]}" KWIN_COMPOSE=O2 LIBSEAT_BACKEND=noop KWIN_DRM_DEVICES="$DRMDEV" "$KW" --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
+    drm-builtin) env "${common[@]}" KWIN_COMPOSE=O2 LIBSEAT_BACKEND=builtin KWIN_DRM_DEVICES="$DRMDEV" "$KW" --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
     virtual)     env "${common[@]}" "$KW" --virtual --width 1920 --height 1080 --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
   esac
   KWPID=$!
