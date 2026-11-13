@@ -57,7 +57,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 3.7 | Menu d'alimentation : Suspendre / Arrêter / Redémarrer avec icônes fines (réf. [07]) | 🟡 ordre Win11, lignes 36 px, icônes 16 px, coins 8 px (CI 43202074169, commit `ca96b8f`) ; Lock / Log out gardés sous un séparateur ; actions grisées en CI (pas de logind), non testées ; pas d'ombre ni d'animation |
 | 3.8 | Épingler / désépingler, réorganiser par glisser-déposer, dossiers d'épinglés | ⬜ |
 | 3.9 | Recherche immédiate en tapant dès l'ouverture ; touche Windows (Meta) ouvre/ferme | 🟡 |
-| 3.10 | Animation d'ouverture (glissement vers le haut + fondu, ~200 ms) | ⬜ |
+| 3.10 | Animation d'ouverture (glissement vers le haut + fondu, ~200 ms) | ✅ trace CI (run 43380171516, commit `dc4ccfc`) : glissement 32 px → 0 et opacité 0 → 1 en 197 ms ; image à 106 ms différente de l'état final (21 635 px), images suivantes identiques |
 | 3.11 | Fermeture au clic extérieur et à `Échap` | 🟡 |
 | 3.12 | Clic droit sur le bouton Démarrer : menu « Power User » (Win+X) | 🟡 15 entrées au clic droit (CI 43214957855) ; menu Qt natif avec entrées Plasma en plus, sans séparateurs ni sous-menu ; clics non testés |
 

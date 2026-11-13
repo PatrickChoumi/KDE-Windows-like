@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 25).
+> Dernière mise à jour : 2026-11-12 (version 26).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -99,6 +99,7 @@
 - Test en VM CI (méthode : `docs/TESTER-DANS-UNE-VM-CI.md`, runs 43284005954 / 43290304941) : install, status et undo OK pour de vrai ; rendu des coins NON validé : plugin compilé pour KWin 6.6.6, `kwin-x11` en 6.6.4 → effet refusé en X11 (coins carrés). Essai `kwin_wayland --virtual` (6.6.6) : échec du plugin QPA sans `/dev/dri` (5 essais, workflow `roundcorners-wayland` en lancement manuel). À vérifier sur la vraie machine en session Wayland.
 - Bureau complet en VM (workflow `roundcorners-desktop`, run 43366267322, comme `screenshots.yml` : fond, barre Win11, layout, Icon Tasks du fork) : install/undo OK, `kwinrc` identique après undo. Test forcé (IID réécrit, CI seulement) : l'effet se charge puis `kwin_x11` 6.6.4 plante (4×SIGSEGV) → ne jamais contourner l'IID ; les coins arrondis ne sont vérifiables qu'en Wayland sur la vraie machine.
 - Ensuite : test sur la vraie machine par Patrick (`scripts/install-roundcorners.sh`), puis 3.10 (animation d'ouverture du menu).
+- Animation d'ouverture du menu (3.10) validée (run 43380171516, commit `dc4ccfc`) : la trace `anim/trace.txt` montre 32 px → 0 et opacité 0 → 1 en 197 ms ; la capture à 106 ms diffère de l'état final, les suivantes sont identiques. Le premier essai (`cc59fbe`) ne bougeait pas : le `Dialog` replace la fenêtre, le glissement doit porter sur le contenu. Ensuite : zone de notification (2.4 bouton notifications + pastille, 2.6/2.7 centre rapide), ou 4.x recherche, ou test réel des coins arrondis par Patrick.
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
