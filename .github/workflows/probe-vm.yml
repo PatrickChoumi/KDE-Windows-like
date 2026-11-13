@@ -1,0 +1,33 @@
+name: probe-vm
+# Sonde : quelles VM (runners sans conteneur) peuvent faire tourner un vrai bureau Plasma 6.6.6 ?
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/probe-vm.yml']
+permissions:
+  contents: write
+jobs:
+  probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04, ubuntu-26.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sonde
+        run: |
+          mkdir -p out; {
+            echo "== os"; cat /etc/os-release | head -4; uname -r
+            echo "== materiel"; nproc; free -m | head -2; df -h / | tail -1
+            echo "== /dev"; ls -l /dev/dri /dev/kvm /dev/fb0 2>&1 | head
+            echo "== systemd"; systemctl is-system-running 2>&1; loginctl list-sessions 2>&1 | head -3
+            echo "== sudo"; sudo -n true && echo "sudo sans mot de passe : oui"
+            echo "== apt (versions kwin)"; sudo apt-get update -qq 2>&1 | tail -1
+            apt-cache policy kwin-wayland kwin-x11 plasma-desktop 2>&1 | grep -E "^[a-z]|Candidate"
+            echo "== deja installe"; dpkg -l 'kwin*' 'plasma-desktop*' 'xvfb' 'mesa*' 2>/dev/null | grep '^ii' | cut -c1-80 | head
+            echo "== docker"; docker --version 2>&1
+          } > out/probe.txt 2>&1; cat out/probe.txt
+      - name: Publier
+        if: always()
+        run: GITHUB_TOKEN=${{ github.token }} bash ci/publish.sh out probe-vm-${{ matrix.os }}
