@@ -32,7 +32,7 @@ kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle kvantum-dark
 WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' -o -name '*.png' \) 2>/dev/null | head -1)
 [ -n "$WP" ] && plasma-apply-wallpaperimage "$WP" >> "$OUT/apply.log" 2>&1
 plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/apply.log" 2>&1; echo "lookandfeel exit=$?" >> "$OUT/apply.log"
-( source scripts/install-lib.sh; ensure_icon_theme windows-modern; ensure_window_decoration dark ) >> "$OUT/apply.log" 2>&1
+( source scripts/install-lib.sh; ensure_icon_theme windows-modern; ensure_window_decoration dark; ensure_kwin_blur ) >> "$OUT/apply.log" 2>&1
 kw /KWin org.kde.KWin.reconfigure >/dev/null
 sleep 20
 shot 01-bureau

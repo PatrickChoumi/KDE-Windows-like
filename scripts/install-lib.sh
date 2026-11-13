@@ -154,6 +154,7 @@ apply_lookandfeel() {
     plasma-apply-lookandfeel -a "$id" $reset_flag
     ensure_icon_theme windows-modern
     case "$id" in *light) ensure_window_decoration light ;; *) ensure_window_decoration dark ;; esac
+    ensure_kwin_blur
     bash "$SRC_DIR/scripts/set-wallpaper.sh" || true
 }
 
@@ -177,6 +178,18 @@ ensure_icon_theme() {
 # Mesuré en CI : après plasma-apply-lookandfeel, [org.kde.kdecoration2] de kwinrc est vide alors que
 # le thème Aurorae est installé et déclaré dans les « defaults » du look-and-feel → KWin garde Breeze.
 # On écrit la décoration nous-mêmes (seulement si le thème est installé) puis on recharge KWin.
+# Flou KWin derrière les panneaux translucides (barre des tâches « Mica »). Réversible : kwinrc [Plugins] blurEnabled=false.
+# `reconfigure` seul ne charge pas un effet activé après le démarrage de KWin : on appelle aussi loadEffect (D-Bus).
+ensure_kwin_blur() {
+    command -v kwriteconfig6 &>/dev/null || return 0
+    if [ "$(kreadconfig6 --file kwinrc --group Plugins --key blurEnabled 2>/dev/null || true)" != "true" ]; then
+        step "Flou KWin (effet blur) : activation"
+        kwriteconfig6 --file kwinrc --group Plugins --key blurEnabled true
+    fi
+    dbus-send --session --dest=org.kde.KWin /KWin org.kde.KWin.reconfigure 2>/dev/null || true
+    dbus-send --session --print-reply --dest=org.kde.KWin /Effects org.kde.kwin.Effects.loadEffect string:blur >/dev/null 2>&1 || true
+}
+
 ensure_window_decoration() {
     local variant="$1" theme current
     theme="__aurorae__svg__windows-modern-${variant}-aurorae"
