@@ -66,6 +66,7 @@ jobs:
     env:
       DEBIAN_FRONTEND: noninteractive
     steps:
+      - uses: actions/checkout@v4
       - name: Dépôt PPA matinlotfali/kde-rounded-corners
         run: |
           apt-get update
@@ -106,7 +107,7 @@ jobs:
           done
           [ "$bad" = 0 ] || { echo "::error::bibliothèques introuvables avec KWin installé"; exit 1; }
           echo "ldd : OK"
-      - name: Publier le diagnostic sur la branche ci-logs-roundcorners
+      - name: Publier le diagnostic sur la branche ci-out
         if: always()
         run: |
           set +e
@@ -125,10 +126,8 @@ jobs:
             for so in $(dpkg -L kwin-effect-roundcorners 2>/dev/null | grep -E '\.so$'); do echo "$so"; ldd "$so" 2>&1 | grep -iE "not found" || echo "  ldd OK"; done
           } > diag.txt 2>&1
           apt-get install -y --no-install-recommends git >/dev/null 2>&1
-          echo "run $GITHUB_RUN_ID $(date -u +%FT%TZ)" > RUN.txt
-          git init -q -b ci-logs && git config user.name ci && git config user.email ci@users.noreply.github.com
-          git add -A && git commit -qm "roundcorners run $GITHUB_RUN_ID"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs:ci-logs-roundcorners
+          cd "$GITHUB_WORKSPACE"
+          GITHUB_TOKEN=${{ github.token }} bash ci/publish.sh /tmp/pub roundcorners-diag
 
   shell-syntax:
     runs-on: ubuntu-latest
