@@ -126,6 +126,7 @@ if command -v xdotool >/dev/null; then
   for i in 1 2 3 4 5 6 7 8; do convert "$OUT/anim/f$i.png" -crop 700x780+610+260 +repage -resize 50% "$OUT/anim/c$i.png" 2>/dev/null; done
   montage "$OUT"/anim/c[1-8].png -tile 8x1 -geometry +2+2 -background '#444' "$OUT/anim-planche.png" > /dev/null 2>&1
   sleep 3
+  grep -a "StartMenu anim" "$OUT/plasmashell-restart.log" > "$OUT/anim/trace.txt" 2>&1 || true
   shot 09-menu-demarrer
   # vue « Toutes les applications » : clic sur le bouton « All apps » du menu ouvert
   xdotool mousemove 1198 403; sleep 1; xdotool click 1; sleep 3
