@@ -67,6 +67,17 @@ reload_kwin() {
     fi
 }
 
+# Charge / décharge l'effet tout de suite par D-Bus (org.kde.kwin.Effects) : `reconfigure` seul ne charge pas un effet activé
+# après le démarrage de KWin (constaté en CI sur une VM réelle). Sans effet : on ne touche à rien, le message habituel s'affiche.
+kwin_effect_call() {  # $1 = loadEffect | unloadEffect
+    if command -v qdbus6 >/dev/null 2>&1 && qdbus6 org.kde.KWin /Effects "org.kde.kwin.Effects.$1" "$EFFECT_ID" >/dev/null 2>&1; then
+        return 0
+    elif command -v dbus-send >/dev/null 2>&1 && dbus-send --session --print-reply --dest=org.kde.KWin /Effects "org.kde.kwin.Effects.$1" "string:$EFFECT_ID" >/dev/null 2>&1; then
+        return 0
+    fi
+    return 1
+}
+
 # Version exigee par le plugin (IID compile dans le .so) : KWin refuse l'effet si elle differe de celle de son binaire.
 plugin_kwin_version() {  # $1 = chemin du .so
     grep -a -o -E 'EffectPluginFactory[0-9]+\.[0-9]+\.[0-9]+' "$1" 2>/dev/null | head -1 | sed 's/EffectPluginFactory//' || true
@@ -174,6 +185,11 @@ do_install() {
     fi
     reload_kwin
     sleep 2
+    if ! effect_loaded; then
+        info "Chargement explicite de l'effet (loadEffect)."
+        kwin_effect_call loadEffect || true
+        sleep 3
+    fi
     if effect_loaded; then
         info "Effet $EFFECT_ID activé ET chargé par KWin. Vérifier visuellement : coins arrondis sur une fenêtre ouverte."
     else
@@ -187,6 +203,7 @@ do_undo() {
     command -v kwriteconfig6 >/dev/null || die "kwriteconfig6 introuvable"
     # Désactivation d'abord (KWin ne doit plus référencer l'effet avant la suppression du .so)
     set_effect false
+    kwin_effect_call unloadEffect || true
     reload_kwin
     if [ -f "$STATE_FILE" ] && [ -f "$(cat "$STATE_FILE")/kwinrc" ]; then
         info "Restauration de kwinrc depuis $(cat "$STATE_FILE")"
