@@ -1,0 +1,80 @@
+name: roundcorners-desktop
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [dev]
+    paths: ['.github/workflows/roundcorners-desktop.yml', 'ci/roundcorners-desktop.sh', 'scripts/install-roundcorners.sh']
+
+permissions:
+  contents: write
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    container: ubuntu:26.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Paquets Plasma (session virtuelle)
+        timeout-minutes: 20
+        run: |
+          for i in 1 2 3; do getent hosts archive.ubuntu.com >/dev/null && break; echo "::warning::DNS KO ($i) resolv.conf: $(grep -v '^#' /etc/resolv.conf | tr '\n' ' ')"; sleep 10; done
+          if ! getent hosts archive.ubuntu.com >/dev/null; then
+            printf 'nameserver 8.8.8.8\nnameserver 1.1.1.1\n' > /etc/resolv.conf
+            getent hosts archive.ubuntu.com >/dev/null && echo "::warning::DNS repli 8.8.8.8 OK" || echo "::warning::DNS toujours KO apres repli"
+          fi
+          apt-get update 2>&1 | tee /tmp/apt-update.log | tail -5 || true
+          grep -E '^(E:|W:|Err)' /tmp/apt-update.log | head -5 | while read -r l; do echo "::warning::apt-update: $l"; done
+          echo 'tzdata tzdata/Areas select Etc' | debconf-set-selections 2>/dev/null || true
+          echo 'tzdata tzdata/Zones/Etc select UTC' | debconf-set-selections 2>/dev/null || true
+          timeout 900 apt-get install -y --no-install-recommends -o Dpkg::Options::=--force-confnew git ca-certificates dbus dbus-x11 \
+            plasma-desktop plasma-workspace kwin-x11 kactivitymanagerd xvfb systemsettings \
+            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 fonts-inter fonts-noto-core imagemagick xdg-user-dirs > /tmp/apt-install.log 2>&1
+          rc=$?; tail -3 /tmp/apt-install.log
+          if [ $rc != 0 ]; then echo "::error::apt install rc=$rc: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit $rc; fi
+          # Paquets dont le nom varie : on essaie plusieurs candidats.
+          for group in "kwin-style-aurorae aurorae" "x11-utils" "wmctrl" "xdotool" "qt6-declarative-dev-tools qt6-declarative-tools" "kde-spectacle spectacle" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+            ok=0; for p in $group; do apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; ok=1; break; }; done
+            [ $ok = 1 ] || echo "::warning::aucun paquet trouvé parmi : $group"
+          done
+      - uses: actions/checkout@v4
+      - name: Compiler et installer l'Icon Tasks corrigé (variante fork)
+        timeout-minutes: 25
+        run: |
+          apt-get install -y --no-install-recommends cmake ninja-build build-essential extra-cmake-modules qt6-base-dev qt6-declarative-dev \
+            libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6coreaddons-dev libkf6windowsystem-dev libkf6kio-dev \
+            libkf6service-dev libkf6xmlgui-dev libkf6notifications-dev libplasma-dev plasma-workspace-dev libksysguard-dev \
+            libplasmaactivities-dev libplasmaactivitiesstats-dev
+          APP=plasma/applets/org.kde.windowsmodern.icontasks
+          cmake -S $APP -B /tmp/ib -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+          cmake --build /tmp/ib
+          so=$(find /tmp/ib -name org.kde.windowsmodern.icontasks.so | head -1)
+          install -m 0644 "$so" /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/
+          ls -l /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/org.kde.windowsmodern.icontasks.so
+      - name: Installer le thème (sans reset du layout)
+        run: |
+          export HOME=/root
+          for c in themes icons showdesk shortcuts startmenu digitalclock lookfeel layout; do bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+          ls ~/.local/share/color-schemes ~/.local/share/plasma/desktoptheme 2>&1 | head
+      - name: Session et captures
+        run: |
+          export HOME=/root
+          dbus-run-session -- bash ci/roundcorners-desktop.sh shots || true
+          ls -l shots
+          echo "== etat"; cat shots/etat.txt 2>&1 | head -80
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: roundcorners-desktop
+          path: shots/
+      - name: Publier les captures sur la branche ci-shots (consultables sans télécharger d'artefact)
+        if: always()
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          rm -rf /tmp/pub && mkdir /tmp/pub && cp -r shots/. /tmp/pub/ 2>/dev/null || true
+          cd /tmp/pub && git init -q -b ci-shots
+          git config user.name "ci" && git config user.email "ci@users.noreply.github.com"
+          echo "run $GITHUB_RUN_ID $(date -u +%FT%TZ)" > RUN.txt
+          git add -A && git commit -qm "screenshots run $GITHUB_RUN_ID"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-shots:ci-shots-roundcorners-desktop
