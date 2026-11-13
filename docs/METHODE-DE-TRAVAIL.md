@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-12 (version 24).
+> Dernière mise à jour : 2026-11-12 (version 25).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -95,6 +95,7 @@
 - Leçon CI : les journaux de job ne sont pas lisibles depuis le bac à sable (blob.core.windows.net bloqué) ; les annotations de l'API donnent seulement le code de sortie. Publier un `diag.txt` sur une branche `ci-logs-*`. Dans une étape `bash -e`, un `grep` sans résultat arrête tout : ajouter `|| true`. Un `ldd` dans un conteneur nu (sans KWin/Qt) donne de faux « not found ».
 - `scripts/install-roundcorners.sh` écrit (commit de la v23) : `install` (sauvegarde `~/backup-kde-roundcorners-*`, PPA après confirmation, `apt-get install -s` avec refus si `Remv`, un seul paquet, contrôle `dpkg -L/-S/-V` et présence de `kwin4_effect_shapecorners.so`, activation `[Plugins] kwin4_effect_shapecornersEnabled=true`, relecture, `qdbus6 … reconfigure`), `undo`, `status`. Testé avec stubs (`kwriteconfig6`, `apt-get`, `dpkg`…) : cycle install/status/undo OK. Piège : sans stub de `add-apt-repository`, le script l'appelle vraiment. Non lancé sur la vraie machine ; non inclus dans `install.sh all`. Les clés de réglage du rayon (`kwinrc`) ne sont pas écrites : non vérifiées, rayon par défaut de l'effet.
 - Test en VM CI (méthode : `docs/TESTER-DANS-UNE-VM-CI.md`, runs 43284005954 / 43290304941) : install, status et undo OK pour de vrai ; rendu des coins NON validé : plugin compilé pour KWin 6.6.6, `kwin-x11` en 6.6.4 → effet refusé en X11 (coins carrés). Essai `kwin_wayland --virtual` (6.6.6) : échec du plugin QPA sans `/dev/dri` (5 essais, workflow `roundcorners-wayland` en lancement manuel). À vérifier sur la vraie machine en session Wayland.
+- Bureau complet en VM (workflow `roundcorners-desktop`, run 43366267322, comme `screenshots.yml` : fond, barre Win11, layout, Icon Tasks du fork) : install/undo OK, `kwinrc` identique après undo. Test forcé (IID réécrit, CI seulement) : l'effet se charge puis `kwin_x11` 6.6.4 plante (4×SIGSEGV) → ne jamais contourner l'IID ; les coins arrondis ne sont vérifiables qu'en Wayland sur la vraie machine.
 - Ensuite : test sur la vraie machine par Patrick (`scripts/install-roundcorners.sh`), puis 3.10 (animation d'ouverture du menu).
 
 ## 7. Quand modifier ce document
