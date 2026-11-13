@@ -1,0 +1,163 @@
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+Could not load a session backend. Session management operations such as shutdown will not be operational. This is a setup issue.
+kde.plasmashell: requesting unexisting screen geometry -1
+kf.package: Could not find required file "mainscript" for package "/usr/share/plasma/plasmoids/org.kde.plasma.icontasks/" should be QList("ui/main.qml")
+kde.plasmashell: Activity added twice "fc1fdd90-8a84-4294-b7cd-921d0c0cfb26"
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+"applications.menu"  not found in  QList("/etc/xdg/menus")
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5747c3fe8250
+org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x5747c3fe8250
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5747c3fe8250
+org.kde.plasma.kicker: Entry is not valid "org.kde.plasma-systemmonitor.desktop" 0x5747c3fe8250
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5747c3fe8250
+org.kde.plasma.kicker: Entry is not valid "org.kde.konsole.desktop" 0x5747c3fe80e0
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5747c5757ca0
+org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x5747c5757ca0
+qrc:/qt/qml/plasma/applet/org/kde/plasma/notifications/global/PulseAudio.qml:9:1: module "org.kde.plasma.private.volume" is not installed
+[W][13:00:02.642211] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:02.642227] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.plasma-systemmonitor.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.konsole.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.plasma-systemmonitor.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.konsole.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5747c5533f00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x5747c5533f00
+[W][13:00:07.392759] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:07.392778] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:12.224897] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:12.224922] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:17.224905] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:17.224931] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:22.224910] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:22.224930] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:27.224781] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:27.224798] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kf.svg: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kf.plasma.core: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+[W][13:00:32.225075] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:32.225106] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:37.224958] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:37.224984] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:42.224901] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:42.224926] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kde.plasmashell: Activity added twice "fc1fdd90-8a84-4294-b7cd-921d0c0cfb26"
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5747c58f3ab0
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5747c58f3ab0
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5747c58f3ab0
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5747c58f3ab0
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5747c58f3ab0
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5747c3b4d440
+[W][13:00:43.935760] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:43.935782] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+qml: NotifyButton: texte L=0.00 fond L=0.00 lightText=false
+qml: windowsmodern.startmenu: rootModel rows = [Applications | Files | KICKER_ALL_MODEL] ; apps = 0 ; files = 0
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5747c45d9a00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5747c45d9a00
+[W][13:00:49.186554] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:49.186580] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:54.225183] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:54.225210] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:59.229520] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:59.229540] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:04.226277] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:04.226298] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:09.228485] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:09.228515] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:14.225834] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:14.225859] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: windowsmodern.startmenu: rootModel rows = [Applications | Files | KICKER_ALL_MODEL] ; apps = 0 ; files = 0
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+qml: StartMenu anim: debut t=1794574878220 slideY=32

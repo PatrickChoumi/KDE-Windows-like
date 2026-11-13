@@ -1,0 +1,20 @@
+== os
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.5 LTS (Noble Numbat)"
+7.0.0-1017-azure
+== materiel
+4
+               total        used        free      shared  buff/cache   available
+Mem:           15983         938       14410          43         966       15045
+/dev/root       145G   59G   86G  41% /
+== /dev
+crw-rw---- 1 root video 29,   0 Nov 13 07:17 /dev/fb0
+crw-rw---- 1 root kvm   10, 232 Nov 13 07:17 /dev/kvm
+
+/dev/dri:
+total 0
+crw-rw---- 1 root video 226, 1 Nov 13 07:17 card1
+== systemd
+starting

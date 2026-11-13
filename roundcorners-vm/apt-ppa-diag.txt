@@ -1,0 +1,84 @@
+Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease
+Hit:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease
+Hit:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease
+Hit:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease
+Get:7 https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu resolute InRelease [20.0 kB]
+Get:8 https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu resolute/main Translation-en [268 B]
+Fetched 20.3 kB in 1s (16.6 kB/s)
+Reading package lists...
+Repository: 'Types: deb
+URIs: https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu/
+Suites: resolute
+Components: main
+'
+Description:
+Rounds the corners of your windows in KDE Plasma 5 and 6
+More info: https://launchpad.net/~matinlotfali/+archive/ubuntu/kde-rounded-corners
+Adding repository.
+Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Hit:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease
+Hit:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease
+Hit:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease
+Hit:7 https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu resolute InRelease
+Reading package lists...
+== policy
+== listes
+-rw-r--r-- 1 root root    19995 Oct 23 04:34 ppa.launchpadcontent.net_matinlotfali_kde-rounded-corners_ubuntu_dists_resolute_InRelease
+-rw-r--r-- 1 root root      508 May  5  2026 ppa.launchpadcontent.net_matinlotfali_kde-rounded-corners_ubuntu_dists_resolute_main_i18n_Translation-en
+== architectures
+amd64
+== sources
+Types: deb
+URIs: https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu/
+Suites: resolute
+Components: main
+Signed-By: 
+ -----BEGIN PGP PUBLIC KEY BLOCK-----
+ .
+ mQINBGmlGVsBEAC6aWosNooPZ/zWOYwXHwQCT2bD7IfzESkiWhNvew6YvUsmE907
+ h08vPAmYPXV2zwpWbGxmcZp2kiEEfAS457XnMcAYZajbfw1mDotL/+vHm8jynVph
+ qgI/FkpAn5bdhD9Q1JySUZgbEU6JqBgKMQwt/TVGYm5RIpWz1KGHKj7DZKc0emc2
+ ojUkHhmn7y6xEGsQqSsDRqgP4nMKrloxZDccPgYovu1kEo2xqwr9VxXU3cHbls7n
+ WbCtS7A0FRTX9AxPvYpZQaFAid9/GzU2SvDiK9viiGmAlNRwsqn1Lr/xO2n5rtpA
+ +Shjl1w6WzDLk7Zc5TsrXoZLBnzsw2zNaCVJfuiJd8B/oee+Jrj2/M6xmkXQs8ro
+ Z1OIqrL3FL7GB/qo6hskPHp7oKac6sxUBr7I6QAO9noj6bVlotMMUiLsv17HDKz1
+ BOX0EXuvGoDIhcuS+VFfEC6QFfOkk7hrbtwXyyyENHLEXw1wTaW9IKFz6V6EnzcX
+ zEkynY/nKHoWoRFeLqsb2wBqrg8N2hK9HMCd9IwLpeWZlrWYh8/C3tdOxL7a+V5i
+ a7Q+gsCPwo/ZZ0G3b5FCUIaQVKN2w0kONRlLpJy5lxxd5V8h/vHrZh4o9dBccIhK
+ lfXXg2cuBHaooGxn2nplenkMqB7unA6TnrKes1E0mTN5QvHwYdgb/Y2YJwARAQAB
+ tB9MYXVuY2hwYWQgUFBBIGZvciBNYXRpbiBMb3RmYWxpiQJOBBMBCgA4FiEEca71
+ hRCIYx2JSK+A/2p7kQFJgksFAmmlGVsCGwMFCwkIBwIGFQoJCAsCBBYCAwECHgEC
+ F4AACgkQ/2p7kQFJgkt7VA//S7sAqDLvsMQ7mrsp8k/GWa1ZW7lblDH02NbfCeaF
+ hqqU5DieM80g3l5Z4G79PDxX9wIc+toire4FCmzqFBPPCmyO7jkVR2MRl1RPlbte
+ seqpOvVBu/UnvE8pF5D+pedgQDmJP+N4QQCGJCEtOAJG9fVXC+zJzdt8lK8uGNyT
+ /w3nsa/mCSYvtnkA2K3fGaJxNBCUNPMzEIaDHFNuTkAkVdYtwxE9dRzV2rADskzP
+ T7Ap/Djd4ERmraKKDSXHQHHCzubjlpfSBWYla0jz7aikIuzTKxDfgT3TkkBRVCk9
+ Vvy3n/tfwhqwyVWAo7MgeRXl9hlvCeQ9yHUE6lFVJFgGWY4zb19argPrDUzLn7GC
+ G4qAKWnegb2gpRsj+EZSmedFjA+7vSP3YzqKidv6YLBk+EPisC8/CpojRitNS/op
+ 7PoQgRUCbHPUjEMRctIb9JCDBrEk64LNcazwbZEHdKj2KDsPFotbH2/x+JvYpMkl
+ w40qIszv5/202cpBbIRQz0ZPMdLZ2KXkDHG/h/ELbKBMMw/V50EtFz7wziSF+I8i
+ otLXJexfJIt87zlTPpdUIOi/Pj3fho4S7baGbBjQLJHJsTxEsczRSoU/43W6XqQz
+ xh7O/HWgCxl4Lwm6ehIryHpynsCxDGXa5US4pVWeyw0/lAHByJ19AZPB+wMqsuXP
+ Zz0=
+ =WBvu
+ -----END PGP PUBLIC KEY BLOCK-----
+== indextargets
+https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu $(ARCHITECTURE) Translations /var/lib/apt/lists/ppa.launchpadcontent.net_matinlotfali_kde-rounded-corners_ubuntu_dists_resolute_main_i18n_Translation-en
+== Release (curl)
+Date: Fri, 23 Oct 2026  4:34:00 UTC
+Architectures: amd64 amd64v3 arm64 armhf i386 ppc64el riscv64 s390x
+Components: main
+ 9b1d2be7c5a8ed8614902e49ac995dff             1428 main/binary-amd64/Packages
+ d0db2983407328a66ac3a871abad24af              667 main/binary-amd64/Packages.gz
+ ba8dcd09f220e02984afc20241173c0b              720 main/binary-amd64/Packages.xz
+ 9452440df079b7bb4a3d1b023060eea3              144 main/binary-amd64/Release
+ d41d8cd98f00b204e9800998ecf8427e                0 main/binary-amd64v3/Packages
+ fa9ac5a217b5547bc7dd4e6e894fe135               20 main/binary-amd64v3/Packages.gz
+ 8dc5aea5b03dff8595f096f9e368e888               32 main/binary-amd64v3/Packages.xz
+grep: write error: Broken pipe
+== apt
+apt 3.2.0 (amd64)

@@ -1,0 +1,5 @@
+crw-rw---- 1 root kvm 10, 232 Nov 13 12:15 /dev/kvm
+
+/dev/dri:
+total 0
+crw-rw---- 1 root video 226, 1 Nov 13 12:15 card1

@@ -1,0 +1,16 @@
+[Desktops]
+Id_1=494f7ecd-a938-485c-8cb3-add1eedfc46f
+Number=1
+Rows=1
+
+[Tiling]
+padding=4
+
+[Tiling][9aada4f5-67a7-5dae-b03f-b55896a52f02]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[org.kde.kdecoration2]
+ButtonsOnLeft=M
+ButtonsOnRight=IAX
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__windows-modern-dark-aurorae

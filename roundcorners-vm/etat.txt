@@ -1,0 +1,40 @@
+== 1-avant
+method return time=1794572408.108048 sender=:1.1 -> destination=:1.14 serial=147 reply_serial=2 variant string "gl2" 
+method return time=1794572408.114519 sender=:1.1 -> destination=:1.16 serial=149 reply_serial=2 boolean false 
+kwinrc: false
+01-avant geom: 52 132 919 504 | client 56 164 911 468
+01-avant pixels (cadre 919x504+52+132) :
+  coin exact haut-gauche (0,0)  = srgb(55,55,55)
+  (1,1)                         = srgb(32,32,32)
+  (3,3)                         = srgb(32,32,32)
+  (8,8) intérieur               = srgb(32,32,32)
+  coin exact haut-droit         = srgb(55,55,55)
+  coin exact bas-gauche         = srgb(55,55,55)
+  coin exact bas-droit          = srgb(55,55,55)
+== 2-apres-install
+method return time=1794572426.291474 sender=:1.1 -> destination=:1.24 serial=202 reply_serial=2 variant string "gl2" 
+kwin4_effect_shapecorners
+method return time=1794572426.297717 sender=:1.1 -> destination=:1.26 serial=204 reply_serial=2 boolean true 
+kwinrc: true
+02-apres-install geom: 52 132 919 504 | client 56 164 911 468
+02-apres-install pixels (cadre 919x504+52+132) :
+  coin exact haut-gauche (0,0)  = srgb(0,0,0)
+  (1,1)                         = srgb(0,0,0)
+  (3,3)                         = srgb(0,0,0)
+  (8,8) intérieur               = srgb(32,32,32)
+  coin exact haut-droit         = srgb(0,0,0)
+  coin exact bas-gauche         = srgb(0,0,0)
+  coin exact bas-droit          = srgb(0,0,0)
+== 3-apres-undo
+method return time=1794572439.509919 sender=:1.1 -> destination=:1.33 serial=250 reply_serial=2 variant string "gl2" 
+method return time=1794572439.516149 sender=:1.1 -> destination=:1.35 serial=252 reply_serial=2 boolean false 
+kwinrc: false
+03-apres-undo geom: 52 132 919 504 | client 56 164 911 468
+03-apres-undo pixels (cadre 919x504+52+132) :
+  coin exact haut-gauche (0,0)  = srgb(55,55,55)
+  (1,1)                         = srgb(32,32,32)
+  (3,3)                         = srgb(32,32,32)
+  (8,8) intérieur               = srgb(32,32,32)
+  coin exact haut-droit         = srgb(55,55,55)
+  coin exact bas-gauche         = srgb(55,55,55)
+  coin exact bas-droit          = srgb(55,55,55)

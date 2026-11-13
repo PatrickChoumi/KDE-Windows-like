@@ -1,0 +1,40 @@
+== theme
+kcmicons=[windows-modern]
+kdeglobals=[windows-modern]
+== env
+XDG_MENU_PREFIX=plasma-
+XDG_SESSION_TYPE=x11
+HOME=/root
+XDG_CURRENT_DESKTOP=KDE
+XDG_RUNTIME_DIR=/tmp/xdg
+KDE_FULL_SESSION=true
+== kdeglobals (sections Icons/General)
+106-
+107:[Icons]
+108-Theme=windows-modern
+109-
+110-[KDE]
+== fichiers de config
+-rw------- 1 root root   29 Nov 13 12:59 /root/.config/kcmicons
+-rw------- 1 root root 2775 Nov 13 13:00 /root/.config/kdeglobals
+== fichiers
+-rw-r--r-- 1 root root 4608 Nov 13 12:59 /usr/share/icons/windows-modern/apps/start-here-kde.svg
+-rw-r--r-- 1 root root 4530 Nov 13 12:59 /usr/share/icons/windows-modern/places/start-here-kde.svg
+-rw-r--r-- 1 root root 5040 Nov 13 12:59 /usr/share/icons/windows-modern/places/start-here.svg
+== index.theme (Inherits)
+4:Inherits=breeze,breeze-dark,hicolor
+23:Directories=status,actions,apps,devices,places,mimetypes,categories,emblems,emotes,animations
+== themes breeze presents
+/usr/share/icons/breeze
+/usr/share/icons/breeze-dark
+/usr/share/icons/breeze_cursors
+== cache et resolution
+ls: cannot access '/usr/share/icons/windows-modern/icon-theme.cache': No such file or directory
+document-open-recent.svg
+folder-blue.svg
+folder-cyan.svg
+5040
+== appletsrc : icon/kickoff
+39:icon=start-here
+== plasmashell : icon
+4:kf.package: Could not find required file "mainscript" for package "/usr/share/plasma/plasmoids/org.kde.plasma.icontasks/" should be QList("ui/main.qml")

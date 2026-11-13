@@ -1,0 +1,6 @@
+root       14335  2.5  1.5 1931484 261772 ?      Sl   12:56   0:01 /usr/bin/kwin_wayland --socket wayland-0 --no-lockscreen
+root       14382  5.0  1.7 2883600 293972 ?      Sl   12:57   0:03 plasmashell
+root       14403  0.0  0.1 253136 32108 ?        Sl   12:57   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+root       14448  0.0  0.1 107316 31352 ?        S    12:57   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+root       14706  0.0  0.1 107188 31348 ?        S    12:57   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+root       14717  1.1  0.9 1636220 149280 ?      Sl   12:57   0:00 konsole -e bash

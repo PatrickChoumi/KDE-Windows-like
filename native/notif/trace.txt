@@ -1,0 +1,1 @@
+qml: NotifyButton: texte L=0.00 fond L=0.00 lightText=false

@@ -1,0 +1,46 @@
+== kwinrc [org.kde.kdecoration2]
+org.kde.kwin.aurorae
+__aurorae__svg__windows-modern-dark-aurorae
+IAX
+
+== aurorae dirs
+ls: cannot access '/root/.local/share/aurorae/themes/*': No such file or directory
+/usr/share/aurorae/themes/windows-modern-dark-aurorae
+/usr/share/aurorae/themes/windows-modern-light-aurorae
+== plugin aurorae
+/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.v2.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/packagestructure/kwin_aurorae.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/packagestructure/kwin_aurorae_x11.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3.kcm/kcm_auroraedecoration.so
+org.kde.breeze.so
+org.kde.kwin.aurorae.so
+org.kde.kwin.aurorae.v2.so
+== paquets kwin/decoration installés
+breeze
+breeze-cursor-theme
+breeze-wallpaper
+kde-style-breeze
+kde-style-breeze-data
+kf6-breeze-icon-theme
+kwin-common
+kwin-data
+kwin-style-aurorae
+kwin-style-breeze
+kwin-wayland
+kwin-x11
+kwin-x11-data
+libdecor-0-0:amd64
+libkdecorations3-6:amd64
+libkdecorations3private2:amd64
+libkf6breezeicons6:amd64
+libkwin-x11-6
+libkwin6
+qml6-module-org-kde-breeze
+qml6-module-org-kde-kwindowsystem:amd64
+== look-and-feel defaults (decoration)
+/usr/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults:19:[kwinrc][org.kde.kdecoration2]
+/usr/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults-20-library=org.kde.kwin.aurorae
+/usr/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults-21-theme=__aurorae__svg__windows-modern-dark-aurorae
+/usr/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults-22-
+grep: /root/.local/share/plasma/look-and-feel/org.kde.windowsmodern.dark/contents/defaults: No such file or directory

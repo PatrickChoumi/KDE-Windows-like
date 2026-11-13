@@ -1,0 +1,7 @@
+Successfully applied the color scheme WindowsModernDark to your current Plasma session
+The current Plasma session's theme has been set to Windows-modern-dark
+lookandfeel exit=0
+[36m  >>[0m Icon theme was 'empty' after applying the theme → restoring windows-modern
+[33m==>[0m Plugin de décoration Aurorae introuvable : installe le paquet kwin-style-aurorae (sinon KWin garde Breeze).
+[36m  >>[0m Window decoration was 'empty' → setting __aurorae__svg__windows-modern-dark-aurorae
+ci/roundcorners-desktop.sh: line 74: kquitapp6: command not found

@@ -1,0 +1,20 @@
+kwin_platform_x11_standalone: Bogus refresh rate -1000
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+kwin_platform_x11_standalone: glSwapInterval is unsupported
+kf.svg: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kf.plasma.core: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kwin_scene_opengl: Could not delete framebuffer because no context is current
+kwin_platform_x11_standalone: glSwapInterval is unsupported
+KscreenConfig::instance called after the first use - ignoring
+OverviewConfig::instance called after the first use - ignoring
+WindowViewConfig::instance called after the first use - ignoring
+ZoomConfig::instance called after the first use - ignoring
+Module 'org.kde.kwin.decoration' does not contain a module identifier directive - it cannot be protected from external registrations.
+qt.dbus.integration: QDBusConnection: couldn't handle call to loadedEffects, no slot matched
+qt.dbus.integration: QDBusConnection: couldn't handle call to loadedEffects, no slot matched
+qt.dbus.integration: Could not find slot EffectsAdaptor::loadedEffects
+qt.dbus.integration: QDBusConnection: couldn't handle call to listOfEffects, no slot matched
+qt.dbus.integration: QDBusConnection: couldn't handle call to listOfEffects, no slot matched
+qt.dbus.integration: Could not find slot EffectsAdaptor::listOfEffects
+kwin_scene_opengl: Could not delete framebuffer because no context is current

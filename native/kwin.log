@@ -1,0 +1,5 @@
+kwin_platform_x11_standalone: Bogus refresh rate -1000
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+Module 'org.kde.kwin.decoration' does not contain a module identifier directive - it cannot be protected from external registrations.
+js: attention-script: KDE-Windows-like : bash — Konsole -> true

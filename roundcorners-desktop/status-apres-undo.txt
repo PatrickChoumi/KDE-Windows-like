@@ -1,0 +1,3 @@
+paquet      : non installé
+effet       : non activé dans kwinrc
+sauvegarde  : /root/backup-kde-roundcorners-20261113-122214

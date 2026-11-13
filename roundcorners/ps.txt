@@ -1,0 +1,3 @@
+root       11042  0.2  0.5 193628 96876 ?        S    12:18   0:00 Xvfb :99 -screen 0 1920x1080x24 +extension GLX +rende
+root       11065  0.1  0.8 1300916 142380 ?      Sl   12:18   0:00 plasmashell
+root       11666  4.1  1.6 2122748 273344 ?      Sl   12:20   0:00 kwin_x11 --replace

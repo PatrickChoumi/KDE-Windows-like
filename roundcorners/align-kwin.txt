@@ -1,0 +1,6 @@
+kwin-common=4:6.6.6-0ubuntu0.1 kwin-x11=4:6.6.4-0ubuntu1
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Version '4:6.6.6-0ubuntu0.1' for 'kwin-x11' was not found
+kwin-x11 apres=4:6.6.4-0ubuntu1

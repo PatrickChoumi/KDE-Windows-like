@@ -1,0 +1,18 @@
+== 1-avant
+Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+kwinrc: 
+01-avant geom: 
+01-avant : fenêtre Konsole introuvable
+== 2-apres-install
+Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+kwinrc: true
+02-apres-install geom: 
+02-apres-install : fenêtre Konsole introuvable
+== 3-apres-undo
+Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+kwinrc: 
+03-apres-undo geom: 
+03-apres-undo : fenêtre Konsole introuvable

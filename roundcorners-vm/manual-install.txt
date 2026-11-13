@@ -1,0 +1,19 @@
+== Packages.gz
+http=200 taille=667
+zcat exit=0
+Package: kwin-effect-roundcorners
+Version: 0.11.0.0.6.6.6~kubuntu26041
+Filename: pool/main/k/kwin-effect-roundcorners/kwin-effect-roundcorners_0.11.0.0.6.6.6~kubuntu26041_amd64.deb
+Package: kwin-effect-roundcorners-x11
+Version: 0.11.0.0.6.6.6~kubuntu26041
+Filename: pool/main/k/kwin-effect-roundcorners-x11/kwin-effect-roundcorners-x11_0.11.0.0.6.6.6~kubuntu26041_amd64.deb
+Filename: [pool/main/k/kwin-effect-roundcorners/kwin-effect-roundcorners_0.11.0.0.6.6.6~kubuntu26041_amd64.deb]
+deb http=200 taille=121490
+Selecting previously unselected package kwin-effect-roundcorners.
+(Reading database ... 282304 files and directories currently installed.)
+Preparing to unpack .../kwin-effect-roundcorners_0.11.0.0.6.6.6~kubuntu26041_amd64.deb ...
+Unpacking kwin-effect-roundcorners (0.11.0.0.6.6.6~kubuntu26041) ...
+Setting up kwin-effect-roundcorners (0.11.0.0.6.6.6~kubuntu26041) ...
+== etat
++++-========================-===========================-============-=================================
+ii  kwin-effect-roundcorners 0.11.0.0.6.6.6~kubuntu26041 amd64        KDE Rounded Corners effect

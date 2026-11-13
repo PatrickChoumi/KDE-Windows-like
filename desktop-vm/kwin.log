@@ -1,0 +1,209 @@
+qt.qpa.plugin: init_platform called with pluginNamesWithArguments "wayland-org.kde.kwin.qpa" platformPluginPath "" platformThemeName ""
+qt.qpa.plugin: Attempting to load Qt platform plugin "wayland-org.kde.kwin.qpa" with arguments QList()
+qt.qpa.plugin: Successfully loaded Qt platform plugin "wayland-org.kde.kwin.qpa"
+qt.qpa.theme: Adding platform integration's theme names to list of theme names: QList("kde")
+qt.qpa.theme: Attempting to create platform theme "kde" via QPlatformThemeFactory::create
+qt.qpa.fonts: default fonts: system QFont(Sans Serif,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1) fixed QFont(monospace,9,-1,2,400,0,0,0,0,0,0,0,0,0,0,1)
+qt.qpa.theme: Successfully created platform theme "kde" via QPlatformThemeFactory::create
+kwin_watchdog: Watchdog: disabled, not running on a systemd environment or watchdog is not set up. No WATCHDOG_USEC.
+No backend specified, automatically choosing drm
+kwin_core: Could not determine the active graphical session
+Accepting client connections on sockets: QList("wayland-0")
+kwin_core: Compositing forced to OpenGL mode by environment variable
+pci id for fd 18: 1414:0006, driver (null)
+pci id for fd 19: 1414:0006, driver (null)
+pci id for fd 20: 1414:0006, driver (null)
+pci id for fd 19: 1414:0006, driver (null)
+pci id for fd 20: 1414:0006, driver (null)
+kwin_wayland_drm: drmModeAddFB2WithModifiers is supported on GPU "/dev/dri/card1"
+kwin_wayland_drm: Using Atomic Mode Setting on gpu "/dev/dri/card1"
+kwin_wayland_drm: Number of planes on GPU "/dev/dri/card1" : 1
+kwin_wayland_drm: adding GPU /dev/dri/card1
+kwin_wayland_drm: Could not find edid for connector DrmConnector(id=38, gpu="/dev/dri/card1", name="Virtual-1", connection="Connected", countMode=24)
+kwin_wayland_drm: New output on GPU /dev/dri/card1: Virtual-1-unknown
+kwin_xkbcommon: XKB: created compose table from locale en_US.UTF-8 with path /usr/share/X11/locale/en_US.UTF-8/Compose
+kwin_libinput: Libinput: event1  - Microsoft Vmbus HID-compliant Mouse: is tagged by udev as: Mouse
+
+kwin_libinput: Libinput: event1  - Microsoft Vmbus HID-compliant Mouse: device is a pointer
+
+kwin_libinput: Libinput: event0  - AT Translated Set 2 keyboard: is tagged by udev as: Keyboard
+
+kwin_libinput: Libinput: event0  - AT Translated Set 2 keyboard: device is a keyboard
+
+"applications.menu"  not found in  QList("/etc/xdg/menus")
+kwin_core: KGlobalAcceld inited
+kwin_core: Attempting to load the OpenGL scene
+kwin_scene_opengl: Egl Initialize succeeded
+kwin_scene_opengl: EGL version:  1 . 5
+kwin_core: Failed to open drm node: ""
+kwin_scene_opengl: couldn't find dev node for drm device 
+kwin_scene_opengl: Created EGL context with attributes: 
+Version requested:	true
+Version:	3.1
+Robust:	true
+Reset on video memory purge:	false
+Forward compatible:	false
+Core profile:	false
+Compatibility profile:	false
+High priority:	false
+kwin_scene_opengl: Created EGL context with attributes: 
+Version requested:	true
+Version:	3.1
+Robust:	true
+Reset on video memory purge:	false
+Forward compatible:	false
+Core profile:	false
+Compatibility profile:	false
+High priority:	false
+kwin_scene_opengl: drmGetDeviceFromDevId() failed: No such file or directory
+kwin_scene_opengl: No render node have been found, not initializing wl-drm
+kwin_core: OpenGL 2 compositing enforced by environment variable
+kwin_core: OpenGL compositing has been successfully initialized
+kwin_decorations: Trying to load decoration plugin:  "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.breeze.so"
+kwin_output_config: Generating new config for 1 outputs
+kwin_core: Empty tiles configuration for monitor "6c0997fa-bdbd-4a55-92d3-faf359112dad" : Creating default setup
+kwin_xkbcommon: XKB: Compiling from RMLVO: rules 'evdev', model 'pc104', layout 'us', variant '(null)', options '(null)'
+kwin_xkbcommon: XKB: Include path failed: "/home/runner/.config/xkb" (No such file or directory)
+kwin_xkbcommon: XKB: Include path failed: "/root/.xkb" (No such file or directory)
+kwin_xkbcommon: XKB: Include path failed: "/etc/xkb" (No such file or directory)
+kwin_xkbcommon: XKB: Include extensions path failed: /usr/share/xkeyboard-config-2.d (No such file or directory)
+kwin_xkbcommon: XKB: Include extensions path failed: /usr/share/xkeyboard-config.d (No such file or directory)
+kwin_xkbcommon: XKB: Include path added: /usr/share/X11/xkb
+kwin_xkbcommon: XKB: Compiling from KcCGST: keycodes 'evdev+aliases(qwerty)', types 'complete', compat 'complete', symbols 'pc+us+inet(evdev)'
+kwin_xkbcommon: XKB: Compiling xkb_keycodes "(unnamed map)"
+kwin_xkbcommon: XKB: Compiling xkb_types "(unnamed map)"
+kwin_xkbcommon: XKB: Compiling xkb_compatibility "(unnamed map)"
+kwin_xkbcommon: XKB: The "group" statement in compat is unsupported; Ignored
+kwin_xkbcommon: XKB: The "group" statement in compat is unsupported; Ignored
+kwin_xkbcommon: XKB: The "group" statement in compat is unsupported; Ignored
+kwin_xkbcommon: XKB: The "allowExplicit" field in indicator statements is unsupported; Ignored
+kwin_xkbcommon: XKB: The "allowExplicit" field in indicator statements is unsupported; Ignored
+kwin_xkbcommon: XKB: The "allowExplicit" field in indicator statements is unsupported; Ignored
+kwin_xkbcommon: XKB: The "allowExplicit" field in indicator statements is unsupported; Ignored
+kwin_xkbcommon: XKB: The "indicatorDrivesKeyboard" field in indicator statements is unsupported; Ignored
+kwin_xkbcommon: XKB: The "allowExplicit" field in indicator statements is unsupported; Ignored
+kwin_xkbcommon: XKB: Indicator name "Shift Lock" was not declared in the keycodes section; Adding new indicator
+kwin_xkbcommon: XKB: Indicator name "Group 2" was not declared in the keycodes section; Adding new indicator
+kwin_xkbcommon: XKB: Indicator name "Mouse Keys" was not declared in the keycodes section; Adding new indicator
+kwin_xkbcommon: XKB: Compiling xkb_symbols "(unnamed map)"
+qt.qpa.input.devices: Registered QInputDevice(QPointingDevice("some touchscreen" TouchScreen id=8589934592 seat=seat0 ptrType=Finger maxPts=10)
+qt.qpa.input.devices: Registered QInputDevice(QPointingDevice("some tablet" Stylus id=8589934593 seat=seat0 ptrType=Pen caps=Position|Pressure|ZPosition maxPts=10)
+kwin_virtualkeyboard: Registering the DBus interface
+[W][12:57:02.660967] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][12:57:02.661033] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kwin_screencast: Failed to create PipeWire context
+kwin_core: Effect is not supported:  "blendchanges"
+kwin_core: Enabled by default function disables effect:  "blur"
+kwin_core: Successfully loaded plugin effect:  "colorpicker"
+kwin_core: Successfully loaded plugin effect:  "highlightwindow"
+kwin_core: Successfully loaded plugin effect:  "kscreen"
+kwin_core: Successfully loaded plugin effect:  "outputlocator"
+kwin_core: Successfully loaded plugin effect:  "overview"
+kwin_core: Successfully loaded plugin effect:  "screenedge"
+kwin_core: Effect is not supported:  "screentransform"
+kwin_core: Successfully loaded plugin effect:  "shakecursor"
+kwin_core: Effect is not supported:  "slide"
+kwin_core: Effect is not supported:  "slidingpopups"
+kwin_core: Successfully loaded plugin effect:  "startupfeedback"
+kwin_core: Successfully loaded plugin effect:  "systembell"
+kwin_core: Successfully loaded plugin effect:  "tileseditor"
+kwin_core: Successfully loaded plugin effect:  "windowview"
+kwin_core: Successfully loaded plugin effect:  "zoom"
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+kwin_core: Effect is not supported:  "dialogparent"
+kwin_core: Effect is not supported:  "windowaperture"
+kwin_core: Effect is not supported:  "fullscreen"
+kwin_core: Effect is not supported:  "scale"
+kwin_core: Effect is not supported:  "fadingpopups"
+kwin_core: Effect is not supported:  "maximize"
+kwin_core: Effect is not supported:  "dimscreen"
+kwin_core: Effect is not supported:  "sessionquit"
+kwin_core: Effect is not supported:  "logout"
+kwin_core: Effect is not supported:  "frozenapp"
+kwin_core: Effect is not supported:  "squash"
+kwin_core: Effect is not supported:  "login"
+kwin_core: Workspace::slotReconfigure()
+kwin_core: Compositing forced to OpenGL mode by environment variable
+kwin_core: authorized "/usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasmashell" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasmashell" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasmashell" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasmashell" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasmashell" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasmashell" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasmashell" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasmashell" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasma-apply-colorscheme" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasma-apply-desktoptheme" "zkde_screencast_unstable_v1"
+kf.svg: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kf.plasma.core: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasma-apply-lookandfeel" "zkde_screencast_unstable_v1"
+kwin_core: Successfully loaded plugin effect:  "blur"
+kwin_core: Workspace::slotReconfigure()
+kwin_core: Compositing forced to OpenGL mode by environment variable
+kwin_decorations: Trying to load decoration plugin:  "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/plasmashell" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/plasmashell" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/plasmashell" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/konsole" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/konsole" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/konsole" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/konsole" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/konsole" "zkde_screencast_unstable_v1"
+kwin_core: authorized "/usr/bin/konsole" "org_kde_plasma_window_management"
+kwin_core: authorized "/usr/bin/konsole" "org_kde_plasma_activation_feedback"
+kwin_core: authorized "/usr/bin/konsole" "kde_lockscreen_overlay_v1"
+kwin_core: authorized "/usr/bin/konsole" "org_kde_kwin_fake_input"
+kwin_core: authorized "/usr/bin/konsole" "zkde_screencast_unstable_v1"
+Module 'org.kde.kwin.decoration' does not contain a module identifier directive - it cannot be protected from external registrations.
+qt.qpa.input.devices: no mouse-like devices registered for seat "" The platform plugin should have provided one via QWindowSystemInterface::registerInputDevice(). Creating a default mouse for now.
+qt.qpa.input.devices: Registered QInputDevice(QPointingDevice("core pointer" Mouse id=1 buttonCount=3)

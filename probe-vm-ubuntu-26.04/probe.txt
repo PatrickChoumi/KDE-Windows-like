@@ -1,0 +1,20 @@
+== os
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+7.0.0-1019-azure
+== materiel
+4
+               total        used        free      shared  buff/cache   available
+Mem:           15983         917       14451          43         944       15065
+/dev/root       145G   58G   88G  40% /
+== /dev
+crw-rw---- 1 root video 29,   0 Nov 13 07:17 /dev/fb0
+crw-rw---- 1 root kvm   10, 232 Nov 13 07:17 /dev/kvm
+
+/dev/dri:
+total 0
+crw-rw---- 1 root video 226, 1 Nov 13 07:17 card1
+== systemd
+starting

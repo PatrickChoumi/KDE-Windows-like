@@ -1,0 +1,8 @@
+[Plugins]
+kwin4_effect_shapecornersEnabled=true
+
+[org.kde.kdecoration2]
+ButtonsOnLeft=M
+ButtonsOnRight=IAX
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__windows-modern-dark-aurorae

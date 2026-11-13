@@ -1,0 +1,4 @@
+crtc 36 fb 41 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/01-bureau.png 343517 octets
+crtc 36 fb 40 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/02-fenetres-ouvertes.png 137450 octets

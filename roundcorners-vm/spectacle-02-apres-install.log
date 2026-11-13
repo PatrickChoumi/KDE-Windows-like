@@ -1,0 +1,17 @@
+spectacle: Unable to load Tesseract candidate "libtesseract.so.5" : "Cannot load library libtesseract.so.5: libtesseract.so.5: cannot open shared object file: No such file or directory"
+spectacle: Unable to load Tesseract candidate "libtesseract.so.4" : "Cannot load library libtesseract.so.4: libtesseract.so.4: cannot open shared object file: No such file or directory"
+spectacle: Unable to load Tesseract candidate "libtesseract.so" : "Cannot load library libtesseract.so: libtesseract.so: cannot open shared object file: No such file or directory"
+spectacle: Unable to locate a suitable Tesseract shared library
+spectacle: Tesseract runtime library not available
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+An error occurred while taking a screenshot.
+KWin screenshot request failed:
+The process is not authorized to take a screenshot
+Potentially relevant information:
+- Method: CaptureScreen
+- Method specific arguments: "Virtual-1"
+
+spectacle sans PNG : repli sur ci/drm-grab.py /dev/dri/card1
+crtc 36 fb 44 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/02-apres-install.png 19236 octets
+-rw-r--r-- 1 root root 19236 Nov 13 12:20 shots/02-apres-install.png

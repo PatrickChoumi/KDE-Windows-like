@@ -1,0 +1,37 @@
+décoration Aurorae prête (tour 1)
+kwin-x11=4:6.6.4-0ubuntu1 kwin-wayland=4:6.6.6-0ubuntu0.1 libkwin6=4:6.6.6-0ubuntu0.1
+== 1-avant
+composition : method return time=1794572533.805119 sender=:1.0 -> destination=:1.15 serial=916 reply_serial=2 variant string "gl2" 
+effet shapecorners : non chargé
+kwinrc : 
+01-avant : cadre 919x504+500+264 (extents 4,4,32,4)
+  pixel (0,0) coin exact haut-gauche = srgb(40,40,40) ; (1,1) = srgb(32,32,32) ; (4,4) = srgb(32,32,32)
+  pixel coin exact haut-droit = srgb(40,40,40) ; bas-gauche = srgb(40,40,40) ; bas-droit = srgb(40,40,40)
+== 2-apres-install
+composition : method return time=1794572574.298372 sender=:1.0 -> destination=:1.21 serial=1034 reply_serial=2 variant string "gl2" 
+effet shapecorners : non chargé
+kwinrc : true
+02-apres-install : cadre 919x504+500+264 (extents 4,4,32,4)
+  pixel (0,0) coin exact haut-gauche = srgb(40,40,40) ; (1,1) = srgb(32,32,32) ; (4,4) = srgb(32,32,32)
+  pixel coin exact haut-droit = srgb(40,40,40) ; bas-gauche = srgb(40,40,40) ; bas-droit = srgb(40,40,40)
+IID du plugin= ; kwin-x11=6.6.4
+method return time=1794572578.455816 sender=:1.0 -> destination=:1.24 serial=1143 reply_serial=2
+   boolean false
+== 3-rendu-iid-patche
+composition : method return time=1794572583.463316 sender=:1.0 -> destination=:1.25 serial=1144 reply_serial=2 variant string "gl2" 
+effet shapecorners : non chargé
+kwinrc : true
+03-rendu-iid-patche : cadre 919x504+500+264 (extents 4,4,32,4)
+  pixel (0,0) coin exact haut-gauche = srgb(40,40,40) ; (1,1) = srgb(32,32,32) ; (4,4) = srgb(32,32,32)
+  pixel coin exact haut-droit = srgb(40,40,40) ; bas-gauche = srgb(40,40,40) ; bas-droit = srgb(40,40,40)
+03b-apres-deplacement : cadre 919x504+556+298 (extents 4,4,32,4)
+  pixel (0,0) coin exact haut-gauche = srgb(40,40,40) ; (1,1) = srgb(32,32,32) ; (4,4) = srgb(32,32,32)
+  pixel coin exact haut-droit = srgb(40,40,40) ; bas-gauche = srgb(40,40,40) ; bas-droit = srgb(40,40,40)
+== 4-apres-undo
+composition : method return time=1794572598.657459 sender=:1.0 -> destination=:1.31 serial=1259 reply_serial=2 variant string "gl2" 
+effet shapecorners : non chargé
+kwinrc : 
+04-apres-undo : cadre 919x504+556+298 (extents 4,4,32,4)
+  pixel (0,0) coin exact haut-gauche = srgb(40,40,40) ; (1,1) = srgb(32,32,32) ; (4,4) = srgb(32,32,32)
+  pixel coin exact haut-droit = srgb(40,40,40) ; bas-gauche = srgb(40,40,40) ; bas-droit = srgb(40,40,40)
+kwinrc identique avant/après undo

@@ -1,0 +1,5 @@
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+kde.plasmashell: Aborting shell load: The activity manager daemon (kactivitymanagerd) is not running.
+kde.plasmashell: If this Plasma has been installed into a custom prefix, verify that its D-Bus services dir is known to the system for the daemon to be activatable.
+kf.svg: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kf.plasma.core: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.

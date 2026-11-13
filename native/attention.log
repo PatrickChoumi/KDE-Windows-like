@@ -1,0 +1,3 @@
+script id=[0]
+method return time=1794574910.621289 sender=:1.0 -> destination=:1.19 serial=730 reply_serial=2
+_NET_WM_STATE(ATOM) = _NET_WM_STATE_DEMANDS_ATTENTION

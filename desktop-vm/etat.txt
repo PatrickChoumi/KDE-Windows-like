@@ -1,0 +1,18 @@
+compositingType: string "gl2" 
+kactivitymanagerd: /usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd
+== effets (blur, shapecorners, translucency, ...)
+blur : boolean true 
+contrast : boolean false 
+kwin4_effect_shapecorners : boolean false 
+slidingpopups : boolean false 
+fade : boolean false 
+== panneau (script Plasma)
+panel id=17 location=bottom height=48 floating=false opacity=translucent alignment=center lengthMode=fill hiding=none
+
+== écran 1024x768
+barre x=20 y=762 : srgb(35,30,30)
+barre x=120 y=762 : srgb(35,30,31)
+barre x=220 y=762 : srgb(36,32,33)
+barre x=804 y=762 : srgb(36,35,39)
+barre x=904 y=762 : srgb(36,34,38)
+barre x=1004 y=762 : srgb(35,34,38)

@@ -1,0 +1,1042 @@
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/platforms" ...
+qt.core.plugin.factoryloader: looking at "libqwayland.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqwayland.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "wayland",
+            "wayland-egl",
+            "wayland-brcm"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QWaylandIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("wayland", "wayland-egl", "wayland-brcm")
+qt.core.plugin.factoryloader: looking at "libqminimal.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqminimal.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "minimal"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QMinimalIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("minimal")
+qt.core.plugin.factoryloader: looking at "libqxcb.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqxcb.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "xcb"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QXcbIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("xcb")
+qt.core.plugin.factoryloader: looking at "libqlinuxfb.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqlinuxfb.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "linuxfb"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QLinuxFbIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("linuxfb")
+qt.core.plugin.factoryloader: looking at "libqeglfs.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqeglfs.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "eglfs"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QEglFSIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("eglfs")
+qt.core.plugin.factoryloader: looking at "libqminimalegl.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqminimalegl.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "minimalegl"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QMinimalEglIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("minimalegl")
+qt.core.plugin.factoryloader: looking at "libqvkkhrdisplay.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqvkkhrdisplay.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "vkkhrdisplay"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QVkKhrDisplayIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("vkkhrdisplay")
+qt.core.plugin.factoryloader: looking at "libqoffscreen.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqoffscreen.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformIntegrationFactoryInterface.5.3",
+    "MetaData": {
+        "Keys": [
+            "offscreen"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QOffscreenIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("offscreen")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/platforms" ...
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqxcb.so" loaded library
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes" ...
+qt.core.plugin.factoryloader: looking at "KDEPlasmaPlatformTheme6.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes/KDEPlasmaPlatformTheme6.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.QPlatformThemeFactoryInterface.5.1",
+    "MetaData": {
+        "Keys": [
+            "kde"
+        ]
+    },
+    "archlevel": 1,
+    "className": "KdePlatformThemePlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("kde")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/platformthemes" ...
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes/KDEPlasmaPlatformTheme6.so" loaded library
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts" ...
+qt.core.plugin.factoryloader: looking at "libcomposeplatforminputcontextplugin.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPlatformInputContextFactoryInterface.5.1",
+    "MetaData": {
+        "Keys": [
+            "compose",
+            "xim"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QComposePlatformInputContextPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("compose", "xim")
+qt.core.plugin.factoryloader: looking at "libibusplatforminputcontextplugin.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libibusplatforminputcontextplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPlatformInputContextFactoryInterface.5.1",
+    "MetaData": {
+        "Keys": [
+            "ibus"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QIbusPlatformInputContextPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("ibus")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/platforminputcontexts" ...
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so" loaded library
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations" ...
+qt.core.plugin.factoryloader: looking at "libqxcb-glx-integration.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-glx-integration.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.Xcb.QXcbGlIntegrationFactoryInterface.5.5",
+    "MetaData": {
+        "Keys": [
+            "xcb_glx"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QXcbGlxIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("xcb_glx")
+qt.core.plugin.factoryloader: looking at "libqxcb-egl-integration.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-egl-integration.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QPA.Xcb.QXcbGlIntegrationFactoryInterface.5.5",
+    "MetaData": {
+        "Keys": [
+            "xcb_egl"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QXcbEglIntegrationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("xcb_egl")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/xcbglintegrations" ...
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-glx-integration.so" loaded library
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/iconengines" ...
+qt.core.plugin.factoryloader: looking at "libqsvgicon.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/iconengines/libqsvgicon.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QIconEngineFactoryInterface",
+    "MetaData": {
+        "Keys": [
+            "svg",
+            "svgz",
+            "svg.gz"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QSvgIconPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("svg", "svgz", "svg.gz")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/iconengines" ...
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/styles" ...
+qt.core.plugin.factoryloader: looking at "breeze6.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/styles/breeze6.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QStyleFactoryInterface",
+    "MetaData": {
+        "Keys": [
+            "Breeze"
+        ]
+    },
+    "archlevel": 1,
+    "className": "StylePlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("breeze")
+qt.core.plugin.factoryloader: looking at "libkvantum.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/styles/libkvantum.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QStyleFactoryInterface",
+    "MetaData": {
+        "Keys": [
+            "kvantum",
+            "kvantum-dark"
+        ]
+    },
+    "archlevel": 1,
+    "className": "KvantumPlugin",
+    "debug": false,
+    "version": 395520
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("kvantum", "kvantum-dark")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/styles" ...
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/styles/breeze6.so" loaded library
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/accessiblebridge" ...
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/accessiblebridge" ...
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+kwin_core: Compositing forced to OpenGL mode by environment variable
+kwin_core: Extensions: shape: 0x "11"  composite: 0x "4"  render: 0x "b"  fixes: 0x "50"  randr: 0x "14"  sync: 0x "31"  damage: 0x  "11"
+kwin_platform_x11_standalone: Bogus refresh rate -1000
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/sensors" ...
+qt.core.plugin.factoryloader: looking at "libqtsensors_iio-sensor-proxy.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/sensors/libqtsensors_iio-sensor-proxy.so, metadata=
+{
+    "IID": "com.qt-project.Qt.QSensorPluginInterface/1.0",
+    "MetaData": {
+        "Keys": [
+            "iio-sensor-proxy"
+        ]
+    },
+    "archlevel": 1,
+    "className": "IIOSensorProxySensorPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("iio-sensor-proxy")
+qt.core.plugin.factoryloader: looking at "libqtsensors_generic.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/sensors/libqtsensors_generic.so, metadata=
+{
+    "IID": "com.qt-project.Qt.QSensorPluginInterface/1.0",
+    "MetaData": {
+        "Keys": [
+            "generic"
+        ]
+    },
+    "archlevel": 1,
+    "className": "genericSensorPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("generic")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/sensors" ...
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/org.kde.kwin.aurorae.v2"
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/org.kde.kwin.aurorae.v2.so"
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/liborg.kde.kwin.aurorae.v2"
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/liborg.kde.kwin.aurorae.v2.so"
+qt.core.plugin.loader: "/usr/bin/org.kde.kdecoration3/org.kde.kwin.aurorae.v2" not found
+qt.core.plugin.loader: Trying... "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.v2"
+qt.core.plugin.loader: Trying... "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.v2.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.v2.so, metadata=
+{
+    "IID": "org.kde.KPluginFactory",
+    "MetaData": {
+        "org.kde.kdecoration3": {
+            "KNewStuff": "aurorae.knsrc",
+            "themeListKeyword": "themes",
+            "themes": true
+        }
+    },
+    "archlevel": 1,
+    "className": "AuroraeDecoFactory",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.v2.so" loaded library
+kwin_core: User timestamp, ASN: 4294967295
+kwin_core: User timestamp, final: KWin::X11Window(0x5d8f63d28150, caption="KDE-Windows-like : bash — Konsole") : 4294967295
+kwin_core: User timestamp, ASN: 4294967295
+kwin_core: User timestamp, final: KWin::X11Window(0x5d8f659b2e20, caption="Home — Dolphin") : 4294967295
+kf.coreaddons: Checking for plugins in QList("/usr/bin/kwin-x11/plugins", "/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/plugins")
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/plugins/nightlight.so, metadata=
+{
+    "IID": "org.kde.kwin.PluginFactoryInterface6.6.4",
+    "MetaData": {
+        "KPlugin": {
+            "EnabledByDefault": true
+        }
+    },
+    "archlevel": 1,
+    "className": "NightLightManagerFactory",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/plugins/krunnerintegration.so, metadata=
+{
+    "IID": "org.kde.kwin.PluginFactoryInterface6.6.4",
+    "MetaData": {
+        "KPlugin": {
+            "EnabledByDefault": true
+        }
+    },
+    "archlevel": 1,
+    "className": "KRunnerIntegrationFactory",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/plugins/nightlight.so, metadata=
+{
+    "IID": "org.kde.kwin.PluginFactoryInterface6.6.4",
+    "MetaData": {
+        "KPlugin": {
+            "EnabledByDefault": true
+        }
+    },
+    "archlevel": 1,
+    "className": "NightLightManagerFactory",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/plugins/nightlight.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/plugins/krunnerintegration.so, metadata=
+{
+    "IID": "org.kde.kwin.PluginFactoryInterface6.6.4",
+    "MetaData": {
+        "KPlugin": {
+            "EnabledByDefault": true
+        }
+    },
+    "archlevel": 1,
+    "className": "KRunnerIntegrationFactory",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/plugins/krunnerintegration.so" loaded library
+kwin_core: Attempting to load the OpenGL scene
+kwin_platform_x11_standalone: glSwapInterval is unsupported
+kwin_core: OpenGL 2 compositing enforced by environment variable
+kwin_core: OpenGL compositing has been successfully initialized
+kf.coreaddons: Checking for plugins in QList("/usr/bin/kwin-x11/effects/plugins", "/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/effects/plugins")
+kwin_core: Effect is not supported:  "blendchanges"
+kwin_core: Enabled by default function disables effect:  "blur"
+kwin_core: Successfully loaded plugin effect:  "colorpicker"
+kwin_core: Enabled by default function disables effect:  "contrast"
+kwin_core: Successfully loaded plugin effect:  "highlightwindow"
+kwin_core: Successfully loaded plugin effect:  "kscreen"
+kwin_core: Successfully loaded plugin effect:  "outputlocator"
+kwin_core: Successfully loaded plugin effect:  "overview"
+kwin_core: Successfully loaded plugin effect:  "screenedge"
+kwin_core: Successfully loaded plugin effect:  "screenshot"
+kwin_core: Effect is not supported:  "slide"
+kwin_core: Effect is not supported:  "slidingpopups"
+kwin_core: Successfully loaded plugin effect:  "startupfeedback"
+kwin_core: Successfully loaded plugin effect:  "systembell"
+kwin_core: Successfully loaded plugin effect:  "tileseditor"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/Qt5Compat/GraphicalEffects/libqtgraphicaleffectsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "QtGraphicalEffectsPlugin",
+    "debug": false,
+    "uri": [
+        "Qt5Compat.GraphicalEffects"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/Qt5Compat/GraphicalEffects/libqtgraphicaleffectsplugin.so" loaded library
+kwin_core: Successfully loaded plugin effect:  "windowview"
+kwin_core: Successfully loaded plugin effect:  "zoom"
+qt.core.plugin.factoryloader: checking directory path "/usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats" ...
+qt.core.plugin.factoryloader: looking at "libqgif.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqgif.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QImageIOHandlerFactoryInterface",
+    "MetaData": {
+        "Keys": [
+            "gif"
+        ],
+        "MimeTypes": [
+            "image/gif"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QGifPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("gif")
+qt.core.plugin.factoryloader: looking at "libqjpeg.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqjpeg.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QImageIOHandlerFactoryInterface",
+    "MetaData": {
+        "Keys": [
+            "jpg",
+            "jpeg",
+            "jfif"
+        ],
+        "MimeTypes": [
+            "image/jpeg",
+            "image/jpeg",
+            "image/jpeg"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QJpegPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("jpg", "jpeg", "jfif")
+qt.core.plugin.factoryloader: looking at "libqsvg.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqsvg.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QImageIOHandlerFactoryInterface",
+    "MetaData": {
+        "Keys": [
+            "svg",
+            "svgz"
+        ],
+        "MimeTypes": [
+            "image/svg+xml",
+            "image/svg+xml-compressed"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QSvgPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("svg", "svgz")
+qt.core.plugin.factoryloader: looking at "libqico.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqico.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QImageIOHandlerFactoryInterface",
+    "MetaData": {
+        "Keys": [
+            "ico",
+            "cur"
+        ],
+        "MimeTypes": [
+            "image/vnd.microsoft.icon",
+            "image/vnd.microsoft.icon"
+        ]
+    },
+    "archlevel": 1,
+    "className": "QICOPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.factoryloader: Got keys from plugin meta data QList("ico", "cur")
+qt.core.plugin.factoryloader: checking directory path "/usr/bin/imageformats" ...
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqsvg.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemKWaylandPlugin.so, metadata=
+{
+    "IID": "org.kde.kwindowsystem.KWindowSystemPluginInterface",
+    "MetaData": {
+        "platforms": [
+            "wayland",
+            "wayland-egl"
+        ]
+    },
+    "archlevel": 1,
+    "className": "KWaylandPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so, metadata=
+{
+    "IID": "org.kde.kwindowsystem.KWindowSystemPluginInterface",
+    "MetaData": {
+        "platforms": [
+            "xcb"
+        ]
+    },
+    "archlevel": 1,
+    "className": "X11Plugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so" loaded library
+kwin_core: Effect is not supported:  "dialogparent"
+kwin_core: Effect is not supported:  "windowaperture"
+kwin_core: Effect is not supported:  "fullscreen"
+kwin_core: Effect is not supported:  "scale"
+kwin_core: Effect is not supported:  "fadingpopups"
+kwin_core: Effect is not supported:  "maximize"
+kwin_core: Effect is not supported:  "sessionquit"
+kwin_core: Effect is not supported:  "logout"
+kwin_core: Effect is not supported:  "frozenapp"
+kwin_core: Effect is not supported:  "squash"
+kwin_core: Effect is not supported:  "login"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Layouts/libqquicklayoutsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "QtQuickLayoutsPlugin",
+    "debug": false,
+    "uri": [
+        "QtQuick.Layouts"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Layouts/libqquicklayoutsplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/libKirigamiplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlExtensionInterface",
+    "archlevel": 1,
+    "className": "KirigamiPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/libKirigamiplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/controls/libKirigamiControlsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlExtensionInterface",
+    "archlevel": 1,
+    "className": "KirigamiControlsPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami.controls"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/controls/libKirigamiControlsplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/primitives/libKirigamiPrimitivesplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_kirigami_primitivesPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami.primitives"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/primitives/libKirigamiPrimitivesplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/delegates/libKirigamiDelegatesplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_kirigami_delegatesPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami.delegates"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/delegates/libKirigamiDelegatesplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/dialogs/libKirigamiDialogsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_kirigami_dialogsPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami.dialogs"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/dialogs/libKirigamiDialogsplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/layouts/libKirigamiLayoutsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_kirigami_layoutsPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami.layouts"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/layouts/libKirigamiLayoutsplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kwin_x11/private/effects/libeffectsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlExtensionInterface",
+    "archlevel": 1,
+    "className": "EffectKitExtensionPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kwin_x11.private.effects"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kwin_x11/private/effects/libeffectsplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/milou/libmilou.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_milouPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.milou"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/milou/libmilou.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/plasma/components/liborg_kde_plasmacomponents3.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_plasma_componentsPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.plasma.components"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/plasma/components/liborg_kde_plasmacomponents3.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/plasma/extras/libplasmaextracomponentsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_plasma_extrasPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.plasma.extras"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/plasma/extras/libplasmaextracomponentsplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kcmutils/libkcmutilsqmlplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_kcmutilsPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kcmutils"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kcmutils/libkcmutilsqmlplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Controls/libqtquickcontrols2plugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlExtensionInterface/1.0",
+    "archlevel": 1,
+    "className": "QtQuickControls2Plugin",
+    "debug": false,
+    "uri": [
+        "QtQuick.Controls"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Controls/libqtquickcontrols2plugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Controls/Basic/libqtquickcontrols2basicstyleplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlExtensionInterface/1.0",
+    "archlevel": 1,
+    "className": "QtQuickControls2BasicStylePlugin",
+    "debug": false,
+    "uri": [
+        "QtQuick.Controls.Basic"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Controls/Basic/libqtquickcontrols2basicstyleplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/desktop/liborg_kde_desktop.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_desktopPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.desktop"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/desktop/liborg_kde_desktop.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/ksvg/libcorebindingsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_ksvgPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.ksvg"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/ksvg/libcorebindingsplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Templates/libqtquicktemplates2plugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlExtensionInterface/1.0",
+    "archlevel": 1,
+    "className": "QtQuickTemplates2Plugin",
+    "debug": false,
+    "uri": [
+        "QtQuick.Templates"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Templates/libqtquicktemplates2plugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/private/libKirigamiPrivateplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_kirigami_privatePlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami.private"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/private/libKirigamiPrivateplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/plasma/core/libcorebindingsplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlExtensionInterface",
+    "archlevel": 1,
+    "className": "CoreBindingsPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.plasma.core"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/plasma/core/libcorebindingsplugin.so" loaded library
+kf.svg: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kf.plasma.core: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Window/libquickwindowplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "QtQuick_WindowPlugin",
+    "debug": false,
+    "uri": [
+        "QtQuick.Window"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Window/libquickwindowplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/qqc2desktopstyle/private/libqqc2desktopstyleplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_qqc2desktopstyle_privatePlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.qqc2desktopstyle.private"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/qqc2desktopstyle/private/libqqc2desktopstyleplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/templates/libKirigamiTemplatesplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_kirigami_templatesPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.kirigami.templates"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/templates/libKirigamiTemplatesplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/desktop/private/liborg_kde_desktop_private.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_desktop_privatePlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.desktop.private"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/desktop/private/liborg_kde_desktop_private.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/sonnet/libsonnetquickplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "org_kde_sonnetPlugin",
+    "debug": false,
+    "uri": [
+        "org.kde.sonnet"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/sonnet/libsonnetquickplugin.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/Qt5Compat/GraphicalEffects/private/libqtgraphicaleffectsprivateplugin.so, metadata=
+{
+    "IID": "org.qt-project.Qt.QQmlEngineExtensionInterface",
+    "archlevel": 1,
+    "className": "QtGraphicalEffectsPrivatePlugin",
+    "debug": false,
+    "uri": [
+        "Qt5Compat.GraphicalEffects.private"
+    ],
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/Qt5Compat/GraphicalEffects/private/libqtgraphicaleffectsprivateplugin.so" loaded library
+kwin_core: EffectsHandler::unloadEffect : Effect not loaded : "kwin4_effect_shapecorners"
+kwin_core: Workspace::slotReconfigure()
+kwin_core: Compositing forced to OpenGL mode by environment variable
+kwin_scene_opengl: Could not delete framebuffer because no context is current
+kwin_core: Attempting to load the OpenGL scene
+kwin_platform_x11_standalone: glSwapInterval is unsupported
+kwin_core: OpenGL 2 compositing enforced by environment variable
+kwin_core: OpenGL compositing has been successfully initialized
+kf.coreaddons: Checking for plugins in QList("/usr/bin/kwin-x11/effects/plugins", "/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/effects/plugins")
+kwin_core: Effect is not supported:  "blendchanges"
+kwin_core: Enabled by default function disables effect:  "blur"
+kwin_core: Successfully loaded plugin effect:  "colorpicker"
+kwin_core: Enabled by default function disables effect:  "contrast"
+kwin_core: Successfully loaded plugin effect:  "highlightwindow"
+KscreenConfig::instance called after the first use - ignoring
+kwin_core: Successfully loaded plugin effect:  "kscreen"
+kwin_core: Successfully loaded plugin effect:  "outputlocator"
+OverviewConfig::instance called after the first use - ignoring
+kwin_core: Successfully loaded plugin effect:  "overview"
+kwin_core: Successfully loaded plugin effect:  "screenedge"
+kwin_core: Successfully loaded plugin effect:  "screenshot"
+kwin_core: Effect is not supported:  "slide"
+kwin_core: Effect is not supported:  "slidingpopups"
+kwin_core: Successfully loaded plugin effect:  "startupfeedback"
+kwin_core: Successfully loaded plugin effect:  "systembell"
+kwin_core: Successfully loaded plugin effect:  "tileseditor"
+WindowViewConfig::instance called after the first use - ignoring
+kwin_core: Successfully loaded plugin effect:  "windowview"
+ZoomConfig::instance called after the first use - ignoring
+kwin_core: Successfully loaded plugin effect:  "zoom"
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/org.kde.kwin.aurorae"
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/org.kde.kwin.aurorae.so"
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/liborg.kde.kwin.aurorae"
+qt.core.plugin.loader: Trying... "/usr/bin/org.kde.kdecoration3/liborg.kde.kwin.aurorae.so"
+qt.core.plugin.loader: "/usr/bin/org.kde.kdecoration3/org.kde.kwin.aurorae" not found
+qt.core.plugin.loader: Trying... "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae"
+qt.core.plugin.loader: Trying... "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so"
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so, metadata=
+{
+    "IID": "org.kde.KPluginFactory",
+    "MetaData": {
+        "org.kde.kdecoration3": {
+            "KNewStuff": "aurorae.knsrc",
+            "defaultTheme": "kwin4_decoration_qml_plastik",
+            "themeListKeyword": "themes",
+            "themes": true
+        }
+    },
+    "archlevel": 1,
+    "className": "AuroraeDecoFactory",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/org.kde.kdecoration3/org.kde.kwin.aurorae.so" loaded library
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kwin/decoration/libdecorationplugin.so, metadata=
+{
+    "IID": "org.kde.kwin.decoration",
+    "archlevel": 1,
+    "className": "DecorationPlugin",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kwin/decoration/libdecorationplugin.so" loaded library
+Module 'org.kde.kwin.decoration' does not contain a module identifier directive - it cannot be protected from external registrations.
+qt.core.plugin.loader: Found metadata in lib /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kirigami/platform/org.kde.desktop.so, metadata=
+{
+    "IID": "org.kde.kirigami.PlatformPluginFactory",
+    "archlevel": 1,
+    "className": "KirigamiPlasmaFactory",
+    "debug": false,
+    "version": 395776
+}
+
+
+qt.core.library: "/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kirigami/platform/org.kde.desktop.so" loaded library
+kwin_core: Effect is not supported:  "dialogparent"
+kwin_core: Effect is not supported:  "windowaperture"
+kwin_core: Effect is not supported:  "fullscreen"
+kwin_core: Effect is not supported:  "scale"
+kwin_core: Effect is not supported:  "fadingpopups"
+kwin_core: Effect is not supported:  "maximize"
+kwin_core: Effect is not supported:  "sessionquit"
+kwin_core: Effect is not supported:  "logout"
+kwin_core: Effect is not supported:  "frozenapp"
+kwin_core: Effect is not supported:  "squash"
+kwin_core: Effect is not supported:  "login"

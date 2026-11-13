@@ -1,0 +1,15 @@
+method return time=1794572427.312503 sender=:1.0 -> destination=:1.23 serial=882 reply_serial=2
+   variant       array [
+         string "screenshot"
+         string "outputlocator"
+         string "colorpicker"
+         string "zoom"
+         string "screenedge"
+         string "windowview"
+         string "tileseditor"
+         string "overview"
+         string "highlightwindow"
+         string "startupfeedback"
+         string "systembell"
+         string "kscreen"
+      ]

@@ -1,0 +1,8 @@
+method return time=1794574917.380359 sender=:1.2 -> destination=:1.20 serial=92 reply_serial=2
+method return time=1794574918.385806 sender=:1.2 -> destination=:1.21 serial=93 reply_serial=2
+method return time=1794574919.391355 sender=:1.2 -> destination=:1.22 serial=94 reply_serial=2
+method return time=1794574920.397035 sender=:1.2 -> destination=:1.23 serial=95 reply_serial=2
+method return time=1794574921.402633 sender=:1.2 -> destination=:1.24 serial=97 reply_serial=2
+method return time=1794574922.408157 sender=:1.2 -> destination=:1.25 serial=98 reply_serial=2
+method return time=1794574923.413907 sender=:1.2 -> destination=:1.26 serial=100 reply_serial=2
+method return time=1794574924.419573 sender=:1.2 -> destination=:1.27 serial=101 reply_serial=2

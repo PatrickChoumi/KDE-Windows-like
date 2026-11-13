@@ -1,0 +1,112 @@
+== os
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+== policy
+kwin-effect-roundcorners:
+  Installed: 0.11.0.0.6.6.6~kubuntu26041
+  Candidate: 0.11.0.0.6.6.6~kubuntu26041
+  Version table:
+ *** 0.11.0.0.6.6.6~kubuntu26041 500
+        500 https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu resolute/main amd64 Packages
+        100 /var/lib/dpkg/status
+== dpkg -l kwin*
++-- Desired=Unknown/Install/Remove/Purge/Hold
+|+- Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+||+ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||| Name                         Version                     Architecture Description
++++-============================-===========================-============-===================================
+un  kwin                         <none>                      <none>       (no description available)
+un  kwin-addons                  <none>                      <none>       (no description available)
+ii  kwin-common                  4:6.6.6-0ubuntu0.1          amd64        KDE window manager, common files
+ii  kwin-data                    4:6.6.6-0ubuntu0.1          all          KDE window manager data files
+un  kwin-decoration-oxygen       <none>                      <none>       (no description available)
+ii  kwin-effect-roundcorners     0.11.0.0.6.6.6~kubuntu26041 amd64        KDE Rounded Corners effect
+un  kwin-style-aurorae           <none>                      <none>       (no description available)
+un  kwin-style-breeze            <none>                      <none>       (no description available)
+ii  kwin-wayland                 4:6.6.6-0ubuntu0.1          amd64        KDE window manager, Wayland version
+un  kwin-wayland-backend-drm     <none>                      <none>       (no description available)
+un  kwin-wayland-backend-fbdev   <none>                      <none>       (no description available)
+un  kwin-wayland-backend-virtual <none>                      <none>       (no description available)
+un  kwin-wayland-backend-wayland <none>                      <none>       (no description available)
+un  kwin-wayland-backend-x11     <none>                      <none>       (no description available)
+ii  kwin-x11                     4:6.6.4-0ubuntu1            amd64        KDE window manager, X11 version
+ii  kwin-x11-data                4:6.6.4-0ubuntu1            all          KDE window manager X11 data files
+== dpkg -L
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/qt6
+/usr/lib/x86_64-linux-gnu/qt6/plugins
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/configs
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/configs/kwin_shapecorners_config.so
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins/kwin4_effect_shapecorners.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/kwin-effect-roundcorners
+/usr/share/doc/kwin-effect-roundcorners/changelog.gz
+/usr/share/doc/kwin-effect-roundcorners/copyright
+/usr/share/kwin
+/usr/share/kwin/shaders
+/usr/share/kwin/shaders/shapecorners.frag
+/usr/share/kwin/shaders/shapecorners_core.frag
+/usr/share/locale
+/usr/share/locale/de
+/usr/share/locale/de/LC_MESSAGES
+/usr/share/locale/de/LC_MESSAGES/kcmcorners.mo
+/usr/share/locale/es
+/usr/share/locale/es/LC_MESSAGES
+/usr/share/locale/es/LC_MESSAGES/kcmcorners.mo
+/usr/share/locale/hu
+/usr/share/locale/hu/LC_MESSAGES
+/usr/share/locale/hu/LC_MESSAGES/kcmcorners.mo
+/usr/share/locale/ja
+/usr/share/locale/ja/LC_MESSAGES
+/usr/share/locale/ja/LC_MESSAGES/kcmcorners.mo
+/usr/share/locale/nl
+/usr/share/locale/nl/LC_MESSAGES
+/usr/share/locale/nl/LC_MESSAGES/kcmcorners.mo
+/usr/share/locale/ru
+/usr/share/locale/ru/LC_MESSAGES
+/usr/share/locale/ru/LC_MESSAGES/kcmcorners.mo
+/usr/share/locale/zh
+/usr/share/locale/zh/LC_MESSAGES
+/usr/share/locale/zh/LC_MESSAGES/kcmcorners.mo
+== proprietaires
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/configs/kwin_shapecorners_config.so -> kwin-effect-roundcorners 
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins/kwin4_effect_shapecorners.so -> kwin-effect-roundcorners 
+/usr/share/doc/kwin-effect-roundcorners/changelog.gz -> kwin-effect-roundcorners 
+/usr/share/doc/kwin-effect-roundcorners/copyright -> kwin-effect-roundcorners 
+/usr/share/kwin/shaders/shapecorners.frag -> kwin-effect-roundcorners 
+/usr/share/kwin/shaders/shapecorners_core.frag -> kwin-effect-roundcorners 
+== dpkg -V
+missing     /usr/share/locale/de/LC_MESSAGES/kcmcorners.mo
+missing     /usr/share/locale/es/LC_MESSAGES/kcmcorners.mo
+missing     /usr/share/locale/hu/LC_MESSAGES/kcmcorners.mo
+missing     /usr/share/locale/ja/LC_MESSAGES/kcmcorners.mo
+missing     /usr/share/locale/nl/LC_MESSAGES/kcmcorners.mo
+missing     /usr/share/locale/ru/LC_MESSAGES/kcmcorners.mo
+missing     /usr/share/locale/zh/LC_MESSAGES/kcmcorners.mo
+rc=0
+== Depends
+(aucune ligne Depends/Recommends)
+== kwin installé
+ii  kwin-common                  4:6.6.6-0ubuntu0.1          amd64        KDE window manag
+ii  kwin-data                    4:6.6.6-0ubuntu0.1          all          KDE window manag
+ii  kwin-effect-roundcorners     0.11.0.0.6.6.6~kubuntu26041 amd64        KDE Rounded Corn
+ii  kwin-wayland                 4:6.6.6-0ubuntu0.1          amd64        KDE window manag
+ii  kwin-x11                     4:6.6.4-0ubuntu1            amd64        KDE window manag
+ii  kwin-x11-data                4:6.6.4-0ubuntu1            all          KDE window manag
+ii  libkf6kcmutils-data          6.24.0-0ubuntu1             all          Extra APIs to wr
+ii  libkf6kcmutils6:amd64        6.24.0-0ubuntu1             amd64        Extra APIs to wr
+ii  libkf6kcmutilscore6:amd64    6.24.0-0ubuntu1             amd64        Extra APIs to wr
+ii  libkf6kcmutilsquick6:amd64   6.24.0-0ubuntu1             amd64        Extra APIs to wr
+== ldd
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/configs/kwin_shapecorners_config.so
+  ldd OK
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins/kwin4_effect_shapecorners.so
+  ldd OK

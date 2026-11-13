@@ -1,0 +1,1 @@
+Error org.freedesktop.DBus.Error.UnknownMethod: No such method 'listOfEffects' in interface 'org.kde.kwin.Effects' at object path '/Effects' (signature '')

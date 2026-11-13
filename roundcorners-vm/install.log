@@ -1,0 +1,9 @@
+==> Sauvegarde : /root/backup-kde-roundcorners-20261113-122011
+==> kwin-effect-roundcorners est déjà installé : étapes PPA / apt ignorées.
+==> Contrôles de paquet OK.
+==> Versions KWin / plugin concordantes (6.6.6).
+==> KWin rechargé.
+==> Chargement explicite de l'effet (loadEffect).
+==> Effet kwin4_effect_shapecorners activé ET chargé par KWin. Vérifier visuellement : coins arrondis sur une fenêtre ouverte.
+==> Retour arrière : scripts/install-roundcorners.sh undo
+install exit=0

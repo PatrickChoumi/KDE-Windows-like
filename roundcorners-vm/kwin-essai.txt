@@ -1,0 +1,5 @@
+D1 (drm-noop) compositingType: Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+D1 (drm-noop) compositingType: Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+D1 (drm-noop) compositingType: Error org.freedesktop.DBus.Error.ServiceUnknown: The name org.kde.KWin was not provided by any .service files 
+D1 (drm-noop) compositingType: string "gl2" 
+kwin_wayland : essai D1 retenu

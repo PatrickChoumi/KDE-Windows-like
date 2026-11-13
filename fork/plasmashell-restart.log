@@ -1,0 +1,167 @@
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+Could not load a session backend. Session management operations such as shutdown will not be operational. This is a setup issue.
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5d79660353f0
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5d79660353f0
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5d79660353f0
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5d79660353f0
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5d79660353f0
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5d79660353f0
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5d79660353f0
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5d79660353f0
+qrc:/qt/qml/plasma/applet/org/kde/plasma/notifications/global/PulseAudio.qml:9:1: module "org.kde.plasma.private.volume" is not installed
+[W][13:00:42.393729] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:42.393747] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+qml: NotifyButton: texte L=0.00 fond L=0.00 lightText=false
+qml: windowsmodern.startmenu: rootModel rows = [Applications | Files | KICKER_ALL_MODEL] ; apps = 0 ; files = 0
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+[W][13:00:47.144032] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:47.144081] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:51.944440] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:51.944467] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:00:56.944395] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:00:56.944415] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:01.944347] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:01.944364] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:06.944351] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:06.944369] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:11.943957] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:11.943982] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:16.943905] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:16.943937] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:21.944011] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:21.944031] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: windowsmodern.startmenu: tile 0 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: recommended entries = 1 [app:Konsole]
+qml: windowsmodern.startmenu: tile 0 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: tile 1 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: recommended entries = 2 [app:Konsole | file:ci-notes.txt]
+qml: windowsmodern.startmenu: tile 0 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: tile 1 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: tile 2 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: recommended entries = 3 [app:Dolphin | file:ci-notes.txt | app:Konsole]
+[W][13:01:26.943984] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:26.944004] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: windowsmodern.startmenu: tile 0 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: tile 1 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: tile 2 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: tile 3 display=undefined decoration=undefined size=288x52 pos=0,0 visible=true cell=288x52 view=576x243
+qml: windowsmodern.startmenu: recommended entries = 4 [app:Dolphin | file:ci-rapport.pdf | app:Konsole | file:ci-notes.txt]
+qml: StartMenu anim: debut t=1794574890621 slideY=32
+qml: StartMenu anim: t=1794574890652 slideY=21.1 opacite=0.00
+qml: StartMenu anim: t=1794574890658 slideY=19.0 opacite=0.34
+qml: StartMenu anim: t=1794574890674 slideY=14.0 opacite=0.41
+qml: StartMenu anim: t=1794574890689 slideY=10.1 opacite=0.56
+qml: StartMenu anim: t=1794574890706 slideY=6.9 opacite=0.69
+qml: StartMenu anim: t=1794574890722 slideY=4.5 opacite=0.78
+qml: StartMenu anim: t=1794574890738 slideY=2.7 opacite=0.86
+qml: StartMenu anim: t=1794574890763 slideY=1.0 opacite=0.91
+qml: StartMenu anim: t=1794574890770 slideY=0.7 opacite=0.97
+qml: StartMenu anim: t=1794574890786 slideY=0.3 opacite=0.98
+qml: StartMenu anim: t=1794574890802 slideY=0.0 opacite=0.99
+qml: StartMenu anim: t=1794574890818 slideY=0.0 opacite=1.00
+qml: StartMenu anim: t=1794574890833 slideY=0.0 opacite=1.00
+qml: StartMenu anim: fin t=1794574890833 slideY=0 opacite=1
+[W][13:01:31.944185] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:31.944202] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:36.944635] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:36.944662] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:41.944487] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:41.944510] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:01:46.943950] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:46.943974] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: windowsmodern.startmenu: alphabet rows = {"D":0,"E":1,"I":2,"K":3,"S":5}
+[W][13:01:51.944156] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:51.944183] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: windowsmodern.startmenu: jump to S (row 5)
+[W][13:01:56.944395] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:01:56.944420] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:02:01.944291] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:02:01.944319] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: count=1
+[W][13:02:06.944281] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:02:06.944316] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:02:11.943517] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:02:11.943539] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: count=2
+qml: NotifyButton: count=3
+qml: NotifyButton: count=4
+qml: NotifyButton: count=5
+qml: NotifyButton: count=6
+qml: NotifyButton: count=7
+qml: NotifyButton: count=8
+qml: NotifyButton: count=9
+qml: NotifyButton: count=10
+qml: NotifyButton: count=11
+qml: NotifyButton: count=12
+[W][13:02:16.943608] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:02:16.943629] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:02:21.944048] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:02:21.944071] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: count=0
+[W][13:02:26.945264] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:02:26.945289] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][13:02:31.945924] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:02:31.945948] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.

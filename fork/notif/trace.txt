@@ -1,0 +1,14 @@
+qml: NotifyButton: texte L=0.00 fond L=0.00 lightText=false
+qml: NotifyButton: count=1
+qml: NotifyButton: count=2
+qml: NotifyButton: count=3
+qml: NotifyButton: count=4
+qml: NotifyButton: count=5
+qml: NotifyButton: count=6
+qml: NotifyButton: count=7
+qml: NotifyButton: count=8
+qml: NotifyButton: count=9
+qml: NotifyButton: count=10
+qml: NotifyButton: count=11
+qml: NotifyButton: count=12
+qml: NotifyButton: count=0
