@@ -15,7 +15,9 @@ getcap /usr/bin/kwin_wayland > "$OUT/getcap.txt" 2>&1
 cp /usr/bin/kwin_wayland /usr/bin/kwin_wayland_ci
 KW=/usr/bin/kwin_wayland_ci
 "$KW" --help > "$OUT/kwin-wayland-help.txt" 2>&1
-"$KW" --virtual --width 1920 --height 1080 --socket wayland-0 --no-lockscreen > "$OUT/kwin.log" 2>&1 &
+QPA=$(find /usr/lib -name 'libwayland-org.kde.kwin.qpa.so' 2>/dev/null | head -1)
+{ echo "QPA=$QPA"; ldd "$QPA" 2>&1 | grep -iE "not found|=> not" || echo "ldd QPA : aucune bibliothèque manquante"; ldd "$KW" 2>&1 | grep -i "not found" || echo "ldd kwin : OK"; dpkg -l | awk '/qt6-wayland|waylandcompositor|libqt6wayland|kwin-wayland/{print $2, $3}'; } > "$OUT/qpa-diag.txt" 2>&1
+QT_DEBUG_PLUGINS=1 "$KW" --virtual --width 1920 --height 1080 --socket wayland-0 --no-lockscreen > "$OUT/kwin.log" 2>&1 &
 for i in $(seq 1 20); do [ -S "$XDG_RUNTIME_DIR/wayland-0" ] && break; sleep 1; done
 ls -l "$XDG_RUNTIME_DIR" > "$OUT/runtime-dir.txt" 2>&1
 export WAYLAND_DISPLAY=wayland-0 QT_QPA_PLATFORM=wayland
