@@ -55,9 +55,11 @@ ln -sf "kwin-${RET:-V}.log" "$OUT/kwin.log" 2>/dev/null || true
 ls -l "$XDG_RUNTIME_DIR" > "$OUT/runtime-dir.txt" 2>&1
 export QT_QPA_PLATFORM=wayland
 
-shot() {  # grim : capture de la sortie de sway qui porte kwin_wayland imbriqué ; sinon spectacle
-  if true; then
-    spectacle -b -n -f -o "$OUT/$1.png" > "$OUT/spectacle-$1.log" 2>&1
+shot() {  # 1) spectacle (refusé par KWin sur cette VM) ; 2) lecture directe du framebuffer DRM affiché (ci/drm-grab.py)
+  spectacle -b -n -f -o "$OUT/$1.png" > "$OUT/spectacle-$1.log" 2>&1
+  if [ ! -s "$OUT/$1.png" ]; then
+    echo "spectacle sans PNG : repli sur ci/drm-grab.py $DRMDEV" >> "$OUT/spectacle-$1.log"
+    python3 "$(dirname "$0")/drm-grab.py" "$DRMDEV" "$OUT/$1.png" >> "$OUT/spectacle-$1.log" 2>&1
   fi
   ls -l "$OUT/$1.png" 2>&1 | tee -a "$OUT/spectacle-$1.log"
 }
