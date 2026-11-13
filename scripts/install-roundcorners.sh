@@ -18,10 +18,17 @@
 # ───────────────────────────────────────────────────────────────────
 set -euo pipefail
 
-PKG="kwin-effect-roundcorners"
+# Le PPA publie deux paquets : kwin-effect-roundcorners (KWin Wayland) et kwin-effect-roundcorners-x11 (KWin X11, autre dossier de plugins).
+# Choix : RC_PKG (forcé) > paquet déjà installé > session X11 (XDG_SESSION_TYPE=x11) > Wayland (défaut).
+PKG_WAYLAND="kwin-effect-roundcorners"; PKG_X11="kwin-effect-roundcorners-x11"
+pkg_installed() { local o; o="$(dpkg -s "$1" 2>/dev/null || true)"; grep -q '^Status: install ok installed' <<<"$o"; }
+if [ -n "${RC_PKG:-}" ]; then PKG="$RC_PKG"
+elif pkg_installed "$PKG_X11"; then PKG="$PKG_X11"
+elif pkg_installed "$PKG_WAYLAND"; then PKG="$PKG_WAYLAND"
+elif [ "${XDG_SESSION_TYPE:-}" = "x11" ]; then PKG="$PKG_X11"
+else PKG="$PKG_WAYLAND"; fi
 PPA="ppa:matinlotfali/kde-rounded-corners"
 EFFECT_ID="kwin4_effect_shapecorners"
-SO_REL="kwin/effects/plugins/${EFFECT_ID}.so"
 KWINRC="${RC_KWINRC:-$HOME/.config/kwinrc}"
 BACKUP_ROOT="${RC_BACKUP_ROOT:-$HOME}"
 STATE_FILE="$BACKUP_ROOT/.roundcorners-last-backup"
@@ -43,7 +50,7 @@ is_installed() { local o; o="$(dpkg -s "$PKG" 2>/dev/null || true)"; grep -q '^S
 
 plugin_file() {
     # Chemin réel du .so, d'après le contenu du paquet (pas de chemin supposé).
-    dpkg -L "$PKG" 2>/dev/null | grep -E "/${SO_REL//./\\.}\$" | head -1 || true
+    dpkg -L "$PKG" 2>/dev/null | grep -E "/${EFFECT_ID}[^/]*\.so\$" | head -1 || true
 }
 
 effect_enabled() {
@@ -147,7 +154,7 @@ do_install() {
 
     # 5. Contrôle du résultat réel
     local so; so="$(plugin_file)"
-    [ -n "$so" ] && [ -e "$so" ] || die "installé, mais le .so $SO_REL est introuvable (rien n'est activé)"
+    [ -n "$so" ] && [ -e "$so" ] || die "installé, mais le .so ${EFFECT_ID}.so est introuvable (rien n'est activé)"
     local f o
     while read -r f; do
         [ -f "$f" ] || continue
