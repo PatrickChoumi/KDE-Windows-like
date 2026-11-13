@@ -4,9 +4,6 @@ name: roundcorners-wayland
 # avec kwin_wayland --virtual (6.6.6, même version que le plugin), et publie les captures sur la branche ci-shots-roundcorners-wayland.
 on:
   workflow_dispatch:
-  push:
-    branches: [dev]
-    paths: ['.github/workflows/roundcorners-wayland.yml', 'ci/roundcorners-wayland.sh', 'scripts/install-roundcorners.sh']
 
 permissions:
   contents: write
