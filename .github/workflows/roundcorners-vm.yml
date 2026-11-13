@@ -23,7 +23,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 gpg software-properties-common \
             plasma-desktop plasma-workspace kwin-wayland kactivitymanagerd systemsettings \
-            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs sway grim > /tmp/apt-install.log 2>&1 \
+            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs  > /tmp/apt-install.log 2>&1 \
             || { echo "::error::apt install: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit 1; }
           for group in "kde-spectacle spectacle" "kwin-style-aurorae aurorae" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
             for p in $group; do sudo apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
@@ -44,6 +44,14 @@ jobs:
             echo "== apt"; apt --version
           } > shots/apt-ppa-diag.txt 2>&1 || true
           cat shots/apt-ppa-diag.txt
+      - name: Installer le paquet du PPA à la main (l'apt de cette VM n'indexe pas le PPA)
+        run: |
+          cd /tmp; B=https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu
+          curl -fsSL "$B/dists/resolute/main/binary-amd64/Packages.gz" | zcat > /tmp/ppa-Packages 2>/tmp/ppa-curl.err || echo "::warning::Packages.gz illisible : $(cat /tmp/ppa-curl.err)"
+          F=$(awk '/^Package: kwin-effect-roundcorners$/{p=1} p&&/^Filename:/{print $2; exit}' /tmp/ppa-Packages)
+          echo "Filename: $F" | tee -a shots/apt-ppa-diag.txt
+          [ -n "$F" ] && curl -fsSLO "$B/$F" && sudo dpkg -i "/tmp/$(basename "$F")" 2>&1 | tail -3 || echo "::warning::installation manuelle du paquet impossible"
+          dpkg -l kwin-effect-roundcorners | tail -1
       - name: Installer le thème du dépôt (root)
         run: |
           for c in themes icons lookfeel; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
