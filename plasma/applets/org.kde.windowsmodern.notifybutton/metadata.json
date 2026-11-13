@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [{ "Name": "Patrick Choumi", "Email": "noreply@users.noreply.github.com" }],
+        "Category": "System Information",
+        "Description": "Windows 11 notification centre button: bell, blue count badge, notification history popup.",
+        "EnabledByDefault": true,
+        "FormFactors": ["desktop"],
+        "Icon": "preferences-desktop-notification",
+        "Id": "org.kde.windowsmodern.notifybutton",
+        "License": "GPL-3.0-or-later",
+        "Name": "Notification Centre Button (Windows Modern)",
+        "Version": "1.0.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

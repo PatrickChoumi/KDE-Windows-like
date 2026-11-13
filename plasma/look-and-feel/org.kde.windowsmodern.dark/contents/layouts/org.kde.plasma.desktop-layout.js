@@ -114,6 +114,9 @@ function createWindowsModernPanel(screenId) {
     clock.writeConfig("compactPadding", "0.18");
     clock.writeConfig("expandedWidth", "320");
 
+    // 6b. Centre de notifications (Win11) : cloche, ou pastille bleue avec le nombre, à droite de l'horloge.
+    var notif = panel.addWidget("org.kde.windowsmodern.notifybutton");
+
     // 7. Show Desktop — custom Win11-style thin sliver, or fall back to stock.
     var peek = panel.addWidget("org.kde.windowsmodern.showdesktop");
     if (!peek) { peek = panel.addWidget("org.kde.plasma.showdesktop"); }
@@ -129,5 +132,6 @@ function createWindowsModernPanel(screenId) {
     spacerRight.index = 5;
     tray.index = 6;
     clock.index = 7;
-    peek.index = 8;
+    if (notif) { notif.index = 8; }
+    peek.index = 9;
 }
