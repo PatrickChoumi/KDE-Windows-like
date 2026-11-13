@@ -41,6 +41,9 @@ launch_kwin() {  # $1 = étiquette, $2 = drm-noop | drm-builtin | virtual
   done
   return 1
 }
+# Base de référence « sans effet » : le paquet (installé à la main) est activé par défaut ; on le désactive AVANT de lancer KWin,
+# sinon l'état « avant » contient déjà les coins arrondis (constaté au run 43422482118).
+mkdir -p /root/.config; kwriteconfig6 --file kwinrc --group Plugins --key kwin4_effect_shapecornersEnabled false
 ls -l /dev/dri /dev/kvm > "$OUT/dri.txt" 2>&1
 : > "$OUT/kwin-essai.txt"
 for spec in "D1 drm-noop" "D2 drm-builtin" "V virtual"; do
