@@ -37,7 +37,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 2.1 | Chevron `^` « icônes cachées » avec popup | ✅ chevron vu ; popup 🟡 |
 | 2.2 | Icônes de la zone : cloud, langue (« ENG »), puis bloc **Réseau + Son + Batterie** regroupé en un seul bouton | 🟡 System Tray natif ; regroupement ⬜ |
 | 2.3 | Horloge sur 2 lignes : heure (ex. `10:42 AM`) et date (ex. `1/30/2022`), alignée à droite | ✅ deux lignes, date `11/12/2026` (CI 43187508732) ; heure en 24 h dans la CI (locale C) : le 12 h `AM/PM` dépend de la locale, non forcé |
-| 2.4 | Bouton de notifications à droite de l'horloge, avec pastille de nombre (réf. [23]) | ⬜ |
+| 2.4 | Bouton de notifications à droite de l'horloge, avec pastille de nombre (réf. [23]) | ✅ applet `org.kde.windowsmodern.notifybutton` : cloche blanche 24 px sans notification, pastille ronde 16×16 px `#4CC2FF` centrée avec le nombre (1, 12 ; « 99+ » prévu, non testé), tuile 48 px avec survol, fenêtre d'historique (titre, message, icône), « Clear all » (compteur → 0, « No new notifications ») ; CI 43404058690 (captures 16–21). Non fait : vidage du compteur à l'ouverture comme Win11, toasts en bas à droite, mode « Ne pas déranger » |
 | 2.5 | « Afficher le bureau » : trait fin au bord droit, visible au survol | ✅ |
 | 2.6 | **Centre rapide** (réf. [23]) : tuiles Wi-Fi (avec chevron), Bluetooth, Cellulaire, Mode avion, Assistant de concentration, Accessibilité ; curseurs luminosité et volume (avec flèche de sélection de sortie) ; batterie en %, bouton crayon « Modifier » et engrenage « Paramètres » | ⬜ (popups natifs à restyler, P3) |
 | 2.7 | Tuiles actives en accent plein, inactives en gris translucide, rayon 4 px | ⬜ |
