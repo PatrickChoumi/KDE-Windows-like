@@ -23,7 +23,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 gpg software-properties-common \
             plasma-desktop plasma-workspace kwin-wayland kactivitymanagerd systemsettings \
-            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs xvfb x11-apps > /tmp/apt-install.log 2>&1 \
+            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs sway grim > /tmp/apt-install.log 2>&1 \
             || { echo "::error::apt install: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit 1; }
           for group in "kde-spectacle spectacle" "kwin-style-aurorae aurorae" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
             for p in $group; do sudo apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
@@ -32,6 +32,8 @@ jobs:
       - name: Diagnostic apt du PPA sur cette VM
         run: |
           mkdir -p shots; sudo chmod 777 shots
+          # Listes apt périmées préinstallées dans l'image de la VM (Translation-en du 5 mai) : on repart de zéro.
+          sudo rm -rf /var/lib/apt/lists/ppa.launchpadcontent.net_matinlotfali* /var/lib/apt/lists/partial/*; sudo rm -f /etc/apt/sources.list.d/*rounded*
           { sudo add-apt-repository -y ppa:matinlotfali/kde-rounded-corners; sudo apt-get update 2>&1 | tail -15
             echo "== policy"; apt-cache policy kwin-effect-roundcorners
             echo "== listes"; ls -l /var/lib/apt/lists | grep -i rounded
