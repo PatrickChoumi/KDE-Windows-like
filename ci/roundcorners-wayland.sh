@@ -8,6 +8,8 @@ export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p $XDG_RUNTIME_DIR; chmod 700 $XDG_RUNTI
 export XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true XDG_SESSION_TYPE=wayland
 export LC_ALL=C.UTF-8 LIBGL_ALWAYS_SOFTWARE=1 QT_QUICK_BACKEND=software
 unset DISPLAY
+# Pas de /dev/dri dans le conteneur : EGL « surfaceless » de Mesa (llvmpipe) pour que le QPA de KWin puisse créer son contexte.
+export EGL_PLATFORM=surfaceless MESA_LOADER_DRIVER_OVERRIDE=llvmpipe
 kw() { dbus-send --session --print-reply --dest=org.kde.KWin "$@" 2>&1; }
 # kwin_wayland porte cap_sys_nice (setcap) : le conteneur CI refuse alors l'exécution (« Operation not permitted »).
 # `cp` sans -a ne copie pas les attributs étendus : copie jetable sans capacité (VM de CI uniquement).
