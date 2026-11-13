@@ -15,19 +15,32 @@ KW=/usr/bin/kwin_wayland   # VM réelle : pas de conteneur, cap_sys_nice autoris
 QPA=$(find /usr/lib -name 'libwayland-org.kde.kwin.qpa.so' 2>/dev/null | head -1)
 { echo "QPA=$QPA"; ldd "$QPA" 2>&1 | grep -iE "not found|=> not" || echo "ldd QPA : aucune bibliothèque manquante"; ldd "$KW" 2>&1 | grep -i "not found" || echo "ldd kwin : OK"; dpkg -l | awk '/qt6-wayland|waylandcompositor|libqt6wayland|kwin-wayland/{print $2, $3}'; } > "$OUT/qpa-diag.txt" 2>&1
 ls -l /dev/dri > "$OUT/dri.txt" 2>&1; env | grep -E "^(QT_|WAYLAND|XDG_|EGL|LIBGL|DISPLAY)" > "$OUT/env.txt"
-launch_kwin() {  # $1 = étiquette, le reste = variables d'environnement
+launch_kwin() {  # $1 = étiquette, le reste = variables d'environnement ; réussit seulement si la composition est OpenGL (gl2)
   local tag="$1"; shift
   env "$@" QT_LOGGING_RULES="kwin_*=true;kwin.*=true;qt.qpa.*=true;qt.core.plugin.loader=false;qt.core.plugin.factoryloader=false" "$KW" --virtual --width 1920 --height 1080 --socket wayland-0 --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 &
   KWPID=$!
-  for i in $(seq 1 25); do [ -S "$XDG_RUNTIME_DIR/wayland-0" ] && return 0; kill -0 $KWPID 2>/dev/null || return 1; sleep 1; done
+  for i in $(seq 1 25); do [ -S "$XDG_RUNTIME_DIR/wayland-0" ] && break; kill -0 $KWPID 2>/dev/null || return 1; sleep 1; done
+  [ -S "$XDG_RUNTIME_DIR/wayland-0" ] || return 1
+  for i in $(seq 1 10); do
+    ct=$(kw /Compositor org.freedesktop.DBus.Properties.Get string:org.kde.kwin.Compositing string:compositingType | tr -s ' \n' ' ')
+    echo "$tag compositingType: $ct" >> "$OUT/kwin-essai.txt"
+    case "$ct" in *gl2*|*gles*) return 0;; esac; sleep 1
+  done
   return 1
 }
 ls -l /dev/dri /dev/kvm > "$OUT/dri.txt" 2>&1
-# Essais successifs : (A) rendu logiciel par défaut sur la VM ; (B) EGL surfaceless ; (C) rendu GBM/DRM de la VM.
-if launch_kwin A LIBGL_ALWAYS_SOFTWARE=1; then echo "kwin_wayland : essai A OK" > "$OUT/kwin-essai.txt"
-elif kill $KWPID 2>/dev/null; sleep 1; launch_kwin B LIBGL_ALWAYS_SOFTWARE=1 EGL_PLATFORM=surfaceless MESA_LOADER_DRIVER_OVERRIDE=llvmpipe; then echo "kwin_wayland : essai B OK" > "$OUT/kwin-essai.txt"
-elif kill $KWPID 2>/dev/null; sleep 1; launch_kwin C EGL_PLATFORM=gbm; then echo "kwin_wayland : essai C OK" > "$OUT/kwin-essai.txt"
-else echo "kwin_wayland : A, B et C ont échoué" > "$OUT/kwin-essai.txt"; fi
+: > "$OUT/kwin-essai.txt"
+ok=0
+for spec in "A KWIN_COMPOSE=O2 LIBGL_ALWAYS_SOFTWARE=1" \
+            "B KWIN_COMPOSE=O2 LIBGL_ALWAYS_SOFTWARE=1 EGL_PLATFORM=surfaceless MESA_LOADER_DRIVER_OVERRIDE=llvmpipe" \
+            "C KWIN_COMPOSE=O2 EGL_PLATFORM=gbm" \
+            "D LIBGL_ALWAYS_SOFTWARE=1"; do
+  set -- $spec
+  launch_kwin "$@" && { echo "kwin_wayland : essai $1 retenu" >> "$OUT/kwin-essai.txt"; ok=1; break; }
+  echo "kwin_wayland : essai $1 sans OpenGL, on arrête et on passe au suivant" >> "$OUT/kwin-essai.txt"
+  kill $KWPID 2>/dev/null; sleep 2; rm -f "$XDG_RUNTIME_DIR"/wayland-0*
+done
+[ "$ok" = 1 ] || { echo "AUCUN essai OpenGL : repli QPainter (essai D) dans le dernier journal" >> "$OUT/kwin-essai.txt"; launch_kwin E LIBGL_ALWAYS_SOFTWARE=1 || true; }
 cat "$OUT/kwin-essai.txt"
 ln -sf "$(ls "$OUT"/kwin-?.log | tail -1)" "$OUT/kwin.log" 2>/dev/null || true
 ls -l "$XDG_RUNTIME_DIR" > "$OUT/runtime-dir.txt" 2>&1
