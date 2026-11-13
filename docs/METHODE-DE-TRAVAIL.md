@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ». Une copie est aussi tenue dans le projet claude.ai « Kde Windows like » (`claude/methode-de-travail.md`) : garder les deux identiques.
-> Dernière mise à jour : 2026-11-13 (version 27).
+> Dernière mise à jour : 2026-11-13 (version 28).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -100,6 +100,7 @@
 - Ensuite : test sur la vraie machine par Patrick (`scripts/install-roundcorners.sh`), puis 3.10 (animation d'ouverture du menu).
 - Animation d'ouverture du menu (3.10) validée (run 43380171516, commit `dc4ccfc`) : la trace `anim/trace.txt` montre 32 px → 0 et opacité 0 → 1 en 197 ms ; la capture à 106 ms diffère de l'état final, les suivantes sont identiques. Le premier essai (`cc59fbe`) ne bougeait pas : le `Dialog` replace la fenêtre, le glissement doit porter sur le contenu. Ensuite : zone de notification (2.4 bouton notifications + pastille, 2.6/2.7 centre rapide), ou 4.x recherche, ou test réel des coins arrondis par Patrick.
 - Nettoyage des branches (2026-11-13, v27) : 10 branches → 2 (`main`, `ci-out`). `dev` fusionné dans `main` (avance rapide, 0 commit perdu) puis supprimé ; les 7 branches `ci-*` supprimées (les 6 workflows publient maintenant dans `ci-out` par `ci/publish.sh`) ; PR n°1 (`codex/visual-regression-foundation`) fermée, ses commits gardés dans le tag `archive/codex-visual-regression` (non fusionnés : à reprendre si utile). Les liens `ci-shots-*` des anciennes notes sont obsolètes : lire `ci-out/<dossier>`.
+- Coins arrondis, nouveau test (2026-11-13, runs 43382259640 / 43382259595 / 43383300047, commit `d8f84f1`) : X11 : effet « non chargé » avant et après installation, coins carrés mesurés (pixel exact (0,0) = fond, identique avant/après) ; IID forcé : le plugin charge ses shaders puis KWin meurt (DBus `org.kde.KWin` absent), pixels non valables ; Wayland `--virtual` : même échec du plugin QPA `wayland-org.kde.kwin.qpa` (le workflow se termine « success » sans captures : ne pas s'y fier). Conclusion : la CI ne peut PAS valider le rendu ; seul un test réel en session Wayland sur 6.6.6 le peut.
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
