@@ -9,8 +9,13 @@ export XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true XDG_SESSION_TYPE=wayland
 export LC_ALL=C.UTF-8 LIBGL_ALWAYS_SOFTWARE=1 QT_QUICK_BACKEND=software
 unset DISPLAY
 kw() { dbus-send --session --print-reply --dest=org.kde.KWin "$@" 2>&1; }
-kwin_wayland --help > "$OUT/kwin-wayland-help.txt" 2>&1
-kwin_wayland --virtual --width 1920 --height 1080 --socket wayland-0 --no-lockscreen > "$OUT/kwin.log" 2>&1 &
+# kwin_wayland porte cap_sys_nice (setcap) : le conteneur CI refuse alors l'exécution (« Operation not permitted »).
+# `cp` sans -a ne copie pas les attributs étendus : copie jetable sans capacité (VM de CI uniquement).
+getcap /usr/bin/kwin_wayland > "$OUT/getcap.txt" 2>&1
+cp /usr/bin/kwin_wayland /usr/bin/kwin_wayland_ci
+KW=/usr/bin/kwin_wayland_ci
+"$KW" --help > "$OUT/kwin-wayland-help.txt" 2>&1
+"$KW" --virtual --width 1920 --height 1080 --socket wayland-0 --no-lockscreen > "$OUT/kwin.log" 2>&1 &
 for i in $(seq 1 20); do [ -S "$XDG_RUNTIME_DIR/wayland-0" ] && break; sleep 1; done
 ls -l "$XDG_RUNTIME_DIR" > "$OUT/runtime-dir.txt" 2>&1
 export WAYLAND_DISPLAY=wayland-0 QT_QPA_PLATFORM=wayland
