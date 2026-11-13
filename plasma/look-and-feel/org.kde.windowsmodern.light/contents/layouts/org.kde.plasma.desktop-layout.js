@@ -46,11 +46,10 @@ function createWindowsModernPanel(screenId) {
     // Applets Only" manually in Panel Settings after applying this layout.
     panel.floating = false;
 
-    // Opaque panel background: Plasma's default "adaptive" opacity toggles
-    // translucency when windows touch the panel, which looks inconsistent.
-    // Win11 keeps a stable background, so force opaque (our theme is fully
-    // opaque anyway). Use "translucent" instead if blur is desired later.
-    panel.opacity = "opaque";
+    // Translucent panel background (Win11 "Mica"-like): the theme's translucent/ panel-background.svg
+    // (fill ~60 % #1C1C1C / light equivalent) over KWin's blur effect (ensure_kwin_blur in install-lib.sh).
+    // "translucent" is fixed (unlike "adaptive", which switches when a window touches the panel).
+    panel.opacity = "translucent";
 
     // --- Widgets -------------------------------------------------------------
     // Order of addWidget calls determines left-to-right order in the panel.
