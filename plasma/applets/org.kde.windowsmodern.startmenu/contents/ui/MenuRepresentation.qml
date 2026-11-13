@@ -41,6 +41,8 @@ Item {
     id: main
 
     onVisibleChanged: {
+        // 3.10 : la fenêtre doit être invisible (opacité 0) AVANT d'être affichée, sinon un éclair plein opacité précède le fondu.
+        if (!root.visible) root.opacity = 0
         root.visible = !root.visible
     }
 
@@ -80,7 +82,10 @@ Item {
             if (visible) {
                 reposition();
                 reset();
+                playOpenAnimation();
             } else {
+                openAnimation.stop();
+                opacity = 1;
                 leftColumnState = 0;
                 sharedContextMenu.close();
                 powerMenu.close();
@@ -90,10 +95,42 @@ Item {
         onHeightChanged: if (visible) reposition()
         onWidthChanged: if (visible) reposition()
 
+        // Position verticale finale (la fenêtre glisse jusqu'ici à l'ouverture).
+        property int targetY: 0
+        // 3.10 — animation d'ouverture Win11 : glissement vers le haut (32 px) + fondu, ~200 ms.
+        // Durée 0 si les animations sont désactivées (Kirigami.Units.longDuration === 0).
+        readonly property int openDuration: Kirigami.Units.longDuration === 0 ? 0 : 200
+        readonly property int openSlide: 32
+
         function reposition() {
             var pos = popupPosition(width, height);
-            x = pos.x; y = pos.y;
+            x = pos.x;
+            targetY = pos.y;
+            if (!openAnimation.running) y = pos.y;
         }
+
+        function playOpenAnimation() {
+            if (openDuration === 0) {
+                opacity = 1;
+                return;
+            }
+            openAnimation.stop();
+            opacity = 0;
+            openAnimation.start();
+        }
+
+        ParallelAnimation {
+            id: openAnimation
+            NumberAnimation { target: root; property: "y"; from: root.targetY + root.openSlide; to: root.targetY
+                              duration: root.openDuration; easing.type: Easing.OutCubic }
+            NumberAnimation { target: root; property: "opacity"; from: 0; to: 1
+                              duration: root.openDuration; easing.type: Easing.OutCubic }
+            onStarted: console.log("StartMenu anim: debut t=" + Date.now() + " y=" + root.y + " cible=" + root.targetY)
+            onFinished: console.log("StartMenu anim: fin t=" + Date.now() + " y=" + root.y + " opacite=" + root.opacity)
+        }
+
+        // Trace de la position à chaque image pendant l'animation (mesurée en CI).
+        onYChanged: if (openAnimation.running) console.log("StartMenu anim: t=" + Date.now() + " y=" + y + " opacite=" + opacity.toFixed(2))
 
         function toggle() {
             main.visible = !main.visible
