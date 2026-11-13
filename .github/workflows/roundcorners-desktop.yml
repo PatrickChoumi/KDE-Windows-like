@@ -75,13 +75,7 @@ jobs:
         with:
           name: roundcorners-desktop
           path: shots/
-      - name: Publier les captures sur la branche ci-shots (consultables sans télécharger d'artefact)
+      - name: Publier les captures sur la branche ci-out (consultables sans télécharger d'artefact)
         if: always()
         run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          rm -rf /tmp/pub && mkdir /tmp/pub && cp -r shots/. /tmp/pub/ 2>/dev/null || true
-          cd /tmp/pub && git init -q -b ci-shots
-          git config user.name "ci" && git config user.email "ci@users.noreply.github.com"
-          echo "run $GITHUB_RUN_ID $(date -u +%FT%TZ)" > RUN.txt
-          git add -A && git commit -qm "screenshots run $GITHUB_RUN_ID"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-shots:ci-shots-roundcorners-desktop
+          GITHUB_TOKEN=${{ github.token }} bash ci/publish.sh shots roundcorners-desktop
