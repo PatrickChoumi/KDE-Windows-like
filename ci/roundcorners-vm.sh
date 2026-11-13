@@ -15,34 +15,17 @@ KW=/usr/bin/kwin_wayland   # VM réelle : pas de conteneur, cap_sys_nice autoris
 QPA=$(find /usr/lib -name 'libwayland-org.kde.kwin.qpa.so' 2>/dev/null | head -1)
 { echo "QPA=$QPA"; ldd "$QPA" 2>&1 | grep -iE "not found|=> not" || echo "ldd QPA : aucune bibliothèque manquante"; ldd "$KW" 2>&1 | grep -i "not found" || echo "ldd kwin : OK"; dpkg -l | awk '/qt6-wayland|waylandcompositor|libqt6wayland|kwin-wayland/{print $2, $3}'; } > "$OUT/qpa-diag.txt" 2>&1
 ls -l /dev/dri > "$OUT/dri.txt" 2>&1; env | grep -E "^(QT_|WAYLAND|XDG_|EGL|LIBGL|DISPLAY)" > "$OUT/env.txt"
-# Le backend --virtual de KWin 6.6 ne sait faire que du QPainter ; Xvfb n'a pas de DRI3 (donc pas d'EGL). On imbrique kwin_wayland
-# (--wayland-display) dans un sway sans écran (WLR_BACKENDS=headless, rendu pixman) ; Mesa llvmpipe fournit l'OpenGL (EGL Wayland via wl_shm),
-# et grim capture la sortie de sway (donc la fenêtre plein écran de KWin).
-SHOTMODE=spectacle; KDESOCK=wayland-0; HOSTSOCK=""; KWPID=""; SWAYPID=""
-start_host() {
-  cat > /tmp/sway.conf <<'EOC'
-output * resolution 1920x1080
-default_border none
-for_window [title=".*"] fullscreen enable
-EOC
-  rm -f "$XDG_RUNTIME_DIR"/wayland-*
-  env WLR_BACKENDS=headless WLR_RENDERER=pixman WLR_LIBINPUT_NO_DEVICES=1 LIBGL_ALWAYS_SOFTWARE=1 sway -c /tmp/sway.conf > "$OUT/sway.log" 2>&1 &
-  SWAYPID=$!
-  for i in $(seq 1 20); do HOSTSOCK=$(ls "$XDG_RUNTIME_DIR" 2>/dev/null | grep -E '^wayland-[0-9]+$' | head -1); [ -n "$HOSTSOCK" ] && break; sleep 1; done
-  echo "sway socket : ${HOSTSOCK:-aucune}" >> "$OUT/kwin-essai.txt"; [ -n "$HOSTSOCK" ]
-}
-launch_kwin() {  # $1 = étiquette, $2 = nested | virtual
+# Le backend --virtual de KWin 6.6 ne sait faire que du QPainter (pas d'OpenGL, donc pas d'effet) ; Xvfb (pas de DRI3) et un sway
+# pixman (pas de dmabuf) ne conviennent pas non plus. Sur la VRAIE VM, /dev/dri/card1 existe : backend DRM de KWin, Mesa llvmpipe (kms_swrast).
+# KWIN_WAYLAND_NO_PERMISSION_CHECKS=1 autorise spectacle (sinon « The process is not authorized to take a screenshot »).
+SHOTMODE=spectacle; KDESOCK=wayland-0; KWPID=""; RET=""
+launch_kwin() {  # $1 = étiquette, $2 = drm-noop | drm-builtin | virtual
   local tag="$1" mode="$2" rules="kwin_*=true;kwin.*=true;qt.qpa.*=true;qt.core.plugin.loader=false;qt.core.plugin.factoryloader=false"
+  local common=(KWIN_WAYLAND_NO_PERMISSION_CHECKS=1 LIBGL_ALWAYS_SOFTWARE=1 QT_LOGGING_RULES="$rules")
   case "$mode" in
-    nested)
-      start_host || return 1
-      KDESOCK=wayland-kde
-      env WAYLAND_DISPLAY="$HOSTSOCK" KWIN_COMPOSE=O2 LIBGL_ALWAYS_SOFTWARE=1 QT_LOGGING_RULES="$rules" "$KW" --wayland-display "$HOSTSOCK" --width 1920 --height 1080 --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 &
-      SHOTMODE=grim ;;
-    virtual)
-      KDESOCK=wayland-0
-      env LIBGL_ALWAYS_SOFTWARE=1 QT_LOGGING_RULES="$rules" "$KW" --virtual --width 1920 --height 1080 --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 &
-      SHOTMODE=spectacle ;;
+    drm-noop)    env "${common[@]}" KWIN_COMPOSE=O2 LIBSEAT_BACKEND=noop KWIN_DRM_DEVICES=/dev/dri/card1 "$KW" --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
+    drm-builtin) env "${common[@]}" KWIN_COMPOSE=O2 LIBSEAT_BACKEND=builtin KWIN_DRM_DEVICES=/dev/dri/card1 "$KW" --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
+    virtual)     env "${common[@]}" "$KW" --virtual --width 1920 --height 1080 --socket "$KDESOCK" --no-lockscreen > "$OUT/kwin-$tag.log" 2>&1 & ;;
   esac
   KWPID=$!
   for i in $(seq 1 25); do [ -S "$XDG_RUNTIME_DIR/$KDESOCK" ] && break; kill -0 $KWPID 2>/dev/null || return 1; sleep 1; done
@@ -58,22 +41,20 @@ launch_kwin() {  # $1 = étiquette, $2 = nested | virtual
 }
 ls -l /dev/dri /dev/kvm > "$OUT/dri.txt" 2>&1
 : > "$OUT/kwin-essai.txt"
-for spec in "N nested" "V virtual"; do
+for spec in "D1 drm-noop" "D2 drm-builtin" "V virtual"; do
   set -- $spec
-  if launch_kwin "$1" "$2"; then echo "kwin_wayland : essai $1 retenu" >> "$OUT/kwin-essai.txt"; break; fi
-  echo "kwin_wayland : essai $1 sans OpenGL ou en échec, on passe au suivant" >> "$OUT/kwin-essai.txt"
-  kill $KWPID $SWAYPID 2>/dev/null; sleep 2; rm -f "$XDG_RUNTIME_DIR"/wayland-*
+  if launch_kwin "$1" "$2"; then echo "kwin_wayland : essai $1 retenu" >> "$OUT/kwin-essai.txt"; RET="$1"; break; fi
+  echo "kwin_wayland : essai $1 sans OpenGL ou en échec ($(grep -aiE 'drm|egl|seat|permission|failed|cannot|could not' "$OUT/kwin-$1.log" | grep -v xkb | head -2 | tr '\n' '|' | cut -c1-260))" >> "$OUT/kwin-essai.txt"
+  kill $KWPID 2>/dev/null; sleep 2; rm -f "$XDG_RUNTIME_DIR"/wayland-*
 done
 cat "$OUT/kwin-essai.txt"
 export WAYLAND_DISPLAY="$KDESOCK"
-ln -sf "$(ls "$OUT"/kwin-?.log | tail -1)" "$OUT/kwin.log" 2>/dev/null || true
+ln -sf "kwin-${RET:-V}.log" "$OUT/kwin.log" 2>/dev/null || true
 ls -l "$XDG_RUNTIME_DIR" > "$OUT/runtime-dir.txt" 2>&1
 export QT_QPA_PLATFORM=wayland
 
 shot() {  # grim : capture de la sortie de sway qui porte kwin_wayland imbriqué ; sinon spectacle
-  if [ "$SHOTMODE" = grim ]; then
-    WAYLAND_DISPLAY="$HOSTSOCK" grim "$OUT/$1.png" > "$OUT/spectacle-$1.log" 2>&1
-  else
+  if true; then
     spectacle -b -n -f -o "$OUT/$1.png" > "$OUT/spectacle-$1.log" 2>&1
   fi
   ls -l "$OUT/$1.png" 2>&1 | tee -a "$OUT/spectacle-$1.log"
