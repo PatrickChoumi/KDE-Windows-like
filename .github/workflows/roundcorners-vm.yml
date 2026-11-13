@@ -1,0 +1,44 @@
+name: roundcorners-vm
+
+# Feature 5.1 sur une VRAIE VM Ubuntu 26.04 (runner ubuntu-latest SANS conteneur : vrai noyau, /dev/dri, droits sudo),
+# avec kwin_wayland --virtual 6.6.6 (même version que le plugin). Publie sur ci-out/roundcorners-vm.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['ci/roundcorners-vm.sh', '.github/workflows/roundcorners-vm.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - uses: actions/checkout@v4
+      - name: Paquets Plasma + PPA des coins arrondis (sudo)
+        timeout-minutes: 25
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 gpg software-properties-common \
+            plasma-desktop plasma-workspace kwin-wayland kactivitymanagerd systemsettings \
+            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs > /tmp/apt-install.log 2>&1 \
+            || { echo "::error::apt install: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit 1; }
+          for group in "kde-spectacle spectacle" "kwin-style-aurorae aurorae" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+            for p in $group; do sudo apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
+          done
+          dpkg -l 'kwin*' | grep '^ii' | cut -c1-80
+      - name: Installer le thème du dépôt (root)
+        run: |
+          for c in themes icons lookfeel; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+      - name: Session Wayland, install-roundcorners.sh (install, status, undo) et captures
+        run: |
+          mkdir -p shots; sudo chmod 777 shots
+          sudo -E env HOME=/root dbus-run-session -- bash ci/roundcorners-vm.sh shots || true
+          sudo chmod -R a+rwX shots
+          ls -l shots | head -40
+          echo "== essai"; cat shots/kwin-essai.txt 2>&1; echo "== etat"; cat shots/etat.txt 2>&1 | head -60
+      - name: Publier sur ci-out
+        if: always()
+        run: GITHUB_TOKEN=${{ github.token }} bash ci/publish.sh shots roundcorners-vm
