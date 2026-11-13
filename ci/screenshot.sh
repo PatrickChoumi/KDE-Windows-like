@@ -151,6 +151,20 @@ if command -v xdotool >/dev/null; then
   xdotool mousemove 1316 238; sleep 1; xdotool mousemove 1320 240; sleep 2
   shot 15-survol-fermer
   xdotool mousemove 1200 500
+  # --- 2.4 : centre de notifications (cloche -> pastille bleue avec le nombre -> fenêtre d'historique) ---
+  mkdir -p "$OUT/notif"
+  nshot() { shot "$1"; convert "$OUT/$1.png" -crop 420x48+1500+1032 +repage -scale 300% "$OUT/notif/$1-barre.png" 2>/dev/null; }
+  notify() { gdbus call --session --dest org.freedesktop.Notifications --object-path /org/freedesktop/Notifications --method org.freedesktop.Notifications.Notify "CI" 0 "dialog-information" "$1" "$2" "[]" "{}" 4000 >> "$OUT/notif/notify.log" 2>&1; }
+  gdbus introspect --session --dest org.freedesktop.Notifications --object-path /org/freedesktop/Notifications > "$OUT/notif/serveur-avant.txt" 2>&1 || true
+  nshot 16-notif-0
+  notify "Test CI 1" "Premier message"; sleep 6
+  nshot 17-notif-1
+  for i in 2 3 4 5 6 7 8 9 10 11 12; do notify "Test CI $i" "Message numero $i"; done; sleep 6
+  nshot 18-notif-12
+  xdotool mousemove 1890 1056; sleep 1; xdotool click 1; sleep 3
+  shot 19-notif-popup
+  xdotool key Escape; sleep 1; xdotool mousemove 1200 500
+  grep -a "NotifyButton" "$OUT/plasmashell-restart.log" > "$OUT/notif/trace.txt" 2>&1 || true
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
