@@ -23,7 +23,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 gpg software-properties-common \
             plasma-desktop plasma-workspace kwin-wayland kactivitymanagerd systemsettings \
-            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs > /tmp/apt-install.log 2>&1 \
+            qt6-wayland libcap2-bin dolphin konsole libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs xvfb x11-apps > /tmp/apt-install.log 2>&1 \
             || { echo "::error::apt install: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit 1; }
           for group in "kde-spectacle spectacle" "kwin-style-aurorae aurorae" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
             for p in $group; do sudo apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
@@ -37,7 +37,9 @@ jobs:
             echo "== listes"; ls -l /var/lib/apt/lists | grep -i rounded
             echo "== architectures"; dpkg --print-architecture; dpkg --print-foreign-architectures
             echo "== sources"; cat /etc/apt/sources.list.d/*rounded* 2>&1
-            echo "== apt-config"; apt-config dump | grep -iE "Architectures|Languages|IndexTargets" | head
+            echo "== indextargets"; apt-get indextargets --format '$(SITE) $(ARCHITECTURE) $(CREATED_BY) $(FILENAME)' | grep -i rounded
+            echo "== Release (curl)"; curl -sL https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu/dists/resolute/InRelease | grep -E "^(Architectures|Components|Date)|binary-amd64" | head
+            echo "== apt"; apt --version
           } > shots/apt-ppa-diag.txt 2>&1 || true
           cat shots/apt-ppa-diag.txt
       - name: Installer le thème du dépôt (root)
