@@ -163,7 +163,11 @@ if command -v xdotool >/dev/null; then
   nshot 18-notif-12
   xdotool mousemove 1890 1056; sleep 1; xdotool click 1; sleep 3
   shot 19-notif-popup
+  # « Clear all » (en-tête de la fenêtre d'historique, à droite) : le compteur doit retomber à 0
+  xdotool mousemove 1860 628; sleep 1; xdotool click 1; sleep 3
+  shot 20-notif-apres-clear
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
+  nshot 21-notif-ferme
   grep -a "NotifyButton" "$OUT/plasmashell-restart.log" > "$OUT/notif/trace.txt" 2>&1 || true
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---

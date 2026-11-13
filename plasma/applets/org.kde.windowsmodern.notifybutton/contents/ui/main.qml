@@ -19,6 +19,10 @@ PlasmoidItem {
     readonly property bool horizontal: Plasmoid.location === PlasmaCore.Types.TopEdge
                                        || Plasmoid.location === PlasmaCore.Types.BottomEdge
     readonly property int count: counter.count
+    // Couleurs lues dans le contexte du PlasmoidItem (panneau) : dans la représentation compacte, Kirigami.Theme.textColor
+    // donnait du noir (cloche invisible sur fond sombre, capture CI 16).
+    readonly property color fg: Kirigami.Theme.textColor
+    readonly property color accent: Kirigami.Theme.highlightColor
 
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
     Plasmoid.title: i18n("Notification Centre")
@@ -56,7 +60,7 @@ PlasmoidItem {
         Rectangle {
             anchors { fill: parent; topMargin: 4; bottomMargin: 4; leftMargin: 2; rightMargin: 2 }
             radius: 4
-            color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b,
+            color: Qt.rgba(root.fg.r, root.fg.g, root.fg.b,
                            area.pressed ? 0.09 : ((area.containsMouse || root.expanded) ? 0.06 : 0))
             Behavior on color { ColorAnimation { duration: 100 } }
         }
@@ -66,14 +70,14 @@ PlasmoidItem {
             visible: root.count === 0
             source: Qt.resolvedUrl("../icons/bell.svg")
             isMask: true
-            color: Kirigami.Theme.textColor
+            color: root.fg
         }
         Rectangle {
             id: badge
             anchors.centerIn: parent
             width: 16; height: 16; radius: 8
             visible: root.count > 0
-            color: Kirigami.Theme.highlightColor
+            color: root.accent
             objectName: "notifyBadge"
             Text {
                 anchors.centerIn: parent
@@ -97,10 +101,20 @@ PlasmoidItem {
             anchors.margins: 12
             spacing: 8
 
-            PlasmaComponents3.Label {
-                text: i18n("Notifications")
-                font.pixelSize: 14
-                font.weight: Font.DemiBold
+            RowLayout {
+                Layout.fillWidth: true
+                PlasmaComponents3.Label {
+                    Layout.fillWidth: true
+                    text: i18n("Notifications")
+                    font.pixelSize: 14
+                    font.weight: Font.DemiBold
+                }
+                PlasmaComponents3.Button {
+                    objectName: "notifyClearAll"
+                    text: i18n("Clear all")
+                    enabled: root.count > 0
+                    onClicked: notifModel.clear(NotificationManager.Notifications.ClearExpired)
+                }
             }
             ListView {
                 id: list
@@ -121,21 +135,21 @@ PlasmoidItem {
                         Kirigami.Icon {
                             Layout.preferredWidth: 20; Layout.preferredHeight: 20
                             Layout.alignment: Qt.AlignTop
-                            source: model.ApplicationIconName || "preferences-desktop-notification"
+                            source: model.applicationIconName || "preferences-desktop-notification"
                         }
                         ColumnLayout {
                             Layout.fillWidth: true
                             spacing: 0
                             PlasmaComponents3.Label {
                                 Layout.fillWidth: true
-                                text: model.Summary || model.ApplicationName || i18n("Notification")
+                                text: model.summary || model.applicationName || i18n("Notification")
                                 font.pixelSize: 12
                                 font.weight: Font.DemiBold
                                 elide: Text.ElideRight
                             }
                             PlasmaComponents3.Label {
                                 Layout.fillWidth: true
-                                text: model.Body || ""
+                                text: model.body || ""
                                 visible: text.length > 0
                                 opacity: 0.7
                                 font.pixelSize: 11
