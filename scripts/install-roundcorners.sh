@@ -120,24 +120,30 @@ do_install() {
     echo "$bdir" > "$STATE_FILE"
     info "Sauvegarde : $bdir"
 
-    # 2. Dépôt PPA (modifie les sources apt : confirmation explicite)
-    if ! grep -rqs "matinlotfali/kde-rounded-corners" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
-        command -v add-apt-repository >/dev/null || die "add-apt-repository introuvable : installer d'abord le paquet software-properties-common (sudo apt install software-properties-common). Rien n'a été modifié (sauvegarde : $bdir)"
-        confirm "Ajouter le PPA $PPA aux sources apt ?" || die "PPA refusé, rien n'a été modifié (sauvegarde : $bdir)"
-        $SUDO add-apt-repository -y "$PPA"
+    # Idempotence : paquet déjà installé (relance, ou installé à la main) -> pas de PPA ni d'apt, on passe aux contrôles.
+    if is_installed; then
+        info "$PKG est déjà installé : étapes PPA / apt ignorées."
+    else
+        # 2. Dépôt PPA (modifie les sources apt : confirmation explicite)
+        if ! grep -rqs "matinlotfali/kde-rounded-corners" /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null; then
+            command -v add-apt-repository >/dev/null || die "add-apt-repository introuvable : installer d'abord le paquet software-properties-common (sudo apt install software-properties-common). Rien n'a été modifié (sauvegarde : $bdir)"
+            confirm "Ajouter le PPA $PPA aux sources apt ?" || die "PPA refusé, rien n'a été modifié (sauvegarde : $bdir)"
+            $SUDO add-apt-repository -y "$PPA"
+        fi
+        $SUDO apt-get update
+
+        # 3. Disponibilité + simulation : aucun retrait de paquet toléré
+        local pol; pol="$(apt-cache policy "$PKG" 2>&1 || true)"
+        grep -q 'Candidate: [^(]' <<<"$pol" || die "$PKG sans candidat pour cette version d'Ubuntu"
+        local sim; sim="$(apt-get install -s "$PKG")"
+        echo "$sim" | grep -E '^(Inst|Remv|Conf) ' || true
+        if grep -q '^Remv ' <<<"$sim"; then die "la simulation retirerait des paquets : abandon"; fi
+        confirm "Installer $PKG (et seulement lui) ?" || die "installation refusée (sauvegarde : $bdir)"
+
+        # 4. Installation d'un seul paquet, sans recommandations
+        $SUDO apt-get install -y --no-install-recommends "$PKG"
+
     fi
-    $SUDO apt-get update
-
-    # 3. Disponibilité + simulation : aucun retrait de paquet toléré
-    local pol; pol="$(apt-cache policy "$PKG" 2>&1 || true)"
-    grep -q 'Candidate: [^(]' <<<"$pol" || die "$PKG sans candidat pour cette version d'Ubuntu"
-    local sim; sim="$(apt-get install -s "$PKG")"
-    echo "$sim" | grep -E '^(Inst|Remv|Conf) ' || true
-    if grep -q '^Remv ' <<<"$sim"; then die "la simulation retirerait des paquets : abandon"; fi
-    confirm "Installer $PKG (et seulement lui) ?" || die "installation refusée (sauvegarde : $bdir)"
-
-    # 4. Installation d'un seul paquet, sans recommandations
-    $SUDO apt-get install -y --no-install-recommends "$PKG"
 
     # 5. Contrôle du résultat réel
     local so; so="$(plugin_file)"
