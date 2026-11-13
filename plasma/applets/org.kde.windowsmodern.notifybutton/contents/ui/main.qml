@@ -23,6 +23,9 @@ PlasmoidItem {
     // donnait du noir (cloche invisible sur fond sombre, capture CI 16).
     readonly property color fg: Kirigami.Theme.textColor
     readonly property color accent: Kirigami.Theme.highlightColor
+    // Cloche en deux fichiers (blanc / noir) choisis par contraste texte/fond : le masque de couleur de Kirigami.Icon
+    // rendait la cloche en noir dans la représentation compacte (captures CI 16 et 21).
+    readonly property bool lightText: Kirigami.Theme.textColor.hslLightness > Kirigami.Theme.backgroundColor.hslLightness
 
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
     Plasmoid.title: i18n("Notification Centre")
@@ -43,6 +46,7 @@ PlasmoidItem {
         delegate: QtObject {}
     }
     onCountChanged: console.log("NotifyButton: count=" + count)
+    Component.onCompleted: console.log("NotifyButton: texte L=" + Kirigami.Theme.textColor.hslLightness.toFixed(2) + " fond L=" + Kirigami.Theme.backgroundColor.hslLightness.toFixed(2) + " lightText=" + lightText)
 
     // Même gabarit que les autres boutons de barre : tuile de 48 px (bouton 44 px + 2 px de marge).
     Layout.minimumWidth: horizontal ? 48 : Kirigami.Units.iconSizes.medium
@@ -68,9 +72,8 @@ PlasmoidItem {
             anchors.centerIn: parent
             width: 24; height: 24
             visible: root.count === 0
-            source: Qt.resolvedUrl("../icons/bell.svg")
-            isMask: true
-            color: root.fg
+            source: Qt.resolvedUrl(root.lightText ? "../icons/bell-light.svg" : "../icons/bell-dark.svg")
+            isMask: false
         }
         Rectangle {
             id: badge
