@@ -180,9 +180,15 @@ Item {
             Layout.fillHeight: true
             visible: panel.typing
             clip: true
-            queryField: field
+            // queryField reste nul (comme dans le menu Démarrer) : la requête est pilotée explicitement
+            queryField: null
             limit: 30
             onActivated: panel.closeRequested()
         }
+    }
+
+    Connections {
+        target: field
+        function onTextChanged() { results.queryString = field.text }
     }
 }
