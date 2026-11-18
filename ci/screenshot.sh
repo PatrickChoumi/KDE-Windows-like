@@ -172,9 +172,9 @@ if command -v xdotool >/dev/null; then
   # --- 2.6 / 2.7 : centre rapide (bouton Réseau+Son+Batterie -> tuiles + curseurs) ---
   mkdir -p "$OUT/quick"
   convert "$OUT/21-notif-ferme.png" -crop 520x48+1400+1032 +repage -scale 300% "$OUT/quick/barre.png" 2>/dev/null
-  xdotool mousemove ${QS_X:-1700} 1056; sleep 1; xdotool click 1; sleep 3
+  xdotool mousemove ${QS_X:-1757} 1056; sleep 1; xdotool click 1; sleep 3
   shot 22-quick-popup
-  xdotool mousemove 1655 880; sleep 1; xdotool click 1; sleep 2   # tuile Wi-Fi (bascule)
+  xdotool mousemove 1628 664; sleep 1; xdotool click 1; sleep 2   # tuile Wi-Fi (bascule)
   shot 23-quick-wifi-off
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
