@@ -40,7 +40,7 @@ shot 01-bureau
 # Test de translucidité : fond d'écran blanc uni -> si la barre est translucide, ses pixels s'éclaircissent par rapport à 01-bureau.
 convert -size 1024x768 xc:white /root/blanc.png
 plasma-apply-wallpaperimage /root/blanc.png >> "$OUT/apply.log" 2>&1
-sleep 6
+sleep 15
 shot 01b-fond-blanc
 
 konsole -e bash > "$OUT/konsole.log" 2>&1 &

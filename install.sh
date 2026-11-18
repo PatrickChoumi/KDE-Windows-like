@@ -195,7 +195,7 @@ case "${1:-menu}" in
         echo "    showdesk       Show Desktop applet"
         echo "    shortcuts      Search / Task View taskbar buttons"
         echo "    notifybutton   Notification centre button (bell / count badge)"
-        echo "    quicksettings  Quick settings (network+sound+battery, tiles, sliders)
+        echo "    quicksettings  Quick settings (network+sound+battery, tiles, sliders)"
         echo "    startmenu      Start Menu applet"
         echo "    systray        System Tray (C++ — needs compiler)"
         echo "    icontasks      Icon Tasks taskbar (C++ — needs compiler)"
