@@ -177,6 +177,13 @@ if command -v xdotool >/dev/null; then
   xdotool mousemove 1628 664; sleep 1; xdotool click 1; sleep 2   # tuile Wi-Fi (bascule)
   shot 23-quick-wifi-off
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
+  # --- 4.1 / 4.2 / 4.3 : panneau de recherche (bouton Recherche -> accueil, puis résultats) ---
+  mkdir -p "$OUT/search"
+  xdotool mousemove 905 1056; sleep 1; xdotool click 1; sleep 3
+  shot 24-search-accueil
+  xdotool type --delay 80 "konsole"; sleep 5
+  shot 25-search-resultats
+  xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {

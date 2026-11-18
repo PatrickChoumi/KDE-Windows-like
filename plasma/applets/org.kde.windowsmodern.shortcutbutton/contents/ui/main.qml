@@ -21,7 +21,9 @@ PlasmoidItem {
         ? "qdbus6 org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut Overview"
         : "qdbus6 org.kde.krunner /App org.kde.krunner.App.display"
 
-    preferredRepresentation: fullRepresentation
+    // Recherche : bouton + panneau ; Vue des tâches : simple bouton.
+    preferredRepresentation: isTaskView ? fullRepresentation : compactRepresentation
+    readonly property bool lightText: Kirigami.Theme.textColor.hslLightness > Kirigami.Theme.backgroundColor.hslLightness
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
     Plasmoid.title: title
     toolTipMainText: title
@@ -39,10 +41,14 @@ PlasmoidItem {
         onNewData: (source) => disconnectSource(source)
     }
 
-    function activate() { runner.connectSource(command) }
+    function activate() { if (isTaskView) runner.connectSource(command); else root.expanded = !root.expanded }
     Plasmoid.onActivated: activate()
 
-    fullRepresentation: MouseArea {
+    fullRepresentation: isTaskView ? buttonRep : panelRep
+    compactRepresentation: buttonRep
+    Component { id: panelRep; SearchPanel { onCloseRequested: root.expanded = false } }
+
+    Component { id: buttonRep; MouseArea {
         id: area
         hoverEnabled: true
         onClicked: root.activate()
@@ -59,9 +65,10 @@ PlasmoidItem {
         Kirigami.Icon {
             anchors.centerIn: parent
             width: 24; height: 24
-            source: Qt.resolvedUrl("../icons/" + (root.isTaskView ? "taskview.svg" : "search.svg"))
-            isMask: true
+            // Recherche : deux SVG blanc/noir (le masque de couleur rend noir en représentation compacte).
+            source: Qt.resolvedUrl("../icons/" + (root.isTaskView ? "taskview.svg" : (root.lightText ? "search-light.svg" : "search-dark.svg")))
+            isMask: root.isTaskView
             color: Kirigami.Theme.textColor
         }
-    }
+    } }
 }
