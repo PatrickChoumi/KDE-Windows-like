@@ -38,8 +38,7 @@ sleep 20
 shot 01-bureau
 
 # Test de translucidité : fond d'écran blanc uni -> si la barre est translucide, ses pixels s'éclaircissent par rapport à 01-bureau.
-convert -size 1024x768 xc:white /root/blanc.png
-plasma-apply-wallpaperimage /root/blanc.png >> "$OUT/apply.log" 2>&1
+qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'for (var d of desktops()) { d.wallpaperPlugin = "org.kde.color"; d.currentConfigGroup = ["Wallpaper","org.kde.color","General"]; d.writeConfig("Color", "255,255,255"); }' >> "$OUT/apply.log" 2>&1
 sleep 15
 shot 01b-fond-blanc
 
