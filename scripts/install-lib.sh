@@ -310,4 +310,8 @@ resolve_layout_applets() {
         sed -i '/notifybutton/d;/if (notif)/d' "$file"
         warn "Applet notifybutton absente : bouton du centre de notifications omis"
     fi
+    if ! applet_available "org.kde.windowsmodern.quicksettings"; then
+        sed -i '/quicksettings/d;/if (quick)/d' "$file"
+        warn "Applet quicksettings absente : centre rapide omis"
+    fi
 }

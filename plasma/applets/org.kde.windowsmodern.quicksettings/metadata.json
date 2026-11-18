@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [{ "Name": "Patrick Choumi", "Email": "noreply@users.noreply.github.com" }],
+        "Category": "System Information",
+        "Description": "Windows 11 quick settings: network + sound + battery button, tiles (Wi-Fi, Bluetooth, airplane, focus, accessibility) and sliders.",
+        "EnabledByDefault": true,
+        "FormFactors": ["desktop"],
+        "Icon": "preferences-system-network",
+        "Id": "org.kde.windowsmodern.quicksettings",
+        "License": "GPL-3.0-or-later",
+        "Name": "Quick Settings (Windows Modern)",
+        "Version": "1.0.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

@@ -43,7 +43,7 @@ jobs:
           sudo install -m 0644 "$so" /usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/
       - name: Installer le thème (root, sans reset du layout)
         run: |
-          for c in themes icons showdesk shortcuts notifybutton startmenu digitalclock lookfeel layout; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+          for c in themes icons showdesk shortcuts notifybutton quicksettings startmenu digitalclock lookfeel layout; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
       - name: Session Wayland (DRM, gl2) et captures
         run: |
           mkdir -p shots; sudo chmod 777 shots

@@ -95,6 +95,8 @@ clock.writeConfig("expandedWidth", "320");
 
 // 6b. Centre de notifications (Win11) : cloche, ou pastille bleue avec le nombre, à droite de l'horloge.
 var notif = panel.addWidget("org.kde.windowsmodern.notifybutton");
+// 6c. Centre rapide (Win11) : Réseau + Son + Batterie, entre la zone de notification et l'horloge.
+var quick = panel.addWidget("org.kde.windowsmodern.quicksettings");
 
 // 7. Show Desktop — custom Win11-style thin sliver, or fall back to stock.
 var peek = panel.addWidget("org.kde.windowsmodern.showdesktop");
@@ -110,6 +112,7 @@ if (taskview) { taskview.index = 3; }
 tasks.index = 4;
 spacerRight.index = 5;
 tray.index = 6;
-clock.index = 7;
-if (notif) { notif.index = 8; }
-peek.index = 9;
+if (quick) { quick.index = 7; }
+clock.index = 8;
+if (notif) { notif.index = 9; }
+peek.index = 10;

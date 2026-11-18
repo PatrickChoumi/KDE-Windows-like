@@ -61,6 +61,7 @@ install_everything() {
     install_component showdesk
     install_component shortcuts
     install_component notifybutton
+    install_component quicksettings
     install_component startmenu
     install_component systray
     install_component icontasks
@@ -99,6 +100,7 @@ install_all_applets() {
     install_component showdesk
     install_component shortcuts
     install_component notifybutton
+    install_component quicksettings
     install_component startmenu
     install_component systray
     install_component icontasks
@@ -193,6 +195,7 @@ case "${1:-menu}" in
         echo "    showdesk       Show Desktop applet"
         echo "    shortcuts      Search / Task View taskbar buttons"
         echo "    notifybutton   Notification centre button (bell / count badge)"
+        echo "    quicksettings  Quick settings (network+sound+battery, tiles, sliders)
         echo "    startmenu      Start Menu applet"
         echo "    systray        System Tray (C++ — needs compiler)"
         echo "    icontasks      Icon Tasks taskbar (C++ — needs compiler)"
