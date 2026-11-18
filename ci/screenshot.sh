@@ -181,6 +181,7 @@ if command -v xdotool >/dev/null; then
   mkdir -p "$OUT/search"
   xdotool mousemove 905 1056; sleep 1; xdotool click 1; sleep 3
   shot 24-search-accueil
+  xdotool mousemove 900 547; sleep 1; xdotool click 1; sleep 1
   xdotool type --delay 80 "konsole"; sleep 5
   shot 25-search-resultats
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500

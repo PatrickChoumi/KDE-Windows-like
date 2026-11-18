@@ -94,7 +94,8 @@ Item {
             spacing: 24
 
             ColumnLayout {
-                Layout.preferredWidth: 220
+                Layout.preferredWidth: 190
+                Layout.maximumWidth: 190
                 Layout.fillHeight: true
                 spacing: 6
                 Text { text: i18n("Suggested"); color: panel.fg; font.pixelSize: 13; font.weight: Font.DemiBold }
@@ -109,7 +110,7 @@ Item {
                             anchors { fill: parent; leftMargin: 8 }
                             spacing: 10
                             Kirigami.Icon { Layout.preferredWidth: 22; Layout.preferredHeight: 22; source: modelData.icon }
-                            Text { text: modelData.name; color: panel.fg; font.pixelSize: 13 }
+                            Text { Layout.fillWidth: true; horizontalAlignment: Text.AlignLeft; elide: Text.ElideRight; text: modelData.name; color: panel.fg; font.pixelSize: 13 }
                         }
                         MouseArea { id: sa; anchors.fill: parent; hoverEnabled: true; onClicked: panel.launch(modelData.cmd) }
                     }
@@ -119,6 +120,7 @@ Item {
 
             ColumnLayout {
                 Layout.fillWidth: true
+                Layout.preferredWidth: 1
                 Layout.fillHeight: true
                 spacing: 10
                 Text { text: i18n("Quick searches"); color: panel.fg; font.pixelSize: 13; font.weight: Font.DemiBold }
@@ -130,6 +132,7 @@ Item {
                         model: panel.quick
                         delegate: Rectangle {
                             Layout.fillWidth: true
+                            Layout.preferredWidth: 1
                             Layout.preferredHeight: 44
                             radius: 4
                             color: Qt.rgba(panel.fg.r, panel.fg.g, panel.fg.b, qa.containsMouse ? 0.12 : 0.07)
@@ -137,7 +140,7 @@ Item {
                                 anchors { fill: parent; leftMargin: 12 }
                                 spacing: 10
                                 Kirigami.Icon { Layout.preferredWidth: 20; Layout.preferredHeight: 20; source: modelData.icon }
-                                Text { text: modelData.name; color: panel.fg; font.pixelSize: 13 }
+                                Text { Layout.fillWidth: true; elide: Text.ElideRight; text: modelData.name; color: panel.fg; font.pixelSize: 13 }
                             }
                             MouseArea { id: qa; anchors.fill: parent; hoverEnabled: true; onClicked: field.text = modelData.q }
                         }
@@ -152,6 +155,7 @@ Item {
                         model: panel.apps
                         delegate: Rectangle {
                             Layout.fillWidth: true
+                            Layout.preferredWidth: 1
                             Layout.preferredHeight: 84
                             radius: 4
                             color: Qt.rgba(panel.fg.r, panel.fg.g, panel.fg.b, ta.containsMouse ? 0.12 : 0.07)
@@ -159,7 +163,7 @@ Item {
                                 anchors.centerIn: parent
                                 spacing: 6
                                 Kirigami.Icon { Layout.alignment: Qt.AlignHCenter; Layout.preferredWidth: 32; Layout.preferredHeight: 32; source: modelData.icon }
-                                Text { Layout.alignment: Qt.AlignHCenter; text: modelData.name; color: panel.fg; font.pixelSize: 12 }
+                                Text { Layout.alignment: Qt.AlignHCenter; Layout.maximumWidth: 80; elide: Text.ElideRight; text: modelData.name; color: panel.fg; font.pixelSize: 11 }
                             }
                             MouseArea { id: ta; anchors.fill: parent; hoverEnabled: true; onClicked: panel.launch(modelData.cmd) }
                         }
