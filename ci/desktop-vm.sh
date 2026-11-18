@@ -37,6 +37,12 @@ kw /KWin org.kde.KWin.reconfigure >/dev/null
 sleep 20
 shot 01-bureau
 
+# Test de translucidité : fond d'écran blanc uni -> si la barre est translucide, ses pixels s'éclaircissent par rapport à 01-bureau.
+convert -size 1024x768 xc:white /root/blanc.png
+plasma-apply-wallpaperimage /root/blanc.png >> "$OUT/apply.log" 2>&1
+sleep 6
+shot 01b-fond-blanc
+
 konsole -e bash > "$OUT/konsole.log" 2>&1 &
 dolphin > "$OUT/dolphin.log" 2>&1 &
 sleep 15
@@ -52,5 +58,6 @@ shot 02-fenetres-ouvertes
 # Translucidité : la barre est translucide si sa couleur de fond suit le fond d'écran en dessous (pixels éloignés différents) — échantillons dans la barre, hors icônes.
 W=$(identify -format %w "$OUT/01-bureau.png" 2>/dev/null); H=$(identify -format %h "$OUT/01-bureau.png" 2>/dev/null)
 { echo "== écran ${W}x${H}"; for x in 20 120 220 $((W-220)) $((W-120)) $((W-20)); do echo "barre x=$x y=$((H-6)) : $(convert "$OUT/01-bureau.png" -format "%[pixel:p{$x,$((H-6))}]" info:)"; done; } >> "$OUT/etat.txt"
+{ echo "== barre sur fond blanc (01b) vs fond sombre (01)"; for x in 20 220 $((W-220)); do echo "x=$x sombre=$(convert "$OUT/01-bureau.png" -format "%[pixel:p{$x,$((H-6))}]" info:) blanc=$(convert "$OUT/01b-fond-blanc.png" -format "%[pixel:p{$x,$((H-6))}]" info:)"; done; } >> "$OUT/etat.txt"
 convert "$OUT/01-bureau.png" -gravity south -crop "${W}x80+0+0" +repage "$OUT/01-barre-recadree.png" 2>/dev/null
 ps aux | grep -E "kwin|plasmashell|konsole|dolphin" | grep -v grep | cut -c1-140 > "$OUT/ps.txt"
