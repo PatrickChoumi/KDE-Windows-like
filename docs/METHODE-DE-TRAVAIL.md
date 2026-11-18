@@ -121,3 +121,5 @@
 
 ## 7. Quand modifier ce document
 Mettre à jour dès que : une contrainte de l'utilisateur change, un outil/accès apparaît ou disparaît, la structure des branches ou de la CI change, ou une leçon technique est invalidée. Indiquer la date et incrémenter la version en tête.
+
+- Centre rapide (2.6/2.7) et translucidité (1.14) validés (2026-11-18, runs `screenshots` / `desktop-vm`, commits `feat(quicksettings)` → `ci(desktop-vm): fond blanc`) : applet `quicksettings` (QML pur, 5 tuiles + 2 curseurs), layouts mis à jour (index : tray 6, quick 7, horloge 8, notif 9, peek 10). Leçons : (1) pour tester une translucidité, changer le fond via `evaluateScript` Plasma (`wallpaperPlugin=org.kde.color`) — `plasma-apply-wallpaperimage` ne change pas l'affichage en session CI ; (2) mesurer le pixel de barre sur fond sombre puis blanc ; (3) un clic de test sur coordonnées estimées tombe souvent à côté : recadrer la barre d'abord, lire les x, puis cliquer ; (4) `bash -n` sur tous les scripts après un `sed` multi-lignes (guillemet perdu dans install.sh) ; (5) le job `roundcorners` de build.yml échoue parfois sur « paquet introuvable » (PPA), sans lien avec le code.

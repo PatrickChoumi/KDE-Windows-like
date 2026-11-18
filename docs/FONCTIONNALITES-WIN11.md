@@ -23,7 +23,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 1.11 | Clic du milieu = nouvelle instance ; survol + molette = changer de fenêtre | 🟡 natif |
 | 1.12 | Icônes « Recherche » et « Vue des tâches » à côté du Démarrer (réf. [14] [09] [24]) | ✅ rendu vu en CI (run 43186295862, pas de 48 px) ; clic non testé en CI (pas de kglobalaccel/KRunner) ; « Widgets » et « Discussion » : ⬜ |
 | 1.13 | Champ de recherche intégré à la barre (variante [04] [20] [22]) | ❌ |
-| 1.14 | Fond de barre translucide type Mica/acrylique, sombre ou clair selon le thème | ⬜ (non vérifiable en CI : pas de composition) |
+| 1.14 | Fond de barre translucide type Mica/acrylique, sombre ou clair selon le thème | ✅ en CI sur VM réelle (workflow `desktop-vm`) : pixel de barre srgb(35,29,30) sur fond sombre → srgb(66,66,66) sur fond d'écran blanc, donc translucide ; flou KWin actif (`blur` true) |
 | 1.15 | Barre non flottante, bord à bord, ombre/liseré supérieur d'1 px | 🟡 |
 | 1.16 | État « attention » (icône qui clignote / pastille orange) | ✅ fond orange + pastille orange 16x3 (CI 43178371494) |
 | 1.17 | Indicateur de progression (téléchargement/copie) sous l'icône | ⬜ |
@@ -39,8 +39,8 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 2.3 | Horloge sur 2 lignes : heure (ex. `10:42 AM`) et date (ex. `1/30/2022`), alignée à droite | ✅ deux lignes, date `11/12/2026` (CI 43187508732) ; heure en 24 h dans la CI (locale C) : le 12 h `AM/PM` dépend de la locale, non forcé |
 | 2.4 | Bouton de notifications à droite de l'horloge, avec pastille de nombre (réf. [23]) | ✅ applet `org.kde.windowsmodern.notifybutton` : cloche blanche 24 px sans notification, pastille ronde 16×16 px `#4CC2FF` centrée avec le nombre (1, 12 ; « 99+ » prévu, non testé), tuile 48 px avec survol, fenêtre d'historique (titre, message, icône), « Clear all » (compteur → 0, « No new notifications ») ; CI 43404058690 (captures 16–21). Non fait : vidage du compteur à l'ouverture comme Win11, toasts en bas à droite, mode « Ne pas déranger » |
 | 2.5 | « Afficher le bureau » : trait fin au bord droit, visible au survol | ✅ |
-| 2.6 | **Centre rapide** (réf. [23]) : tuiles Wi-Fi (avec chevron), Bluetooth, Cellulaire, Mode avion, Assistant de concentration, Accessibilité ; curseurs luminosité et volume (avec flèche de sélection de sortie) ; batterie en %, bouton crayon « Modifier » et engrenage « Paramètres » | ⬜ (popups natifs à restyler, P3) |
-| 2.7 | Tuiles actives en accent plein, inactives en gris translucide, rayon 4 px | ⬜ |
+| 2.6 | **Centre rapide** (réf. [23]) : tuiles Wi-Fi (avec chevron), Bluetooth, Cellulaire, Mode avion, Assistant de concentration, Accessibilité ; curseurs luminosité et volume (avec flèche de sélection de sortie) ; batterie en %, bouton crayon « Modifier » et engrenage « Paramètres » | ✅ applet `org.kde.windowsmodern.quicksettings` : bouton Réseau+Son+Batterie (3 icônes 20 px), popup 360×400 avec tuiles Wi-Fi / Bluetooth / Mode avion / Assistant de concentration / Accessibilité, curseurs luminosité et volume, batterie, crayon et engrenage (captures CI 22 et 23). Reste : états réels (nmcli/rfkill/pactl non vus en CI), % batterie, retrait des icônes natives dupliquées dans la zone de notification |
+| 2.7 | Tuiles actives en accent plein, inactives en gris translucide, rayon 4 px | ✅ accent plein `#4CC2FF` (actives), gris translucide (inactives), rayon 4 px ; bascule Wi-Fi vue en CI (capture 23) |
 | 2.8 | **Centre de notifications + calendrier** (réf. [05] [22]) : liste de toasts regroupés par application, bouton « Effacer tout », boutons d'action (« Sauvegarder maintenant / Ignorer »), calendrier du mois avec jour actuel en pastille accent, bandeau « Focus » avec minuteur 30 min | ⬜ (P3) |
 | 2.9 | Toasts de notification en bas à droite, coins arrondis | ⬜ (P8) |
 | 2.10 | Info-bulles des icônes de la zone (volume, réseau, batterie) | 🟡 |
