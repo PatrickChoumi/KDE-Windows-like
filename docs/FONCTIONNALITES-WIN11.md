@@ -64,9 +64,9 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 ## 4. Recherche (réf. [12])
 | # | Fonctionnalité | État |
 |---|---|---|
-| 4.1 | Panneau de recherche : champ en haut, colonne « Suggérés » (applications/paramètres récents) à gauche | ⬜ |
-| 4.2 | « Recherches rapides » (tuiles de paramètres) et « Applications principales » (grille de tuiles) à droite | ⬜ |
-| 4.3 | Résultats groupés (applications, documents, paramètres, web) avec aperçu à droite | ⬜ (peut s'appuyer sur KRunner/Baloo) |
+| 4.1 | Panneau de recherche : champ en haut, colonne « Suggérés » (applications/paramètres récents) à gauche | ✅ champ en haut + colonne « Suggérés » (4 apps), CI 44388402800, commit `e51b28a` (labels de catégorie non conformes à Win11 : fournis par Milou) |
+| 4.2 | « Recherches rapides » (tuiles de paramètres) et « Applications principales » (grille de tuiles) à droite | ✅ « Quick searches » 2×2 et « Top apps » 3×2, CI 44388402800 ; clic sur une tuile non testé en CI |
+| 4.3 | Résultats groupés (applications, documents, paramètres, web) avec aperçu à droite | 🟡 résultats Milou affichés (Applications / System Settings / Windows pour « konsole », CI 44388402800) ; pas d'aperçu à droite, pas de catégories web |
 | 4.4 | Raccourci Win+S | ⬜ |
 
 ## 5. Fenêtres (réf. [06] [16] [17] [18] [21])
