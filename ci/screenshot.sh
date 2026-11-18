@@ -64,7 +64,7 @@ ls /etc/xdg/menus > "$OUT/sycoca.log" 2>&1
 export XDG_MENU_PREFIX=plasma-
 kbuildsycoca6 --noincremental >> "$OUT/sycoca.log" 2>&1
 kquitapp6 plasmashell >> "$OUT/apply.log" 2>&1; sleep 3; pkill -x plasmashell 2>/dev/null; sleep 2
-plasmashell > "$OUT/plasmashell-restart.log" 2>&1 &
+QT_LOGGING_RULES="kf.runner*=true;org.kde.milou*=true;kf.runner*.debug=true" plasmashell > "$OUT/plasmashell-restart.log" 2>&1 &
 sleep 20
 shot 05-apres-redemarrage-plasmashell
 # --- test direct de résolution d'icônes via Kirigami.Icon (qmltestrunner) ---
@@ -184,6 +184,11 @@ if command -v xdotool >/dev/null; then
   xdotool mousemove 900 547; sleep 1; xdotool click 1; sleep 1
   xdotool type --delay 80 "konsole"; sleep 5
   shot 25-search-resultats
+  # diagnostic 4.3 : runners KRunner presents, journal Milou, entree .desktop de konsole
+  { echo "== plugins krunner"; ls /usr/lib/*/qt6/plugins/kf6/krunner /usr/share/krunner/dbusplugins 2>&1 | head -40
+    echo "== konsole .desktop"; ls /usr/share/applications | grep -i -E 'konsole|dolphin' 
+    echo "== sycoca"; ls -l ~/.cache/ksycoca6* 2>&1 | head -3
+    echo "== journal milou/krunner"; grep -a -i -E 'milou|runner' "$OUT/plasmashell-restart.log" | head -40; } > "$OUT/search/diag.txt" 2>&1
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---
