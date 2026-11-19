@@ -44,6 +44,18 @@ jobs:
       - name: Installer le thème (root, sans reset du layout)
         run: |
           for c in themes icons showdesk shortcuts notifybutton quicksettings startmenu digitalclock lookfeel layout; do sudo -E env HOME=/root bash scripts/install-$c.sh || echo "::warning::install-$c a échoué"; done
+      - name: Paquet des coins arrondis, installé à la main (l'apt de cette VM n'indexe pas le PPA)
+        run: |
+          mkdir -p shots; sudo chmod 777 shots
+          (
+            cd /tmp; B=https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu
+            curl -sSL -o /tmp/Packages.gz -w "Packages http=%{http_code}\n" "$B/dists/resolute/main/binary-amd64/Packages.gz"
+            zcat /tmp/Packages.gz > /tmp/ppa-Packages
+            F=$(awk '/^Package: kwin-effect-roundcorners$/{p=1} p&&/^Filename:/{print $2; exit}' /tmp/ppa-Packages); echo "Filename: [$F]"
+            [ -n "$F" ] && curl -sSL -o "/tmp/$(basename "$F")" "$B/$F" && sudo dpkg -i "/tmp/$(basename "$F")" 2>&1 | tail -5
+            dpkg -l kwin-effect-roundcorners 2>&1 | tail -2
+          ) > shots/manual-install.txt 2>&1 || true
+          cat shots/manual-install.txt
       - name: Session Wayland (DRM, gl2) et captures
         run: |
           mkdir -p shots; sudo chmod 777 shots
@@ -53,3 +65,6 @@ jobs:
       - name: Publier sur ci-out
         if: always()
         run: GITHUB_TOKEN=${{ github.token }} bash ci/publish.sh shots desktop-vm
+      - name: Verdict des coins arrondis (rouge si coins carrés)
+        run: |
+          grep -q 'VERDICT coins: OK' shots/etat.txt || { echo '::error::coins arrondis non constates, voir ci-out/desktop-vm/etat.txt'; grep -A5 '== verdict' shots/etat.txt; exit 1; }

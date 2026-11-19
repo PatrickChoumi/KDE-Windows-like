@@ -12,6 +12,8 @@ kw() { dbus-send --session --print-reply --dest=org.kde.KWin "$@" 2>&1; }
 DRMDEV=$(ls /dev/dri/card* 2>/dev/null | head -1); { ls -l /dev/dri; echo "DRMDEV=$DRMDEV"; } > "$OUT/dri.txt" 2>&1
 KW=/usr/bin/kwin_wayland
 mkdir -p /root/.config
+# Base « sans effet » : le paquet des coins arrondis (installé à la main par le workflow) est activé par défaut -> on le désactive AVANT KWin.
+kwriteconfig6 --file kwinrc --group Plugins --key kwin4_effect_shapecornersEnabled false
 RULES="kwin_*=true;kwin.*=true;qt.qpa.*=true;qt.core.plugin.loader=false;qt.core.plugin.factoryloader=false"
 env KWIN_WAYLAND_NO_PERMISSION_CHECKS=1 LIBGL_ALWAYS_SOFTWARE=1 KWIN_COMPOSE=O2 LIBSEAT_BACKEND=noop KWIN_DRM_DEVICES="$DRMDEV" QT_LOGGING_RULES="$RULES" "$KW" --socket wayland-0 --no-lockscreen > "$OUT/kwin.log" 2>&1 &
 for i in $(seq 1 25); do [ -S "$XDG_RUNTIME_DIR/wayland-0" ] && break; sleep 1; done
@@ -46,6 +48,44 @@ konsole -e bash > "$OUT/konsole.log" 2>&1 &
 dolphin > "$OUT/dolphin.log" 2>&1 &
 sleep 15
 shot 02-fenetres-ouvertes
+
+# --- Coins arrondis (5.1) sur le bureau COMPLET : mesure Konsole avant / après install-roundcorners.sh ---
+geom() {  # cadre de la fenêtre Konsole via un script KWin (print -> kwin.log)
+  cat > "$OUT/geom.js" <<'JS'
+for (const w of workspace.windowList()) {
+  if (w.caption.indexOf("Konsole") >= 0 || w.resourceClass.indexOf("konsole") >= 0)
+    print("GEOM " + w.frameGeometry.x + " " + w.frameGeometry.y + " " + w.frameGeometry.width + " " + w.frameGeometry.height);
+}
+JS
+  local sid; sid=$(kw /Scripting org.kde.kwin.Scripting.loadScript string:"$OUT/geom.js" string:ci-geom$RANDOM | awk '/int32/{print $2}')
+  kw /Scripting/Script$sid org.kde.kwin.Script.run >/dev/null; sleep 2
+  grep -a "GEOM" "$OUT/kwin.log" | tail -1 | sed 's/.*GEOM //'
+}
+px() { convert "$OUT/$1.png" -format "%[pixel:p{$2,$3}]" info: 2>/dev/null; }
+analyse() {  # $1 = capture ; écrit les pixels des 4 coins exacts et recadre x8
+  local g fx fy fw fh
+  g=$(geom); read -r fx fy fw fh _ <<<"$g"
+  [ -n "${fw:-}" ] || { echo "$1 : fenêtre Konsole introuvable" >> "$OUT/etat.txt"; return 1; }
+  { echo "== coins $1 (cadre ${fw}x${fh}+${fx}+${fy})"
+    echo "haut-gauche=$(px $1 $fx $fy) haut-droit=$(px $1 $((fx+fw-1)) $fy) bas-gauche=$(px $1 $fx $((fy+fh-1))) bas-droit=$(px $1 $((fx+fw-1)) $((fy+fh-1)))"
+  } >> "$OUT/etat.txt"
+  convert "$OUT/$1.png" -crop 40x40+$((fx-4))+$((fy-4)) +repage -scale 800% "$OUT/$1-coin-haut-gauche.png"
+  convert "$OUT/$1.png" -crop 40x40+$((fx+fw-36))+$((fy+fh-36)) +repage -scale 800% "$OUT/$1-coin-bas-droit.png"
+  CORNERS="$(px $1 $fx $fy)|$(px $1 $((fx+fw-1)) $fy)|$(px $1 $fx $((fy+fh-1)))|$(px $1 $((fx+fw-1)) $((fy+fh-1)))"
+}
+analyse 02-fenetres-ouvertes; AVANT="$CORNERS"
+{ echo "== effet avant install : $(kw /Effects org.kde.kwin.Effects.isEffectLoaded string:kwin4_effect_shapecorners | tr -s ' \n' ' ' | sed 's/.*boolean/boolean/')"; } >> "$OUT/etat.txt"
+RC_YES=1 bash scripts/install-roundcorners.sh install > "$OUT/install-roundcorners.log" 2>&1; echo "install exit=$?" >> "$OUT/install-roundcorners.log"
+sleep 8
+bash scripts/install-roundcorners.sh status > "$OUT/status-roundcorners.txt" 2>&1
+shot 03-coins-apres; analyse 03-coins-apres; APRES="$CORNERS"
+CHARGE=$(kw /Effects org.kde.kwin.Effects.isEffectLoaded string:kwin4_effect_shapecorners | tr -s ' \n' ' ' | sed 's/.*boolean/boolean/')
+# Même bureau avec le fond d'écran Windows 11 (rendu final)
+[ -n "$WP" ] && qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "for (var d of desktops()) { d.wallpaperPlugin = 'org.kde.image'; d.currentConfigGroup = ['Wallpaper','org.kde.image','General']; d.writeConfig('Image', 'file://$WP'); }" >> "$OUT/apply.log" 2>&1
+sleep 12
+shot 04-coins-bureau-complet
+{ echo "== verdict coins"; echo "avant=$AVANT"; echo "apres=$APRES"; echo "effet charge=$CHARGE"
+  if [ "$AVANT" != "$APRES" ] && echo "$CHARGE" | grep -q true; then echo "VERDICT coins: OK"; else echo "VERDICT coins: KO"; fi; } >> "$OUT/etat.txt"
 
 # --- Mesures : effets chargés, état du panneau ---
 {
