@@ -94,31 +94,6 @@ Item {
             spacing: 24
 
             ColumnLayout {
-                Layout.preferredWidth: 190
-                Layout.maximumWidth: 190
-                Layout.fillHeight: true
-                spacing: 6
-                Text { text: i18n("Suggested"); color: panel.fg; font.pixelSize: 13; font.weight: Font.DemiBold }
-                Repeater {
-                    model: panel.apps.slice(0, 4)
-                    delegate: Rectangle {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 40
-                        radius: 4
-                        color: Qt.rgba(panel.fg.r, panel.fg.g, panel.fg.b, sa.containsMouse ? 0.08 : 0)
-                        RowLayout {
-                            anchors { fill: parent; leftMargin: 8 }
-                            spacing: 10
-                            Kirigami.Icon { Layout.preferredWidth: 22; Layout.preferredHeight: 22; source: modelData.icon }
-                            Text { Layout.fillWidth: true; horizontalAlignment: Text.AlignLeft; elide: Text.ElideRight; text: modelData.name; color: panel.fg; font.pixelSize: 13 }
-                        }
-                        MouseArea { id: sa; anchors.fill: parent; hoverEnabled: true; onClicked: panel.launch(modelData.cmd) }
-                    }
-                }
-                Item { Layout.fillHeight: true }
-            }
-
-            ColumnLayout {
                 Layout.fillWidth: true
                 Layout.preferredWidth: 1
                 Layout.fillHeight: true
