@@ -153,6 +153,17 @@ do_install() {
         # 3. Disponibilité + simulation : aucun retrait de paquet toléré
         local pol; pol="$(apt-cache policy "$PKG" 2>&1 || true)"
         grep -q 'Candidate: [^(]' <<<"$pol" || die "$PKG sans candidat pour cette version d'Ubuntu"
+        # Le PPA ne garde que la derniere version, compilee pour UNE version de KWin (ex. 0.11.0.1.6.6.7~... = KWin 6.6.7) :
+        # si KWin installe differe, KWin refuserait l'effet en silence (coins carres). On s'arrete avant d'installer un plugin inutilisable.
+        local cand want kpkg have
+        cand="$(awk '/Candidate:/{print $2; exit}' <<<"$pol")"
+        want="$(sed -nE 's/^.*\.([0-9]+\.[0-9]+\.[0-9]+)~.*$/\1/p' <<<"$cand")"
+        if [ "$PKG" = "$PKG_X11" ]; then kpkg=kwin-x11; else kpkg=kwin-wayland; fi
+        have="$(dpkg-query -W -f='${Version}' "$kpkg" 2>/dev/null || true)"; have="${have#*:}"; have="${have%%-*}"
+        if [ -n "$want" ] && [ -n "$have" ] && [ "$want" != "$have" ] && [ "${RC_FORCE:-0}" != 1 ]; then
+            die "le PPA propose $cand (pour KWin $want) mais $kpkg est en $have : KWin refuserait l'effet. Mets Plasma a jour (sudo apt full-upgrade, a ta main) ou attends un paquet $have dans le PPA. Rien n'a ete installe (sauvegarde : $bdir). Forcer malgre tout : RC_FORCE=1"
+        fi
+        [ -n "$want" ] && [ -n "$have" ] && info "KWin installe ($kpkg $have) = version du paquet ($want)."
         local sim; sim="$(apt-get install -s "$PKG")"
         echo "$sim" | grep -E '^(Inst|Remv|Conf) ' || true
         if grep -q '^Remv ' <<<"$sim"; then die "la simulation retirerait des paquets : abandon"; fi

@@ -1,0 +1,71 @@
+name: desktop-vm-user
+
+# MEME test que desktop-vm mais comme sur un VRAI PC : utilisateur normal (runner, HOME=/home/runner), sans root, scripts d'installation reels (chemins ~/.local), session lancee par cet utilisateur.
+# Bureau Plasma complet sur la VRAIE VM (runner ubuntu-latest sans conteneur) : KWin Wayland sur DRM, OpenGL gl2.
+# Sert à valider ce que le Xvfb de screenshots.yml ne peut pas montrer (translucidité, flou, barre flottante, ombres).
+# Publie sur ci-out/desktop-vm.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['ci/desktop-vm.sh', 'ci/drm-grab.py', '.github/workflows/desktop-vm-user.yml', 'scripts/**']
+
+permissions:
+  contents: write
+
+jobs:
+  desktop:
+    runs-on: ubuntu-latest
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - uses: actions/checkout@v4
+      - name: Paquets Plasma, outils de compilation (sudo)
+        timeout-minutes: 25
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends git ca-certificates dbus dbus-x11 \
+            plasma-desktop plasma-workspace kwin-wayland kactivitymanagerd systemsettings qt6-wayland libcap2-bin dolphin konsole \
+            libgl1-mesa-dri libegl-mesa0 libgbm1 libglx-mesa0 fonts-inter fonts-noto-core imagemagick xdg-user-dirs \
+            cmake ninja-build build-essential extra-cmake-modules qt6-base-dev qt6-declarative-dev \
+            libkf6package-dev libkf6config-dev libkf6i18n-dev libkf6coreaddons-dev libkf6windowsystem-dev libkf6kio-dev \
+            libkf6service-dev libkf6xmlgui-dev libkf6notifications-dev libplasma-dev plasma-workspace-dev libksysguard-dev \
+            libplasmaactivities-dev libplasmaactivitiesstats-dev > /tmp/apt-install.log 2>&1 \
+            || { echo "::error::apt install: $(grep -E '^(E:|Err)' /tmp/apt-install.log | head -6 | tr '\n' '|')"; exit 1; }
+          for group in "kde-spectacle spectacle" "kwin-style-aurorae aurorae" "qt6-style-kvantum qt-style-kvantum kvantum" "qt6-svg-plugins libqt6svg6"; do
+            for p in $group; do sudo apt-get install -y --no-install-recommends "$p" >/dev/null 2>&1 && { echo "installé : $p"; break; }; done
+          done
+      - name: Installer comme sur un vrai PC (utilisateur normal, sans sudo)
+        run: |
+          mkdir -p shots; echo "installateurs executes par $(id -un) uid=$(id -u) HOME=$HOME" | tee shots/install-user.txt
+          for c in themes icons icontasks showdesk shortcuts notifybutton quicksettings startmenu digitalclock lookfeel layout; do
+            if bash scripts/install-$c.sh > "shots/install-$c.log" 2>&1; then echo "OK   install-$c" | tee -a shots/install-user.txt
+            else echo "ECHEC install-$c (code $?)" | tee -a shots/install-user.txt; echo "::warning::install-$c a échoué en utilisateur normal"; tail -5 "shots/install-$c.log"; fi
+          done
+          { echo "== chemins utilisateur"; for d in .local/share/plasma/plasmoids .local/share/plasma/desktoptheme .local/share/plasma/look-and-feel .local/share/aurorae/themes .local/share/icons .local/share/wallpapers .config/Kvantum; do echo "-- ~/$d"; ls "$HOME/$d" 2>&1 | head -12; done; echo "== kdeglobals"; grep -A3 -E '^\[(Icons|KDE)\]' "$HOME/.config/kdeglobals" 2>&1 | head -12; } >> shots/install-user.txt
+      - name: Paquet des coins arrondis, installé à la main (l'apt de cette VM n'indexe pas le PPA)
+        run: |
+          mkdir -p shots
+          (
+            cd /tmp; B=https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu
+            curl -sSL -o /tmp/Packages.gz -w "Packages http=%{http_code}\n" "$B/dists/resolute/main/binary-amd64/Packages.gz"
+            zcat /tmp/Packages.gz > /tmp/ppa-Packages
+            F=$(awk '/^Package: kwin-effect-roundcorners$/{p=1} p&&/^Filename:/{print $2; exit}' /tmp/ppa-Packages); echo "Filename: [$F]"
+            [ -n "$F" ] && curl -sSL -o "/tmp/$(basename "$F")" "$B/$F" && sudo dpkg -i "/tmp/$(basename "$F")" 2>&1 | tail -5
+            dpkg -l kwin-effect-roundcorners 2>&1 | tail -2
+          ) > shots/manual-install.txt 2>&1 || true
+          cat shots/manual-install.txt
+      - name: Session Wayland (DRM, gl2) et captures
+        run: |
+          mkdir -p shots
+          sudo chmod a+rw /dev/dri/card* /dev/dri/renderD* 2>/dev/null || true
+          GRAB_SUDO=sudo dbus-run-session -- bash ci/desktop-vm.sh shots || true
+          sudo chmod -R a+rwX shots
+          ls -l shots | head -30; echo "== etat"; cat shots/etat.txt 2>&1 | head -40
+      - name: Publier sur ci-out
+        if: always()
+        run: GITHUB_TOKEN=${{ github.token }} bash ci/publish.sh shots desktop-vm-user
+      - name: Verdict des coins arrondis (rouge si coins carrés)
+        run: |
+          ! grep -q '^ECHEC' shots/install-user.txt || { echo '::error::un installateur a echoue en utilisateur normal'; grep '^ECHEC' shots/install-user.txt; exit 1; }
+          grep -q 'uid=0' shots/etat.txt && { echo '::error::la session a tourne en root, test invalide'; exit 1; }
+          grep -q 'VERDICT coins: OK' shots/etat.txt || { echo '::error::coins arrondis non constates, voir ci-out/desktop-vm-user/etat.txt'; grep -A5 '== verdict' shots/etat.txt; exit 1; }

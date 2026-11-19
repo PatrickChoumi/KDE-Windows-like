@@ -11,7 +11,7 @@ unset DISPLAY
 kw() { dbus-send --session --print-reply --dest=org.kde.KWin "$@" 2>&1; }
 DRMDEV=$(ls /dev/dri/card* 2>/dev/null | head -1); { ls -l /dev/dri; echo "DRMDEV=$DRMDEV"; } > "$OUT/dri.txt" 2>&1
 KW=/usr/bin/kwin_wayland
-mkdir -p /root/.config
+mkdir -p "$HOME/.config"
 # Base « sans effet » : le paquet des coins arrondis (installé à la main par le workflow) est activé par défaut -> on le désactive AVANT KWin.
 kwriteconfig6 --file kwinrc --group Plugins --key kwin4_effect_shapecornersEnabled false
 RULES="kwin_*=true;kwin.*=true;qt.qpa.*=true;qt.core.plugin.loader=false;qt.core.plugin.factoryloader=false"
@@ -20,8 +20,9 @@ for i in $(seq 1 25); do [ -S "$XDG_RUNTIME_DIR/wayland-0" ] && break; sleep 1; 
 export WAYLAND_DISPLAY=wayland-0 QT_QPA_PLATFORM=wayland
 for i in $(seq 1 10); do ct=$(kw /Compositor org.freedesktop.DBus.Properties.Get string:org.kde.kwin.Compositing string:compositingType | tr -s ' \n' ' '); case "$ct" in *gl2*) break;; esac; sleep 1; done
 echo "compositingType: ${ct##* variant }" > "$OUT/etat.txt"
+echo "utilisateur: $(id -un) uid=$(id -u) HOME=$HOME" >> "$OUT/etat.txt"
 
-shot() { python3 ci/drm-grab.py "$DRMDEV" "$OUT/$1.png" >> "$OUT/grab.log" 2>&1; ls -l "$OUT/$1.png" 2>&1 | tail -1; }
+shot() { ${GRAB_SUDO:-} python3 ci/drm-grab.py "$DRMDEV" "$OUT/$1.png" >> "$OUT/grab.log" 2>&1; ls -l "$OUT/$1.png" 2>&1 | tail -1; }
 for d in /usr/libexec/kactivitymanagerd /usr/bin/kactivitymanagerd /usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd; do
   [ -x "$d" ] && { "$d" > "$OUT/kactivities.log" 2>&1 & echo "kactivitymanagerd: $d" >> "$OUT/etat.txt"; break; }
 done
@@ -31,7 +32,8 @@ sleep 25
 plasma-apply-colorscheme WindowsModernDark >> "$OUT/apply.log" 2>&1
 plasma-apply-desktoptheme Windows-modern-dark >> "$OUT/apply.log" 2>&1
 kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle kvantum-dark
-WP=$(find /root/.local/share/wallpapers/Windows-modern -type f \( -name '*.jpg' -o -name '*.png' \) 2>/dev/null | head -1)
+WP=$(find "$HOME/.local/share/wallpapers/Windows-modern" /usr/share/wallpapers/Windows-modern -type f \( -name '*.jpg' -o -name '*.png' \) 2>/dev/null | head -1)
+echo "fond d'ecran trouve : ${WP:-AUCUN}" >> "$OUT/etat.txt"
 [ -n "$WP" ] && plasma-apply-wallpaperimage "$WP" >> "$OUT/apply.log" 2>&1
 plasma-apply-lookandfeel -a org.kde.windowsmodern.dark --resetLayout >> "$OUT/apply.log" 2>&1; echo "lookandfeel exit=$?" >> "$OUT/apply.log"
 ( source scripts/install-lib.sh; ensure_icon_theme windows-modern; ensure_window_decoration dark; ensure_kwin_blur ) >> "$OUT/apply.log" 2>&1
@@ -81,6 +83,7 @@ bash scripts/install-roundcorners.sh status > "$OUT/status-roundcorners.txt" 2>&
 shot 03-coins-apres; analyse 03-coins-apres; APRES="$CORNERS"
 CHARGE=$(kw /Effects org.kde.kwin.Effects.isEffectLoaded string:kwin4_effect_shapecorners | tr -s ' \n' ' ' | sed 's/.*boolean/boolean/')
 # Même bureau avec le fond d'écran Windows 11 (rendu final)
+[ -n "$WP" ] || echo "ATTENTION : fond Windows 11 introuvable, capture 04 sur fond blanc" >> "$OUT/etat.txt"
 [ -n "$WP" ] && qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "for (var d of desktops()) { d.wallpaperPlugin = 'org.kde.image'; d.currentConfigGroup = ['Wallpaper','org.kde.image','General']; d.writeConfig('Image', 'file://$WP'); }" >> "$OUT/apply.log" 2>&1
 sleep 12
 shot 04-coins-bureau-complet
