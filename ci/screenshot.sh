@@ -191,15 +191,19 @@ if command -v xdotool >/dev/null; then
     echo "== journal milou/krunner"; grep -a -i -E 'milou|runner' "$OUT/plasmashell-restart.log" | head -40; } > "$OUT/search/diag.txt" 2>&1
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
-# --- widgets Qt / Kvantum : vitrine de controles (visuel 7.x / 8.5 / 8.6) ---
-mkdir -p "$OUT/widgets"
-{ echo "== outils"; command -v kvantummanager kvantumpreview
-  echo "== themes"; ls ~/.config/Kvantum /usr/share/Kvantum 2>&1 | head -20
-  kvantummanager --set Windows-modernDark 2>&1 | head -3
-  echo "== kvantum.kvconfig"; cat ~/.config/Kvantum/kvantum.kvconfig 2>&1; } > "$OUT/widgets/diag.txt" 2>&1
+# --- widgets Qt / Kvantum : vitrine de controles avec NOTRE theme (visuel 7.x / 8.5 / 8.6) ---
+mkdir -p "$OUT/widgets" ~/.config/Kvantum
+cp -r Kvantum/Windows-modern* ~/.config/Kvantum/ 2>> "$OUT/widgets/diag.txt"
+printf '[General]\ntheme=Windows-modernDark\n' > ~/.config/Kvantum/kvantum.kvconfig
+{ echo "== themes installes"; ls ~/.config/Kvantum; echo "== kvantum.kvconfig"; cat ~/.config/Kvantum/kvantum.kvconfig; } >> "$OUT/widgets/diag.txt" 2>&1
 if command -v kvantumpreview >/dev/null 2>&1; then
-  QT_STYLE_OVERRIDE=kvantum-dark DISPLAY=${DISPLAY:-:99} kvantumpreview > "$OUT/widgets/preview.log" 2>&1 &
-  sleep 7; shot 26-widgets-kvantum
+  QT_STYLE_OVERRIDE=kvantum-dark kvantumpreview > "$OUT/widgets/preview.log" 2>&1 &
+  sleep 7; shot 26-widgets-boutons
+  xdotool mousemove 894 396 click 1; sleep 2; shot 27-widgets-cases
+  xdotool mousemove 1046 396 click 1; sleep 2; shot 28-widgets-champs
+  xdotool mousemove 1220 396 click 1; sleep 2; shot 29-widgets-curseurs
+  xdotool mousemove 632 291 click 1; sleep 2; shot 30-widgets-menu
+  xdotool key Escape; sleep 1
   pkill -x kvantumpreview 2>/dev/null; sleep 1
 fi
 # --- diagnostic de l'icône du bouton Démarrer ---
