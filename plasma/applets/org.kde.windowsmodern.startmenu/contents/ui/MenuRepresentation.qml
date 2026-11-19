@@ -589,21 +589,6 @@ Item {
 
         function setModels() {
             pinnedPage.favoritesList.model = globalFavorites;
-            // Récents (mesuré en CI : lignes « Applications | Files | KICKER_ALL_MODEL ») :
-            // « Applications » et « Files » placées avant KICKER_ALL_MODEL.
-            var recApps = null, recFiles = null, descs = [];
-            for (var i = 0; i < rootModel.rowCount(); i++) {
-                var m = rootModel.modelForRow(i);
-                if (!m) continue;
-                descs.push(String(m.description));
-                if (m.description === "KICKER_ALL_MODEL") break;
-                if (!recApps && m.description === "Applications") recApps = m;
-                else if (!recFiles && m.description === "Files") recFiles = m;
-            }
-            console.log("windowsmodern.startmenu: rootModel rows = [" + descs.join(" | ") + "] ; apps = "
-                        + (recApps ? recApps.count : "none") + " ; files = " + (recFiles ? recFiles.count : "none"));
-            pinnedPage.recentAppsModel = recApps;
-            pinnedPage.recentFilesModel = recFiles;
             sortedAppsModel.sourceModel = findRowModel(rootModel, "KICKER_ALL_MODEL");
             allAppsPage.allAppsList.model = sortedAppsModel;
         }
