@@ -194,7 +194,7 @@ fi
 # --- widgets Qt / Kvantum : vitrine de controles avec NOTRE theme (visuel 7.x / 8.5 / 8.6) ---
 mkdir -p "$OUT/widgets" ~/.config/Kvantum
 cp -r Kvantum/Windows-modern* ~/.config/Kvantum/ 2>> "$OUT/widgets/diag.txt"
-printf '[General]\ntheme=Windows-modernDark\n' > ~/.config/Kvantum/kvantum.kvconfig
+printf '[General]\ntheme=Windows-modern\n' > ~/.config/Kvantum/kvantum.kvconfig
 { echo "== themes installes"; ls ~/.config/Kvantum; echo "== kvantum.kvconfig"; cat ~/.config/Kvantum/kvantum.kvconfig; } >> "$OUT/widgets/diag.txt" 2>&1
 if command -v kvantumpreview >/dev/null 2>&1; then
   QT_STYLE_OVERRIDE=kvantum-dark kvantumpreview > "$OUT/widgets/preview.log" 2>&1 &
