@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ».
-> Dernière mise à jour : 2026-11-19 (version 32).
+> Dernière mise à jour : 2026-11-19 (version 33).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -77,9 +77,12 @@
 
 - **Kvantum (Phase 5)** : le thème `Kvantum/Windows-modern` est un dérivé de **Materia** (auteur Vince Liuice, KvAdapta), pas du Fluent : tout est à vérifier par mesure. `QT_STYLE_OVERRIDE=kvantum-dark` charge `Windows-modernDark.kvconfig`/`.svg` du même dossier (garder les deux kvconfig synchronisés). Les captures sont en 1920x1080 mais les aperçus affichés en 1456 px de large : multiplier les coordonnées lues à l'œil par 1,319 avant de mesurer en PIL. Mesure initiale (run 44453814919) : boutons 28 px de haut (frame 3+3, `text.margin=4`) ; cible Win11 32 px. Hauteur réglée par `text.margin.top/bottom` de `[PanelButtonCommand]` : marge 6 donnait 34 px (`322f283`), **marge 5 donne 32 px** (`9c709f5`, run 44456694351, mesuré sur la capture 26). Chaque point de marge verticale vaut ~3 px de hauteur : toujours mesurer, ne pas extrapoler.
 
+- **Position du menu Démarrer** : `popupPosition()` de `MenuRepresentation.qml` renvoie la position de la *fenêtre* Dialog, qui a ~8 px de marge interne : 4 demandés = 0 px visible (menu collé à la barre), 12 demandés = 4-5 px visibles. `gapAbovePanel = 20` donne **12 px visibles** comme Win11 (mesuré sur la capture 09, run 44459158750, commit `f2033c8` : bas du menu y=1020, haut de barre y=1032). Les coins arrondis 8 px et l'ombre du menu restent à valider en banc 2 (composition).
+
 - Milou.ResultsView (Plasma 6) : laisser `queryField: null` et piloter `queryString` explicitement (`Connections` sur `textChanged` du champ). Avec `queryField: champ`, KRunner charge les runners mais la requête reste vide (journal : « was not scheduled for current query »), résultats vides. Constaté en CI : run 44386700272 (vide) puis 44388402800 (résultats).
 
 ## 6. État et prochaine étape
+- Menu Démarrer : écart de 12 px au-dessus de la barre validé (`f2033c8`). Focus de Patrick (2026-11-19) : fidélité visuelle pixel perfect uniquement ; envoyer des images (captures + comparaison avec `docs/reference-win11/`) après chaque correctif.
 - Kvantum (2026-11-19) : thème installé et rendu en CI (captures 26-30, run 44453814919). Boutons 28 px → 32 px validés (`9c709f5`, run 44456694351). Ensuite : mesurer cases/toggles (27), champs (28), curseurs (29), menu (30) ; rayon 4 px des contrôles, rayon 8 px des menus, focus ring accent 2 px ; puis cocher 8.5, 8.6, 11.5. Après : 2.8 (calendrier + centre de notifications) ou GTK (11.7). Reste côté Patrick : test réel des coins arrondis en Wayland.
 - Les copies du projet l'assistant (`methode.md`, `kde-windows-like.md`) étaient en v3 / 10-11 : à remplacer par ce fichier et `PLAN-WINDOWS11-PIXEL-PERFECT.md`.
 - Panneau de recherche Win11 (4.1, 4.2 ✅ ; 4.3 🟡) vu en CI (run 44388402800, commit `e51b28a`). Ensuite : 4.4 (Win+S, non testable en CI sans kglobalaccel), puis 2.8 (centre de notifications + calendrier).
