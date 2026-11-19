@@ -1658,18 +1658,18 @@
   <path class="ColorScheme-Highlight" d="m190.14 823.86v2h131v-2z" fill="#000000" opacity=".15" stroke-width=".70708"/>
  </g>
  <g id="checkbox-checked-normal" transform="translate(413,-79)">
-  <path d="m-239.27 235.94c-0.99177 0-1.7902 0.79842-1.7902 1.7902v12.531c0 0.99177 0.79842 1.7902 1.7902 1.7902h12.531c0.99177 0 1.7902-0.79842 1.7902-1.7902v-12.531c0-0.99177-0.79842-1.7902-1.7902-1.7902z" fill="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3426" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 234h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4z" fill="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3426" style="paint-order:stroke fill markers"/>
   <rect x="-243" y="234" width="20" height="20" fill="none" stroke-width="1.9048"/>
-  <path d="m-240 235c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm11.648 5.6484 0.70312 0.70312-7.3516 7.3594-3.3516-3.3594 0.70312-0.70312 2.6484 2.6406 6.6484-6.6406z" fill="#4CC2FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 234h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-227.836 240.276 L-227.054 241.057 L-235.223 249.234 L-238.947 245.501 L-238.166 244.720 L-235.223 247.654z" fill="#4CC2FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="paint-order:stroke fill markers"/>
  </g>
  <g id="checkbox-tristate-normal" transform="translate(413,-79)">
-  <path d="m-239.22 256c-0.98489 0-1.7778 0.79289-1.7778 1.7778v12.444c0 0.98489 0.79289 1.7778 1.7778 1.7778h12.444c0.98489 0 1.7778-0.79289 1.7778-1.7778v-12.444c0-0.98489-0.79289-1.7778-1.7778-1.7778z" fill="#ffffff" stroke-width=".88889" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 254h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4z" fill="#ffffff" stroke-width=".88889" style="paint-order:stroke fill markers"/>
   <rect x="-243" y="254" width="20" height="20" fill="none" stroke-width="1.9048"/>
-  <path d="m-240 255c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm4 5h6c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1h-6c-0.554 0-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="#4CC2FF" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 254h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-236 260h6c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1h-6c-0.554 0-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="#4CC2FF" style="paint-order:stroke fill markers"/>
  </g>
  <g id="checkbox-normal" transform="translate(413,-79)">
   <rect x="-243" y="214" width="20" height="20" fill="none" stroke-width="1.9048"/>
-  <path d="m-240 215c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm0 1h14c0.554 0 1 0.446 1 1v14c0 0.554-0.446 1-1 1h-14c-0.554 0-1-0.446-1-1v-14c0-0.554 0.446-1 1-1z" fill="#FFFFFF" stroke-width="0" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 214h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-239 215h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3v-12a3 3 0 0 1 3-3z" fill="#FFFFFF" stroke-width="0" style="paint-order:stroke fill markers"/>
  </g>
  <g id="radio-checked-normal" transform="translate(413,-99)">
   <path d="m-213 255c-4.968 0-9 4.032-9 9s4.032 9 9 9 9-4.032 9-9-4.032-9-9-9z" fill="#ffffff" stroke-width=".9"/>
@@ -1705,23 +1705,23 @@
  </g>
  <g id="checkbox-focused" transform="translate(413,-19)">
   <rect x="-243" y="214" width="20" height="20" fill="none" stroke-width="1.9048"/>
-  <path d="m-240 215c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm0 1h14c0.554 0 1 0.446 1 1v14c0 0.554-0.446 1-1 1h-14c-0.554 0-1-0.446-1-1v-14c0-0.554 0.446-1 1-1z" fill="#ffffff" stroke-width="0" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 214h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-239 215h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-12a3 3 0 0 1-3-3v-12a3 3 0 0 1 3-3z" fill="#ffffff" stroke-width="0" style="paint-order:stroke fill markers"/>
  </g>
  <g id="radio-focused" transform="translate(413,-19)">
   <rect x="-223" y="214" width="20" height="20" fill="none" stroke-width="1.9048"/>
   <path d="m-213 214c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm-0.01 1a9 9 0 0 1 0.01 0 9 9 0 0 1 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 8.9902-9z" fill="#ffffff"/>
  </g>
  <g id="checkbox-checked-focused" transform="translate(413,-19)">
-  <path d="m-239.02 236.25c-0.95352 0-1.7212 0.76765-1.7212 1.7212v12.048c0 0.95352 0.76765 1.7212 1.7212 1.7212h12.048c0.95352 0 1.7212-0.76765 1.7212-1.7212v-12.048c0-0.95352-0.76765-1.7212-1.7212-1.7212z" fill="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2909" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 234h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4z" fill="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2909" style="paint-order:stroke fill markers"/>
   <rect x="-243" y="234" width="20" height="20" fill="none" stroke-width="1.9048"/>
-  <path d="m-240 235c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm11.648 5.6484 0.70312 0.70312-7.3516 7.3594-3.3516-3.3594 0.70312-0.70312 2.6484 2.6406 6.6484-6.6406z" fill="#4CC2FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="paint-order:stroke fill markers"/>
-  <path d="m-240 235c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm11.648 5.6484 0.70312 0.70312-7.3516 7.3594-3.3516-3.3594 0.70312-0.70312 2.6484 2.6406 6.6484-6.6406z" fill="#ffffff" opacity=".15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 234h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-227.836 240.276 L-227.054 241.057 L-235.223 249.234 L-238.947 245.501 L-238.166 244.720 L-235.223 247.654z" fill="#4CC2FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 234h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-227.836 240.276 L-227.054 241.057 L-235.223 249.234 L-238.947 245.501 L-238.166 244.720 L-235.223 247.654z" fill="#ffffff" opacity=".15" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="paint-order:stroke fill markers"/>
  </g>
  <g id="checkbox-tristate-focused" transform="translate(413,-19)">
-  <path d="m-239.22 256c-0.98489 0-1.7778 0.79289-1.7778 1.7778v12.444c0 0.98489 0.79289 1.7778 1.7778 1.7778h12.444c0.98489 0 1.7778-0.79289 1.7778-1.7778v-12.444c0-0.98489-0.79289-1.7778-1.7778-1.7778z" fill="#ffffff" stroke-width=".88889" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 254h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4z" fill="#ffffff" stroke-width=".88889" style="paint-order:stroke fill markers"/>
   <rect x="-243" y="254" width="20" height="20" fill="none" stroke-width="1.9048"/>
-  <path d="m-240 255c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm4 5h6c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1h-6c-0.554 0-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="#4CC2FF" style="paint-order:stroke fill markers"/>
-  <path d="m-240 255c-1.108 0-2 0.892-2 2v14c0 1.108 0.892 2 2 2h14c1.108 0 2-0.892 2-2v-14c0-1.108-0.892-2-2-2zm4 5h6c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1h-6c-0.554 0-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="#ffffff" opacity=".15" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 254h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-236 260h6c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1h-6c-0.554 0-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="#4CC2FF" style="paint-order:stroke fill markers"/>
+  <path fill-rule="evenodd" d="m-239 254h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4zM-236 260h6c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1h-6c-0.554 0-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="#ffffff" opacity=".15" style="paint-order:stroke fill markers"/>
  </g>
  <g id="radio-checked-focused" transform="translate(413,-39)">
   <path d="m-213 255c-4.968 0-9 4.032-9 9s4.032 9 9 9 9-4.032 9-9-4.032-9-9-9z" fill="#ffffff" stroke-width=".9"/>
