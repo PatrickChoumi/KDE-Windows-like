@@ -1142,48 +1142,44 @@
   <rect transform="rotate(90)" x="320" y="-33" width="2" height="8" fill="#fff" opacity=".3"/>
  </g>
   <g id="slidercursor-tickless-normal" transform="translate(57.063 -130.71)">
-   <rect x="317" y="405" width="16" height="16" opacity=".001"/>
-   <circle cx="325" cy="413" r="7" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="325" cy="413" r="4" fill="#0067C0"/>
+   <rect x="315" y="403" width="20" height="20" opacity=".001"/>
+   <circle cx="325" cy="413" r="10" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="325" cy="413" r="6" fill="#0067C0"/>
   </g>
   <g id="slidercursor-tickless-pressed" transform="translate(57.063 -130.71)">
-   <rect x="361" y="405" width="16" height="16" opacity=".001"/>
-   <circle cx="369" cy="413" r="9" fill="#0067C0" opacity=".3"/>
-   <circle cx="369" cy="413" r="7" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="369" cy="413" r="4" fill="#0067C0"/>
+   <rect x="359" y="403" width="20" height="20" opacity=".001"/>
+   <circle cx="369" cy="413" r="10" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="369" cy="413" r="5" fill="#0067C0"/>
   </g>
   <g id="slidercursor-tickless-focused" transform="translate(57.063 -130.71)">
-   <rect x="339" y="405" width="16" height="16" opacity=".001"/>
-   <circle cx="347" cy="413" r="9" fill="#0067C0" opacity=".2"/>
-   <circle cx="347" cy="413" r="7" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="347" cy="413" r="4" fill="#0067C0"/>
+   <rect x="337" y="403" width="20" height="20" opacity=".001"/>
+   <circle cx="347" cy="413" r="10" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="347" cy="413" r="7" fill="#0067C0"/>
   </g>
   <g id="slidercursor-tickless-disabled" transform="translate(57.063 -130.71)">
-   <rect x="295" y="405" width="16" height="16" opacity=".001"/>
-   <circle cx="303" cy="413" r="7" fill="#E5E5E5" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="303" cy="413" r="4" fill="#A0A0A0"/>
+   <rect x="293" y="403" width="20" height="20" opacity=".001"/>
+   <circle cx="303" cy="413" r="10" fill="#E5E5E5" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="303" cy="413" r="6" fill="#A0A0A0"/>
   </g>
   <g id="slidercursor-normal" transform="translate(57.063 -130.71)">
-   <rect x="317" y="427" width="16" height="16" opacity=".001"/>
-   <circle cx="325" cy="435" r="7" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="325" cy="435" r="4" fill="#0067C0"/>
+   <rect x="315" y="425" width="20" height="20" opacity=".001"/>
+   <circle cx="325" cy="435" r="10" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="325" cy="435" r="6" fill="#0067C0"/>
   </g>
   <g id="slidercursor-focused" transform="translate(57.063 -130.71)">
-   <rect x="339" y="427" width="16" height="16" opacity=".001"/>
-   <circle cx="347" cy="435" r="9" fill="#0067C0" opacity=".2"/>
-   <circle cx="347" cy="435" r="7" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="347" cy="435" r="4" fill="#0067C0"/>
+   <rect x="337" y="425" width="20" height="20" opacity=".001"/>
+   <circle cx="347" cy="435" r="10" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="347" cy="435" r="7" fill="#0067C0"/>
   </g>
   <g id="slidercursor-pressed" transform="translate(57.063 -130.71)">
-   <rect x="361" y="427" width="16" height="16" opacity=".001"/>
-   <circle cx="369" cy="435" r="9" fill="#0067C0" opacity=".3"/>
-   <circle cx="369" cy="435" r="7" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="369" cy="435" r="4" fill="#0067C0"/>
+   <rect x="359" y="425" width="20" height="20" opacity=".001"/>
+   <circle cx="369" cy="435" r="10" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="369" cy="435" r="5" fill="#0067C0"/>
   </g>
   <g id="slidercursor-disabled" transform="translate(57.063 -130.71)">
-   <rect x="295" y="427" width="16" height="16" opacity=".001"/>
-   <circle cx="303" cy="435" r="7" fill="#E5E5E5" stroke="#D5D5D5" stroke-width="1"/>
-   <circle cx="303" cy="435" r="4" fill="#A0A0A0"/>
+   <rect x="293" y="425" width="20" height="20" opacity=".001"/>
+   <circle cx="303" cy="435" r="10" fill="#E5E5E5" stroke="#D5D5D5" stroke-width="1"/>
+   <circle cx="303" cy="435" r="6" fill="#A0A0A0"/>
   </g>
  <rect id="dock-normal" x="355.99" y="946.25" width="30" height="30" fill="#F9F9F9"/>
  <g transform="translate(.99479 -223.75)" fill="#A0A0A0">
