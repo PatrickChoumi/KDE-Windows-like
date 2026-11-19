@@ -191,6 +191,17 @@ if command -v xdotool >/dev/null; then
     echo "== journal milou/krunner"; grep -a -i -E 'milou|runner' "$OUT/plasmashell-restart.log" | head -40; } > "$OUT/search/diag.txt" 2>&1
   xdotool key Escape; sleep 1; xdotool mousemove 1200 500
 fi
+# --- widgets Qt / Kvantum : vitrine de controles (visuel 7.x / 8.5 / 8.6) ---
+mkdir -p "$OUT/widgets"
+{ echo "== outils"; command -v kvantummanager kvantumpreview
+  echo "== themes"; ls ~/.config/Kvantum /usr/share/Kvantum 2>&1 | head -20
+  kvantummanager --set Windows-modernDark 2>&1 | head -3
+  echo "== kvantum.kvconfig"; cat ~/.config/Kvantum/kvantum.kvconfig 2>&1; } > "$OUT/widgets/diag.txt" 2>&1
+if command -v kvantumpreview >/dev/null 2>&1; then
+  QT_STYLE_OVERRIDE=kvantum-dark DISPLAY=${DISPLAY:-:99} kvantumpreview > "$OUT/widgets/preview.log" 2>&1 &
+  sleep 7; shot 26-widgets-kvantum
+  pkill -x kvantumpreview 2>/dev/null; sleep 1
+fi
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
   echo "== theme"; echo "kcmicons=[$(kreadconfig6 --file kcmicons --group Icons --key Theme)]"; echo "kdeglobals=[$(kreadconfig6 --file kdeglobals --group Icons --key Theme)]"
