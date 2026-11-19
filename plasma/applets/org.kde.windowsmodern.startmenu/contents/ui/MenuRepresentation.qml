@@ -154,8 +154,8 @@ Item {
             var horizMidPoint = screen.x + (screen.width / 2);
             var vertMidPoint = screen.y + (screen.height / 2);
             var offset = Kirigami.Units.smallSpacing;
-            // Win11 : le menu flotte a 12 px au-dessus de la barre (mesure sur reference)
-            var gapAbovePanel = 12;
+            // Win11 : le menu flotte a 12 px au-dessus de la barre ; la fenetre Dialog a ~8 px de marge interne (mesure CI : 12 demandes = 4-5 px visibles)
+            var gapAbovePanel = 20;
 
             var menuPos = Plasmoid.configuration.displayPosition;
 
