@@ -154,6 +154,8 @@ Item {
             var horizMidPoint = screen.x + (screen.width / 2);
             var vertMidPoint = screen.y + (screen.height / 2);
             var offset = Kirigami.Units.smallSpacing;
+            // Win11 : le menu flotte a 12 px au-dessus de la barre (mesure sur reference)
+            var gapAbovePanel = 12;
 
             var menuPos = Plasmoid.configuration.displayPosition;
 
@@ -163,11 +165,11 @@ Item {
             } else if (menuPos === 2) {
                 // Center-bottom (above panel)
                 return Qt.point(horizMidPoint - width / 2,
-                                screen.y + screen.height - height - kicker.height - offset);
+                                screen.y + screen.height - height - kicker.height - gapAbovePanel);
             } else if (menuPos === 3) {
                 // Left-bottom (above panel, left-aligned)
                 return Qt.point(screen.x + offset,
-                                screen.y + screen.height - height - kicker.height - offset);
+                                screen.y + screen.height - height - kicker.height - gapAbovePanel);
             } else {
                 // menuPos 0 — follow panel: center horizontally over the
                 // start button, sit flush against the panel's top edge.
@@ -176,7 +178,7 @@ Item {
                                    Math.min(centerX, screen.x + screen.width - width - offset));
                 switch (Plasmoid.location) {
                 case PlasmaCore.Types.BottomEdge:
-                    return Qt.point(centerX, screen.y + screen.height - height - kicker.height - offset);
+                    return Qt.point(centerX, screen.y + screen.height - height - kicker.height - gapAbovePanel);
                 case PlasmaCore.Types.TopEdge:
                     return Qt.point(centerX, screen.y + kicker.height + offset);
                 case PlasmaCore.Types.LeftEdge:
@@ -190,7 +192,7 @@ Item {
                                              Math.min(appletTopLeft.y + (kicker.height / 2) - (height / 2),
                                                       screen.y + screen.height - height - offset)));
                 default:
-                    return Qt.point(centerX, screen.y + screen.height - height - kicker.height - offset);
+                    return Qt.point(centerX, screen.y + screen.height - height - kicker.height - gapAbovePanel);
                 }
             }
         }
