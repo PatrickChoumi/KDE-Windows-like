@@ -198,7 +198,7 @@ printf '[General]\ntheme=Windows-modern\n' > ~/.config/Kvantum/kvantum.kvconfig
 { echo "== themes installes"; ls ~/.config/Kvantum; echo "== kvantum.kvconfig"; cat ~/.config/Kvantum/kvantum.kvconfig; } >> "$OUT/widgets/diag.txt" 2>&1
 if command -v kvantumpreview >/dev/null 2>&1; then
   QT_STYLE_OVERRIDE=kvantum-dark kvantumpreview > "$OUT/widgets/preview.log" 2>&1 &
-  sleep 7; shot 26-widgets-boutons
+  sleep 7; shot 26-widgets-boutons  # 27 : cases attendues 20x20 px (feature 8.6)
   xdotool mousemove 894 396 click 1; sleep 2; shot 27-widgets-cases
   xdotool mousemove 1046 396 click 1; sleep 2; shot 28-widgets-champs
   xdotool mousemove 1220 396 click 1; sleep 2; shot 29-widgets-curseurs
