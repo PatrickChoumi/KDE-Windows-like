@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ».
-> Dernière mise à jour : 2026-11-19 (version 37).
+> Dernière mise à jour : 2026-11-19 (version 38).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -84,6 +84,8 @@
 - **Sélection des vues Kvantum (Dolphin, listes)** : les éléments SVG `itemview-toggled*` de `Windows-modern*.svg` dessinent la sélection ; remplis en blanc 9 % (clair : noir 6 %) et, pour `itemview-toggled-left`, un `<g>` avec fond + rectangle accent sur la moitié centrale de la hauteur = pastille Win11 (largeur = `frame.left` de `[ItemView]`, 3 px). Mesuré en CI (capture 31, run 44663812086, commit `8e40dd6`) : pastille 3 px × 12 px, accent `#4CC2FF`, fond de ligne `#2E2E2E`, volet gauche `#202020`. Écarts restants vs Explorateur : lignes du volet gauche ~22 px (Win11 ~32 px), pas d'onglets ni de barre de commandes, bandeau « Running Dolphin as root » (artefact CI). La capture 31 = Dolphin seul au premier plan, style Kvantum (`ci/screenshot.sh`).
 
 - **Lignes des vues Kvantum à 32 px** : `[ItemView] min_height=32` (remplace `+0.3font`) fait passer le pas des lignes du volet gauche de Dolphin de 30 à 32 px (mesuré capture 31, run 44718925755, commit `b26d172`). Script de mesure : détecter les lignes de texte clair dans x 336-400 de la capture et prendre l'écart entre centres. Prochain : barre de commandes Dolphin via `dolphinui.rc` utilisateur (noms d'actions à lire dans le fichier système extrait par la CI : `ci-out/fork/dolphin-shots/`).
+
+- **Barre de commandes Dolphin** : `dolphinui.rc` n'existe pas sur disque (compilé dans Dolphin) ; le fichier utilisateur partiel `~/.local/share/kxmlgui5/dolphin/dolphinui.rc` (`<gui name="dolphin" version="999">` + `<ToolBar name="mainToolBar" noMerge="1">`) remplace la barre. Noms d'actions validés en CI : `go_back go_forward go_up url_navigator new_menu edit_cut edit_copy edit_paste renamefile movetotrash sort view_mode show_filter_bar hamburger_menu` (`rename` et `move_to_trash` sont faux : actions absentes). `url_navigator` passe sur une rangée séparée sous la barre. Installation : `./install.sh dolphin` (opt-in, pas dans `all`), sauvegarde `*.windowsmodern-backup`, `--undo` testé sur HOME factice.
 
 - Milou.ResultsView (Plasma 6) : laisser `queryField: null` et piloter `queryString` explicitement (`Connections` sur `textChanged` du champ). Avec `queryField: champ`, KRunner charge les runners mais la requête reste vide (journal : « was not scheduled for current query »), résultats vides. Constaté en CI : run 44386700272 (vide) puis 44388402800 (résultats).
 

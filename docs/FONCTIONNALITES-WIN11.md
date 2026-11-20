@@ -88,7 +88,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | # | Fonctionnalité | État |
 |---|---|---|
 | 6.1 | Onglets arrondis dans la barre de titre, bouton « + » | ⬜ |
-| 6.2 | Barre de commandes à icônes fines : Nouveau ▾, couper, copier, coller, renommer, partager, supprimer, Trier ▾, Afficher ▾, filtre, `…` | ⬜ |
+| 6.2 | Barre de commandes à icônes fines : Nouveau ▾, couper, copier, coller, renommer, partager, supprimer, Trier ▾, Afficher ▾, filtre, `…` | 🟡 11 boutons vus en CI (run 44722155207, `config/dolphin/dolphinui.rc`, `./install.sh dolphin`) ; manquent : Partager, libellés texte « Nouveau/Trier/Affichage/Filtre » |
 | 6.3 | Barre d'adresse : précédent / suivant / parent / actualiser, fil d'Ariane avec chevrons, champ « Rechercher … » | 🟡 |
 | 6.4 | Volet gauche : Accueil, Galerie, OneDrive-like, Épinglés avec punaise, Ce PC, Réseau ; chevrons d'expansion ; sélection par pastille à gauche | ⬜ |
 | 6.5 | Volet principal : sections repliables (« Dossiers », « Périphériques et lecteurs »), grandes icônes de dossiers colorées | ⬜ |

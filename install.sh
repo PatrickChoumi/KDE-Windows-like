@@ -200,6 +200,7 @@ case "${1:-menu}" in
         echo "    systray        System Tray (C++ — needs compiler)"
         echo "    icontasks      Icon Tasks taskbar (C++ — needs compiler)"
         echo "    digitalclock   Digital Clock (QML)"
+        echo "    dolphin        Dolphin command bar like Windows 11 Explorer (opt-in, not in all)"
         echo "    applets        All five applets"
         echo "    sessionlock    Session lock screen (Meta+L)"
         echo "    greeter        Boot greeter / login screen (PLM build, user test)"
