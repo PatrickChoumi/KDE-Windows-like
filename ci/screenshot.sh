@@ -215,6 +215,8 @@ wmctrl -r "Dolphin" -e 0,300,120,1320,760 >> "$OUT/dolphin-shots/wmctrl.log" 2>&
 wmctrl -a "Dolphin" >> "$OUT/dolphin-shots/wmctrl.log" 2>&1; sleep 2
 xdotool mousemove 1800 900; sleep 1
 shot 31-dolphin-avant-plan
+{ echo "== dolphinui.rc"; find / -name 'dolphinui.rc' 2>/dev/null; } > "$OUT/dolphin-shots/uirc-path.txt"
+for p in $(find / -name 'dolphinui.rc' 2>/dev/null | head -2); do cp "$p" "$OUT/dolphin-shots/$(echo $p | tr / _)"; done
 pkill -x dolphin 2>/dev/null; sleep 1
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
