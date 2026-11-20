@@ -216,8 +216,13 @@ QT_STYLE_OVERRIDE=kvantum-dark dolphin "$HOME" > "$OUT/dolphin-shots/dolphin.log
 sleep 8
 wmctrl -r "Dolphin" -e 0,300,120,1320,760 >> "$OUT/dolphin-shots/wmctrl.log" 2>&1; sleep 1
 wmctrl -a "Dolphin" >> "$OUT/dolphin-shots/wmctrl.log" 2>&1; sleep 2
+DW=$(xdotool search --name "Dolphin" 2>/dev/null | tail -1); [ -n "$DW" ] && xdotool windowactivate "$DW" >> "$OUT/dolphin-shots/wmctrl.log" 2>&1; sleep 2
+xdotool mousemove 1591 212 click 1; sleep 1   # ferme le bandeau « Running Dolphin as root » (artefact CI)
 xdotool mousemove 1800 900; sleep 1
 shot 31-dolphin-avant-plan
+xdotool mousemove 1000 700 click 3; sleep 2
+shot 32-dolphin-menu-contextuel
+xdotool key Escape; sleep 1
 { echo "== dolphinui.rc"; find / -name 'dolphinui.rc' 2>/dev/null; } > "$OUT/dolphin-shots/uirc-path.txt"
 for p in $(find / -name 'dolphinui.rc' 2>/dev/null | head -2); do cp "$p" "$OUT/dolphin-shots/$(echo $p | tr / _)"; done
 pkill -x dolphin 2>/dev/null; sleep 1
