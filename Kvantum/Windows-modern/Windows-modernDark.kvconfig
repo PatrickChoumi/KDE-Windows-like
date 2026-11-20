@@ -12,7 +12,6 @@ toolbar_interior_spacing=2
 spread_progressbar=true
 composite=true
 menu_shadow_depth=5
-menu_item_vspacing=4
 spread_menuitems=true
 tooltip_shadow_depth=2
 splitter_width=1
@@ -481,6 +480,7 @@ frame.left=5
 frame.right=5
 text.bold=false
 frame.expansion=0
+min_height=32
 
 [MenuBar]
 inherits=PanelButtonCommand
