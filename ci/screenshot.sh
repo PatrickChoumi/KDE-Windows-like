@@ -206,6 +206,16 @@ if command -v kvantumpreview >/dev/null 2>&1; then
   xdotool key Escape; sleep 1
   pkill -x kvantumpreview 2>/dev/null; sleep 1
 fi
+# --- Dolphin au premier plan, style Kvantum, pour le comparer a l'Explorateur Win11 (phase 8, 6.x) ---
+mkdir -p "$OUT/dolphin-shots"
+pkill -x dolphin 2>/dev/null; sleep 1
+QT_STYLE_OVERRIDE=kvantum-dark dolphin "$HOME" > "$OUT/dolphin-shots/dolphin.log" 2>&1 &
+sleep 8
+wmctrl -r "Dolphin" -e 0,300,120,1320,760 >> "$OUT/dolphin-shots/wmctrl.log" 2>&1; sleep 1
+wmctrl -a "Dolphin" >> "$OUT/dolphin-shots/wmctrl.log" 2>&1; sleep 2
+xdotool mousemove 1800 900; sleep 1
+shot 31-dolphin-avant-plan
+pkill -x dolphin 2>/dev/null; sleep 1
 # --- diagnostic de l'icône du bouton Démarrer ---
 {
   echo "== theme"; echo "kcmicons=[$(kreadconfig6 --file kcmicons --group Icons --key Theme)]"; echo "kdeglobals=[$(kreadconfig6 --file kdeglobals --group Icons --key Theme)]"

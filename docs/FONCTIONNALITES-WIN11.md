@@ -66,7 +66,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 |---|---|---|
 | 4.1 | Panneau de recherche : champ en haut, colonne « Suggérés » (applications/paramètres récents) à gauche | ✅ champ en haut + colonne « Suggérés » (4 apps), CI 44388402800, commit `e51b28a` (labels de catégorie non conformes à Win11 : fournis par Milou) |
 | 4.2 | « Recherches rapides » (tuiles de paramètres) et « Applications principales » (grille de tuiles) à droite | ✅ « Quick searches » 2×2 et « Top apps » 3×2, CI 44388402800 ; clic sur une tuile non testé en CI |
-| 4.3 | Résultats groupés (applications, documents, paramètres, web) avec aperçu à droite | 🟡 résultats Milou affichés (Applications / System Settings / Windows pour « konsole », CI 44388402800) ; pas d'aperçu à droite, pas de catégories web |
+| 4.3 | Résultats groupés (applications, documents, paramètres ; JAMAIS de web/Bing, décision Patrick 2026-11-19) avec aperçu à droite | 🟡 résultats Milou affichés (Applications / System Settings / Windows pour « konsole », CI 44388402800) ; pas d'aperçu à droite, pas de catégories web |
 | 4.4 | Raccourci Win+S | ⬜ |
 
 ## 5. Fenêtres (réf. [06] [16] [17] [18] [21])
@@ -101,7 +101,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | # | Fonctionnalité | État |
 |---|---|---|
 | 7.1 | Menu contextuel du bureau : Afficher ▸, Trier par ▸, Actualiser, Nouveau ▸, Paramètres d'affichage, Personnaliser — icônes fines à gauche, séparateurs, rayon 8 px, ombre, fond acrylique | ⬜ (P5 Kvantum + thème Plasma) |
-| 7.2 | Hauteur d'entrée ~ 32–36 px, chevrons de sous-menu, raccourcis clavier alignés à droite | ⬜ |
+| 7.2 | Hauteur d'entrée 32 px, chevrons de sous-menu, raccourcis clavier alignés à droite | 🟡 hauteur 32 px mesurée en CI sur Kvantum (`2cb79b3`, run 44661644949) ; chevrons et raccourcis vus ; icônes à gauche non vérifiées |
 | 7.3 | Boîtes « Enregistrer sous / Ouvrir » avec la même mise en page que l'Explorateur | ⬜ |
 | 7.4 | Boîtes de message : boutons arrondis 4 px, bouton principal en accent | ⬜ (P5) |
 | 7.5 | Menus des applications (Konsole, Dolphin) au même style | ⬜ |
@@ -130,8 +130,8 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 ## 10. Widgets et panneaux latéraux (réf. [04])
 | # | Fonctionnalité | État |
 |---|---|---|
-| 10.1 | Panneau Widgets (météo, actualités, bourse, sport) ouvert par Win+W ou survol du bouton météo | ❌ |
-| 10.2 | Bouton météo à gauche de la barre (« 18°C Nuageux ») (réf. [06] [20]) | ⬜ (applet météo simple possible) |
+| 10.1 | Panneau Widgets (météo, actualités, bourse, sport) | ⛔ retiré volontairement (décision Patrick 2026-11-19) |
+| 10.2 | Bouton météo à gauche de la barre | ⛔ retiré volontairement (décision Patrick 2026-11-19) |
 
 ## 11. Apparence globale
 | # | Fonctionnalité | État |
