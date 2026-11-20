@@ -426,7 +426,7 @@ text.focus.color=#1E1E1E
 text.press.color=#ffffff
 text.toggle.color=#ffffff
 min_width=+0.3font
-min_height=+0.3font
+min_height=32
 frame.expansion=0
 
 [Splitter]
