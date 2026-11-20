@@ -13,8 +13,8 @@
   <Action name="edit_cut"/>
   <Action name="edit_copy"/>
   <Action name="edit_paste"/>
-  <Action name="rename"/>
-  <Action name="move_to_trash"/>
+  <Action name="renamefile"/>
+  <Action name="movetotrash"/>
   <Separator/>
   <Action name="sort"/>
   <Action name="view_mode"/>
