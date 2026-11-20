@@ -54,10 +54,36 @@ PlasmoidItem {
     Layout.maximumWidth: Layout.minimumWidth
     Layout.minimumHeight: horizontal ? Kirigami.Units.iconSizes.medium : 48
 
-    compactRepresentation: MouseArea {
+    preferredRepresentation: compactRep
+    compactRepresentation: compactRep
+    fullRepresentation: compactRep
+
+    Component {
+    id: compactRep
+    MouseArea {
         id: area
+        property double lastHide: 0
         hoverEnabled: true
-        onClicked: root.expanded = !root.expanded
+        onClicked: { if (dlg.visible) dlg.visible = false; else if (Date.now() - lastHide > 250) dlg.visible = true }
+        // Meme principe que le centre rapide : panneau flottant a 12 px du bord droit et de la barre (Dialog propre).
+        PlasmaCore.Dialog {
+            id: dlg
+            objectName: "notifyPopup"
+            flags: Qt.WindowStaysOnTopHint
+            location: PlasmaCore.Types.Floating
+            hideOnWindowDeactivate: true
+            visible: false
+            mainItem: Loader { sourceComponent: panelComp }
+            readonly property int gap: 20
+            readonly property int gapX: 11
+            function reposition() {
+                x = area.Screen.virtualX + area.Screen.width - width - gapX
+                y = area.Screen.virtualY + area.Screen.height - height - root.height - gap
+            }
+            onVisibleChanged: { if (visible) reposition(); else area.lastHide = Date.now() }
+            onWidthChanged: if (visible) reposition()
+            onHeightChanged: if (visible) reposition()
+        }
         Accessible.name: i18n("Notification Centre")
         Accessible.role: Accessible.Button
 
@@ -65,7 +91,7 @@ PlasmoidItem {
             anchors { fill: parent; topMargin: 4; bottomMargin: 4; leftMargin: 2; rightMargin: 2 }
             radius: 4
             color: Qt.rgba(root.fg.r, root.fg.g, root.fg.b,
-                           area.pressed ? 0.09 : ((area.containsMouse || root.expanded) ? 0.06 : 0))
+                           area.pressed ? 0.09 : ((area.containsMouse || dlg.visible) ? 0.06 : 0))
             Behavior on color { ColorAnimation { duration: 100 } }
         }
         Kirigami.Icon {
@@ -91,8 +117,12 @@ PlasmoidItem {
             }
         }
     }
+    }
+    }
 
-    fullRepresentation: Item {
+    Component {
+    id: panelComp
+    Item {
         implicitWidth: 360
         implicitHeight: 420
         Layout.minimumWidth: 360
@@ -171,5 +201,6 @@ PlasmoidItem {
                 }
             }
         }
+    }
     }
 }
