@@ -33,6 +33,9 @@ PlasmoidItem {
 
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
     Plasmoid.title: i18n("Quick Settings")
+    preferredRepresentation: compactRep
+    compactRepresentation: compactRep
+    fullRepresentation: compactRep
     toolTipMainText: i18n("Quick Settings")
     toolTipSubText: i18n("Network, sound and battery")
 
@@ -54,16 +57,40 @@ PlasmoidItem {
     Layout.maximumWidth: Layout.minimumWidth
     Layout.minimumHeight: horizontal ? Kirigami.Units.iconSizes.medium : 48
 
-    compactRepresentation: MouseArea {
+    Component {
+    id: compactRep
+    MouseArea {
         id: area
+        property double lastHide: 0
         hoverEnabled: true
-        onClicked: root.expanded = !root.expanded
+        onClicked: { if (dlg.visible) dlg.visible = false; else if (Date.now() - lastHide > 250) dlg.visible = true }
         Accessible.name: i18n("Quick Settings")
         Accessible.role: Accessible.Button
+
+        // Win11 : le panneau FLOTTE a 12 px du bord droit de l'ecran et de la barre. Le popup standard de Plasma se colle a la barre
+        // et au bord (mesure CI : bord droit x=1919, bas y=1031) ; comme le menu Demarrer, on utilise notre propre Dialog.
+        // La fenetre Dialog a ~8 px de marge interne : demander 20 pour 12 visibles.
+        PlasmaCore.Dialog {
+            id: dlg
+            objectName: "qsPopup"
+            flags: Qt.WindowStaysOnTopHint
+            location: PlasmaCore.Types.Floating
+            hideOnWindowDeactivate: true
+            visible: false
+            mainItem: Loader { sourceComponent: panelComp }
+            readonly property int gap: 20
+            function reposition() {
+                x = area.Screen.virtualX + area.Screen.width - width - gap
+                y = area.Screen.virtualY + area.Screen.height - height - root.height - gap
+            }
+            onVisibleChanged: { if (visible) reposition(); else area.lastHide = Date.now() }
+            onWidthChanged: if (visible) reposition()
+            onHeightChanged: if (visible) reposition()
+        }
         Rectangle {
             anchors { fill: parent; topMargin: 4; bottomMargin: 4; leftMargin: 2; rightMargin: 2 }
             radius: 4
-            color: Qt.rgba(root.fg.r, root.fg.g, root.fg.b, area.pressed ? 0.09 : ((area.containsMouse || root.expanded) ? 0.06 : 0))
+            color: Qt.rgba(root.fg.r, root.fg.g, root.fg.b, area.pressed ? 0.09 : ((area.containsMouse || dlg.visible) ? 0.06 : 0))
             Behavior on color { ColorAnimation { duration: 100 } }
         }
         Row {
@@ -74,8 +101,11 @@ PlasmoidItem {
             Kirigami.Icon { width: 20; height: 20; source: root.icon("battery"); isMask: false }
         }
     }
+    }
 
-    fullRepresentation: Item {
+    Component {
+    id: panelComp
+    Item {
         id: panel
         implicitWidth: 360
         implicitHeight: 400
@@ -177,5 +207,6 @@ PlasmoidItem {
                 Kirigami.Icon { Layout.preferredWidth: 18; Layout.preferredHeight: 18; source: root.icon("gear"); isMask: false }
             }
         }
+    }
     }
 }

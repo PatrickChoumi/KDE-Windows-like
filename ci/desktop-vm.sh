@@ -47,6 +47,11 @@ sleep 15
 shot 01b-fond-blanc
 
 konsole -e bash > "$OUT/konsole.log" 2>&1 &
+# Dolphin comme sur le banc 1 (barre de commandes Win11, dossiers de test) pour comparer a [Z29] [Z30] avec les coins arrondis
+for d in Documents Downloads Music Pictures Videos; do mkdir -p "$HOME/$d"; done
+mkdir -p ~/.local/share/kxmlgui5/dolphin && cp config/dolphin/dolphinui.rc ~/.local/share/kxmlgui5/dolphin/dolphinui.rc
+kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key ToolButtonStyle IconOnly
+kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key IconSize 16
 dolphin > "$OUT/dolphin.log" 2>&1 &
 sleep 15
 shot 02-fenetres-ouvertes
@@ -87,6 +92,13 @@ CHARGE=$(kw /Effects org.kde.kwin.Effects.isEffectLoaded string:kwin4_effect_sha
 [ -n "$WP" ] && qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "for (var d of desktops()) { d.wallpaperPlugin = 'org.kde.image'; d.currentConfigGroup = ['Wallpaper','org.kde.image','General']; d.writeConfig('Image', 'file://$WP'); }" >> "$OUT/apply.log" 2>&1
 sleep 12
 shot 04-coins-bureau-complet
+# Dolphin au premier plan (rendu final : coins arrondis, fond Win11)
+cat > "$OUT/raise.js" <<'JS'
+for (const w of workspace.windowList()) { if (w.resourceClass.indexOf("dolphin") >= 0) workspace.activeWindow = w; }
+JS
+RSID=$(kw /Scripting org.kde.kwin.Scripting.loadScript string:"$OUT/raise.js" string:ci-raise$RANDOM | awk '/int32/{print $2}')
+kw /Scripting/Script$RSID org.kde.kwin.Script.run >/dev/null; sleep 3
+shot 05-dolphin-avant-plan
 { echo "== verdict coins"; echo "avant=$AVANT"; echo "apres=$APRES"; echo "effet charge=$CHARGE"
   if [ "$AVANT" != "$APRES" ] && echo "$CHARGE" | grep -q true; then echo "VERDICT coins: OK"; else echo "VERDICT coins: KO"; fi; } >> "$OUT/etat.txt"
 
