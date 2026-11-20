@@ -79,8 +79,10 @@ PlasmoidItem {
             visible: false
             mainItem: Loader { sourceComponent: panelComp }
             readonly property int gap: 20
+            // marge horizontale mesuree : 20 demandes -> 21 px visibles ; 11 -> 12 px
+            readonly property int gapX: 11
             function reposition() {
-                x = area.Screen.virtualX + area.Screen.width - width - gap
+                x = area.Screen.virtualX + area.Screen.width - width - gapX
                 y = area.Screen.virtualY + area.Screen.height - height - root.height - gap
             }
             onVisibleChanged: { if (visible) reposition(); else area.lastHide = Date.now() }
