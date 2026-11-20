@@ -1256,15 +1256,15 @@
  <rect id="itemview-pressed-left" x="101.57" y="963.59" width="4" height="8" fill="#0067C0"/>
  <path id="itemview-pressed-topleft" d="m105.57 959.59v4h-4s0-4 4-4z" fill="#0067C0"/>
  <path id="itemview-pressed-bottomleft" d="m101.57 971.59h4v4c-4 0-4-4-4-4z" fill="#0067C0"/>
- <rect id="itemview-toggled-top" x="124.57" y="959.59" width="8" height="4" fill="#0067C0" opacity=".9"/>
- <rect id="itemview-toggled-bottom" x="124.57" y="971.59" width="8" height="4" fill="#0067C0" opacity=".9"/>
- <path id="itemview-toggled" d="m124.57 963.59h8v8h-8z" fill="#0067C0" opacity=".9"/>
- <rect id="itemview-toggled-right" x="132.57" y="963.59" width="4" height="8" fill="#0067C0" opacity=".9"/>
- <path id="itemview-toggled-topright" d="m132.57 959.59c4 0 4 4 4 4h-4z" fill="#0067C0" opacity=".9"/>
- <path id="itemview-toggled-bottomright" d="m132.57 971.59h4s0 4-4 4z" fill="#0067C0" opacity=".9"/>
- <rect id="itemview-toggled-left" x="120.57" y="963.59" width="4" height="8" fill="#0067C0" opacity=".9"/>
- <path id="itemview-toggled-topleft" d="m124.57 959.59v4h-4s0-4 4-4z" fill="#0067C0" opacity=".9"/>
- <path id="itemview-toggled-bottomleft" d="m120.57 971.59h4v4c-4 0-4-4-4-4z" fill="#0067C0" opacity=".9"/>
+ <rect id="itemview-toggled-top" x="124.57" y="959.59" width="8" height="4" fill="#000000" opacity=".06"/>
+ <rect id="itemview-toggled-bottom" x="124.57" y="971.59" width="8" height="4" fill="#000000" opacity=".06"/>
+ <path id="itemview-toggled" d="m124.57 963.59h8v8h-8z" fill="#000000" opacity=".06"/>
+ <rect id="itemview-toggled-right" x="132.57" y="963.59" width="4" height="8" fill="#000000" opacity=".06"/>
+ <path id="itemview-toggled-topright" d="m132.57 959.59c4 0 4 4 4 4h-4z" fill="#000000" opacity=".06"/>
+ <path id="itemview-toggled-bottomright" d="m132.57 971.59h4s0 4-4 4z" fill="#000000" opacity=".06"/>
+ <g id="itemview-toggled-left"><rect x="120.57" y="963.59" width="4" height="8" fill="#000000" opacity=".06"/><rect x="120.57" y="965.59" width="4" height="4" fill="#0067C0"/></g>
+ <path id="itemview-toggled-topleft" d="m124.57 959.59v4h-4s0-4 4-4z" fill="#000000" opacity=".06"/>
+ <path id="itemview-toggled-bottomleft" d="m120.57 971.59h4v4c-4 0-4-4-4-4z" fill="#000000" opacity=".06"/>
  <rect id="itemview-focused-top" x="86.568" y="959.59" width="8" height="4" opacity=".07"/>
  <rect id="itemview-focused-bottom" x="86.568" y="971.59" width="8" height="4" opacity=".07"/>
  <path id="itemview-focused" d="m86.568 963.59h8v8h-8z" opacity=".07"/>
