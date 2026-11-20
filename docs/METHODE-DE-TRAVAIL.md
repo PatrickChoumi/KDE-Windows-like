@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ».
-> Dernière mise à jour : 2026-11-19 (version 39).
+> Dernière mise à jour : 2026-11-20 (version 40).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -87,7 +87,7 @@
 
 - **Barre de commandes Dolphin** : `dolphinui.rc` n'existe pas sur disque (compilé dans Dolphin) ; le fichier utilisateur partiel `~/.local/share/kxmlgui5/dolphin/dolphinui.rc` (`<gui name="dolphin" version="999">` + `<ToolBar name="mainToolBar" noMerge="1">`) remplace la barre. Noms d'actions validés en CI : `go_back go_forward go_up url_navigator new_menu edit_cut edit_copy edit_paste renamefile movetotrash sort view_mode show_filter_bar hamburger_menu` (`rename` et `move_to_trash` sont faux : actions absentes). `url_navigator` passe sur une rangée séparée sous la barre. Installation : `./install.sh dolphin` (opt-in, pas dans `all`), sauvegarde `*.windowsmodern-backup`, `--undo` testé sur HOME factice.
 
-- **Rendu des icônes SVG hors CI** : ImageMagick (`convert`) ne sait pas rendre les SVG dans le bac à sable ; `pip install cairosvg --break-system-packages` puis `cairosvg.svg2png(url=..., output_width=96, output_height=96)` fonctionne. Les références `docs/reference-win11/` ne servent qu'à comparer le style, pas les pixels.
+- **Rendu des icônes SVG hors CI** : ImageMagick (`convert`) ne sait pas rendre les SVG dans le bac à sable ; `pip install cairosvg --break-system-packages` puis `cairosvg.svg2png(url=..., output_width=96, output_height=96)` fonctionne. Les références `docs/reference-win11/` ne servent qu'à comparer le style, pas les pixels. Depuis 2026-11-20 : 34 images supplémentaires dans `docs/reference-win11/originaux/` (Microsoft 2021/2022/Insider 2025 + presse), indexées `[Z01]`…`[Z34]` dans `docs/reference-win11/README.md` (ce que montre chaque image, fonctionnalités servies, hors périmètre). Les citer ainsi dans `FONCTIONNALITES-WIN11.md`.
 
 - Milou.ResultsView (Plasma 6) : laisser `queryField: null` et piloter `queryString` explicitement (`Connections` sur `textChanged` du champ). Avec `queryField: champ`, KRunner charge les runners mais la requête reste vide (journal : « was not scheduled for current query »), résultats vides. Constaté en CI : run 44386700272 (vide) puis 44388402800 (résultats).
 

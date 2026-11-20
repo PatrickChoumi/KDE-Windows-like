@@ -73,3 +73,14 @@ from exercising those rights.
 
 > **I am not a lawyer.** For commercial distribution, consult a lawyer
 > familiar with open-source licensing.
+
+## Reference images (not part of the work)
+
+`docs/reference-win11/` holds screenshots of Windows 11 (Microsoft press kits
+2021, 2022 and Insider 2025, plus press screenshots from BleepingComputer,
+PC Gamer and PCMasters, and captures supplied by the project owner). They are
+the property of their respective owners, are **not** covered by the GPL-3.0
+of this project, and are used only as visual references for comparison
+(see `docs/reference-win11/README.md`). They are not copied into any theme
+file and are not part of any release bundle (`scripts/package.sh` does not
+include `docs/`). If an owner objects, the file will be removed on request.
