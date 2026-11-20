@@ -118,7 +118,6 @@ PlasmoidItem {
         }
     }
     }
-    }
 
     Component {
     id: panelComp
