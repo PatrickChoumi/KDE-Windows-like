@@ -208,6 +208,9 @@ if command -v kvantumpreview >/dev/null 2>&1; then
 fi
 # --- Dolphin au premier plan, style Kvantum, pour le comparer a l'Explorateur Win11 (phase 8, 6.x) ---
 mkdir -p "$OUT/dolphin-shots"
+mkdir -p ~/.local/share/kxmlgui5/dolphin && cp config/dolphin/dolphinui.rc ~/.local/share/kxmlgui5/dolphin/dolphinui.rc
+kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key ToolButtonStyle IconOnly
+kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key IconSize 16
 pkill -x dolphin 2>/dev/null; sleep 1
 QT_STYLE_OVERRIDE=kvantum-dark dolphin "$HOME" > "$OUT/dolphin-shots/dolphin.log" 2>&1 &
 sleep 8
