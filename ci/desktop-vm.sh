@@ -1,4 +1,5 @@
 #!/bin/bash
+# (relance CI : mesure panneaux flottants apres correctifs 5fe4145/7ab6ed6)
 # Bureau Plasma COMPLET sur la VM réelle (runner sans conteneur) : kwin_wayland 6.6.6 sur DRM, OpenGL (gl2), plasmashell, thème du dépôt.
 # Permet de vérifier ce que le Xvfb sans composition ne montre pas : translucidité/flou, barre flottante, ombres, coins arrondis.
 # Usage : ci/desktop-vm.sh <dossier_sortie>   (root, HOME=/root, sous dbus-run-session, depuis la racine du dépôt)

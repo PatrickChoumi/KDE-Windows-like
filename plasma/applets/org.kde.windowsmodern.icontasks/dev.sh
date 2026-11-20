@@ -69,7 +69,12 @@ info "Installing..."
 PLUGIN_SRC="$BUILD_DIR/lib/plasma/applets/${APP_ID}.so"
 detect_paths
 
-pkexec bash -s <<INSTALLEOF
+# Elevation : root direct, sinon pkexec (PC reel avec session graphique), sinon sudo (CI, serveur).
+if [ "$(id -u)" = 0 ]; then ASROOT=()
+elif command -v pkexec >/dev/null 2>&1; then ASROOT=(pkexec)
+elif command -v sudo >/dev/null 2>&1; then ASROOT=(sudo)
+else echo "ERREUR : ni pkexec ni sudo disponibles." >&2; exit 1; fi
+"${ASROOT[@]}" bash -s <<INSTALLEOF
 set -e
 mkdir -p "$PLUGIN_DST"
 cp "$PLUGIN_SRC" "$PLUGIN_DST/"
