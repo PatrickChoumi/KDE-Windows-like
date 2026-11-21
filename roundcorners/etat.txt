@@ -1,0 +1,35 @@
+décoration Aurorae NON confirmée (extents attendus 4,4,32,4)
+== 1-avant
+method return time=1795278735.280532 sender=:1.0 -> destination=:1.9 serial=752 reply_serial=2    variant       boolean true 
+method return time=1795278735.283683 sender=:1.0 -> destination=:1.10 serial=753 reply_serial=2    variant       string "gl2" 
+(effet shapecorners non chargé)
+kwinrc: 
+01-avant : client 911x468+504+320 extents l=0 r=0 t=28 b=0
+pas de build 6.6.4 au PPA
+== 2-apres-install
+method return time=1795278750.997768 sender=:1.0 -> destination=:1.12 serial=755 reply_serial=2    variant       boolean true 
+method return time=1795278751.000728 sender=:1.0 -> destination=:1.13 serial=756 reply_serial=2    variant       string "gl2" 
+(effet shapecorners non chargé)
+kwinrc: 
+02-apres-install : client 911x468+504+320 extents l=0 r=0 t=28 b=0
+lien X11 cree : /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin-x11/effects/plugins
+method return time=1795278751.364875 sender=:1.0 -> destination=:1.15 serial=758 reply_serial=2
+   boolean false
+== 2b-apres-loadEffect
+method return time=1795278755.373738 sender=:1.0 -> destination=:1.16 serial=759 reply_serial=2    variant       boolean true 
+method return time=1795278755.376819 sender=:1.0 -> destination=:1.17 serial=760 reply_serial=2    variant       string "gl2" 
+(effet shapecorners non chargé)
+kwinrc: 
+02b-apres-loadEffect : client 911x468+504+320 extents l=0 r=0 t=28 b=0
+== 2c-apres-kwin-replace
+method return time=1795278765.775400 sender=:1.21 -> destination=:1.23 serial=748 reply_serial=2    variant       boolean true 
+method return time=1795278765.778451 sender=:1.21 -> destination=:1.24 serial=749 reply_serial=2    variant       string "gl2" 
+(effet shapecorners non chargé)
+kwinrc: 
+02c-apres-kwin-replace : client 911x468+504+320 extents l=4 r=4 t=32 b=4
+== 3-apres-undo
+method return time=1795278774.274383 sender=:1.21 -> destination=:1.29 serial=865 reply_serial=2    variant       boolean true 
+method return time=1795278774.277404 sender=:1.21 -> destination=:1.30 serial=866 reply_serial=2    variant       string "gl2" 
+(effet shapecorners non chargé)
+kwinrc: 
+03-apres-undo : client 911x468+504+320 extents l=4 r=4 t=32 b=4

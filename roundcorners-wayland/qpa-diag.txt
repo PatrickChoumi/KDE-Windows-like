@@ -1,0 +1,7 @@
+QPA=
+ldd QPA : aucune bibliothèque manquante
+ldd kwin : OK
+kwin-wayland 4:6.6.6-0ubuntu0.1
+libqt6waylandclient6:amd64 6.10.2+dfsg-7
+libqt6waylandcompositor6:amd64 6.10.2-4
+qt6-wayland:amd64 6.10.2-4

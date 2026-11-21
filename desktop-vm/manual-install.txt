@@ -1,0 +1,9 @@
+Packages http=200
+Filename: [pool/main/k/kwin-effect-roundcorners/kwin-effect-roundcorners_0.11.0.1.6.6.7~kubuntu26041_amd64.deb]
+Selecting previously unselected package kwin-effect-roundcorners.
+(Reading database ... 318975 files and directories currently installed.)
+Preparing to unpack .../kwin-effect-roundcorners_0.11.0.1.6.6.7~kubuntu26041_amd64.deb ...
+Unpacking kwin-effect-roundcorners (0.11.0.1.6.6.7~kubuntu26041) ...
+Setting up kwin-effect-roundcorners (0.11.0.1.6.6.7~kubuntu26041) ...
++++-========================-===========================-============-=================================
+ii  kwin-effect-roundcorners 0.11.0.1.6.6.7~kubuntu26041 amd64        KDE Rounded Corners effect

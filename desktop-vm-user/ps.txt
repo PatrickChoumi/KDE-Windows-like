@@ -1,0 +1,10 @@
+runner     10566  1.9  1.9 2096580 313480 ?      Sl   16:31   0:02 /usr/bin/kwin_wayland --socket wayland-0 --no-lockscreen
+runner     10610  2.2  1.8 3431888 299812 ?      Sl   16:31   0:03 plasmashell
+runner     10648  0.0  0.1 269508 31996 ?        Sl   16:31   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+runner     10728  0.0  0.1 107320 31204 ?        S    16:31   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+runner     11130  0.0  0.1 107192 31404 ?        S    16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+runner     11147  0.0  0.1 107192 31436 ?        S    16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+runner     11173  0.3  0.9 1769284 152672 ?      Sl   16:32   0:00 konsole -e bash
+runner     11197  0.3  1.0 2094788 172916 ?      Sl   16:32   0:00 dolphin
+runner     11233  0.0  0.1 107192 30752 ?        S    16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu
+runner     11235  0.0  0.1 105136 29224 ?        S    16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/lib/x86_64-linux-gnu

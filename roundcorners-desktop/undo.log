@@ -1,0 +1,5 @@
+==> KWin rechargé.
+==> Restauration de kwinrc depuis /root/backup-kde-roundcorners-20261121-163350
+==> KWin rechargé.
+==> Retour arrière terminé (le PPA reste dans les sources apt : ppa-purge ou add-apt-repository -r ppa:matinlotfali/kde-rounded-corners pour l'enlever).
+undo exit=0

@@ -1,0 +1,25 @@
+12-    <signal name="splitViewChanged" />
+13:    <signal name="showStatusBarChanged">
+14:        <argument type="Bool">showStatusBar</argument>
+15-    </signal>
+16-    <group name="General">
+17-        <entry name="DoubleClickViewAction" type="String">
+18-            <label>Select Action</label>
+--
+119-        </entry>
+120:        <entry name="ShowStatusBar" type="Enum">
+121-            <choices>
+122-                <choice name="Small" />
+123-                <choice name="FullWidth" />
+124-                <choice name="Disabled" />
+125-            </choices>
+126:            <label>Statusbar</label>
+127-            <default>0</default>
+128:            <emit signal="showStatusBarChanged" />
+129-        </entry>
+130:        <entry name="ShowZoomSlider" type="Bool">
+131:            <label>Show zoom slider in the statusbar</label>
+132-            <default>false</default>
+133-        </entry>
+134-        <entry name="LockPanels" type="Bool">
+135-            <label>Lock the layout of the panels</label>

@@ -1,0 +1,8 @@
+root       13926  0.2  0.7 223064 121192 ?       S    16:31   0:00 Xvfb :99 -screen 0 1920x1080x24 +extension GLX +rende
+root       13930  0.4  1.2 1852716 206120 ?      Sl   16:31   0:01 kwin_x11
+root       13946  0.0  0.2 644432 47820 ?        Sl   16:31   0:00 /usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd
+root       14200  1.1  2.0 3415140 332584 ?      Sl   16:32   0:02 plasmashell
+root       14244  0.0  0.2 266668 33232 ?        Sl   16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/
+root       14246  0.0  0.1 104360 32604 ?        S    16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/
+root       14248  0.0  0.2 104360 33064 ?        S    16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/
+root       14271  0.0  0.2 104360 32736 ?        S    16:32   0:00 /usr/lib/x86_64-linux-gnu/libexec/kf6/kioworker /usr/

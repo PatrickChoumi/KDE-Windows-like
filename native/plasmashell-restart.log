@@ -1,0 +1,296 @@
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+Could not load a session backend. Session management operations such as shutdown will not be operational. This is a setup issue.
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x6036771bef40
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x6036771bef40
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x6036771bef40
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x6036771bef40
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x6036771bef40
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x6036771bef40
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x6036771bef40
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x6036771bef40
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+qrc:/qt/qml/plasma/applet/org/kde/plasma/notifications/global/PulseAudio.qml:9:1: module "org.kde.plasma.private.volume" is not installed
+[W][16:32:41.320320] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:41.320335] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: texte L=0.00 fond L=0.00 lightText=false
+kf.runner: Loading runner:  "krunner_keys"
+kf.runner: Loading runner:  "krunner_systemsettings"
+kf.runner: Loaded: "krunner_systemsettings"
+kf.runner: Loading runner:  "krunner_sessions"
+kf.runner: Loaded: "krunner_sessions"
+kf.runner: Loading runner:  "krunner_shell"
+kf.runner: Loaded: "krunner_shell"
+kf.runner: Loading runner:  "krunner_bookmarksrunner"
+kf.runner: Loaded: "krunner_bookmarksrunner"
+kf.runner: Loading runner:  "helprunner"
+kf.runner: Loaded: "helprunner"
+kf.runner: Loading runner:  "calculator"
+kf.runner: Loaded: "calculator"
+kf.runner: Loading runner:  "krunner_webshortcuts"
+kf.runner: Loaded: "krunner_webshortcuts"
+kf.runner: Loading runner:  "krunner_kill"
+kf.runner: Loaded: "krunner_kill"
+kf.runner: Loading runner:  "krunner_appstream"
+kf.runner: Loaded: "krunner_appstream"
+kf.runner: Loading runner:  "krunner_placesrunner"
+kf.runner: Loaded: "krunner_placesrunner"
+kf.runner: Loading runner:  "locations"
+kf.runner: Loaded: "locations"
+kf.runner: Loading runner:  "krunner_plasma-desktop"
+kf.runner: Loaded: "krunner_plasma-desktop"
+kf.runner: Loading runner:  "krunner_recentdocuments"
+kf.runner: Loaded: "krunner_recentdocuments"
+kf.runner: Loading runner:  "krunner_services"
+kf.runner: Loaded: "krunner_services"
+kf.runner: Loading runner:  "krunner_kwin"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.runner: Loaded: "krunner_kwin"
+kf.runner: Loading runner:  "org.kde.activities2"
+kf.runner: Loaded: "org.kde.activities2"
+kf.runner: Loading runner:  "baloosearch"
+kf.runner: Loaded: "baloosearch"
+kf.runner: Loading runner:  "windows"
+kf.runner: Loaded: "windows"
+kf.runner: All runners loaded, total: 18
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.runner: SystemsettingsRunner(0x603675878ce0, name = "krunner_systemsettings") was not scheduled for current query
+kf.runner: SessionRunner(0x603675878d20, name = "krunner_sessions") was not scheduled for current query
+kf.runner: BookmarksRunner(0x6036758c5bd0, name = "krunner_bookmarksrunner") was not scheduled for current query
+kf.runner: KRunner::AbstractRunner(0x6036755c1dc0, name = "helprunner") was not scheduled for current query
+kf.runner: CalculatorRunner(0x603675859ae0, name = "calculator") was not scheduled for current query
+kf.runner: KillRunner(0x603676acf350, name = "krunner_kill") was not scheduled for current query
+kf.runner: InstallerRunner(0x603675f86e80, name = "krunner_appstream") was not scheduled for current query
+kf.runner: LocationsRunner(0x60367648e2b0, name = "locations") was not scheduled for current query
+kf.runner: PlasmaDesktopRunner(0x603675fa6f00, name = "Plasma-Desktop") was not scheduled for current query
+kf.runner: RecentDocuments(0x60367648e2f0, name = "krunner_recentdocuments") was not scheduled for current query
+kf.runner: ServiceRunner(0x603675e3b960, name = "krunner_services") was not scheduled for current query
+kf.runner: PlacesRunner(0x603676b845e0, name = "krunner_placesrunner") was not scheduled for current query
+kf.runner: KWinRunner(0x603675fd2b10, name = "krunner_kwin") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x603675fd5020, name = "baloosearch") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x603675fd5b10, name = "windows") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x603675fd4440, name = "org.kde.activities2") was not scheduled for current query
+kf.runner: WebshortcutRunner(0x603675bc8c30, name = "krunner_webshortcuts") was not scheduled for current query
+kf.runner: Loading runner:  "krunner_keys"
+kf.runner: Loading runner:  "krunner_systemsettings"
+kf.runner: Loaded: "krunner_systemsettings"
+kf.runner: Loading runner:  "krunner_sessions"
+kf.runner: Loaded: "krunner_sessions"
+kf.runner: Loading runner:  "krunner_shell"
+kf.runner: Loaded: "krunner_shell"
+kf.runner: Loading runner:  "krunner_bookmarksrunner"
+kf.runner: Loaded: "krunner_bookmarksrunner"
+kf.runner: Loading runner:  "helprunner"
+kf.runner: Loaded: "helprunner"
+kf.runner: Loading runner:  "calculator"
+kf.runner: Loaded: "calculator"
+kf.runner: Loading runner:  "krunner_webshortcuts"
+kf.runner: Loaded: "krunner_webshortcuts"
+kf.runner: Loading runner:  "krunner_kill"
+kf.runner: Loaded: "krunner_kill"
+kf.runner: Loading runner:  "krunner_appstream"
+kf.runner: Loaded: "krunner_appstream"
+kf.runner: Loading runner:  "krunner_placesrunner"
+kf.runner: Loaded: "krunner_placesrunner"
+kf.runner: Loading runner:  "locations"
+kf.runner: Loaded: "locations"
+kf.runner: Loading runner:  "krunner_plasma-desktop"
+kf.runner: Loaded: "krunner_plasma-desktop"
+kf.runner: Loading runner:  "krunner_recentdocuments"
+kf.runner: Loaded: "krunner_recentdocuments"
+kf.runner: Loading runner:  "krunner_services"
+kf.runner: Loaded: "krunner_services"
+kf.runner: Loading runner:  "krunner_kwin"
+kf.runner: Loaded: "krunner_kwin"
+kf.runner: Loading runner:  "org.kde.activities2"
+kf.runner: Loaded: "org.kde.activities2"
+kf.runner: Loading runner:  "baloosearch"
+kf.runner: Loaded: "baloosearch"
+kf.runner: Loading runner:  "windows"
+kf.runner: Loaded: "windows"
+kf.runner: All runners loaded, total: 18
+kf.runner: SystemsettingsRunner(0x603675db18f0, name = "krunner_systemsettings") was not scheduled for current query
+kf.runner: SessionRunner(0x603675db1fe0, name = "krunner_sessions") was not scheduled for current query
+kf.runner: BookmarksRunner(0x603676216700, name = "krunner_bookmarksrunner") was not scheduled for current query
+kf.runner: KRunner::AbstractRunner(0x603676fc91c0, name = "helprunner") was not scheduled for current query
+kf.runner: CalculatorRunner(0x6036762177c0, name = "calculator") was not scheduled for current query
+kf.runner: KillRunner(0x603676fe9f10, name = "krunner_kill") was not scheduled for current query
+kf.runner: LocationsRunner(0x603676ff56f0, name = "locations") was not scheduled for current query
+kf.runner: InstallerRunner(0x603676fe8480, name = "krunner_appstream") was not scheduled for current query
+kf.runner: PlasmaDesktopRunner(0x603676ff5fe0, name = "Plasma-Desktop") was not scheduled for current query
+kf.runner: RecentDocuments(0x603676ff6e20, name = "krunner_recentdocuments") was not scheduled for current query
+kf.runner: ServiceRunner(0x603676ff65b0, name = "krunner_services") was not scheduled for current query
+kf.runner: KWinRunner(0x603676ff8950, name = "krunner_kwin") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x603676ffa7e0, name = "baloosearch") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x603676ffb2d0, name = "windows") was not scheduled for current query
+kf.runner: WebshortcutRunner(0x603676fe9080, name = "krunner_webshortcuts") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x603676ff9d20, name = "org.kde.activities2") was not scheduled for current query
+kf.runner: PlacesRunner(0x603676ff3c80, name = "krunner_placesrunner") was not scheduled for current query
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+[W][16:32:46.498658] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:46.498683] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:51.498916] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:51.498941] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:56.498820] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:56.498857] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:01.498915] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:01.498939] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:06.499012] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:06.499037] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:11.498944] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:11.498966] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:16.498645] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:16.498674] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:21.499040] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:21.499066] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:26.499104] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:26.499129] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:31.498930] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:31.498966] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:36.498558] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:36.498583] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:41.499047] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:41.499072] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:46.498566] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:46.498591] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:51.498563] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:51.498589] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:56.498815] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:56.498842] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:01.499059] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:01.499083] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:06.498575] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:06.498600] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:11.498731] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:11.498757] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:16.498595] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:16.498624] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:21.498745] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:21.498770] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:26.499025] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:26.499047] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:31.499002] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:31.499030] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:36.498892] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:36.498922] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:41.499038] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:41.499064] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:46.499367] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:46.499392] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:51.499038] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:51.499062] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:56.498084] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:56.498108] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:01.498865] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:01.498890] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:06.499022] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:06.499050] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:11.499158] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:11.499182] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:16.498932] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:16.498957] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:21.499371] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:21.499397] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:26.498874] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:26.498900] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:31.499030] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:31.499056] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:36.498986] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:36.499008] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:41.498135] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:41.498160] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:46.498573] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:46.498592] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.

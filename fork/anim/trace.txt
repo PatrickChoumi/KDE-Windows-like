@@ -1,0 +1,15 @@
+qml: StartMenu anim: debut t=1795278820024 slideY=32
+qml: StartMenu anim: t=1795278820046 slideY=23.7 opacite=0.00
+qml: StartMenu anim: t=1795278820060 slideY=18.6 opacite=0.26
+qml: StartMenu anim: t=1795278820075 slideY=14.0 opacite=0.42
+qml: StartMenu anim: t=1795278820091 slideY=10.1 opacite=0.56
+qml: StartMenu anim: t=1795278820108 slideY=6.9 opacite=0.69
+qml: StartMenu anim: t=1795278820123 slideY=4.5 opacite=0.78
+qml: StartMenu anim: t=1795278820139 slideY=2.7 opacite=0.86
+qml: StartMenu anim: t=1795278820155 slideY=1.5 opacite=0.91
+qml: StartMenu anim: t=1795278820172 slideY=0.7 opacite=0.95
+qml: StartMenu anim: t=1795278820187 slideY=0.3 opacite=0.98
+qml: StartMenu anim: t=1795278820203 slideY=0.1 opacite=0.99
+qml: StartMenu anim: t=1795278820220 slideY=0.0 opacite=1.00
+qml: StartMenu anim: t=1795278820235 slideY=0.0 opacite=1.00
+qml: StartMenu anim: fin t=1795278820235 slideY=0 opacite=1

@@ -1,0 +1,26 @@
+==> Sauvegarde : /root/backup-kde-roundcorners-20261121-163216
+Hit:1 http://security.ubuntu.com/ubuntu resolute-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu resolute InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu resolute-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu resolute-backports InRelease
+Get:5 https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu resolute InRelease [20.0 kB]
+Get:6 https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu resolute/main amd64 Packages [668 B]
+Fetched 20.7 kB in 1s (20.6 kB/s)
+Reading package lists...
+Repository: 'Types: deb
+URIs: https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu/
+Suites: resolute
+Components: main
+'
+Description:
+Rounds the corners of your windows in KDE Plasma 5 and 6
+More info: https://launchpad.net/~matinlotfali/+archive/ubuntu/kde-rounded-corners
+Adding repository.
+Hit:1 http://security.ubuntu.com/ubuntu resolute-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu resolute InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu resolute-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu resolute-backports InRelease
+Hit:5 https://ppa.launchpadcontent.net/matinlotfali/kde-rounded-corners/ubuntu resolute InRelease
+Reading package lists...
+ERREUR : le PPA propose 0.11.0.1.6.6.7~kubuntu26041 (pour KWin 6.6.7) mais kwin-x11 est en 6.6.4 : KWin refuserait l'effet. Mets Plasma a jour (sudo apt full-upgrade, a ta main) ou attends un paquet 6.6.4 dans le PPA. Rien n'a ete installe (sauvegarde : /root/backup-kde-roundcorners-20261121-163216). Forcer malgre tout : RC_FORCE=1
+install exit=1

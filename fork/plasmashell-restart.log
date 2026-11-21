@@ -1,0 +1,428 @@
+Couldn't start kglobalaccel from org.kde.kglobalaccel.service: QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.kde.kglobalaccel was not provided by any .service files")
+Could not load a session backend. Session management operations such as shutdown will not be operational. This is a setup issue.
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5ebeb6936d00
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5ebeb6936d00
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5ebeb6936d00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5ebeb6936d00
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5ebeb6936d00
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5ebeb6936d00
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5ebeb6936d00
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5ebeb6936d00
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+qrc:/qt/qml/plasma/applet/org/kde/plasma/notifications/global/PulseAudio.qml:9:1: module "org.kde.plasma.private.volume" is not installed
+[W][16:32:52.579097] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:52.579107] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: texte L=0.00 fond L=0.00 lightText=false
+kf.runner: Loading runner:  "krunner_keys"
+kf.runner: Loading runner:  "krunner_systemsettings"
+kf.runner: Loaded: "krunner_systemsettings"
+kf.runner: Loading runner:  "krunner_sessions"
+kf.runner: Loaded: "krunner_sessions"
+kf.runner: Loading runner:  "krunner_shell"
+kf.runner: Loaded: "krunner_shell"
+kf.runner: Loading runner:  "krunner_bookmarksrunner"
+kf.runner: Loaded: "krunner_bookmarksrunner"
+kf.runner: Loading runner:  "helprunner"
+kf.runner: Loaded: "helprunner"
+kf.runner: Loading runner:  "calculator"
+kf.runner: Loaded: "calculator"
+kf.runner: Loading runner:  "krunner_webshortcuts"
+kf.runner: Loaded: "krunner_webshortcuts"
+kf.runner: Loading runner:  "krunner_kill"
+kf.runner: Loaded: "krunner_kill"
+kf.runner: Loading runner:  "krunner_appstream"
+kf.runner: Loaded: "krunner_appstream"
+kf.runner: Loading runner:  "krunner_placesrunner"
+kf.runner: Loaded: "krunner_placesrunner"
+kf.runner: Loading runner:  "locations"
+kf.runner: Loaded: "locations"
+kf.runner: Loading runner:  "krunner_plasma-desktop"
+kf.runner: Loaded: "krunner_plasma-desktop"
+kf.runner: Loading runner:  "krunner_recentdocuments"
+kf.runner: Loaded: "krunner_recentdocuments"
+kf.runner: Loading runner:  "krunner_services"
+kf.runner: Loaded: "krunner_services"
+kf.runner: Loading runner:  "krunner_kwin"
+kf.runner: Loaded: "krunner_kwin"
+kf.runner: Loading runner:  "org.kde.activities2"
+kf.runner: Loaded: "org.kde.activities2"
+kf.runner: Loading runner:  "baloosearch"
+kf.runner: Loaded: "baloosearch"
+kf.runner: Loading runner:  "windows"
+kf.runner: Loaded: "windows"
+kf.runner: All runners loaded, total: 18
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.runner: SystemsettingsRunner(0x5ebeb68a8cb0, name = "krunner_systemsettings") was not scheduled for current query
+kf.runner: SessionRunner(0x5ebeb6840de0, name = "krunner_sessions") was not scheduled for current query
+kf.runner: BookmarksRunner(0x5ebeb683f040, name = "krunner_bookmarksrunner") was not scheduled for current query
+kf.runner: KRunner::AbstractRunner(0x5ebeb68a5390, name = "helprunner") was not scheduled for current query
+kf.runner: CalculatorRunner(0x5ebeb52921e0, name = "calculator") was not scheduled for current query
+kf.runner: KillRunner(0x5ebeb56d5b50, name = "krunner_kill") was not scheduled for current query
+kf.runner: InstallerRunner(0x5ebeb56cdc60, name = "krunner_appstream") was not scheduled for current query
+kf.runner: LocationsRunner(0x5ebeb57015e0, name = "locations") was not scheduled for current query
+kf.runner: PlasmaDesktopRunner(0x5ebeb570a460, name = "Plasma-Desktop") was not scheduled for current query
+kf.runner: RecentDocuments(0x5ebeb5714060, name = "krunner_recentdocuments") was not scheduled for current query
+kf.runner: ServiceRunner(0x5ebeb57197e0, name = "krunner_services") was not scheduled for current query
+kf.runner: KWinRunner(0x5ebeb5fe7ed0, name = "krunner_kwin") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x5ebeb573a6b0, name = "baloosearch") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x5ebeb573b120, name = "windows") was not scheduled for current query
+kf.runner: PlacesRunner(0x5ebeb56f8840, name = "krunner_placesrunner") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x5ebeb5739bc0, name = "org.kde.activities2") was not scheduled for current query
+kf.runner: WebshortcutRunner(0x5ebeb4de8620, name = "krunner_webshortcuts") was not scheduled for current query
+kf.runner: Loading runner:  "krunner_keys"
+kf.runner: Loading runner:  "krunner_systemsettings"
+kf.runner: Loaded: "krunner_systemsettings"
+kf.runner: Loading runner:  "krunner_sessions"
+kf.runner: Loaded: "krunner_sessions"
+kf.runner: Loading runner:  "krunner_shell"
+kf.runner: Loaded: "krunner_shell"
+kf.runner: Loading runner:  "krunner_bookmarksrunner"
+kf.runner: Loaded: "krunner_bookmarksrunner"
+kf.runner: Loading runner:  "helprunner"
+kf.runner: Loaded: "helprunner"
+kf.runner: Loading runner:  "calculator"
+kf.runner: Loaded: "calculator"
+kf.runner: Loading runner:  "krunner_webshortcuts"
+kf.runner: Loaded: "krunner_webshortcuts"
+kf.runner: Loading runner:  "krunner_kill"
+kf.runner: Loaded: "krunner_kill"
+kf.runner: Loading runner:  "krunner_appstream"
+kf.runner: Loaded: "krunner_appstream"
+kf.runner: Loading runner:  "krunner_placesrunner"
+kf.runner: Loaded: "krunner_placesrunner"
+kf.runner: Loading runner:  "locations"
+kf.runner: Loaded: "locations"
+kf.runner: Loading runner:  "krunner_plasma-desktop"
+kf.runner: Loaded: "krunner_plasma-desktop"
+kf.runner: Loading runner:  "krunner_recentdocuments"
+kf.runner: Loaded: "krunner_recentdocuments"
+kf.runner: Loading runner:  "krunner_services"
+kf.runner: Loaded: "krunner_services"
+kf.runner: Loading runner:  "krunner_kwin"
+kf.runner: Loaded: "krunner_kwin"
+kf.runner: Loading runner:  "org.kde.activities2"
+kf.runner: Loaded: "org.kde.activities2"
+kf.runner: Loading runner:  "baloosearch"
+kf.runner: Loaded: "baloosearch"
+kf.runner: Loading runner:  "windows"
+kf.runner: Loaded: "windows"
+kf.runner: All runners loaded, total: 18
+kf.runner: SystemsettingsRunner(0x5ebeb6b895b0, name = "krunner_systemsettings") was not scheduled for current query
+kf.runner: SessionRunner(0x5ebeb6b44500, name = "krunner_sessions") was not scheduled for current query
+kf.runner: BookmarksRunner(0x5ebeb6b43620, name = "krunner_bookmarksrunner") was not scheduled for current query
+kf.runner: KRunner::AbstractRunner(0x5ebeb6b58830, name = "helprunner") was not scheduled for current query
+kf.runner: CalculatorRunner(0x5ebeb6b9f1c0, name = "calculator") was not scheduled for current query
+kf.runner: KillRunner(0x5ebeb6ba1aa0, name = "krunner_kill") was not scheduled for current query
+kf.runner: PlasmaDesktopRunner(0x5ebeb6badbf0, name = "Plasma-Desktop") was not scheduled for current query
+kf.runner: InstallerRunner(0x5ebeb6b9ff00, name = "krunner_appstream") was not scheduled for current query
+kf.runner: RecentDocuments(0x5ebeb6baea30, name = "krunner_recentdocuments") was not scheduled for current query
+kf.runner: LocationsRunner(0x5ebeb6bad300, name = "locations") was not scheduled for current query
+kf.runner: ServiceRunner(0x5ebeb6bae1c0, name = "krunner_services") was not scheduled for current query
+kf.runner: KWinRunner(0x5ebeb6bb0560, name = "krunner_kwin") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x5ebeb6bb2600, name = "baloosearch") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x5ebeb6bb30f0, name = "windows") was not scheduled for current query
+kf.runner: WebshortcutRunner(0x5ebeb6ba0b90, name = "krunner_webshortcuts") was not scheduled for current query
+kf.runner: KRunner::DBusRunner(0x5ebeb6bb1b40, name = "org.kde.activities2") was not scheduled for current query
+kf.runner: PlacesRunner(0x5ebeb6bab890, name = "krunner_placesrunner") was not scheduled for current query
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+kf.solid.backends.udisks2: Failed to fetch all devices "org.freedesktop.DBus.Error.Disconnected" "Not connected to D-Bus server"
+[W][16:32:57.354652] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:57.354665] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:02.354470] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:02.354482] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:07.354408] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:07.354424] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:12.354081] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:12.354102] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:17.354898] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:17.354911] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:22.354157] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:22.354176] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:27.355079] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:27.355094] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:32.355064] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:32.355077] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:37.354732] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:37.354744] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: StartMenu anim: debut t=1795278820024 slideY=32
+qml: StartMenu anim: t=1795278820046 slideY=23.7 opacite=0.00
+qml: StartMenu anim: t=1795278820060 slideY=18.6 opacite=0.26
+qml: StartMenu anim: t=1795278820075 slideY=14.0 opacite=0.42
+qml: StartMenu anim: t=1795278820091 slideY=10.1 opacite=0.56
+qml: StartMenu anim: t=1795278820108 slideY=6.9 opacite=0.69
+qml: StartMenu anim: t=1795278820123 slideY=4.5 opacite=0.78
+qml: StartMenu anim: t=1795278820139 slideY=2.7 opacite=0.86
+qml: StartMenu anim: t=1795278820155 slideY=1.5 opacite=0.91
+qml: StartMenu anim: t=1795278820172 slideY=0.7 opacite=0.95
+qml: StartMenu anim: t=1795278820187 slideY=0.3 opacite=0.98
+qml: StartMenu anim: t=1795278820203 slideY=0.1 opacite=0.99
+qml: StartMenu anim: t=1795278820220 slideY=0.0 opacite=1.00
+qml: StartMenu anim: t=1795278820235 slideY=0.0 opacite=1.00
+qml: StartMenu anim: fin t=1795278820235 slideY=0 opacite=1
+[W][16:33:42.354872] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:42.354887] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:47.354602] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:47.354617] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:52.353942] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:52.353956] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kf.kio.gui: Failed to determine systemd version, falling back to extremely legacy forking mode.
+
+** (process:14432): CRITICAL **: 16:33:56.878: polkit_system_bus_name_new: assertion 'g_dbus_is_unique_name (name)' failed
+
+(process:14432): GLib-GObject-CRITICAL **: 16:33:56.878: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+[W][16:33:57.354540] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:57.354552] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:02.355216] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:02.355234] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:07.354846] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:07.354858] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: count=1
+[W][16:34:12.374752] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:12.374783] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:17.357071] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:17.357082] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: count=2
+qml: NotifyButton: count=3
+qml: NotifyButton: count=4
+qml: NotifyButton: count=5
+qml: NotifyButton: count=6
+qml: NotifyButton: count=7
+qml: NotifyButton: count=8
+qml: NotifyButton: count=9
+qml: NotifyButton: count=10
+qml: NotifyButton: count=11
+qml: NotifyButton: count=12
+[W][16:34:22.354847] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:22.354860] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:27.354266] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:27.354280] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: count=1
+[W][16:34:32.354326] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:32.354339] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:37.354444] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:37.354458] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:42.354873] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:42.354888] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:47.354666] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:47.354681] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kf.runner: Current jobs are QSet("locations-k-1795278890129", "krunner_bookmarksrunner-k-1795278890129", "krunner_services-k-1795278890129", "krunner_sessions-k-1795278890129", "windows-k-1795278890129", "krunner_kwin-k-1795278890129", "krunner_placesrunner-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129", "krunner_webshortcuts-k-1795278890129", "krunner_shell-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_bookmarksrunner-k-1795278890129", "krunner_services-k-1795278890129", "krunner_sessions-k-1795278890129", "windows-k-1795278890129", "krunner_kwin-k-1795278890129", "krunner_placesrunner-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129", "krunner_webshortcuts-k-1795278890129", "krunner_shell-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_bookmarksrunner-k-1795278890129", "krunner_services-k-1795278890129", "krunner_sessions-k-1795278890129", "windows-k-1795278890129", "krunner_kwin-k-1795278890129", "krunner_placesrunner-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129", "krunner_webshortcuts-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_bookmarksrunner-k-1795278890129", "krunner_services-k-1795278890129", "krunner_sessions-k-1795278890129", "windows-k-1795278890129", "krunner_placesrunner-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129", "krunner_webshortcuts-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_bookmarksrunner-k-1795278890129", "krunner_services-k-1795278890129", "krunner_sessions-k-1795278890129", "windows-k-1795278890129", "krunner_placesrunner-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_bookmarksrunner-k-1795278890129", "krunner_services-k-1795278890129", "krunner_sessions-k-1795278890129", "windows-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_bookmarksrunner-k-1795278890129", "krunner_services-k-1795278890129", "windows-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_services-k-1795278890129", "windows-k-1795278890129", "krunner_recentdocuments-k-1795278890129", "krunner_systemsettings-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_services-k-1795278890129", "windows-k-1795278890129", "krunner_systemsettings-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_services-k-1795278890129", "krunner_systemsettings-k-1795278890129")
+kf.runner: Current jobs are QSet("krunner_systemsettings-k-1795278890129")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_kwin-ko-1795278890164", "krunner_placesrunner-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_plasma-desktop-ko-1795278890164", "krunner_services-ko-1795278890164", "locations-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164", "krunner_bookmarksrunner-ko-1795278890164", "calculator-ko-1795278890164", "krunner_webshortcuts-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_kwin-ko-1795278890164", "krunner_placesrunner-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_plasma-desktop-ko-1795278890164", "krunner_services-ko-1795278890164", "locations-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164", "krunner_bookmarksrunner-ko-1795278890164", "calculator-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_kwin-ko-1795278890164", "krunner_placesrunner-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_services-ko-1795278890164", "locations-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164", "krunner_bookmarksrunner-ko-1795278890164", "calculator-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_kwin-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_services-ko-1795278890164", "locations-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164", "krunner_bookmarksrunner-ko-1795278890164", "calculator-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_services-ko-1795278890164", "locations-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164", "krunner_bookmarksrunner-ko-1795278890164", "calculator-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_services-ko-1795278890164", "locations-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164", "krunner_bookmarksrunner-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_services-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164", "krunner_bookmarksrunner-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_systemsettings-ko-1795278890164", "krunner_services-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_services-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_shell-ko-1795278890164", "krunner_appstream-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_services-ko-1795278890164", "krunner_sessions-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_appstream-ko-1795278890164")
+kf.runner: Current jobs are QSet("windows-ko-1795278890164", "krunner_services-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_appstream-ko-1795278890164")
+kf.runner: Current jobs are QSet("krunner_services-ko-1795278890164", "baloosearch-ko-1795278890164", "krunner_appstream-ko-1795278890164")
+kf.runner: Current jobs are QSet("baloosearch-ko-1795278890164", "krunner_appstream-ko-1795278890164")
+kf.runner: Current jobs are QSet("krunner_webshortcuts-kon-1795278890204", "krunner_kwin-kon-1795278890204", "krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "calculator-kon-1795278890204", "krunner_plasma-desktop-kon-1795278890204", "krunner_sessions-kon-1795278890204", "krunner_placesrunner-kon-1795278890204", "krunner_bookmarksrunner-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_webshortcuts-kon-1795278890204", "krunner_kwin-kon-1795278890204", "krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "calculator-kon-1795278890204", "krunner_sessions-kon-1795278890204", "krunner_placesrunner-kon-1795278890204", "krunner_bookmarksrunner-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_kwin-kon-1795278890204", "krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "calculator-kon-1795278890204", "krunner_sessions-kon-1795278890204", "krunner_placesrunner-kon-1795278890204", "krunner_bookmarksrunner-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_kwin-kon-1795278890204", "krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "krunner_sessions-kon-1795278890204", "krunner_placesrunner-kon-1795278890204", "krunner_bookmarksrunner-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_kwin-kon-1795278890204", "krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "krunner_sessions-kon-1795278890204", "krunner_placesrunner-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_kwin-kon-1795278890204", "krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "krunner_placesrunner-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "krunner_placesrunner-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_services-kon-1795278890204", "krunner_shell-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_services-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "locations-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_services-kon-1795278890204", "krunner_systemsettings-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_services-kon-1795278890204", "krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_appstream-kon-1795278890204", "windows-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_appstream-kon-1795278890204", "baloosearch-kon-1795278890204")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "krunner_webshortcuts-kons-1795278890245", "locations-kons-1795278890245", "calculator-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_bookmarksrunner-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_kwin-kons-1795278890245", "krunner_sessions-kons-1795278890245", "krunner_plasma-desktop-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "locations-kons-1795278890245", "calculator-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_bookmarksrunner-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_kwin-kons-1795278890245", "krunner_sessions-kons-1795278890245", "krunner_plasma-desktop-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "locations-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_bookmarksrunner-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_kwin-kons-1795278890245", "krunner_sessions-kons-1795278890245", "krunner_plasma-desktop-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_bookmarksrunner-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_kwin-kons-1795278890245", "krunner_sessions-kons-1795278890245", "krunner_plasma-desktop-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_kwin-kons-1795278890245", "krunner_sessions-kons-1795278890245", "krunner_plasma-desktop-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_kwin-kons-1795278890245", "krunner_plasma-desktop-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_kwin-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_placesrunner-kons-1795278890245", "windows-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "windows-kons-1795278890245", "krunner_shell-kons-1795278890245", "krunner_services-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "windows-kons-1795278890245", "krunner_shell-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_systemsettings-kons-1795278890245", "krunner_shell-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245", "krunner_shell-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245")
+kf.runner: Error requesting actions; calling "org.kde.runners.baloo"  : "org.freedesktop.DBus.Error.Spawn.ChildSignaled" "Process org.kde.runners.baloo received signal 6"
+kf.runner: Error requesting matches; calling "org.kde.runners.baloo"  : "org.freedesktop.DBus.Error.Spawn.ChildSignaled" "Process org.kde.runners.baloo received signal 6"
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245", "baloosearch-kons-1795278890245")
+kf.runner: Error requesting matches; calling "org.kde.runners.baloo"  : "org.freedesktop.DBus.Error.Spawn.ChildSignaled" "Process org.kde.runners.baloo received signal 6"
+kf.runner: Current jobs are QSet("krunner_appstream-kons-1795278890245")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_shell-konso-1795278890285", "krunner_appstream-konso-1795278890285", "locations-konso-1795278890285", "krunner_webshortcuts-konso-1795278890285", "krunner_plasma-desktop-konso-1795278890285", "calculator-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_recentdocuments-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "krunner_bookmarksrunner-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "locations-konso-1795278890285", "krunner_webshortcuts-konso-1795278890285", "krunner_plasma-desktop-konso-1795278890285", "calculator-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_recentdocuments-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "krunner_bookmarksrunner-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "locations-konso-1795278890285", "krunner_webshortcuts-konso-1795278890285", "calculator-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_recentdocuments-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "krunner_bookmarksrunner-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "locations-konso-1795278890285", "krunner_webshortcuts-konso-1795278890285", "calculator-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "krunner_bookmarksrunner-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "locations-konso-1795278890285", "calculator-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "krunner_bookmarksrunner-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "calculator-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "krunner_bookmarksrunner-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "krunner_bookmarksrunner-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_kwin-konso-1795278890285", "krunner_systemsettings-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "krunner_sessions-konso-1795278890285", "krunner_kwin-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "krunner_sessions-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "windows-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konso-1795278890285", "krunner_appstream-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_appstream-konso-1795278890285", "baloosearch-konso-1795278890285")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_shell-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "krunner_plasma-desktop-konsol-1795278890326", "krunner_placesrunner-konsol-1795278890326", "krunner_webshortcuts-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "locations-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_bookmarksrunner-konsol-1795278890326", "calculator-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_shell-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "krunner_plasma-desktop-konsol-1795278890326", "krunner_placesrunner-konsol-1795278890326", "krunner_webshortcuts-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "locations-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_bookmarksrunner-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_shell-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "krunner_plasma-desktop-konsol-1795278890326", "krunner_placesrunner-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "locations-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_bookmarksrunner-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_shell-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "krunner_placesrunner-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "locations-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_bookmarksrunner-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_shell-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "krunner_placesrunner-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "locations-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_shell-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "locations-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "locations-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "krunner_appstream-konsol-1795278890326", "krunner_sessions-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsol-1795278890326", "krunner_kwin-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "krunner_appstream-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_kwin-konsol-1795278890326", "krunner_systemsettings-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "krunner_appstream-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_kwin-konsol-1795278890326", "baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "krunner_appstream-konsol-1795278890326")
+kf.runner: Current jobs are QSet("baloosearch-konsol-1795278890326", "windows-konsol-1795278890326", "krunner_appstream-konsol-1795278890326")
+kf.runner: Current jobs are QSet("baloosearch-konsol-1795278890326", "krunner_appstream-konsol-1795278890326")
+kf.runner: Error requesting matches; calling "org.kde.runners.baloo"  : "org.freedesktop.DBus.Error.Spawn.ChildSignaled" "Process org.kde.runners.baloo received signal 6"
+kf.runner: Current jobs are QSet("baloosearch-konsol-1795278890326", "krunner_appstream-konsol-1795278890326")
+kf.runner: Error requesting matches; calling "org.kde.runners.baloo"  : "org.freedesktop.DBus.Error.Spawn.ChildSignaled" "Process org.kde.runners.baloo received signal 6"
+kf.runner: Current jobs are QSet("baloosearch-konsol-1795278890326", "krunner_appstream-konsol-1795278890326")
+kf.runner: Error requesting matches; calling "org.kde.runners.baloo"  : "org.freedesktop.DBus.Error.Spawn.ChildSignaled" "Process org.kde.runners.baloo received signal 6"
+kf.runner: Current jobs are QSet("krunner_appstream-konsol-1795278890326")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "locations-konsole-1795278890366", "krunner_recentdocuments-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "krunner_systemsettings-konsole-1795278890366", "calculator-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_plasma-desktop-konsole-1795278890366", "krunner_kwin-konsole-1795278890366", "krunner_bookmarksrunner-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "locations-konsole-1795278890366", "krunner_recentdocuments-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "krunner_systemsettings-konsole-1795278890366", "calculator-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_plasma-desktop-konsole-1795278890366", "krunner_bookmarksrunner-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "locations-konsole-1795278890366", "krunner_recentdocuments-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "krunner_systemsettings-konsole-1795278890366", "calculator-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_plasma-desktop-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "krunner_recentdocuments-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "krunner_systemsettings-konsole-1795278890366", "calculator-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_plasma-desktop-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "krunner_recentdocuments-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "krunner_systemsettings-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_plasma-desktop-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "krunner_systemsettings-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_plasma-desktop-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "krunner_systemsettings-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_placesrunner-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_shell-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "baloosearch-konsole-1795278890366", "krunner_sessions-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_services-konsole-1795278890366", "krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "baloosearch-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_appstream-konsole-1795278890366", "windows-konsole-1795278890366", "baloosearch-konsole-1795278890366")
+kf.runner: Current jobs are QSet("krunner_appstream-konsole-1795278890366", "baloosearch-konsole-1795278890366")
+kf.runner: Error requesting matches; calling "org.kde.runners.baloo"  : "org.freedesktop.DBus.Error.Spawn.ChildSignaled" "Process org.kde.runners.baloo received signal 6"
+kf.runner: Current jobs are QSet("krunner_appstream-konsole-1795278890366")
+[W][16:34:52.354878] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:52.354890] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:57.354114] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:57.354136] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:02.356792] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:02.356803] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:07.354891] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:07.354902] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:12.355888] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:12.355904] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:17.354942] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:17.354958] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:22.358712] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:22.358724] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:27.354881] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:27.354893] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:32.354697] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:32.354710] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:37.357850] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:37.357863] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:42.359095] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:42.359111] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:47.359313] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:47.359332] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:35:52.357195] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:35:52.357218] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.

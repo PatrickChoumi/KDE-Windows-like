@@ -1,0 +1,1 @@
+/usr/bin/kwin_wayland cap_sys_nice=ep

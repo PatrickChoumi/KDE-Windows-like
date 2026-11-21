@@ -1,0 +1,21 @@
+== os
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.5 LTS (Noble Numbat)"
+7.0.0-1014-aws
+== materiel
+4
+               total        used        free      shared  buff/cache   available
+Mem:           15701         931       14132          43         960       14769
+/dev/mapper/cow-root  145G   56G   89G  39% /
+== /dev
+crw-rw---- 1 root video 29,   0 Nov 21 05:22 /dev/fb0
+crw-rw---- 1 root kvm   10, 232 Nov 21 05:22 /dev/kvm
+
+/dev/dri:
+total 0
+drwxr-xr-x 2 root root      60 Nov 21 05:22 by-path
+crw-rw---- 1 root video 226, 0 Nov 21 05:22 card0
+== systemd
+degraded

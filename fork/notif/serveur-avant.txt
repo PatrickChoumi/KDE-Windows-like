@@ -1,0 +1,79 @@
+node /org/freedesktop/Notifications {
+  interface org.freedesktop.Notifications {
+    methods:
+      @org.qtproject.QtDBus.QtTypeName.In6("QVariantMap")
+      Notify(in  s app_name,
+             in  u replaces_id,
+             in  s app_icon,
+             in  s summary,
+             in  s body,
+             in  as actions,
+             in  a{sv} hints,
+             in  i timeout,
+             out u arg_0);
+      CloseNotification(in  u id);
+      GetCapabilities(out as caps);
+      GetServerInformation(out s name,
+                           out s vendor,
+                           out s version,
+                           out s spec_version);
+      @org.qtproject.QtDBus.QtTypeName.In2("QVariantMap")
+      Inhibit(in  s desktop_entry,
+              in  s reason,
+              in  a{sv} hints,
+              out u arg_0);
+      UnInhibit(in  u arg_0);
+    signals:
+      NotificationClosed(u id,
+                         u reason);
+      ActionInvoked(u id,
+                    s action_key);
+      NotificationReplied(u id,
+                          s text);
+      ActivationToken(u id,
+                      s activation_token);
+    properties:
+      @org.freedesktop.DBus.Property.EmitsChangedSignal("true")
+      readonly b Inhibited = false;
+  };
+  interface org.kde.NotificationManager {
+    methods:
+      RegisterWatcher();
+      UnRegisterWatcher();
+      InvokeAction(in  u id,
+                   in  s action_key);
+    signals:
+    properties:
+  };
+  interface org.freedesktop.DBus.Properties {
+    methods:
+      Get(in  s interface_name,
+          in  s property_name,
+          out v value);
+      Set(in  s interface_name,
+          in  s property_name,
+          in  v value);
+      @org.qtproject.QtDBus.QtTypeName.Out0("QVariantMap")
+      GetAll(in  s interface_name,
+             out a{sv} values);
+    signals:
+      @org.qtproject.QtDBus.QtTypeName.Out1("QVariantMap")
+      PropertiesChanged(s interface_name,
+                        a{sv} changed_properties,
+                        as invalidated_properties);
+    properties:
+  };
+  interface org.freedesktop.DBus.Introspectable {
+    methods:
+      Introspect(out s xml_data);
+    signals:
+    properties:
+  };
+  interface org.freedesktop.DBus.Peer {
+    methods:
+      Ping();
+      GetMachineId(out s machine_uuid);
+    signals:
+    properties:
+  };
+};

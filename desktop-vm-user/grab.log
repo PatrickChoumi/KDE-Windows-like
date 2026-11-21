@@ -1,0 +1,16 @@
+crtc 36 fb 42 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/01-bureau.png 344578 octets
+crtc 36 fb 40 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/01b-fond-blanc.png 9826 octets
+crtc 36 fb 40 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/02-fenetres-ouvertes.png 61225 octets
+crtc 36 fb 42 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/03-coins-apres.png 66075 octets
+crtc 36 fb 40 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/04-coins-bureau-complet.png 168790 octets
+crtc 36 fb 40 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/05-dolphin-avant-plan.png 168790 octets
+crtc 36 fb 40 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/06-clair-bureau-complet.png 169296 octets
+crtc 36 fb 40 1024x768 pitch 4096 bpp 32 depth 24 handle 1
+écrit shots/07-clair-dolphin.png 169296 octets

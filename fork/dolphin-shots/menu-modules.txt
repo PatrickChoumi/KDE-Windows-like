@@ -1,0 +1,11 @@
+== kfileitemaction
+hidefileitemaction.so
+movetonewfolderitemaction.so
+setfoldericonitemaction.so
+sharefileitemaction.so
+wallpaperfileitemaction.so
+== kservicemenurc
+cat: /root/.config/kservicemenurc: No such file or directory
+== servicemenus
+installfont.desktop
+konsolerun.desktop

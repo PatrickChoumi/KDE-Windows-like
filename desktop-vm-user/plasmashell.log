@@ -1,0 +1,166 @@
+kde.plasmashell: requesting unexisting screen geometry -1
+kf.package: Could not find required file "mainscript" for package "/usr/share/plasma/plasmoids/org.kde.plasma.icontasks/" should be QList("ui/main.qml")
+kde.plasmashell: Activity added twice "f40df1ed-4994-4983-9fb8-a0280fd6cf00"
+qt.qpa.services: Failed to register with host portal QDBusError("org.freedesktop.DBus.Error.ServiceUnknown", "The name org.freedesktop.portal.Desktop was not provided by any .service files")
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5acf58b2d7e0
+org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x5acf58b2d7e0
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5acf58b2d7e0
+org.kde.plasma.kicker: Entry is not valid "org.kde.plasma-systemmonitor.desktop" 0x5acf58b2d7e0
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5acf58b2d670
+org.kde.plasma.kicker: Entry is not valid "org.kde.konsole.desktop" 0x5acf58b2d670
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5acf58b1ab70
+org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x5acf58b2b710
+qrc:/qt/qml/plasma/applet/org/kde/plasma/notifications/global/PulseAudio.qml:9:1: module "org.kde.plasma.private.volume" is not installed
+[W][16:31:50.037693] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:31:50.038198] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.plasma-systemmonitor.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.konsole.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.discover.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.plasma-systemmonitor.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.konsole.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5acf5a496660
+org.kde.plasma.kicker: Entry is not valid "org.kde.kontact.desktop" 0x5acf5a496660
+[W][16:31:55.288601] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:31:55.288652] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:00.465812] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:00.465882] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:05.465256] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:05.465320] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:10.465485] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:10.465548] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+kf.svg: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kf.plasma.core: The theme "Windows-modern-dark" uses the legacy metadata.desktop. Consider contacting the author and asking them update it to use the newer JSON format.
+kde.plasmashell: Activity added twice "f40df1ed-4994-4983-9fb8-a0280fd6cf00"
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5acf58814910
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5acf58814910
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5acf58814910
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5acf58814910
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5acf58814910
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5acf58814910
+kf.plasma.quick: File name empty!
+QQmlComponent: Component is not ready
+kf.plasma.quick: error when loading applet "org.kde.windowsmodern.icontasks" QList("Error loading Applet: package org.kde.windowsmodern.icontasks does not exist.", "Could not find requested component: org.kde.windowsmodern.icontasks")
+[W][16:32:14.699921] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:14.699973] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+qml: NotifyButton: texte L=0.00 fond L=0.00 lightText=false
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "preferred://browser" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "kontact.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "systemsettings.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "org.kde.dolphin.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "ktp-contactlist.desktop" 0x5acf5a00f710
+org.kde.plasma.kicker: Entry is not valid "org.kde.kate.desktop" 0x5acf5a00f710
+[W][16:32:19.466315] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:19.466410] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:24.469214] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:24.469286] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:29.468892] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:29.468956] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:34.469459] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:34.469515] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:39.468433] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:39.468499] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:44.469072] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:44.469131] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:49.468735] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:49.468798] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:54.468589] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:54.468658] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:32:59.469976] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:32:59.470044] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:04.467354] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:04.467396] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:09.465940] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:09.465994] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:14.468004] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:14.468048] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:19.470400] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:19.470465] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:24.468969] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:24.469036] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:29.469581] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:29.469643] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:34.469083] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:34.469126] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:39.470433] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:39.470495] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:44.468303] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:44.468390] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:49.469085] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:49.469146] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:54.470472] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:54.470525] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:33:59.469811] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:33:59.469880] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.
+[W][16:34:04.469807] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][16:34:04.469851] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+kpipewire_logging: Failed to create PipeWire context
+received error while creating the stream "Failed to create PipeWire context" Media monitor will not work.

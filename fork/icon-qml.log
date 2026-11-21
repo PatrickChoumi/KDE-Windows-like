@@ -1,0 +1,1393 @@
+********* Start testing of qmltestrunner *********
+Config: Using QtTest library 6.10.2, Qt 6.10.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 15.2.0), ubuntu 26.04
+PASS   : qmltestrunner::icons::initTestCase()
+Received signal 15 (SIGTERM) sent by PID 14326 UID 0
+         icons::test_wait function time: 9230ms, total time: 9231ms
+
+=== Stack trace ===
+[New LWP 14319]
+[New LWP 14318]
+[New LWP 14313]
+[New LWP 14312]
+[New LWP 14311]
+[New LWP 14310]
+[New LWP 14309]
+[New LWP 14308]
+[New LWP 14307]
+[New LWP 14306]
+[New LWP 14305]
+[New LWP 14304]
+[New LWP 14303]
+[New LWP 14302]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f47b99717c2 in ?? () from /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 15 (Thread 0x7f47b30eb6c0 (LWP 14302) "QDBusConnection"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b996535c in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99ed0f6 in ppoll () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b7916371 in ??? () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#4  0x00007f47b7916443 in g_main_context_iteration () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#5  0x00007f47b9eeb13d in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#6  0x00007f47b9c7ef5b in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#7  0x00007f47b9d68aae in QThread::exec() () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#8  0x00007f47b6f9804d in ??? () at /usr/lib/x86_64-linux-gnu/libQt6DBus.so.6
+#9  0x00007f47b9dfe5a6 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#10 0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#11 0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 14 (Thread 0x7f47b20ea6c0 (LWP 14303) "QXcbEventQueue"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b996535c in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99ecbce in poll () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b4a15bb6 in ??? () at /usr/lib/x86_64-linux-gnu/libxcb.so.1
+#4  0x00007f47b4a1772c in xcb_wait_for_event () at /usr/lib/x86_64-linux-gnu/libxcb.so.1
+#5  0x00007f47b3235468 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6XcbQpa.so.6
+#6  0x00007f47b9dfe5a6 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 13 (Thread 0x7f47a95aa6c0 (LWP 14304) "llvmpipe-0"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c618df in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 12 (Thread 0x7f4798ddb6c0 (LWP 14305) "llvmpipe-1"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c618df in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 11 (Thread 0x7f478fbff6c0 (LWP 14306) "llvmpipe-2"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c618df in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 10 (Thread 0x7f4797dda6c0 (LWP 14307) "llvmpipe-3"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c618df in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 9 (Thread 0x7f4796dd96c0 (LWP 14308) "qmltestrunner"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c5d20c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 8 (Thread 0x7f4795dd86c0 (LWP 14309) "qmltestrunner"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c5d20c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 7 (Thread 0x7f478ebfe6c0 (LWP 14310) "qmltestrunner"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c5d20c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 6 (Thread 0x7f478dbfd6c0 (LWP 14311) "qmltestrunner"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a1c5d20c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 5 (Thread 0x7f476ffff6c0 (LWP 14312) "qmltest:disk$0"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968087 in pthread_cond_wait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47a194fc1d in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#5  0x00007f47a190561c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#6  0x00007f47a194fb5c in ??? () at /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 4 (Thread 0x7f478cbfc6c0 (LWP 14313) "QQmlThread"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b996535c in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99ed0f6 in ppoll () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b7916371 in ??? () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#4  0x00007f47b7916443 in g_main_context_iteration () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#5  0x00007f47b9eeb13d in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#6  0x00007f47b9c7ef5b in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#7  0x00007f47b9d68aae in QThread::exec() () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#8  0x00007f47b9dfe5a6 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#9  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#10 0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 3 (Thread 0x7f476effe6c0 (LWP 14318) "Thread (pooled)"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968342 in pthread_cond_timedwait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47b9df8533 in QWaitCondition::wait(QMutex*, QDeadlineTimer) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#5  0x00007f47b9d65fae in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#6  0x00007f47b9dfe5a6 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 2 (Thread 0x7f476dffd6c0 (LWP 14319) "Thread (pooled)"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99656a7 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b9968342 in pthread_cond_timedwait () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007f47b9df8533 in QWaitCondition::wait(QMutex*, QDeadlineTimer) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#5  0x00007f47b9d65fae in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#6  0x00007f47b9dfe5a6 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#7  0x00007f47b9968dba in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99fc394 in clone () at /usr/lib/x86_64-linux-gnu/libc.so.6
+
+Thread 1 (Thread 0x7f47b32fadc0 (LWP 14300) "qmltestrunner"):
+#0  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f47b996535c in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f47b99e1a8f in wait4 () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007f47b82e25d6 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Test.so.6
+#4  0x00007f47b82e2f16 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Test.so.6
+#5  0x00007f47b990acb0 in <signal handler called> () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#6  0x00007f47b99717c2 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#7  0x00007f47b99652cc in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#8  0x00007f47b99baab2 in clock_nanosleep () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#9  0x00007f47b99c86c7 in nanosleep () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#10 0x00007f47b9cdb322 in QTest::qSleep(std::chrono::duration<long, std::ratio<1l, 1000l> >) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#11 0x00007f47b9cddfcc in QTest::qWait(std::chrono::duration<long, std::ratio<1l, 1000l> >) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#12 0x00007f47ba0f5ef7 in QuickTestResult::qt_metacall(QMetaObject::Call, int, void**) () at /usr/lib/x86_64-linux-gnu/libQt6QuickTest.so.6
+#13 0x00007f47b8686c42 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#14 0x00007f47b853c561 in QV4::QObjectMethod::callPrecise(QQmlObjectOrGadget const&, QQmlPropertyData const&, QV4::ExecutionEngine*, QV4::CallData*, QMetaObject::Call) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#15 0x00007f47b8546305 in QV4::QObjectMethod::callInternal(QV4::Value const*, QV4::Value const*, int) const () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#16 0x00007f47b859dfb4 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#17 0x00007f47b85a93b5 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#18 0x00007f47b84f901a in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#19 0x00007f47b8561dd4 in QV4::Runtime::CallQmlContextPropertyLookup::call(QV4::ExecutionEngine*, unsigned int, QV4::Value*, int) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#20 0x00007f47b859d40d in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#21 0x00007f47b85a93b5 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#22 0x00007f47b84f901a in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#23 0x00007f47b859ddd3 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#24 0x00007f47b85a93b5 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#25 0x00007f47b84f901a in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#26 0x00007f47b8561dd4 in QV4::Runtime::CallQmlContextPropertyLookup::call(QV4::ExecutionEngine*, unsigned int, QV4::Value*, int) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#27 0x00007f47b859d40d in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#28 0x00007f47b85a93b5 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#29 0x00007f47b84f901a in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#30 0x00007f47b8561dd4 in QV4::Runtime::CallQmlContextPropertyLookup::call(QV4::ExecutionEngine*, unsigned int, QV4::Value*, int) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#31 0x00007f47b859d40d in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#32 0x00007f47b85a93b5 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#33 0x00007f47b84f901a in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#34 0x00007f47b859dfb4 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#35 0x00007f47b85a93b5 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#36 0x00007f47b84ebd80 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#37 0x00007f47b84f1dd9 in QV4::Function::call(QObject*, void**, QMetaType const*, int, QV4::ExecutionContext*) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#38 0x00007f47b8643450 in QQmlJavaScriptExpression::evaluate(void**, QMetaType const*, int) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#39 0x00007f47b85e1313 in QQmlBoundSignalExpression::evaluate(void**) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#40 0x00007f47b85e77fd in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#41 0x00007f47b866cf18 in QQmlNotifier::emitNotify(QQmlNotifierEndpoint*, void**) () at /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6
+#42 0x00007f47b9cd01d8 in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#43 0x00007f47b75a3159 in QQmlTimer::ticked() () at /usr/lib/x86_64-linux-gnu/libQt6QmlMeta.so.6
+#44 0x00007f47b75a31fc in QQmlTimer::event(QEvent*) () at /usr/lib/x86_64-linux-gnu/libQt6QmlMeta.so.6
+#45 0x00007f47b9c76098 in QCoreApplication::notifyInternal2(QObject*, QEvent*) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#46 0x00007f47b9c76321 in QCoreApplicationPrivate::sendPostedEvents(QObject*, int, QThreadData*) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#47 0x00007f47b9eed2cf in ??? () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#48 0x00007f47b7914c1b in ??? () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#49 0x00007f47b7916257 in ??? () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#50 0x00007f47b7916443 in g_main_context_iteration () at /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0
+#51 0x00007f47b9eeb13d in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#52 0x00007f47b9c7ef5b in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () at /usr/lib/x86_64-linux-gnu/libQt6Core.so.6
+#53 0x00007f47ba0ec964 in quick_test_main_with_setup(int, char**, char const*, char const*, QObject*) () at /usr/lib/x86_64-linux-gnu/libQt6QuickTest.so.6
+#54 0x00007f47b98ef601 in ??? () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#55 0x00007f47b98ef718 in __libc_start_main () at /usr/lib/x86_64-linux-gnu/libc.so.6
+#56 0x00005956029a90a5 in ??? ()
+
+process 14300
+Mapped address spaces:
+
+Start Addr         End Addr           Size               Offset             Perms File 
+0x00005956029a8000 0x00005956029a9000 0x1000             0x0                r--p  /usr/lib/qt6/bin/qmltestrunner 
+0x00005956029a9000 0x00005956029aa000 0x1000             0x1000             r-xp  /usr/lib/qt6/bin/qmltestrunner 
+0x00005956029aa000 0x00005956029ab000 0x1000             0x2000             r--p  /usr/lib/qt6/bin/qmltestrunner 
+0x00005956029ab000 0x00005956029ac000 0x1000             0x2000             r--p  /usr/lib/qt6/bin/qmltestrunner 
+0x00005956029ac000 0x00005956029ad000 0x1000             0x3000             rw-p  /usr/lib/qt6/bin/qmltestrunner 
+0x000059563041e000 0x000059563262a000 0x220c000          0x0                rw-p  [heap] 
+0x00007f4758000000 0x00007f4758021000 0x21000            0x0                rw-p   
+0x00007f4758021000 0x00007f475c000000 0x3fdf000          0x0                ---p   
+0x00007f4760000000 0x00007f4760181000 0x181000           0x0                rw-p   
+0x00007f4760181000 0x00007f4764000000 0x3e7f000          0x0                ---p   
+0x00007f4764000000 0x00007f4764021000 0x21000            0x0                rw-p   
+0x00007f4764021000 0x00007f4768000000 0x3fdf000          0x0                ---p   
+0x00007f4768000000 0x00007f4768021000 0x21000            0x0                rw-p   
+0x00007f4768021000 0x00007f476c000000 0x3fdf000          0x0                ---p   
+0x00007f476cffd000 0x00007f4770000000 0x3003000          0x0                rw-p   
+0x00007f4770000000 0x00007f4770021000 0x21000            0x0                rw-p   
+0x00007f4770021000 0x00007f4774000000 0x3fdf000          0x0                ---p   
+0x00007f4774000000 0x00007f4774021000 0x21000            0x0                rw-p   
+0x00007f4774021000 0x00007f4778000000 0x3fdf000          0x0                ---p   
+0x00007f4778000000 0x00007f4778021000 0x21000            0x0                rw-p   
+0x00007f4778021000 0x00007f477c000000 0x3fdf000          0x0                ---p   
+0x00007f477c000000 0x00007f477c021000 0x21000            0x0                rw-p   
+0x00007f477c021000 0x00007f4780000000 0x3fdf000          0x0                ---p   
+0x00007f4780000000 0x00007f4780021000 0x21000            0x0                rw-p   
+0x00007f4780021000 0x00007f4784000000 0x3fdf000          0x0                ---p   
+0x00007f4784000000 0x00007f4784021000 0x21000            0x0                rw-p   
+0x00007f4784021000 0x00007f4788000000 0x3fdf000          0x0                ---p   
+0x00007f4788000000 0x00007f4788021000 0x21000            0x0                rw-p   
+0x00007f4788021000 0x00007f478c000000 0x3fdf000          0x0                ---p   
+0x00007f478c3fc000 0x00007f478fc00000 0x3804000          0x0                rw-p   
+0x00007f4790000000 0x00007f4790021000 0x21000            0x0                rw-p   
+0x00007f4790021000 0x00007f4794000000 0x3fdf000          0x0                ---p   
+0x00007f4794071000 0x00007f4794092000 0x21000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Svg.so.6.10.2 
+0x00007f4794092000 0x00007f4794103000 0x71000            0x21000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6Svg.so.6.10.2 
+0x00007f4794103000 0x00007f4794113000 0x10000            0x92000            r--p  /usr/lib/x86_64-linux-gnu/libQt6Svg.so.6.10.2 
+0x00007f4794113000 0x00007f4794117000 0x4000             0xa1000            r--p  /usr/lib/x86_64-linux-gnu/libQt6Svg.so.6.10.2 
+0x00007f4794117000 0x00007f4794118000 0x1000             0xa5000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6Svg.so.6.10.2 
+0x00007f4794119000 0x00007f4794129000 0x10000            0x0                rwxp   
+0x00007f4794129000 0x00007f4794152000 0x29000            0x0                r--s  /usr/share/mime/mime.cache 
+0x00007f4794152000 0x00007f47941ef000 0x9d000            0x0                rw-s  /memfd:xorg (deleted) 
+0x00007f47941ef000 0x00007f479426d000 0x7e000            0x0                r--p  /usr/share/fonts/truetype/noto/NotoSans-Regular.ttf 
+0x00007f479426d000 0x00007f47942e2000 0x75000            0x0                r--s  /var/cache/fontconfig/0bd3dc0958fa2205aaaa8ebb13e2872b-le64.cache-9 
+0x00007f47942e2000 0x00007f47942f3000 0x11000            0x0                r--s  /var/cache/fontconfig/cadc3060d3cbe99d6aa4dd880095be12-le64.cache-9 
+0x00007f47942f3000 0x00007f4794308000 0x15000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKirigamiLayouts.so.6.24.0 
+0x00007f4794308000 0x00007f479434f000 0x47000            0x15000            r-xp  /usr/lib/x86_64-linux-gnu/libKirigamiLayouts.so.6.24.0 
+0x00007f479434f000 0x00007f479436b000 0x1c000            0x5c000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiLayouts.so.6.24.0 
+0x00007f479436b000 0x00007f4794370000 0x5000             0x78000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiLayouts.so.6.24.0 
+0x00007f4794370000 0x00007f4794372000 0x2000             0x7d000            rw-p  /usr/lib/x86_64-linux-gnu/libKirigamiLayouts.so.6.24.0 
+0x00007f4794372000 0x00007f47943a6000 0x34000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKirigamiControls.so.6.24.0 
+0x00007f47943a6000 0x00007f479445b000 0xb5000            0x34000            r-xp  /usr/lib/x86_64-linux-gnu/libKirigamiControls.so.6.24.0 
+0x00007f479445b000 0x00007f479457d000 0x122000           0xe9000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiControls.so.6.24.0 
+0x00007f479457d000 0x00007f4794591000 0x14000            0x20b000           r--p  /usr/lib/x86_64-linux-gnu/libKirigamiControls.so.6.24.0 
+0x00007f4794591000 0x00007f4794592000 0x1000             0x21f000           rw-p  /usr/lib/x86_64-linux-gnu/libKirigamiControls.so.6.24.0 
+0x00007f4794592000 0x00007f4794596000 0x4000             0x0                rw-p   
+0x00007f4794596000 0x00007f47945a0000 0xa000             0x0                ---p  /memfd:JSGCHeap:QtQml (deleted) 
+0x00007f47945a0000 0x00007f4794660000 0xc0000            0xa000             rw-p  /memfd:JSGCHeap:QtQml (deleted) 
+0x00007f4794660000 0x00007f4794996000 0x336000           0xca000            ---p  /memfd:JSGCHeap:QtQml (deleted) 
+0x00007f4794996000 0x00007f4794997000 0x1000             0x0                ---p   
+0x00007f4794997000 0x00007f4794dd7000 0x440000           0x1000             rw-p  /memfd:JSVMStack:QtQml (deleted) 
+0x00007f4794dd7000 0x00007f4794dd8000 0x1000             0x0                ---p   
+0x00007f4794dd8000 0x00007f4798ddc000 0x4004000          0x0                rw-p   
+0x00007f4798ddc000 0x00007f479d14c000 0x4370000          0x0                r--p  /usr/lib/x86_64-linux-gnu/libLLVM.so.21.1 
+0x00007f479d14c000 0x00007f47a0f9f000 0x3e53000          0x436f000          r-xp  /usr/lib/x86_64-linux-gnu/libLLVM.so.21.1 
+0x00007f47a0f9f000 0x00007f47a11be000 0x21f000           0x81c1000          r--p  /usr/lib/x86_64-linux-gnu/libLLVM.so.21.1 
+0x00007f47a11be000 0x00007f47a1205000 0x47000            0x83df000          rw-p  /usr/lib/x86_64-linux-gnu/libLLVM.so.21.1 
+0x00007f47a1205000 0x00007f47a12b2000 0xad000            0x0                rw-p   
+0x00007f47a12b2000 0x00007f47a138e000 0xdc000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so 
+0x00007f47a138e000 0x00007f47a2d2e000 0x19a0000          0xdc000            r-xp  /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so 
+0x00007f47a2d2e000 0x00007f47a3d1d000 0xfef000           0x1a7c000          r--p  /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so 
+0x00007f47a3d1d000 0x00007f47a3e0e000 0xf1000            0x2a6a000          r--p  /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so 
+0x00007f47a3e0e000 0x00007f47a3e35000 0x27000            0x2b5b000          rw-p  /usr/lib/x86_64-linux-gnu/libgallium-26.0.8-1ubuntu0.3.so 
+0x00007f47a3e35000 0x00007f47a4026000 0x1f1000           0x0                rw-p   
+0x00007f47a4026000 0x00007f47a8000000 0x3fda000          0x0                ---p   
+0x00007f47a8005000 0x00007f47a8008000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqsvg.so 
+0x00007f47a8008000 0x00007f47a800a000 0x2000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqsvg.so 
+0x00007f47a800a000 0x00007f47a800b000 0x1000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqsvg.so 
+0x00007f47a800b000 0x00007f47a800c000 0x1000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqsvg.so 
+0x00007f47a800c000 0x00007f47a800d000 0x1000             0x6000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/plugins/imageformats/libqsvg.so 
+0x00007f47a800d000 0x00007f47a8013000 0x6000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kirigami/platform/org.kde.breeze.so 
+0x00007f47a8013000 0x00007f47a801b000 0x8000             0x6000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kirigami/platform/org.kde.breeze.so 
+0x00007f47a801b000 0x00007f47a801d000 0x2000             0xe000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kirigami/platform/org.kde.breeze.so 
+0x00007f47a801d000 0x00007f47a801e000 0x1000             0x10000            r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kirigami/platform/org.kde.breeze.so 
+0x00007f47a801e000 0x00007f47a801f000 0x1000             0x11000            rw-p  /usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/kirigami/platform/org.kde.breeze.so 
+0x00007f47a801f000 0x00007f47a8025000 0x6000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKirigamiDialogs.so.6.24.0 
+0x00007f47a8025000 0x00007f47a8035000 0x10000            0x6000             r-xp  /usr/lib/x86_64-linux-gnu/libKirigamiDialogs.so.6.24.0 
+0x00007f47a8035000 0x00007f47a8051000 0x1c000            0x16000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiDialogs.so.6.24.0 
+0x00007f47a8051000 0x00007f47a8053000 0x2000             0x32000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiDialogs.so.6.24.0 
+0x00007f47a8053000 0x00007f47a8054000 0x1000             0x34000            rw-p  /usr/lib/x86_64-linux-gnu/libKirigamiDialogs.so.6.24.0 
+0x00007f47a8054000 0x00007f47a805b000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKirigamiDelegates.so.6.24.0 
+0x00007f47a805b000 0x00007f47a806c000 0x11000            0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libKirigamiDelegates.so.6.24.0 
+0x00007f47a806c000 0x00007f47a8082000 0x16000            0x18000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiDelegates.so.6.24.0 
+0x00007f47a8082000 0x00007f47a8084000 0x2000             0x2d000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiDelegates.so.6.24.0 
+0x00007f47a8084000 0x00007f47a8085000 0x1000             0x2f000            rw-p  /usr/lib/x86_64-linux-gnu/libKirigamiDelegates.so.6.24.0 
+0x00007f47a808a000 0x00007f47a808c000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Window/libquickwindowplugin.so 
+0x00007f47a808c000 0x00007f47a808d000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Window/libquickwindowplugin.so 
+0x00007f47a808d000 0x00007f47a808e000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Window/libquickwindowplugin.so 
+0x00007f47a808e000 0x00007f47a808f000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Window/libquickwindowplugin.so 
+0x00007f47a808f000 0x00007f47a8090000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/qml/QtQuick/Window/libquickwindowplugin.so 
+0x00007f47a8090000 0x00007f47a8092000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/layouts/libKirigamiLayoutsplugin.so 
+0x00007f47a8092000 0x00007f47a8093000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/layouts/libKirigamiLayoutsplugin.so 
+0x00007f47a8093000 0x00007f47a8094000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/layouts/libKirigamiLayoutsplugin.so 
+0x00007f47a8094000 0x00007f47a8095000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/layouts/libKirigamiLayoutsplugin.so 
+0x00007f47a8095000 0x00007f47a8096000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/layouts/libKirigamiLayoutsplugin.so 
+0x00007f47a8096000 0x00007f47a80a6000 0x10000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKirigamiPrimitives.so.6.24.0 
+0x00007f47a80a6000 0x00007f47a80cc000 0x26000            0x10000            r-xp  /usr/lib/x86_64-linux-gnu/libKirigamiPrimitives.so.6.24.0 
+0x00007f47a80cc000 0x00007f47a80ec000 0x20000            0x36000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiPrimitives.so.6.24.0 
+0x00007f47a80ec000 0x00007f47a80f0000 0x4000             0x55000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiPrimitives.so.6.24.0 
+0x00007f47a80f0000 0x00007f47a80f2000 0x2000             0x59000            rw-p  /usr/lib/x86_64-linux-gnu/libKirigamiPrimitives.so.6.24.0 
+0x00007f47a80f7000 0x00007f47a80f9000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/dialogs/libKirigamiDialogsplugin.so 
+0x00007f47a80f9000 0x00007f47a80fa000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/dialogs/libKirigamiDialogsplugin.so 
+0x00007f47a80fa000 0x00007f47a80fb000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/dialogs/libKirigamiDialogsplugin.so 
+0x00007f47a80fb000 0x00007f47a80fc000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/dialogs/libKirigamiDialogsplugin.so 
+0x00007f47a80fc000 0x00007f47a80fd000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/dialogs/libKirigamiDialogsplugin.so 
+0x00007f47a80fd000 0x00007f47a80ff000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/delegates/libKirigamiDelegatesplugin.so 
+0x00007f47a80ff000 0x00007f47a8100000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/delegates/libKirigamiDelegatesplugin.so 
+0x00007f47a8100000 0x00007f47a8101000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/delegates/libKirigamiDelegatesplugin.so 
+0x00007f47a8101000 0x00007f47a8102000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/delegates/libKirigamiDelegatesplugin.so 
+0x00007f47a8102000 0x00007f47a8103000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/delegates/libKirigamiDelegatesplugin.so 
+0x00007f47a8103000 0x00007f47a8105000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/primitives/libKirigamiPrimitivesplugin.so 
+0x00007f47a8105000 0x00007f47a8106000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/primitives/libKirigamiPrimitivesplugin.so 
+0x00007f47a8106000 0x00007f47a8107000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/primitives/libKirigamiPrimitivesplugin.so 
+0x00007f47a8107000 0x00007f47a8108000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/primitives/libKirigamiPrimitivesplugin.so 
+0x00007f47a8108000 0x00007f47a8109000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/primitives/libKirigamiPrimitivesplugin.so 
+0x00007f47a8109000 0x00007f47a8121000 0x18000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKirigamiPlatform.so.6.24.0 
+0x00007f47a8121000 0x00007f47a814e000 0x2d000            0x18000            r-xp  /usr/lib/x86_64-linux-gnu/libKirigamiPlatform.so.6.24.0 
+0x00007f47a814e000 0x00007f47a815c000 0xe000             0x45000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiPlatform.so.6.24.0 
+0x00007f47a815c000 0x00007f47a815f000 0x3000             0x53000            r--p  /usr/lib/x86_64-linux-gnu/libKirigamiPlatform.so.6.24.0 
+0x00007f47a815f000 0x00007f47a8161000 0x2000             0x56000            rw-p  /usr/lib/x86_64-linux-gnu/libKirigamiPlatform.so.6.24.0 
+0x00007f47a8161000 0x00007f47a816d000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKirigami.so.6.24.0 
+0x00007f47a816d000 0x00007f47a8188000 0x1b000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libKirigami.so.6.24.0 
+0x00007f47a8188000 0x00007f47a8192000 0xa000             0x27000            r--p  /usr/lib/x86_64-linux-gnu/libKirigami.so.6.24.0 
+0x00007f47a8192000 0x00007f47a8195000 0x3000             0x30000            r--p  /usr/lib/x86_64-linux-gnu/libKirigami.so.6.24.0 
+0x00007f47a8195000 0x00007f47a8196000 0x1000             0x33000            rw-p  /usr/lib/x86_64-linux-gnu/libKirigami.so.6.24.0 
+0x00007f47a8198000 0x00007f47a8199000 0x1000             0x0                r-xp  /memfd:JITCode:QtQml (deleted) 
+0x00007f47a8199000 0x00007f47a819b000 0x2000             0x0                r--s  /root/.cache/qmltestrunner/qmlcache/01d3f15105d686e45eae817aefc4bb15f928dcd3.qmlc 
+0x00007f47a819b000 0x00007f47a819e000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/controls/libKirigamiControlsplugin.so 
+0x00007f47a819e000 0x00007f47a81a3000 0x5000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/controls/libKirigamiControlsplugin.so 
+0x00007f47a81a3000 0x00007f47a81a5000 0x2000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/controls/libKirigamiControlsplugin.so 
+0x00007f47a81a5000 0x00007f47a81a6000 0x1000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/controls/libKirigamiControlsplugin.so 
+0x00007f47a81a6000 0x00007f47a81a7000 0x1000             0xa000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/controls/libKirigamiControlsplugin.so 
+0x00007f47a81a7000 0x00007f47a81a8000 0x1000             0x0                ---p   
+0x00007f47a81a8000 0x00007f47a83a8000 0x200000           0x1000             rw-p  /memfd:JSVMStack:QtQml (deleted) 
+0x00007f47a83a8000 0x00007f47a83a9000 0x1000             0x0                ---p   
+0x00007f47a83a9000 0x00007f47a85aa000 0x201000           0x0                rw-s  /root/.cache/mesa_shader_cache/index 
+0x00007f47a85aa000 0x00007f47a95ab000 0x1001000          0x0                rw-p   
+0x00007f47a95ab000 0x00007f47a95ad000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0 
+0x00007f47a95ad000 0x00007f47a95b6000 0x9000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0 
+0x00007f47a95b6000 0x00007f47a95b8000 0x2000             0xb000             r--p  /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0 
+0x00007f47a95b8000 0x00007f47a95b9000 0x1000             0xc000             r--p  /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0 
+0x00007f47a95b9000 0x00007f47a95ba000 0x1000             0xd000             rw-p  /usr/lib/x86_64-linux-gnu/libmd.so.0.1.0 
+0x00007f47a95ba000 0x00007f47a95be000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.2 
+0x00007f47a95be000 0x00007f47a95ca000 0xc000             0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.2 
+0x00007f47a95ca000 0x00007f47a95cd000 0x3000             0x10000            r--p  /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.2 
+0x00007f47a95cd000 0x00007f47a95ce000 0x1000             0x12000            r--p  /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.2 
+0x00007f47a95ce000 0x00007f47a95cf000 0x1000             0x13000            rw-p  /usr/lib/x86_64-linux-gnu/libbsd.so.0.12.2 
+0x00007f47a95cf000 0x00007f47a95d0000 0x1000             0x0                rw-p   
+0x00007f47a95d0000 0x00007f47a95de000 0xe000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libtinfo.so.6.6 
+0x00007f47a95de000 0x00007f47a95f2000 0x14000            0xe000             r-xp  /usr/lib/x86_64-linux-gnu/libtinfo.so.6.6 
+0x00007f47a95f2000 0x00007f47a9600000 0xe000             0x22000            r--p  /usr/lib/x86_64-linux-gnu/libtinfo.so.6.6 
+0x00007f47a9600000 0x00007f47a9604000 0x4000             0x2f000            r--p  /usr/lib/x86_64-linux-gnu/libtinfo.so.6.6 
+0x00007f47a9604000 0x00007f47a9605000 0x1000             0x33000            rw-p  /usr/lib/x86_64-linux-gnu/libtinfo.so.6.6 
+0x00007f47a9605000 0x00007f47a9607000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1 
+0x00007f47a9607000 0x00007f47a960c000 0x5000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1 
+0x00007f47a960c000 0x00007f47a960e000 0x2000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1 
+0x00007f47a960e000 0x00007f47a960f000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1 
+0x00007f47a960f000 0x00007f47a9610000 0x1000             0x9000             rw-p  /usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1 
+0x00007f47a9610000 0x00007f47a9631000 0x21000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libxml2.so.16.1.2 
+0x00007f47a9631000 0x00007f47a972c000 0xfb000            0x21000            r-xp  /usr/lib/x86_64-linux-gnu/libxml2.so.16.1.2 
+0x00007f47a972c000 0x00007f47a9769000 0x3d000            0x11c000           r--p  /usr/lib/x86_64-linux-gnu/libxml2.so.16.1.2 
+0x00007f47a9769000 0x00007f47a9771000 0x8000             0x159000           r--p  /usr/lib/x86_64-linux-gnu/libxml2.so.16.1.2 
+0x00007f47a9771000 0x00007f47a9772000 0x1000             0x161000           rw-p  /usr/lib/x86_64-linux-gnu/libxml2.so.16.1.2 
+0x00007f47a9772000 0x00007f47a9773000 0x1000             0x0                rw-p   
+0x00007f47a9773000 0x00007f47a977b000 0x8000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libedit.so.2.0.76 
+0x00007f47a977b000 0x00007f47a979a000 0x1f000            0x8000             r-xp  /usr/lib/x86_64-linux-gnu/libedit.so.2.0.76 
+0x00007f47a979a000 0x00007f47a97a6000 0xc000             0x27000            r--p  /usr/lib/x86_64-linux-gnu/libedit.so.2.0.76 
+0x00007f47a97a6000 0x00007f47a97a8000 0x2000             0x33000            r--p  /usr/lib/x86_64-linux-gnu/libedit.so.2.0.76 
+0x00007f47a97a8000 0x00007f47a97a9000 0x1000             0x35000            rw-p  /usr/lib/x86_64-linux-gnu/libedit.so.2.0.76 
+0x00007f47a97a9000 0x00007f47a97ad000 0x4000             0x0                rw-p   
+0x00007f47a97ad000 0x00007f47a97b0000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.131.0 
+0x00007f47a97b0000 0x00007f47a97c7000 0x17000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.131.0 
+0x00007f47a97c7000 0x00007f47a97d1000 0xa000             0x1a000            r--p  /usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.131.0 
+0x00007f47a97d1000 0x00007f47a97d2000 0x1000             0x23000            r--p  /usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.131.0 
+0x00007f47a97d2000 0x00007f47a97d3000 0x1000             0x24000            rw-p  /usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.131.0 
+0x00007f47a97d3000 0x00007f47a97d6000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.131.0 
+0x00007f47a97d6000 0x00007f47a97dc000 0x6000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.131.0 
+0x00007f47a97dc000 0x00007f47a97de000 0x2000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.131.0 
+0x00007f47a97de000 0x00007f47a97df000 0x1000             0xa000             r--p  /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.131.0 
+0x00007f47a97df000 0x00007f47a97e0000 0x1000             0xb000             rw-p  /usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.131.0 
+0x00007f47a97e0000 0x00007f47a97e4000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libelf-0.194.so 
+0x00007f47a97e4000 0x00007f47a97fb000 0x17000            0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libelf-0.194.so 
+0x00007f47a97fb000 0x00007f47a97ff000 0x4000             0x1b000            r--p  /usr/lib/x86_64-linux-gnu/libelf-0.194.so 
+0x00007f47a97ff000 0x00007f47a9800000 0x1000             0x1f000            r--p  /usr/lib/x86_64-linux-gnu/libelf-0.194.so 
+0x00007f47a9800000 0x00007f47a9801000 0x1000             0x20000            rw-p  /usr/lib/x86_64-linux-gnu/libelf-0.194.so 
+0x00007f47a9801000 0x00007f47a9802000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0 
+0x00007f47a9802000 0x00007f47a9803000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0 
+0x00007f47a9803000 0x00007f47a9804000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0 
+0x00007f47a9804000 0x00007f47a9805000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0 
+0x00007f47a9805000 0x00007f47a9806000 0x1000             0x3000             rw-p  /usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0 
+0x00007f47a9806000 0x00007f47a9809000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0 
+0x00007f47a9809000 0x00007f47a9811000 0x8000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0 
+0x00007f47a9811000 0x00007f47a9815000 0x4000             0xb000             r--p  /usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0 
+0x00007f47a9815000 0x00007f47a9816000 0x1000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0 
+0x00007f47a9816000 0x00007f47a9817000 0x1000             0x10000            rw-p  /usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0 
+0x00007f47a9817000 0x00007f47a9819000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0 
+0x00007f47a9819000 0x00007f47a981b000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0 
+0x00007f47a981b000 0x00007f47a981c000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0 
+0x00007f47a981c000 0x00007f47a981d000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0 
+0x00007f47a981d000 0x00007f47a981e000 0x1000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0 
+0x00007f47a981e000 0x00007f47a9822000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0 
+0x00007f47a9822000 0x00007f47a982d000 0xb000             0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0 
+0x00007f47a982d000 0x00007f47a9830000 0x3000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0 
+0x00007f47a9830000 0x00007f47a9831000 0x1000             0x11000            r--p  /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0 
+0x00007f47a9831000 0x00007f47a9832000 0x1000             0x12000            rw-p  /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0 
+0x00007f47a9832000 0x00007f47a9837000 0x5000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libdrm.so.2.131.0 
+0x00007f47a9837000 0x00007f47a9843000 0xc000             0x5000             r-xp  /usr/lib/x86_64-linux-gnu/libdrm.so.2.131.0 
+0x00007f47a9843000 0x00007f47a9847000 0x4000             0x11000            r--p  /usr/lib/x86_64-linux-gnu/libdrm.so.2.131.0 
+0x00007f47a9847000 0x00007f47a9848000 0x1000             0x15000            r--p  /usr/lib/x86_64-linux-gnu/libdrm.so.2.131.0 
+0x00007f47a9848000 0x00007f47a9849000 0x1000             0x16000            rw-p  /usr/lib/x86_64-linux-gnu/libdrm.so.2.131.0 
+0x00007f47a9849000 0x00007f47a9854000 0xb000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0 
+0x00007f47a9854000 0x00007f47a9895000 0x41000            0xb000             r-xp  /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0 
+0x00007f47a9895000 0x00007f47a98a4000 0xf000             0x4c000            r--p  /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0 
+0x00007f47a98a4000 0x00007f47a98a7000 0x3000             0x5b000            r--p  /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0 
+0x00007f47a98a7000 0x00007f47a98a8000 0x1000             0x5e000            rw-p  /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0 
+0x00007f47a98a8000 0x00007f47a98a9000 0x1000             0x0                rw-p   
+0x00007f47a98a9000 0x00007f47a98b4000 0xb000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0 
+0x00007f47a98b4000 0x00007f47a98bd000 0x9000             0xb000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0 
+0x00007f47a98bd000 0x00007f47a98c2000 0x5000             0x14000            r--p  /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0 
+0x00007f47a98c2000 0x00007f47a98c4000 0x2000             0x19000            r--p  /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0 
+0x00007f47a98c4000 0x00007f47a98c5000 0x1000             0x1b000            rw-p  /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0 
+0x00007f47a98c5000 0x00007f47a98c6000 0x1000             0x0                rw-p  /memfd:unknown-usage:QtQml (deleted) 
+0x00007f47a98c6000 0x00007f47a98c8000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/libKirigamiplugin.so 
+0x00007f47a98c8000 0x00007f47a98c9000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/libKirigamiplugin.so 
+0x00007f47a98c9000 0x00007f47a98ca000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/libKirigamiplugin.so 
+0x00007f47a98ca000 0x00007f47a98cb000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/libKirigamiplugin.so 
+0x00007f47a98cb000 0x00007f47a98cc000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/qml/org/kde/kirigami/libKirigamiplugin.so 
+0x00007f47a98cc000 0x00007f47a98cd000 0x1000             0x0                rw-p  /memfd:unknown-usage:QtQml (deleted) 
+0x00007f47a98cd000 0x00007f47a98ce000 0x1000             0x0                ---p   
+0x00007f47a98ce000 0x00007f47a98d6000 0x8000             0x0                rw-p   
+0x00007f47a98d6000 0x00007f47a98de000 0x8000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-glx-integration.so 
+0x00007f47a98de000 0x00007f47a98e5000 0x7000             0x8000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-glx-integration.so 
+0x00007f47a98e5000 0x00007f47a98e7000 0x2000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-glx-integration.so 
+0x00007f47a98e7000 0x00007f47a98e8000 0x1000             0x11000            r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-glx-integration.so 
+0x00007f47a98e8000 0x00007f47a98e9000 0x1000             0x12000            rw-p  /usr/lib/x86_64-linux-gnu/qt6/plugins/xcbglintegrations/libqxcb-glx-integration.so 
+0x00007f47a98e9000 0x00007f47a98ef000 0x6000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libmvec.so.1 
+0x00007f47a98ef000 0x00007f47a9912000 0x23000            0x6000             r-xp  /usr/lib/x86_64-linux-gnu/libmvec.so.1 
+0x00007f47a9912000 0x00007f47a99e2000 0xd0000            0x29000            r--p  /usr/lib/x86_64-linux-gnu/libmvec.so.1 
+0x00007f47a99e2000 0x00007f47a99e3000 0x1000             0xf8000            r--p  /usr/lib/x86_64-linux-gnu/libmvec.so.1 
+0x00007f47a99e3000 0x00007f47a99e4000 0x1000             0xf9000            rw-p  /usr/lib/x86_64-linux-gnu/libmvec.so.1 
+0x00007f47a99e4000 0x00007f47a99e6000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libogg.so.0.8.6 
+0x00007f47a99e6000 0x00007f47a99e9000 0x3000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libogg.so.0.8.6 
+0x00007f47a99e9000 0x00007f47a99ec000 0x3000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/libogg.so.0.8.6 
+0x00007f47a99ec000 0x00007f47a99ed000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libogg.so.0.8.6 
+0x00007f47a99ed000 0x00007f47a99ee000 0x1000             0x9000             rw-p  /usr/lib/x86_64-linux-gnu/libogg.so.0.8.6 
+0x00007f47a99ee000 0x00007f47a99f1000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.9 
+0x00007f47a99f1000 0x00007f47a9a0a000 0x19000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.9 
+0x00007f47a9a0a000 0x00007f47a9a1b000 0x11000            0x1c000            r--p  /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.9 
+0x00007f47a9a1b000 0x00007f47a9a1c000 0x1000             0x2c000            r--p  /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.9 
+0x00007f47a9a1c000 0x00007f47a9a1d000 0x1000             0x2d000            rw-p  /usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.9 
+0x00007f47a9a1d000 0x00007f47a9a1f000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.3 
+0x00007f47a9a1f000 0x00007f47a9a24000 0x5000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.3 
+0x00007f47a9a24000 0x00007f47a9a26000 0x2000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.3 
+0x00007f47a9a26000 0x00007f47a9a27000 0x1000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.3 
+0x00007f47a9a27000 0x00007f47a9a28000 0x1000             0xa000             rw-p  /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.3 
+0x00007f47a9a28000 0x00007f47a9a2c000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.14 
+0x00007f47a9a2c000 0x00007f47a9a3a000 0xe000             0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.14 
+0x00007f47a9a3a000 0x00007f47a9a3f000 0x5000             0x12000            r--p  /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.14 
+0x00007f47a9a3f000 0x00007f47a9a40000 0x1000             0x16000            r--p  /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.14 
+0x00007f47a9a40000 0x00007f47a9a41000 0x1000             0x17000            rw-p  /usr/lib/x86_64-linux-gnu/libtdb.so.1.4.14 
+0x00007f47a9a41000 0x00007f47a9a43000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.8 
+0x00007f47a9a43000 0x00007f47a9a49000 0x6000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.8 
+0x00007f47a9a49000 0x00007f47a9a4a000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.8 
+0x00007f47a9a4a000 0x00007f47a9a4b000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.8 
+0x00007f47a9a4b000 0x00007f47a9a4c000 0x1000             0x9000             rw-p  /usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.8 
+0x00007f47a9a4c000 0x00007f47a9a50000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libimobiledevice-glue-1.0.so.0.3.2 
+0x00007f47a9a50000 0x00007f47a9a5c000 0xc000             0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libimobiledevice-glue-1.0.so.0.3.2 
+0x00007f47a9a5c000 0x00007f47a9a60000 0x4000             0x10000            r--p  /usr/lib/x86_64-linux-gnu/libimobiledevice-glue-1.0.so.0.3.2 
+0x00007f47a9a60000 0x00007f47a9a61000 0x1000             0x13000            r--p  /usr/lib/x86_64-linux-gnu/libimobiledevice-glue-1.0.so.0.3.2 
+0x00007f47a9a61000 0x00007f47a9a62000 0x1000             0x14000            rw-p  /usr/lib/x86_64-linux-gnu/libimobiledevice-glue-1.0.so.0.3.2 
+0x00007f47a9a62000 0x00007f47a9a64000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libusbmuxd-2.0.so.7.0.1 
+0x00007f47a9a64000 0x00007f47a9a69000 0x5000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libusbmuxd-2.0.so.7.0.1 
+0x00007f47a9a69000 0x00007f47a9a6b000 0x2000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libusbmuxd-2.0.so.7.0.1 
+0x00007f47a9a6b000 0x00007f47a9a6c000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libusbmuxd-2.0.so.7.0.1 
+0x00007f47a9a6c000 0x00007f47a9a6d000 0x1000             0x9000             rw-p  /usr/lib/x86_64-linux-gnu/libusbmuxd-2.0.so.7.0.1 
+0x00007f47a9a6d000 0x00007f47a9a71000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 
+0x00007f47a9a71000 0x00007f47a9a95000 0x24000            0x4000             r-xp  /usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 
+0x00007f47a9a95000 0x00007f47a9aa0000 0xb000             0x28000            r--p  /usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 
+0x00007f47a9aa0000 0x00007f47a9aa1000 0x1000             0x33000            r--p  /usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 
+0x00007f47a9aa1000 0x00007f47a9aa2000 0x1000             0x34000            rw-p  /usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3 
+0x00007f47a9aa2000 0x00007f47a9aa5000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5 
+0x00007f47a9aa5000 0x00007f47a9aaf000 0xa000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5 
+0x00007f47a9aaf000 0x00007f47a9ab2000 0x3000             0xd000             r--p  /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5 
+0x00007f47a9ab2000 0x00007f47a9ab3000 0x1000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5 
+0x00007f47a9ab3000 0x00007f47a9ab4000 0x1000             0x10000            rw-p  /usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5 
+0x00007f47a9ab4000 0x00007f47a9ab7000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libplist-2.0.so.4.7.0 
+0x00007f47a9ab7000 0x00007f47a9ac9000 0x12000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libplist-2.0.so.4.7.0 
+0x00007f47a9ac9000 0x00007f47a9acd000 0x4000             0x15000            r--p  /usr/lib/x86_64-linux-gnu/libplist-2.0.so.4.7.0 
+0x00007f47a9acd000 0x00007f47a9ace000 0x1000             0x18000            r--p  /usr/lib/x86_64-linux-gnu/libplist-2.0.so.4.7.0 
+0x00007f47a9ace000 0x00007f47a9acf000 0x1000             0x19000            rw-p  /usr/lib/x86_64-linux-gnu/libplist-2.0.so.4.7.0 
+0x00007f47a9acf000 0x00007f47a9ada000 0xb000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libimobiledevice-1.0.so.6.1.0 
+0x00007f47a9ada000 0x00007f47a9aff000 0x25000            0xb000             r-xp  /usr/lib/x86_64-linux-gnu/libimobiledevice-1.0.so.6.1.0 
+0x00007f47a9aff000 0x00007f47a9b10000 0x11000            0x30000            r--p  /usr/lib/x86_64-linux-gnu/libimobiledevice-1.0.so.6.1.0 
+0x00007f47a9b10000 0x00007f47a9b11000 0x1000             0x41000            r--p  /usr/lib/x86_64-linux-gnu/libimobiledevice-1.0.so.6.1.0 
+0x00007f47a9b11000 0x00007f47a9b12000 0x1000             0x42000            rw-p  /usr/lib/x86_64-linux-gnu/libimobiledevice-1.0.so.6.1.0 
+0x00007f47a9b12000 0x00007f47a9b13000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6BreezeIcons.so.6.24.0 
+0x00007f47a9b13000 0x00007f47a9b14000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6BreezeIcons.so.6.24.0 
+0x00007f47a9b14000 0x00007f47ab3fd000 0x18e9000          0x2000             r--p  /usr/lib/x86_64-linux-gnu/libKF6BreezeIcons.so.6.24.0 
+0x00007f47ab3fd000 0x00007f47ab3fe000 0x1000             0x18ea000          r--p  /usr/lib/x86_64-linux-gnu/libKF6BreezeIcons.so.6.24.0 
+0x00007f47ab3fe000 0x00007f47ab3ff000 0x1000             0x18eb000          rw-p  /usr/lib/x86_64-linux-gnu/libKF6BreezeIcons.so.6.24.0 
+0x00007f47ab3ff000 0x00007f47ab40c000 0xd000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Archive.so.6.24.0 
+0x00007f47ab40c000 0x00007f47ab43e000 0x32000            0xd000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6Archive.so.6.24.0 
+0x00007f47ab43e000 0x00007f47ab445000 0x7000             0x3f000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Archive.so.6.24.0 
+0x00007f47ab445000 0x00007f47ab447000 0x2000             0x46000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Archive.so.6.24.0 
+0x00007f47ab447000 0x00007f47ab448000 0x1000             0x48000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6Archive.so.6.24.0 
+0x00007f47ab448000 0x00007f47ab450000 0x8000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libudev.so.1.7.12 
+0x00007f47ab450000 0x00007f47ab477000 0x27000            0x8000             r-xp  /usr/lib/x86_64-linux-gnu/libudev.so.1.7.12 
+0x00007f47ab477000 0x00007f47ab48a000 0x13000            0x2f000            r--p  /usr/lib/x86_64-linux-gnu/libudev.so.1.7.12 
+0x00007f47ab48a000 0x00007f47ab48f000 0x5000             0x41000            r--p  /usr/lib/x86_64-linux-gnu/libudev.so.1.7.12 
+0x00007f47ab48f000 0x00007f47ab490000 0x1000             0x46000            rw-p  /usr/lib/x86_64-linux-gnu/libudev.so.1.7.12 
+0x00007f47ab490000 0x00007f47ab498000 0x8000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Codecs.so.6.24.0 
+0x00007f47ab498000 0x00007f47ab4ad000 0x15000            0x8000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6Codecs.so.6.24.0 
+0x00007f47ab4ad000 0x00007f47ab4c3000 0x16000            0x1d000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Codecs.so.6.24.0 
+0x00007f47ab4c3000 0x00007f47ab4c5000 0x2000             0x33000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Codecs.so.6.24.0 
+0x00007f47ab4c5000 0x00007f47ab4c6000 0x1000             0x35000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6Codecs.so.6.24.0 
+0x00007f47ab4c6000 0x00007f47ab4d5000 0xf000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Notifications.so.6.24.0 
+0x00007f47ab4d5000 0x00007f47ab4ff000 0x2a000            0xf000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6Notifications.so.6.24.0 
+0x00007f47ab4ff000 0x00007f47ab508000 0x9000             0x39000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Notifications.so.6.24.0 
+0x00007f47ab508000 0x00007f47ab50a000 0x2000             0x42000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Notifications.so.6.24.0 
+0x00007f47ab50a000 0x00007f47ab50b000 0x1000             0x44000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6Notifications.so.6.24.0 
+0x00007f47ab50b000 0x00007f47ab530000 0x25000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6PrintSupport.so.6.10.2 
+0x00007f47ab530000 0x00007f47ab56d000 0x3d000            0x25000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6PrintSupport.so.6.10.2 
+0x00007f47ab56d000 0x00007f47ab582000 0x15000            0x62000            r--p  /usr/lib/x86_64-linux-gnu/libQt6PrintSupport.so.6.10.2 
+0x00007f47ab582000 0x00007f47ab587000 0x5000             0x77000            r--p  /usr/lib/x86_64-linux-gnu/libQt6PrintSupport.so.6.10.2 
+0x00007f47ab587000 0x00007f47ab589000 0x2000             0x7c000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6PrintSupport.so.6.10.2 
+0x00007f47ab589000 0x00007f47ab66d000 0xe4000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickTemplates2.so.6.10.2 
+0x00007f47ab66d000 0x00007f47ab7a1000 0x134000           0xe4000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6QuickTemplates2.so.6.10.2 
+0x00007f47ab7a1000 0x00007f47ab808000 0x67000            0x218000           r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickTemplates2.so.6.10.2 
+0x00007f47ab808000 0x00007f47ab834000 0x2c000            0x27f000           r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickTemplates2.so.6.10.2 
+0x00007f47ab834000 0x00007f47ab840000 0xc000             0x2ab000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6QuickTemplates2.so.6.10.2 
+0x00007f47ab840000 0x00007f47ab9b8000 0x178000           0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.10.2 
+0x00007f47ab9b8000 0x00007f47abe80000 0x4c8000           0x178000           r-xp  /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.10.2 
+0x00007f47abe80000 0x00007f47abfb8000 0x138000           0x640000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.10.2 
+0x00007f47abfb8000 0x00007f47abff2000 0x3a000            0x778000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.10.2 
+0x00007f47abff2000 0x00007f47abfff000 0xd000             0x7b2000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.10.2 
+0x00007f47abfff000 0x00007f47ac021000 0x22000            0x0                rw-p   
+0x00007f47ac021000 0x00007f47b0000000 0x3fdf000          0x0                ---p   
+0x00007f47b0000000 0x00007f47b0001000 0x1000             0x0                r--p  /usr/share/locale/en/LC_MESSAGES/kcoreaddons6_qt.qm 
+0x00007f47b0001000 0x00007f47b0002000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0 
+0x00007f47b0002000 0x00007f47b0003000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0 
+0x00007f47b0003000 0x00007f47b0004000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0 
+0x00007f47b0004000 0x00007f47b0005000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0 
+0x00007f47b0005000 0x00007f47b0006000 0x1000             0x3000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0 
+0x00007f47b0006000 0x00007f47b0008000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.24.0 
+0x00007f47b0008000 0x00007f47b000a000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.24.0 
+0x00007f47b000a000 0x00007f47b000b000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.24.0 
+0x00007f47b000b000 0x00007f47b000c000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.24.0 
+0x00007f47b000c000 0x00007f47b0010000 0x4000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.24.0 
+0x00007f47b0010000 0x00007f47b0012000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302 
+0x00007f47b0012000 0x00007f47b0017000 0x5000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302 
+0x00007f47b0017000 0x00007f47b0018000 0x1000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302 
+0x00007f47b0018000 0x00007f47b0019000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302 
+0x00007f47b0019000 0x00007f47b001a000 0x1000             0x9000             rw-p  /usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302 
+0x00007f47b001a000 0x00007f47b001e000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Crash.so.6.24.0 
+0x00007f47b001e000 0x00007f47b0026000 0x8000             0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6Crash.so.6.24.0 
+0x00007f47b0026000 0x00007f47b0028000 0x2000             0xc000             r--p  /usr/lib/x86_64-linux-gnu/libKF6Crash.so.6.24.0 
+0x00007f47b0028000 0x00007f47b0029000 0x1000             0xd000             r--p  /usr/lib/x86_64-linux-gnu/libKF6Crash.so.6.24.0 
+0x00007f47b0029000 0x00007f47b002a000 0x1000             0xe000             rw-p  /usr/lib/x86_64-linux-gnu/libKF6Crash.so.6.24.0 
+0x00007f47b002a000 0x00007f47b002c000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0 
+0x00007f47b002c000 0x00007f47b0033000 0x7000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0 
+0x00007f47b0033000 0x00007f47b0034000 0x1000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0 
+0x00007f47b0034000 0x00007f47b0035000 0x1000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0 
+0x00007f47b0035000 0x00007f47b0036000 0x1000             0xa000             rw-p  /usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0 
+0x00007f47b0036000 0x00007f47b0038000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0 
+0x00007f47b0038000 0x00007f47b003b000 0x3000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0 
+0x00007f47b003b000 0x00007f47b003c000 0x1000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0 
+0x00007f47b003c000 0x00007f47b003d000 0x1000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0 
+0x00007f47b003d000 0x00007f47b003e000 0x1000             0x6000             rw-p  /usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0 
+0x00007f47b003e000 0x00007f47b0040000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-res.so.0.0.0 
+0x00007f47b0040000 0x00007f47b0041000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-res.so.0.0.0 
+0x00007f47b0041000 0x00007f47b0042000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-res.so.0.0.0 
+0x00007f47b0042000 0x00007f47b0043000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-res.so.0.0.0 
+0x00007f47b0043000 0x00007f47b0044000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-res.so.0.0.0 
+0x00007f47b0044000 0x00007f47b0063000 0x1f000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigWidgets.so.6.24.0 
+0x00007f47b0063000 0x00007f47b0094000 0x31000            0x1f000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6ConfigWidgets.so.6.24.0 
+0x00007f47b0094000 0x00007f47b009e000 0xa000             0x50000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigWidgets.so.6.24.0 
+0x00007f47b009e000 0x00007f47b00a4000 0x6000             0x59000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigWidgets.so.6.24.0 
+0x00007f47b00a4000 0x00007f47b00a5000 0x1000             0x5f000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6ConfigWidgets.so.6.24.0 
+0x00007f47b00a5000 0x00007f47b00b1000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6GlobalAccel.so.6.24.0 
+0x00007f47b00b1000 0x00007f47b00d2000 0x21000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6GlobalAccel.so.6.24.0 
+0x00007f47b00d2000 0x00007f47b00d9000 0x7000             0x2d000            r--p  /usr/lib/x86_64-linux-gnu/libKF6GlobalAccel.so.6.24.0 
+0x00007f47b00d9000 0x00007f47b00db000 0x2000             0x34000            r--p  /usr/lib/x86_64-linux-gnu/libKF6GlobalAccel.so.6.24.0 
+0x00007f47b00db000 0x00007f47b00dc000 0x1000             0x36000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6GlobalAccel.so.6.24.0 
+0x00007f47b00dc000 0x00007f47b00e6000 0xa000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Xml.so.6.10.2 
+0x00007f47b00e6000 0x00007f47b00fd000 0x17000            0xa000             r-xp  /usr/lib/x86_64-linux-gnu/libQt6Xml.so.6.10.2 
+0x00007f47b00fd000 0x00007f47b0102000 0x5000             0x21000            r--p  /usr/lib/x86_64-linux-gnu/libQt6Xml.so.6.10.2 
+0x00007f47b0102000 0x00007f47b0103000 0x1000             0x26000            r--p  /usr/lib/x86_64-linux-gnu/libQt6Xml.so.6.10.2 
+0x00007f47b0103000 0x00007f47b0104000 0x1000             0x27000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6Xml.so.6.10.2 
+0x00007f47b0104000 0x00007f47b010e000 0xa000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Bookmarks.so.6.24.0 
+0x00007f47b010e000 0x00007f47b011f000 0x11000            0xa000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6Bookmarks.so.6.24.0 
+0x00007f47b011f000 0x00007f47b0122000 0x3000             0x1b000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Bookmarks.so.6.24.0 
+0x00007f47b0122000 0x00007f47b0123000 0x1000             0x1e000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Bookmarks.so.6.24.0 
+0x00007f47b0123000 0x00007f47b0124000 0x1000             0x1f000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6Bookmarks.so.6.24.0 
+0x00007f47b0124000 0x00007f47b0152000 0x2e000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Solid.so.6.24.0 
+0x00007f47b0152000 0x00007f47b01dd000 0x8b000            0x2e000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6Solid.so.6.24.0 
+0x00007f47b01dd000 0x00007f47b0205000 0x28000            0xb9000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Solid.so.6.24.0 
+0x00007f47b0205000 0x00007f47b0211000 0xc000             0xe1000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Solid.so.6.24.0 
+0x00007f47b0211000 0x00007f47b0215000 0x4000             0xed000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6Solid.so.6.24.0 
+0x00007f47b0215000 0x00007f47b0220000 0xb000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6BookmarksWidgets.so.6.24.0 
+0x00007f47b0220000 0x00007f47b022d000 0xd000             0xb000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6BookmarksWidgets.so.6.24.0 
+0x00007f47b022d000 0x00007f47b0230000 0x3000             0x18000            r--p  /usr/lib/x86_64-linux-gnu/libKF6BookmarksWidgets.so.6.24.0 
+0x00007f47b0230000 0x00007f47b0232000 0x2000             0x1a000            r--p  /usr/lib/x86_64-linux-gnu/libKF6BookmarksWidgets.so.6.24.0 
+0x00007f47b0232000 0x00007f47b0233000 0x1000             0x1c000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6BookmarksWidgets.so.6.24.0 
+0x00007f47b0233000 0x00007f47b023f000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6IconWidgets.so.6.24.0 
+0x00007f47b023f000 0x00007f47b0249000 0xa000             0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6IconWidgets.so.6.24.0 
+0x00007f47b0249000 0x00007f47b024b000 0x2000             0x16000            r--p  /usr/lib/x86_64-linux-gnu/libKF6IconWidgets.so.6.24.0 
+0x00007f47b024b000 0x00007f47b024d000 0x2000             0x18000            r--p  /usr/lib/x86_64-linux-gnu/libKF6IconWidgets.so.6.24.0 
+0x00007f47b024d000 0x00007f47b024e000 0x1000             0x1a000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6IconWidgets.so.6.24.0 
+0x00007f47b024e000 0x00007f47b0265000 0x17000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6ItemViews.so.6.24.0 
+0x00007f47b0265000 0x00007f47b0290000 0x2b000            0x17000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6ItemViews.so.6.24.0 
+0x00007f47b0290000 0x00007f47b0298000 0x8000             0x42000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ItemViews.so.6.24.0 
+0x00007f47b0298000 0x00007f47b029b000 0x3000             0x49000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ItemViews.so.6.24.0 
+0x00007f47b029b000 0x00007f47b029c000 0x1000             0x4c000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6ItemViews.so.6.24.0 
+0x00007f47b029c000 0x00007f47b0321000 0x85000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6WidgetsAddons.so.6.24.0 
+0x00007f47b0321000 0x00007f47b03ff000 0xde000            0x85000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6WidgetsAddons.so.6.24.0 
+0x00007f47b03ff000 0x00007f47b050c000 0x10d000           0x163000           r--p  /usr/lib/x86_64-linux-gnu/libKF6WidgetsAddons.so.6.24.0 
+0x00007f47b050c000 0x00007f47b051f000 0x13000            0x270000           r--p  /usr/lib/x86_64-linux-gnu/libKF6WidgetsAddons.so.6.24.0 
+0x00007f47b051f000 0x00007f47b0524000 0x5000             0x283000           rw-p  /usr/lib/x86_64-linux-gnu/libKF6WidgetsAddons.so.6.24.0 
+0x00007f47b0524000 0x00007f47b0525000 0x1000             0x0                rw-p   
+0x00007f47b0525000 0x00007f47b0536000 0x11000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6I18n.so.6.24.0 
+0x00007f47b0536000 0x00007f47b0597000 0x61000            0x11000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6I18n.so.6.24.0 
+0x00007f47b0597000 0x00007f47b05a2000 0xb000             0x72000            r--p  /usr/lib/x86_64-linux-gnu/libKF6I18n.so.6.24.0 
+0x00007f47b05a2000 0x00007f47b05a6000 0x4000             0x7d000            r--p  /usr/lib/x86_64-linux-gnu/libKF6I18n.so.6.24.0 
+0x00007f47b05a6000 0x00007f47b05a7000 0x1000             0x81000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6I18n.so.6.24.0 
+0x00007f47b05a7000 0x00007f47b0620000 0x79000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6WaylandClient.so.6.10.2 
+0x00007f47b0620000 0x00007f47b0690000 0x70000            0x79000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6WaylandClient.so.6.10.2 
+0x00007f47b0690000 0x00007f47b06b8000 0x28000            0xe9000            r--p  /usr/lib/x86_64-linux-gnu/libQt6WaylandClient.so.6.10.2 
+0x00007f47b06b8000 0x00007f47b06c6000 0xe000             0x110000           r--p  /usr/lib/x86_64-linux-gnu/libQt6WaylandClient.so.6.10.2 
+0x00007f47b06c6000 0x00007f47b06c8000 0x2000             0x11e000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6WaylandClient.so.6.10.2 
+0x00007f47b06c8000 0x00007f47b06cb000 0x3000             0x0                rw-p   
+0x00007f47b06cb000 0x00007f47b06e7000 0x1c000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6GuiAddons.so.6.24.0 
+0x00007f47b06e7000 0x00007f47b071d000 0x36000            0x1c000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6GuiAddons.so.6.24.0 
+0x00007f47b071d000 0x00007f47b072a000 0xd000             0x52000            r--p  /usr/lib/x86_64-linux-gnu/libKF6GuiAddons.so.6.24.0 
+0x00007f47b072a000 0x00007f47b0730000 0x6000             0x5e000            r--p  /usr/lib/x86_64-linux-gnu/libKF6GuiAddons.so.6.24.0 
+0x00007f47b0730000 0x00007f47b0732000 0x2000             0x64000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6GuiAddons.so.6.24.0 
+0x00007f47b0732000 0x00007f47b0751000 0x1f000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigCore.so.6.24.0 
+0x00007f47b0751000 0x00007f47b07a0000 0x4f000            0x1f000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6ConfigCore.so.6.24.0 
+0x00007f47b07a0000 0x00007f47b07b0000 0x10000            0x6e000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigCore.so.6.24.0 
+0x00007f47b07b0000 0x00007f47b07b4000 0x4000             0x7e000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigCore.so.6.24.0 
+0x00007f47b07b4000 0x00007f47b07b5000 0x1000             0x82000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6ConfigCore.so.6.24.0 
+0x00007f47b07b5000 0x00007f47b07c6000 0x11000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigGui.so.6.24.0 
+0x00007f47b07c6000 0x00007f47b07e6000 0x20000            0x11000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6ConfigGui.so.6.24.0 
+0x00007f47b07e6000 0x00007f47b07ed000 0x7000             0x31000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigGui.so.6.24.0 
+0x00007f47b07ed000 0x00007f47b07f0000 0x3000             0x37000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ConfigGui.so.6.24.0 
+0x00007f47b07f0000 0x00007f47b07f2000 0x2000             0x3a000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6ConfigGui.so.6.24.0 
+0x00007f47b07f2000 0x00007f47b07f9000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6ColorScheme.so.6.24.0 
+0x00007f47b07f9000 0x00007f47b0806000 0xd000             0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6ColorScheme.so.6.24.0 
+0x00007f47b0806000 0x00007f47b0809000 0x3000             0x14000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ColorScheme.so.6.24.0 
+0x00007f47b0809000 0x00007f47b080a000 0x1000             0x17000            r--p  /usr/lib/x86_64-linux-gnu/libKF6ColorScheme.so.6.24.0 
+0x00007f47b080a000 0x00007f47b080b000 0x1000             0x18000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6ColorScheme.so.6.24.0 
+0x00007f47b080b000 0x00007f47b0817000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6IconThemes.so.6.24.0 
+0x00007f47b0817000 0x00007f47b083a000 0x23000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libKF6IconThemes.so.6.24.0 
+0x00007f47b083a000 0x00007f47b0840000 0x6000             0x2f000            r--p  /usr/lib/x86_64-linux-gnu/libKF6IconThemes.so.6.24.0 
+0x00007f47b0840000 0x00007f47b0842000 0x2000             0x34000            r--p  /usr/lib/x86_64-linux-gnu/libKF6IconThemes.so.6.24.0 
+0x00007f47b0842000 0x00007f47b0843000 0x1000             0x36000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6IconThemes.so.6.24.0 
+0x00007f47b0843000 0x00007f47b086a000 0x27000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6CoreAddons.so.6.24.0 
+0x00007f47b086a000 0x00007f47b08f2000 0x88000            0x27000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6CoreAddons.so.6.24.0 
+0x00007f47b08f2000 0x00007f47b0931000 0x3f000            0xaf000            r--p  /usr/lib/x86_64-linux-gnu/libKF6CoreAddons.so.6.24.0 
+0x00007f47b0931000 0x00007f47b0936000 0x5000             0xee000            r--p  /usr/lib/x86_64-linux-gnu/libKF6CoreAddons.so.6.24.0 
+0x00007f47b0936000 0x00007f47b0938000 0x2000             0xf3000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6CoreAddons.so.6.24.0 
+0x00007f47b0938000 0x00007f47b094c000 0x14000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Completion.so.6.24.0 
+0x00007f47b094c000 0x00007f47b096c000 0x20000            0x14000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6Completion.so.6.24.0 
+0x00007f47b096c000 0x00007f47b0973000 0x7000             0x34000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Completion.so.6.24.0 
+0x00007f47b0973000 0x00007f47b0976000 0x3000             0x3a000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Completion.so.6.24.0 
+0x00007f47b0976000 0x00007f47b0977000 0x1000             0x3d000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6Completion.so.6.24.0 
+0x00007f47b0977000 0x00007f47b0987000 0x10000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6Service.so.6.24.0 
+0x00007f47b0987000 0x00007f47b09d9000 0x52000            0x10000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6Service.so.6.24.0 
+0x00007f47b09d9000 0x00007f47b09e3000 0xa000             0x62000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Service.so.6.24.0 
+0x00007f47b09e3000 0x00007f47b09e5000 0x2000             0x6b000            r--p  /usr/lib/x86_64-linux-gnu/libKF6Service.so.6.24.0 
+0x00007f47b09e5000 0x00007f47b09e6000 0x1000             0x6d000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6Service.so.6.24.0 
+0x00007f47b09e6000 0x00007f47b09f9000 0x13000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6JobWidgets.so.6.24.0 
+0x00007f47b09f9000 0x00007f47b0a22000 0x29000            0x13000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6JobWidgets.so.6.24.0 
+0x00007f47b0a22000 0x00007f47b0a2d000 0xb000             0x3c000            r--p  /usr/lib/x86_64-linux-gnu/libKF6JobWidgets.so.6.24.0 
+0x00007f47b0a2d000 0x00007f47b0a31000 0x4000             0x46000            r--p  /usr/lib/x86_64-linux-gnu/libKF6JobWidgets.so.6.24.0 
+0x00007f47b0a31000 0x00007f47b0a33000 0x2000             0x4a000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6JobWidgets.so.6.24.0 
+0x00007f47b0a33000 0x00007f47b0a75000 0x42000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6.24.0 
+0x00007f47b0a75000 0x00007f47b0b79000 0x104000           0x42000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6.24.0 
+0x00007f47b0b79000 0x00007f47b0baa000 0x31000            0x146000           r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6.24.0 
+0x00007f47b0baa000 0x00007f47b0bb3000 0x9000             0x177000           r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6.24.0 
+0x00007f47b0bb3000 0x00007f47b0bb6000 0x3000             0x180000           rw-p  /usr/lib/x86_64-linux-gnu/libKF6KIOCore.so.6.24.0 
+0x00007f47b0bb6000 0x00007f47b0bb7000 0x1000             0x0                rw-p   
+0x00007f47b0bb7000 0x00007f47b0bba000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2 
+0x00007f47b0bba000 0x00007f47b0bc0000 0x6000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2 
+0x00007f47b0bc0000 0x00007f47b0bc2000 0x2000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2 
+0x00007f47b0bc2000 0x00007f47b0bc3000 0x1000             0xa000             r--p  /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2 
+0x00007f47b0bc3000 0x00007f47b0bc4000 0x1000             0xb000             rw-p  /usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2 
+0x00007f47b0bc4000 0x00007f47b0bca000 0x6000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.24.0 
+0x00007f47b0bca000 0x00007f47b0bd1000 0x7000             0x6000             r-xp  /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.24.0 
+0x00007f47b0bd1000 0x00007f47b0bd4000 0x3000             0xd000             r--p  /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.24.0 
+0x00007f47b0bd4000 0x00007f47b0bd6000 0x2000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.24.0 
+0x00007f47b0bd6000 0x00007f47b0bd7000 0x1000             0x11000            rw-p  /usr/lib/x86_64-linux-gnu/libwayland-client.so.0.24.0 
+0x00007f47b0bd7000 0x00007f47b0bee000 0x17000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6.24.0 
+0x00007f47b0bee000 0x00007f47b0c23000 0x35000            0x17000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6.24.0 
+0x00007f47b0c23000 0x00007f47b0c30000 0xd000             0x4c000            r--p  /usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6.24.0 
+0x00007f47b0c30000 0x00007f47b0c33000 0x3000             0x58000            r--p  /usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6.24.0 
+0x00007f47b0c33000 0x00007f47b0c34000 0x1000             0x5b000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6WindowSystem.so.6.24.0 
+0x00007f47b0c34000 0x00007f47b0c69000 0x35000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6XmlGui.so.6.24.0 
+0x00007f47b0c69000 0x00007f47b0ceb000 0x82000            0x35000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6XmlGui.so.6.24.0 
+0x00007f47b0ceb000 0x00007f47b0d09000 0x1e000            0xb7000            r--p  /usr/lib/x86_64-linux-gnu/libKF6XmlGui.so.6.24.0 
+0x00007f47b0d09000 0x00007f47b0d11000 0x8000             0xd5000            r--p  /usr/lib/x86_64-linux-gnu/libKF6XmlGui.so.6.24.0 
+0x00007f47b0d11000 0x00007f47b0d13000 0x2000             0xdd000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6XmlGui.so.6.24.0 
+0x00007f47b0d13000 0x00007f47b0d24000 0x11000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6StatusNotifierItem.so.6.24.0 
+0x00007f47b0d24000 0x00007f47b0d55000 0x31000            0x11000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6StatusNotifierItem.so.6.24.0 
+0x00007f47b0d55000 0x00007f47b0d62000 0xd000             0x42000            r--p  /usr/lib/x86_64-linux-gnu/libKF6StatusNotifierItem.so.6.24.0 
+0x00007f47b0d62000 0x00007f47b0d65000 0x3000             0x4e000            r--p  /usr/lib/x86_64-linux-gnu/libKF6StatusNotifierItem.so.6.24.0 
+0x00007f47b0d65000 0x00007f47b0d67000 0x2000             0x51000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6StatusNotifierItem.so.6.24.0 
+0x00007f47b0d67000 0x00007f47b0d8a000 0x23000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOGui.so.6.24.0 
+0x00007f47b0d8a000 0x00007f47b0dd6000 0x4c000            0x23000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6KIOGui.so.6.24.0 
+0x00007f47b0dd6000 0x00007f47b0de6000 0x10000            0x6f000            r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOGui.so.6.24.0 
+0x00007f47b0de6000 0x00007f47b0deb000 0x5000             0x7e000            r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOGui.so.6.24.0 
+0x00007f47b0deb000 0x00007f47b0ded000 0x2000             0x83000            rw-p  /usr/lib/x86_64-linux-gnu/libKF6KIOGui.so.6.24.0 
+0x00007f47b0ded000 0x00007f47b0e3f000 0x52000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOWidgets.so.6.24.0 
+0x00007f47b0e3f000 0x00007f47b0f02000 0xc3000            0x52000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6KIOWidgets.so.6.24.0 
+0x00007f47b0f02000 0x00007f47b0f26000 0x24000            0x115000           r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOWidgets.so.6.24.0 
+0x00007f47b0f26000 0x00007f47b0f32000 0xc000             0x139000           r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOWidgets.so.6.24.0 
+0x00007f47b0f32000 0x00007f47b0f36000 0x4000             0x145000           rw-p  /usr/lib/x86_64-linux-gnu/libKF6KIOWidgets.so.6.24.0 
+0x00007f47b0f36000 0x00007f47b0f7e000 0x48000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOFileWidgets.so.6.24.0 
+0x00007f47b0f7e000 0x00007f47b1031000 0xb3000            0x48000            r-xp  /usr/lib/x86_64-linux-gnu/libKF6KIOFileWidgets.so.6.24.0 
+0x00007f47b1031000 0x00007f47b105a000 0x29000            0xfb000            r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOFileWidgets.so.6.24.0 
+0x00007f47b105a000 0x00007f47b1064000 0xa000             0x124000           r--p  /usr/lib/x86_64-linux-gnu/libKF6KIOFileWidgets.so.6.24.0 
+0x00007f47b1064000 0x00007f47b1066000 0x2000             0x12e000           rw-p  /usr/lib/x86_64-linux-gnu/libKF6KIOFileWidgets.so.6.24.0 
+0x00007f47b1066000 0x00007f47b1067000 0x1000             0x0                rw-p   
+0x00007f47b1067000 0x00007f47b106e000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickControls2.so.6.10.2 
+0x00007f47b106e000 0x00007f47b107b000 0xd000             0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libQt6QuickControls2.so.6.10.2 
+0x00007f47b107b000 0x00007f47b107e000 0x3000             0x14000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickControls2.so.6.10.2 
+0x00007f47b107e000 0x00007f47b107f000 0x1000             0x17000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickControls2.so.6.10.2 
+0x00007f47b107f000 0x00007f47b1080000 0x1000             0x18000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6QuickControls2.so.6.10.2 
+0x00007f47b1080000 0x00007f47b109e000 0x1e000            0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes/KDEPlasmaPlatformTheme6.so 
+0x00007f47b109e000 0x00007f47b10d8000 0x3a000            0x1e000            r-xp  /usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes/KDEPlasmaPlatformTheme6.so 
+0x00007f47b10d8000 0x00007f47b10e3000 0xb000             0x58000            r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes/KDEPlasmaPlatformTheme6.so 
+0x00007f47b10e3000 0x00007f47b10e8000 0x5000             0x63000            r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes/KDEPlasmaPlatformTheme6.so 
+0x00007f47b10e8000 0x00007f47b10ea000 0x2000             0x68000            rw-p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platformthemes/KDEPlasmaPlatformTheme6.so 
+0x00007f47b10ea000 0x00007f47b30ec000 0x2002000          0x0                rw-p   
+0x00007f47b30ec000 0x00007f47b30ee000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0 
+0x00007f47b30ee000 0x00007f47b30f3000 0x5000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0 
+0x00007f47b30f3000 0x00007f47b30f4000 0x1000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0 
+0x00007f47b30f4000 0x00007f47b30f5000 0x1000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0 
+0x00007f47b30f5000 0x00007f47b30f6000 0x1000             0x8000             rw-p  /usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0 
+0x00007f47b30f6000 0x00007f47b30f9000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0 
+0x00007f47b30f9000 0x00007f47b30fb000 0x2000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0 
+0x00007f47b30fb000 0x00007f47b30fc000 0x1000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0 
+0x00007f47b30fc000 0x00007f47b30fd000 0x1000             0x6000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0 
+0x00007f47b30fd000 0x00007f47b30fe000 0x1000             0x7000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-util.so.1.0.0 
+0x00007f47b30fe000 0x00007f47b3101000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.13.1 
+0x00007f47b3101000 0x00007f47b3105000 0x4000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.13.1 
+0x00007f47b3105000 0x00007f47b3106000 0x1000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.13.1 
+0x00007f47b3106000 0x00007f47b3107000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.13.1 
+0x00007f47b3107000 0x00007f47b3108000 0x1000             0x9000             rw-p  /usr/lib/x86_64-linux-gnu/libxkbcommon-x11.so.0.13.1 
+0x00007f47b3108000 0x00007f47b3116000 0xe000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-xinput.so.0.1.0 
+0x00007f47b3116000 0x00007f47b3123000 0xd000             0xe000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-xinput.so.0.1.0 
+0x00007f47b3123000 0x00007f47b3129000 0x6000             0x1b000            r--p  /usr/lib/x86_64-linux-gnu/libxcb-xinput.so.0.1.0 
+0x00007f47b3129000 0x00007f47b312b000 0x2000             0x20000            r--p  /usr/lib/x86_64-linux-gnu/libxcb-xinput.so.0.1.0 
+0x00007f47b312b000 0x00007f47b312c000 0x1000             0x22000            rw-p  /usr/lib/x86_64-linux-gnu/libxcb-xinput.so.0.1.0 
+0x00007f47b312c000 0x00007f47b3130000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libICE.so.6.3.0 
+0x00007f47b3130000 0x00007f47b3140000 0x10000            0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libICE.so.6.3.0 
+0x00007f47b3140000 0x00007f47b3144000 0x4000             0x14000            r--p  /usr/lib/x86_64-linux-gnu/libICE.so.6.3.0 
+0x00007f47b3144000 0x00007f47b3145000 0x1000             0x17000            r--p  /usr/lib/x86_64-linux-gnu/libICE.so.6.3.0 
+0x00007f47b3145000 0x00007f47b3146000 0x1000             0x18000            rw-p  /usr/lib/x86_64-linux-gnu/libICE.so.6.3.0 
+0x00007f47b3146000 0x00007f47b3149000 0x3000             0x0                rw-p   
+0x00007f47b3149000 0x00007f47b314b000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libSM.so.6.0.1 
+0x00007f47b314b000 0x00007f47b3151000 0x6000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libSM.so.6.0.1 
+0x00007f47b3151000 0x00007f47b3152000 0x1000             0x8000             r--p  /usr/lib/x86_64-linux-gnu/libSM.so.6.0.1 
+0x00007f47b3152000 0x00007f47b3153000 0x1000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libSM.so.6.0.1 
+0x00007f47b3153000 0x00007f47b3154000 0x1000             0xa000             rw-p  /usr/lib/x86_64-linux-gnu/libSM.so.6.0.1 
+0x00007f47b3154000 0x00007f47b3155000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0 
+0x00007f47b3155000 0x00007f47b3156000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0 
+0x00007f47b3156000 0x00007f47b3157000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0 
+0x00007f47b3157000 0x00007f47b3158000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0 
+0x00007f47b3158000 0x00007f47b3159000 0x1000             0x3000             rw-p  /usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0 
+0x00007f47b3159000 0x00007f47b3163000 0xa000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0 
+0x00007f47b3163000 0x00007f47b3171000 0xe000             0xa000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0 
+0x00007f47b3171000 0x00007f47b3176000 0x5000             0x18000            r--p  /usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0 
+0x00007f47b3176000 0x00007f47b3177000 0x1000             0x1c000            r--p  /usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0 
+0x00007f47b3177000 0x00007f47b3178000 0x1000             0x1d000            rw-p  /usr/lib/x86_64-linux-gnu/libxcb-xkb.so.1.0.0 
+0x00007f47b3178000 0x00007f47b317b000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0 
+0x00007f47b317b000 0x00007f47b317e000 0x3000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0 
+0x00007f47b317e000 0x00007f47b3180000 0x2000             0x6000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0 
+0x00007f47b3180000 0x00007f47b3181000 0x1000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0 
+0x00007f47b3181000 0x00007f47b3182000 0x1000             0x8000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0 
+0x00007f47b3182000 0x00007f47b3185000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0 
+0x00007f47b3185000 0x00007f47b3188000 0x3000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0 
+0x00007f47b3188000 0x00007f47b3189000 0x1000             0x6000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0 
+0x00007f47b3189000 0x00007f47b318a000 0x1000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0 
+0x00007f47b318a000 0x00007f47b318b000 0x1000             0x8000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0 
+0x00007f47b318b000 0x00007f47b318c000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0 
+0x00007f47b318c000 0x00007f47b318d000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0 
+0x00007f47b318d000 0x00007f47b318e000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0 
+0x00007f47b318e000 0x00007f47b318f000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0 
+0x00007f47b318f000 0x00007f47b3190000 0x1000             0x3000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0 
+0x00007f47b3190000 0x00007f47b3191000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0 
+0x00007f47b3191000 0x00007f47b3192000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0 
+0x00007f47b3192000 0x00007f47b3193000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0 
+0x00007f47b3193000 0x00007f47b3194000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0 
+0x00007f47b3194000 0x00007f47b3195000 0x1000             0x3000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0 
+0x00007f47b3195000 0x00007f47b3197000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0 
+0x00007f47b3197000 0x00007f47b3199000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0 
+0x00007f47b3199000 0x00007f47b319a000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0 
+0x00007f47b319a000 0x00007f47b319b000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0 
+0x00007f47b319b000 0x00007f47b319c000 0x1000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-render-util.so.0.0.0 
+0x00007f47b319c000 0x00007f47b31a1000 0x5000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0 
+0x00007f47b31a1000 0x00007f47b31a6000 0x5000             0x5000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0 
+0x00007f47b31a6000 0x00007f47b31a9000 0x3000             0xa000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0 
+0x00007f47b31a9000 0x00007f47b31aa000 0x1000             0xc000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0 
+0x00007f47b31aa000 0x00007f47b31ab000 0x1000             0xd000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0 
+0x00007f47b31ab000 0x00007f47b31b2000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0 
+0x00007f47b31b2000 0x00007f47b31b7000 0x5000             0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0 
+0x00007f47b31b7000 0x00007f47b31ba000 0x3000             0xc000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0 
+0x00007f47b31ba000 0x00007f47b31bb000 0x1000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0 
+0x00007f47b31bb000 0x00007f47b31bc000 0x1000             0x10000            rw-p  /usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0 
+0x00007f47b31bc000 0x00007f47b31bd000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0 
+0x00007f47b31bd000 0x00007f47b31be000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0 
+0x00007f47b31be000 0x00007f47b31bf000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0 
+0x00007f47b31bf000 0x00007f47b31c0000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0 
+0x00007f47b31c0000 0x00007f47b31c1000 0x1000             0x3000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-keysyms.so.1.0.0 
+0x00007f47b31c1000 0x00007f47b31c2000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0 
+0x00007f47b31c2000 0x00007f47b31c4000 0x2000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0 
+0x00007f47b31c4000 0x00007f47b31c5000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0 
+0x00007f47b31c5000 0x00007f47b31c6000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0 
+0x00007f47b31c6000 0x00007f47b31c7000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-image.so.0.0.0 
+0x00007f47b31c7000 0x00007f47b31c9000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0 
+0x00007f47b31c9000 0x00007f47b31cb000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0 
+0x00007f47b31cb000 0x00007f47b31cc000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0 
+0x00007f47b31cc000 0x00007f47b31cd000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0 
+0x00007f47b31cd000 0x00007f47b31ce000 0x1000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-icccm.so.4.0.0 
+0x00007f47b31ce000 0x00007f47b31d0000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb-cursor.so.0.0.0 
+0x00007f47b31d0000 0x00007f47b31d2000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb-cursor.so.0.0.0 
+0x00007f47b31d2000 0x00007f47b31d3000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-cursor.so.0.0.0 
+0x00007f47b31d3000 0x00007f47b31d4000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libxcb-cursor.so.0.0.0 
+0x00007f47b31d4000 0x00007f47b31d5000 0x1000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libxcb-cursor.so.0.0.0 
+0x00007f47b31d5000 0x00007f47b31fe000 0x29000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6XcbQpa.so.6.10.2 
+0x00007f47b31fe000 0x00007f47b3268000 0x6a000            0x29000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6XcbQpa.so.6.10.2 
+0x00007f47b3268000 0x00007f47b327a000 0x12000            0x93000            r--p  /usr/lib/x86_64-linux-gnu/libQt6XcbQpa.so.6.10.2 
+0x00007f47b327a000 0x00007f47b3280000 0x6000             0xa4000            r--p  /usr/lib/x86_64-linux-gnu/libQt6XcbQpa.so.6.10.2 
+0x00007f47b3280000 0x00007f47b3281000 0x1000             0xaa000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6XcbQpa.so.6.10.2 
+0x00007f47b3281000 0x00007f47b3283000 0x2000             0x0                rw-p   
+0x00007f47b3283000 0x00007f47b3284000 0x1000             0x0                r--p  /usr/share/locale/en/LC_MESSAGES/kwidgetsaddons6_qt.qm 
+0x00007f47b3284000 0x00007f47b3285000 0x1000             0x0                r--p  /usr/share/locale/en/LC_MESSAGES/kjobwidgets6_qt.qm 
+0x00007f47b3285000 0x00007f47b3286000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0 
+0x00007f47b3286000 0x00007f47b3289000 0x3000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0 
+0x00007f47b3289000 0x00007f47b328a000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0 
+0x00007f47b328a000 0x00007f47b328b000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0 
+0x00007f47b328b000 0x00007f47b328c000 0x1000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0 
+0x00007f47b328c000 0x00007f47b328f000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so 
+0x00007f47b328f000 0x00007f47b3291000 0x2000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so 
+0x00007f47b3291000 0x00007f47b3292000 0x1000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so 
+0x00007f47b3292000 0x00007f47b3293000 0x1000             0x6000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so 
+0x00007f47b3293000 0x00007f47b3294000 0x1000             0x7000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so 
+0x00007f47b3294000 0x00007f47b3296000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqxcb.so 
+0x00007f47b3296000 0x00007f47b3297000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqxcb.so 
+0x00007f47b3297000 0x00007f47b3298000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqxcb.so 
+0x00007f47b3298000 0x00007f47b3299000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqxcb.so 
+0x00007f47b3299000 0x00007f47b329a000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/qt6/plugins/platforms/libqxcb.so 
+0x00007f47b329a000 0x00007f47b32f5000 0x5b000            0x0                r--p  /usr/lib/locale/C.utf8/LC_CTYPE 
+0x00007f47b32f5000 0x00007f47b32f6000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_NUMERIC 
+0x00007f47b32f6000 0x00007f47b32f7000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_TIME 
+0x00007f47b32f7000 0x00007f47b32f8000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_COLLATE 
+0x00007f47b32f8000 0x00007f47b3307000 0xf000             0x0                rw-p   
+0x00007f47b3307000 0x00007f47b330e000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0 
+0x00007f47b330e000 0x00007f47b3333000 0x25000            0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0 
+0x00007f47b3333000 0x00007f47b333c000 0x9000             0x2c000            r--p  /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0 
+0x00007f47b333c000 0x00007f47b3342000 0x6000             0x34000            r--p  /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0 
+0x00007f47b3342000 0x00007f47b3343000 0x1000             0x3a000            rw-p  /usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0 
+0x00007f47b3343000 0x00007f47b3346000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.5 
+0x00007f47b3346000 0x00007f47b3355000 0xf000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.5 
+0x00007f47b3355000 0x00007f47b3358000 0x3000             0x12000            r--p  /usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.5 
+0x00007f47b3358000 0x00007f47b3359000 0x1000             0x15000            r--p  /usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.5 
+0x00007f47b3359000 0x00007f47b335a000 0x1000             0x16000            rw-p  /usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.5 
+0x00007f47b335a000 0x00007f47b335c000 0x2000             0x0                rw-p   
+0x00007f47b335c000 0x00007f47b339e000 0x42000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.8 
+0x00007f47b339e000 0x00007f47b3482000 0xe4000            0x42000            r-xp  /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.8 
+0x00007f47b3482000 0x00007f47b3515000 0x93000            0x126000           r--p  /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.8 
+0x00007f47b3515000 0x00007f47b3527000 0x12000            0x1b8000           r--p  /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.8 
+0x00007f47b3527000 0x00007f47b3536000 0xf000             0x1ca000           rw-p  /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.8 
+0x00007f47b3536000 0x00007f47b3537000 0x1000             0x0                rw-p   
+0x00007f47b3537000 0x00007f47b361b000 0xe4000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libcrypto.so.3 
+0x00007f47b361b000 0x00007f47b39af000 0x394000           0xe4000            r-xp  /usr/lib/x86_64-linux-gnu/libcrypto.so.3 
+0x00007f47b39af000 0x00007f47b3ace000 0x11f000           0x478000           r--p  /usr/lib/x86_64-linux-gnu/libcrypto.so.3 
+0x00007f47b3ace000 0x00007f47b3b4b000 0x7d000            0x597000           r--p  /usr/lib/x86_64-linux-gnu/libcrypto.so.3 
+0x00007f47b3b4b000 0x00007f47b3b4e000 0x3000             0x614000           rw-p  /usr/lib/x86_64-linux-gnu/libcrypto.so.3 
+0x00007f47b3b4e000 0x00007f47b3b51000 0x3000             0x0                rw-p   
+0x00007f47b3b51000 0x00007f47b3b73000 0x22000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libssl.so.3 
+0x00007f47b3b73000 0x00007f47b3c26000 0xb3000            0x22000            r-xp  /usr/lib/x86_64-linux-gnu/libssl.so.3 
+0x00007f47b3c26000 0x00007f47b3c54000 0x2e000            0xd5000            r--p  /usr/lib/x86_64-linux-gnu/libssl.so.3 
+0x00007f47b3c54000 0x00007f47b3c5e000 0xa000             0x102000           r--p  /usr/lib/x86_64-linux-gnu/libssl.so.3 
+0x00007f47b3c5e000 0x00007f47b3c62000 0x4000             0x10c000           rw-p  /usr/lib/x86_64-linux-gnu/libssl.so.3 
+0x00007f47b3c62000 0x00007f47b3c65000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25 
+0x00007f47b3c65000 0x00007f47b3c76000 0x11000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25 
+0x00007f47b3c76000 0x00007f47b3c7b000 0x5000             0x14000            r--p  /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25 
+0x00007f47b3c7b000 0x00007f47b3c7c000 0x1000             0x18000            r--p  /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25 
+0x00007f47b3c7c000 0x00007f47b3c7d000 0x1000             0x19000            rw-p  /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25 
+0x00007f47b3c7d000 0x00007f47b3c87000 0xa000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0 
+0x00007f47b3c87000 0x00007f47b3cec000 0x65000            0xa000             r-xp  /usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0 
+0x00007f47b3cec000 0x00007f47b3d01000 0x15000            0x6f000            r--p  /usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0 
+0x00007f47b3d01000 0x00007f47b3d02000 0x1000             0x83000            r--p  /usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0 
+0x00007f47b3d02000 0x00007f47b3d03000 0x1000             0x84000            rw-p  /usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0 
+0x00007f47b3d03000 0x00007f47b3d05000 0x2000             0x0                rw-p   
+0x00007f47b3d05000 0x00007f47b3d0e000 0x9000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libhogweed.so.6.11 
+0x00007f47b3d0e000 0x00007f47b3d23000 0x15000            0x9000             r-xp  /usr/lib/x86_64-linux-gnu/libhogweed.so.6.11 
+0x00007f47b3d23000 0x00007f47b3d4d000 0x2a000            0x1e000            r--p  /usr/lib/x86_64-linux-gnu/libhogweed.so.6.11 
+0x00007f47b3d4d000 0x00007f47b3d4f000 0x2000             0x47000            r--p  /usr/lib/x86_64-linux-gnu/libhogweed.so.6.11 
+0x00007f47b3d4f000 0x00007f47b3d50000 0x1000             0x49000            rw-p  /usr/lib/x86_64-linux-gnu/libhogweed.so.6.11 
+0x00007f47b3d50000 0x00007f47b3d62000 0x12000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0 
+0x00007f47b3d62000 0x00007f47b3da6000 0x44000            0x12000            r-xp  /usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0 
+0x00007f47b3da6000 0x00007f47b3f32000 0x18c000           0x56000            r--p  /usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0 
+0x00007f47b3f32000 0x00007f47b3f36000 0x4000             0x1e1000           r--p  /usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0 
+0x00007f47b3f36000 0x00007f47b3f37000 0x1000             0x1e5000           rw-p  /usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0 
+0x00007f47b3f37000 0x00007f47b3f3e000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libselinux.so.1 
+0x00007f47b3f3e000 0x00007f47b3f5f000 0x21000            0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libselinux.so.1 
+0x00007f47b3f5f000 0x00007f47b3f66000 0x7000             0x28000            r--p  /usr/lib/x86_64-linux-gnu/libselinux.so.1 
+0x00007f47b3f66000 0x00007f47b3f67000 0x1000             0x2f000            r--p  /usr/lib/x86_64-linux-gnu/libselinux.so.1 
+0x00007f47b3f67000 0x00007f47b3f68000 0x1000             0x30000            rw-p  /usr/lib/x86_64-linux-gnu/libselinux.so.1 
+0x00007f47b3f68000 0x00007f47b3f6a000 0x2000             0x0                rw-p   
+0x00007f47b3f6a000 0x00007f47b3f74000 0xa000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0 
+0x00007f47b3f74000 0x00007f47b3fac000 0x38000            0xa000             r-xp  /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0 
+0x00007f47b3fac000 0x00007f47b3fba000 0xe000             0x42000            r--p  /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0 
+0x00007f47b3fba000 0x00007f47b3fbc000 0x2000             0x50000            r--p  /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0 
+0x00007f47b3fbc000 0x00007f47b3fbd000 0x1000             0x52000            rw-p  /usr/lib/x86_64-linux-gnu/libmount.so.1.1.0 
+0x00007f47b3fbd000 0x00007f47b3fbf000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8800.0 
+0x00007f47b3fbf000 0x00007f47b3fc1000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8800.0 
+0x00007f47b3fc1000 0x00007f47b3fc2000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8800.0 
+0x00007f47b3fc2000 0x00007f47b3fc3000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8800.0 
+0x00007f47b3fc3000 0x00007f47b3fc4000 0x1000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8800.0 
+0x00007f47b3fc4000 0x00007f47b3fc6000 0x2000             0x0                rw-p   
+0x00007f47b3fc6000 0x00007f47b3ffa000 0x34000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libgnutls.so.30.41.1 
+0x00007f47b3ffa000 0x00007f47b4145000 0x14b000           0x34000            r-xp  /usr/lib/x86_64-linux-gnu/libgnutls.so.30.41.1 
+0x00007f47b4145000 0x00007f47b41c0000 0x7b000            0x17f000           r--p  /usr/lib/x86_64-linux-gnu/libgnutls.so.30.41.1 
+0x00007f47b41c0000 0x00007f47b41d1000 0x11000            0x1f9000           r--p  /usr/lib/x86_64-linux-gnu/libgnutls.so.30.41.1 
+0x00007f47b41d1000 0x00007f47b41d3000 0x2000             0x20a000           rw-p  /usr/lib/x86_64-linux-gnu/libgnutls.so.30.41.1 
+0x00007f47b41d3000 0x00007f47b41d7000 0x4000             0x0                rw-p   
+0x00007f47b41d7000 0x00007f47b41e3000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libnettle.so.8.11 
+0x00007f47b41e3000 0x00007f47b4213000 0x30000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libnettle.so.8.11 
+0x00007f47b4213000 0x00007f47b422b000 0x18000            0x3c000            r--p  /usr/lib/x86_64-linux-gnu/libnettle.so.8.11 
+0x00007f47b422b000 0x00007f47b422d000 0x2000             0x54000            r--p  /usr/lib/x86_64-linux-gnu/libnettle.so.8.11 
+0x00007f47b422d000 0x00007f47b422e000 0x1000             0x56000            rw-p  /usr/lib/x86_64-linux-gnu/libnettle.so.8.11 
+0x00007f47b422e000 0x00007f47b4230000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4 
+0x00007f47b4230000 0x00007f47b4233000 0x3000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4 
+0x00007f47b4233000 0x00007f47b4241000 0xe000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4 
+0x00007f47b4241000 0x00007f47b4242000 0x1000             0x13000            r--p  /usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4 
+0x00007f47b4242000 0x00007f47b4243000 0x1000             0x14000            rw-p  /usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4 
+0x00007f47b4243000 0x00007f47b424a000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1 
+0x00007f47b424a000 0x00007f47b4281000 0x37000            0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1 
+0x00007f47b4281000 0x00007f47b428d000 0xc000             0x3e000            r--p  /usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1 
+0x00007f47b428d000 0x00007f47b428f000 0x2000             0x4a000            r--p  /usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1 
+0x00007f47b428f000 0x00007f47b4290000 0x1000             0x4c000            rw-p  /usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1 
+0x00007f47b4290000 0x00007f47b4293000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/liblber.so.2.0.200 
+0x00007f47b4293000 0x00007f47b429b000 0x8000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/liblber.so.2.0.200 
+0x00007f47b429b000 0x00007f47b429f000 0x4000             0xb000             r--p  /usr/lib/x86_64-linux-gnu/liblber.so.2.0.200 
+0x00007f47b429f000 0x00007f47b42a0000 0x1000             0xe000             r--p  /usr/lib/x86_64-linux-gnu/liblber.so.2.0.200 
+0x00007f47b42a0000 0x00007f47b42a1000 0x1000             0xf000             rw-p  /usr/lib/x86_64-linux-gnu/liblber.so.2.0.200 
+0x00007f47b42a1000 0x00007f47b42a3000 0x2000             0x0                rw-p   
+0x00007f47b42a3000 0x00007f47b42b2000 0xf000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libldap.so.2.0.200 
+0x00007f47b42b2000 0x00007f47b42f0000 0x3e000            0xf000             r-xp  /usr/lib/x86_64-linux-gnu/libldap.so.2.0.200 
+0x00007f47b42f0000 0x00007f47b4301000 0x11000            0x4d000            r--p  /usr/lib/x86_64-linux-gnu/libldap.so.2.0.200 
+0x00007f47b4301000 0x00007f47b4303000 0x2000             0x5d000            r--p  /usr/lib/x86_64-linux-gnu/libldap.so.2.0.200 
+0x00007f47b4303000 0x00007f47b4304000 0x1000             0x5f000            rw-p  /usr/lib/x86_64-linux-gnu/libldap.so.2.0.200 
+0x00007f47b4304000 0x00007f47b4306000 0x2000             0x0                rw-p   
+0x00007f47b4306000 0x00007f47b430b000 0x5000             0x0                r--p  /usr/lib/x86_64-linux-gnu/librtmp.so.1 
+0x00007f47b430b000 0x00007f47b431d000 0x12000            0x5000             r-xp  /usr/lib/x86_64-linux-gnu/librtmp.so.1 
+0x00007f47b431d000 0x00007f47b4324000 0x7000             0x17000            r--p  /usr/lib/x86_64-linux-gnu/librtmp.so.1 
+0x00007f47b4324000 0x00007f47b4325000 0x1000             0x1d000            r--p  /usr/lib/x86_64-linux-gnu/librtmp.so.1 
+0x00007f47b4325000 0x00007f47b4326000 0x1000             0x1e000            rw-p  /usr/lib/x86_64-linux-gnu/librtmp.so.1 
+0x00007f47b4326000 0x00007f47b4328000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0 
+0x00007f47b4328000 0x00007f47b432c000 0x4000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0 
+0x00007f47b432c000 0x00007f47b4346000 0x1a000            0x6000             r--p  /usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0 
+0x00007f47b4346000 0x00007f47b4347000 0x1000             0x1f000            r--p  /usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0 
+0x00007f47b4347000 0x00007f47b4348000 0x1000             0x20000            rw-p  /usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0 
+0x00007f47b4348000 0x00007f47b434e000 0x6000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.29.2 
+0x00007f47b434e000 0x00007f47b4362000 0x14000            0x6000             r-xp  /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.29.2 
+0x00007f47b4362000 0x00007f47b436e000 0xc000             0x1a000            r--p  /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.29.2 
+0x00007f47b436e000 0x00007f47b4371000 0x3000             0x25000            r--p  /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.29.2 
+0x00007f47b4371000 0x00007f47b4372000 0x1000             0x28000            rw-p  /usr/lib/x86_64-linux-gnu/libnghttp2.so.14.29.2 
+0x00007f47b4372000 0x00007f47b4374000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libffi.so.8.2.0 
+0x00007f47b4374000 0x00007f47b437f000 0xb000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libffi.so.8.2.0 
+0x00007f47b437f000 0x00007f47b4381000 0x2000             0xd000             r--p  /usr/lib/x86_64-linux-gnu/libffi.so.8.2.0 
+0x00007f47b4381000 0x00007f47b4382000 0x1000             0xe000             r--p  /usr/lib/x86_64-linux-gnu/libffi.so.8.2.0 
+0x00007f47b4382000 0x00007f47b4383000 0x1000             0xf000             rw-p  /usr/lib/x86_64-linux-gnu/libffi.so.8.2.0 
+0x00007f47b4383000 0x00007f47b4385000 0x2000             0x0                rw-p   
+0x00007f47b4385000 0x00007f47b438c000 0x7000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libduktape.so.207 
+0x00007f47b438c000 0x00007f47b43be000 0x32000            0x7000             r-xp  /usr/lib/x86_64-linux-gnu/libduktape.so.207 
+0x00007f47b43be000 0x00007f47b43ce000 0x10000            0x39000            r--p  /usr/lib/x86_64-linux-gnu/libduktape.so.207 
+0x00007f47b43ce000 0x00007f47b43cf000 0x1000             0x49000            r--p  /usr/lib/x86_64-linux-gnu/libduktape.so.207 
+0x00007f47b43cf000 0x00007f47b43d0000 0x1000             0x4a000            rw-p  /usr/lib/x86_64-linux-gnu/libduktape.so.207 
+0x00007f47b43d0000 0x00007f47b440d000 0x3d000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8800.0 
+0x00007f47b440d000 0x00007f47b452b000 0x11e000           0x3d000            r-xp  /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8800.0 
+0x00007f47b452b000 0x00007f47b45a1000 0x76000            0x15b000           r--p  /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8800.0 
+0x00007f47b45a1000 0x00007f47b45aa000 0x9000             0x1d0000           r--p  /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8800.0 
+0x00007f47b45aa000 0x00007f47b45ab000 0x1000             0x1d9000           rw-p  /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8800.0 
+0x00007f47b45ab000 0x00007f47b45ad000 0x2000             0x0                rw-p   
+0x00007f47b45ad000 0x00007f47b45bf000 0x12000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0 
+0x00007f47b45bf000 0x00007f47b466d000 0xae000            0x12000            r-xp  /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0 
+0x00007f47b466d000 0x00007f47b4692000 0x25000            0xc0000            r--p  /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0 
+0x00007f47b4692000 0x00007f47b4699000 0x7000             0xe4000            r--p  /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0 
+0x00007f47b4699000 0x00007f47b469a000 0x1000             0xeb000            rw-p  /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0 
+0x00007f47b469a000 0x00007f47b469d000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libresolv.so.2 
+0x00007f47b469d000 0x00007f47b46a7000 0xa000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libresolv.so.2 
+0x00007f47b46a7000 0x00007f47b46a9000 0x2000             0xd000             r--p  /usr/lib/x86_64-linux-gnu/libresolv.so.2 
+0x00007f47b46a9000 0x00007f47b46aa000 0x1000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libresolv.so.2 
+0x00007f47b46aa000 0x00007f47b46ab000 0x1000             0x10000            rw-p  /usr/lib/x86_64-linux-gnu/libresolv.so.2 
+0x00007f47b46ab000 0x00007f47b46ad000 0x2000             0x0                rw-p   
+0x00007f47b46ad000 0x00007f47b46af000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10 
+0x00007f47b46af000 0x00007f47b46b1000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10 
+0x00007f47b46b1000 0x00007f47b46b2000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10 
+0x00007f47b46b2000 0x00007f47b46b3000 0x1000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10 
+0x00007f47b46b3000 0x00007f47b46b4000 0x1000             0x5000             rw-p  /usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10 
+0x00007f47b46b4000 0x00007f47b46b6000 0x2000             0x0                rw-p   
+0x00007f47b46b6000 0x00007f47b46cf000 0x19000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libsystemd.so.0.42.0 
+0x00007f47b46cf000 0x00007f47b4786000 0xb7000            0x19000            r-xp  /usr/lib/x86_64-linux-gnu/libsystemd.so.0.42.0 
+0x00007f47b4786000 0x00007f47b47c0000 0x3a000            0xd0000            r--p  /usr/lib/x86_64-linux-gnu/libsystemd.so.0.42.0 
+0x00007f47b47c0000 0x00007f47b47c8000 0x8000             0x10a000           r--p  /usr/lib/x86_64-linux-gnu/libsystemd.so.0.42.0 
+0x00007f47b47c8000 0x00007f47b47c9000 0x1000             0x112000           rw-p  /usr/lib/x86_64-linux-gnu/libsystemd.so.0.42.0 
+0x00007f47b47c9000 0x00007f47b47ca000 0x1000             0x0                rw-p   
+0x00007f47b47ca000 0x00007f47b47cc000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0 
+0x00007f47b47cc000 0x00007f47b47ce000 0x2000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0 
+0x00007f47b47ce000 0x00007f47b47d0000 0x2000             0x4000             r--p  /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0 
+0x00007f47b47d0000 0x00007f47b47d1000 0x1000             0x5000             r--p  /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0 
+0x00007f47b47d1000 0x00007f47b47d2000 0x1000             0x6000             rw-p  /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0 
+0x00007f47b47d2000 0x00007f47b47d3000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 
+0x00007f47b47d3000 0x00007f47b47d5000 0x2000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 
+0x00007f47b47d5000 0x00007f47b47d6000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 
+0x00007f47b47d6000 0x00007f47b47d7000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 
+0x00007f47b47d7000 0x00007f47b47d8000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 
+0x00007f47b47d8000 0x00007f47b47e8000 0x10000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8800.0 
+0x00007f47b47e8000 0x00007f47b481f000 0x37000            0x10000            r-xp  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8800.0 
+0x00007f47b481f000 0x00007f47b4838000 0x19000            0x47000            r--p  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8800.0 
+0x00007f47b4838000 0x00007f47b483b000 0x3000             0x5f000            r--p  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8800.0 
+0x00007f47b483b000 0x00007f47b483c000 0x1000             0x62000            rw-p  /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8800.0 
+0x00007f47b483c000 0x00007f47b483f000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so 
+0x00007f47b483f000 0x00007f47b4845000 0x6000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so 
+0x00007f47b4845000 0x00007f47b4849000 0x4000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so 
+0x00007f47b4849000 0x00007f47b484a000 0x1000             0xc000             r--p  /usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so 
+0x00007f47b484a000 0x00007f47b484b000 0x1000             0xd000             rw-p  /usr/lib/x86_64-linux-gnu/libproxy/libpxbackend-1.0.so 
+0x00007f47b484b000 0x00007f47b484d000 0x2000             0x0                rw-p   
+0x00007f47b484d000 0x00007f47b484e000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.2.0 
+0x00007f47b484e000 0x00007f47b484f000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.2.0 
+0x00007f47b484f000 0x00007f47b486e000 0x1f000            0x2000             r--p  /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.2.0 
+0x00007f47b486e000 0x00007f47b486f000 0x1000             0x21000            r--p  /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.2.0 
+0x00007f47b486f000 0x00007f47b4870000 0x1000             0x22000            rw-p  /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.2.0 
+0x00007f47b4870000 0x00007f47b4873000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1 
+0x00007f47b4873000 0x00007f47b4879000 0x6000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1 
+0x00007f47b4879000 0x00007f47b487b000 0x2000             0x9000             r--p  /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1 
+0x00007f47b487b000 0x00007f47b487c000 0x1000             0xb000             r--p  /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1 
+0x00007f47b487c000 0x00007f47b487d000 0x1000             0xc000             rw-p  /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1 
+0x00007f47b487d000 0x00007f47b487f000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libcom_err.so.2.1 
+0x00007f47b487f000 0x00007f47b4880000 0x1000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libcom_err.so.2.1 
+0x00007f47b4880000 0x00007f47b4881000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libcom_err.so.2.1 
+0x00007f47b4881000 0x00007f47b4882000 0x1000             0x3000             r--p  /usr/lib/x86_64-linux-gnu/libcom_err.so.2.1 
+0x00007f47b4882000 0x00007f47b4883000 0x1000             0x4000             rw-p  /usr/lib/x86_64-linux-gnu/libcom_err.so.2.1 
+0x00007f47b4883000 0x00007f47b4887000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1 
+0x00007f47b4887000 0x00007f47b48a2000 0x1b000            0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1 
+0x00007f47b48a2000 0x00007f47b48ad000 0xb000             0x1f000            r--p  /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1 
+0x00007f47b48ad000 0x00007f47b48ae000 0x1000             0x2a000            r--p  /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1 
+0x00007f47b48ae000 0x00007f47b48af000 0x1000             0x2b000            rw-p  /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1 
+0x00007f47b48af000 0x00007f47b48cf000 0x20000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3 
+0x00007f47b48cf000 0x00007f47b4932000 0x63000            0x20000            r-xp  /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3 
+0x00007f47b4932000 0x00007f47b496c000 0x3a000            0x83000            r--p  /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3 
+0x00007f47b496c000 0x00007f47b4979000 0xd000             0xbc000            r--p  /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3 
+0x00007f47b4979000 0x00007f47b497b000 0x2000             0xc9000            rw-p  /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3 
+0x00007f47b497b000 0x00007f47b497d000 0x2000             0x0                rw-p   
+0x00007f47b497d000 0x00007f47b497f000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 
+0x00007f47b497f000 0x00007f47b498e000 0xf000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 
+0x00007f47b498e000 0x00007f47b4990000 0x2000             0x11000            r--p  /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 
+0x00007f47b4990000 0x00007f47b4991000 0x1000             0x12000            r--p  /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 
+0x00007f47b4991000 0x00007f47b4992000 0x1000             0x13000            rw-p  /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4 
+0x00007f47b4992000 0x00007f47b4995000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1 
+0x00007f47b4995000 0x00007f47b49b2000 0x1d000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1 
+0x00007f47b49b2000 0x00007f47b49b5000 0x3000             0x20000            r--p  /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1 
+0x00007f47b49b5000 0x00007f47b49b7000 0x2000             0x22000            r--p  /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1 
+0x00007f47b49b7000 0x00007f47b49b8000 0x1000             0x24000            rw-p  /usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1 
+0x00007f47b49b8000 0x00007f47b49c4000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libdbus-1.so.3.38.3 
+0x00007f47b49c4000 0x00007f47b49f5000 0x31000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libdbus-1.so.3.38.3 
+0x00007f47b49f5000 0x00007f47b4a06000 0x11000            0x3d000            r--p  /usr/lib/x86_64-linux-gnu/libdbus-1.so.3.38.3 
+0x00007f47b4a06000 0x00007f47b4a07000 0x1000             0x4d000            r--p  /usr/lib/x86_64-linux-gnu/libdbus-1.so.3.38.3 
+0x00007f47b4a07000 0x00007f47b4a08000 0x1000             0x4e000            rw-p  /usr/lib/x86_64-linux-gnu/libdbus-1.so.3.38.3 
+0x00007f47b4a08000 0x00007f47b4a14000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0 
+0x00007f47b4a14000 0x00007f47b4a28000 0x14000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0 
+0x00007f47b4a28000 0x00007f47b4a31000 0x9000             0x20000            r--p  /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0 
+0x00007f47b4a31000 0x00007f47b4a32000 0x1000             0x28000            r--p  /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0 
+0x00007f47b4a32000 0x00007f47b4a33000 0x1000             0x29000            rw-p  /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0 
+0x00007f47b4a33000 0x00007f47b4a37000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 
+0x00007f47b4a37000 0x00007f47b4a56000 0x1f000            0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 
+0x00007f47b4a56000 0x00007f47b4a5e000 0x8000             0x23000            r--p  /usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 
+0x00007f47b4a5e000 0x00007f47b4a60000 0x2000             0x2b000            r--p  /usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 
+0x00007f47b4a60000 0x00007f47b4a61000 0x1000             0x2d000            rw-p  /usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2 
+0x00007f47b4a61000 0x00007f47b4a63000 0x2000             0x0                rw-p   
+0x00007f47b4a63000 0x00007f47b4aa4000 0x41000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0 
+0x00007f47b4aa4000 0x00007f47b4ae3000 0x3f000            0x41000            r-xp  /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0 
+0x00007f47b4ae3000 0x00007f47b4af7000 0x14000            0x80000            r--p  /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0 
+0x00007f47b4af7000 0x00007f47b4b13000 0x1c000            0x93000            r--p  /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0 
+0x00007f47b4b13000 0x00007f47b4b14000 0x1000             0xaf000            rw-p  /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0 
+0x00007f47b4b14000 0x00007f47b4b1c000 0x8000             0x0                rw-p   
+0x00007f47b4b1c000 0x00007f47b4b1d000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libproxy.so.0.5.12 
+0x00007f47b4b1d000 0x00007f47b4b1e000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libproxy.so.0.5.12 
+0x00007f47b4b1e000 0x00007f47b4b1f000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libproxy.so.0.5.12 
+0x00007f47b4b1f000 0x00007f47b4b20000 0x1000             0x2000             r--p  /usr/lib/x86_64-linux-gnu/libproxy.so.0.5.12 
+0x00007f47b4b20000 0x00007f47b4b21000 0x1000             0x3000             rw-p  /usr/lib/x86_64-linux-gnu/libproxy.so.0.5.12 
+0x00007f47b4b21000 0x00007f47b4b22000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.2.0 
+0x00007f47b4b22000 0x00007f47b4b2b000 0x9000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.2.0 
+0x00007f47b4b2b000 0x00007f47b4b2e000 0x3000             0xa000             r--p  /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.2.0 
+0x00007f47b4b2e000 0x00007f47b4b2f000 0x1000             0xc000             r--p  /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.2.0 
+0x00007f47b4b2f000 0x00007f47b4b30000 0x1000             0xd000             rw-p  /usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.2.0 
+0x00007f47b4b30000 0x00007f47b4b3c000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2 
+0x00007f47b4b3c000 0x00007f47b4b79000 0x3d000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2 
+0x00007f47b4b79000 0x00007f47b4b84000 0xb000             0x49000            r--p  /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2 
+0x00007f47b4b84000 0x00007f47b4b86000 0x2000             0x53000            r--p  /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2 
+0x00007f47b4b86000 0x00007f47b4b88000 0x2000             0x55000            rw-p  /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2 
+0x00007f47b4b88000 0x00007f47b4b8e000 0x6000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlWorkerScript.so.6.10.2 
+0x00007f47b4b8e000 0x00007f47b4b97000 0x9000             0x6000             r-xp  /usr/lib/x86_64-linux-gnu/libQt6QmlWorkerScript.so.6.10.2 
+0x00007f47b4b97000 0x00007f47b4b99000 0x2000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlWorkerScript.so.6.10.2 
+0x00007f47b4b99000 0x00007f47b4b9a000 0x1000             0x11000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlWorkerScript.so.6.10.2 
+0x00007f47b4b9a000 0x00007f47b4b9b000 0x1000             0x12000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6QmlWorkerScript.so.6.10.2 
+0x00007f47b4b9b000 0x00007f47b4b9d000 0x2000             0x0                rw-p   
+0x00007f47b4b9d000 0x00007f47b4ba8000 0xb000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 
+0x00007f47b4ba8000 0x00007f47b4bea000 0x42000            0xb000             r-xp  /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 
+0x00007f47b4bea000 0x00007f47b4bfa000 0x10000            0x4d000            r--p  /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 
+0x00007f47b4bfa000 0x00007f47b4bfb000 0x1000             0x5c000            r--p  /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 
+0x00007f47b4bfb000 0x00007f47b4bfc000 0x1000             0x5d000            rw-p  /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 
+0x00007f47b4bfc000 0x00007f47b4bff000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0 
+0x00007f47b4bff000 0x00007f47b4c7b000 0x7c000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0 
+0x00007f47b4c7b000 0x00007f47b4ca6000 0x2b000            0x7f000            r--p  /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0 
+0x00007f47b4ca6000 0x00007f47b4ca7000 0x1000             0xa9000            r--p  /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0 
+0x00007f47b4ca7000 0x00007f47b4ca8000 0x1000             0xaa000            rw-p  /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0 
+0x00007f47b4ca8000 0x00007f47b4caa000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0 
+0x00007f47b4caa000 0x00007f47b4cae000 0x4000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0 
+0x00007f47b4cae000 0x00007f47b4cb0000 0x2000             0x6000             r--p  /usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0 
+0x00007f47b4cb0000 0x00007f47b4cb1000 0x1000             0x7000             r--p  /usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0 
+0x00007f47b4cb1000 0x00007f47b4cb2000 0x1000             0x8000             rw-p  /usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0 
+0x00007f47b4cb2000 0x00007f47b4cb3000 0x1000             0x0                rw-p   
+0x00007f47b4cb3000 0x00007f47b4cb4000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libicudata.so.78.2 
+0x00007f47b4cb4000 0x00007f47b4cb5000 0x1000             0x1000             r-xp  /usr/lib/x86_64-linux-gnu/libicudata.so.78.2 
+0x00007f47b4cb5000 0x00007f47b6c48000 0x1f93000          0x2000             r--p  /usr/lib/x86_64-linux-gnu/libicudata.so.78.2 
+0x00007f47b6c48000 0x00007f47b6c49000 0x1000             0x1f94000          r--p  /usr/lib/x86_64-linux-gnu/libicudata.so.78.2 
+0x00007f47b6c49000 0x00007f47b6c4a000 0x1000             0x1f95000          rw-p  /usr/lib/x86_64-linux-gnu/libicudata.so.78.2 
+0x00007f47b6c4a000 0x00007f47b6c57000 0xd000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.5 
+0x00007f47b6c57000 0x00007f47b6cee000 0x97000            0xd000             r-xp  /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.5 
+0x00007f47b6cee000 0x00007f47b6d16000 0x28000            0xa4000            r--p  /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.5 
+0x00007f47b6d16000 0x00007f47b6d1e000 0x8000             0xcc000            r--p  /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.5 
+0x00007f47b6d1e000 0x00007f47b6d1f000 0x1000             0xd4000            rw-p  /usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.5 
+0x00007f47b6d1f000 0x00007f47b6d21000 0x2000             0x0                rw-p   
+0x00007f47b6d21000 0x00007f47b6d23000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libmd4c.so.0.5.2 
+0x00007f47b6d23000 0x00007f47b6d2f000 0xc000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libmd4c.so.0.5.2 
+0x00007f47b6d2f000 0x00007f47b6d32000 0x3000             0xe000             r--p  /usr/lib/x86_64-linux-gnu/libmd4c.so.0.5.2 
+0x00007f47b6d32000 0x00007f47b6d33000 0x1000             0x11000            r--p  /usr/lib/x86_64-linux-gnu/libmd4c.so.0.5.2 
+0x00007f47b6d33000 0x00007f47b6d34000 0x1000             0x12000            rw-p  /usr/lib/x86_64-linux-gnu/libmd4c.so.0.5.2 
+0x00007f47b6d34000 0x00007f47b6d40000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61232.0 
+0x00007f47b6d40000 0x00007f47b6e2c000 0xec000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61232.0 
+0x00007f47b6e2c000 0x00007f47b6e5d000 0x31000            0xf8000            r--p  /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61232.0 
+0x00007f47b6e5d000 0x00007f47b6e5e000 0x1000             0x128000           r--p  /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61232.0 
+0x00007f47b6e5e000 0x00007f47b6e5f000 0x1000             0x129000           rw-p  /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61232.0 
+0x00007f47b6e5f000 0x00007f47b6e64000 0x5000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libpng16.so.16.57.0 
+0x00007f47b6e64000 0x00007f47b6e8e000 0x2a000            0x5000             r-xp  /usr/lib/x86_64-linux-gnu/libpng16.so.16.57.0 
+0x00007f47b6e8e000 0x00007f47b6e97000 0x9000             0x2f000            r--p  /usr/lib/x86_64-linux-gnu/libpng16.so.16.57.0 
+0x00007f47b6e97000 0x00007f47b6e98000 0x1000             0x37000            r--p  /usr/lib/x86_64-linux-gnu/libpng16.so.16.57.0 
+0x00007f47b6e98000 0x00007f47b6e99000 0x1000             0x38000            rw-p  /usr/lib/x86_64-linux-gnu/libpng16.so.16.57.0 
+0x00007f47b6e99000 0x00007f47b6eae000 0x15000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0 
+0x00007f47b6eae000 0x00007f47b6eb9000 0xb000             0x15000            r-xp  /usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0 
+0x00007f47b6eb9000 0x00007f47b6ebe000 0x5000             0x20000            r--p  /usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0 
+0x00007f47b6ebe000 0x00007f47b6ec3000 0x5000             0x25000            r--p  /usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0 
+0x00007f47b6ec3000 0x00007f47b6ec4000 0x1000             0x2a000            rw-p  /usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0 
+0x00007f47b6ec4000 0x00007f47b6ec7000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0 
+0x00007f47b6ec7000 0x00007f47b6ee2000 0x1b000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0 
+0x00007f47b6ee2000 0x00007f47b6ee5000 0x3000             0x1e000            r--p  /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0 
+0x00007f47b6ee5000 0x00007f47b6ee6000 0x1000             0x21000            r--p  /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0 
+0x00007f47b6ee6000 0x00007f47b6ee7000 0x1000             0x22000            rw-p  /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0 
+0x00007f47b6ee7000 0x00007f47b6ef7000 0x10000            0x0                rw-p   
+0x00007f47b6ef7000 0x00007f47b6efd000 0x6000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.13.1 
+0x00007f47b6efd000 0x00007f47b6f2b000 0x2e000            0x6000             r-xp  /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.13.1 
+0x00007f47b6f2b000 0x00007f47b6f53000 0x28000            0x34000            r--p  /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.13.1 
+0x00007f47b6f53000 0x00007f47b6f55000 0x2000             0x5b000            r--p  /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.13.1 
+0x00007f47b6f55000 0x00007f47b6f56000 0x1000             0x5d000            rw-p  /usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.13.1 
+0x00007f47b6f56000 0x00007f47b6f58000 0x2000             0x0                rw-p   
+0x00007f47b6f58000 0x00007f47b6f7a000 0x22000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6DBus.so.6.10.2 
+0x00007f47b6f7a000 0x00007f47b6fff000 0x85000            0x22000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6DBus.so.6.10.2 
+0x00007f47b6fff000 0x00007f47b7018000 0x19000            0xa7000            r--p  /usr/lib/x86_64-linux-gnu/libQt6DBus.so.6.10.2 
+0x00007f47b7018000 0x00007f47b701c000 0x4000             0xc0000            r--p  /usr/lib/x86_64-linux-gnu/libQt6DBus.so.6.10.2 
+0x00007f47b701c000 0x00007f47b701e000 0x2000             0xc4000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6DBus.so.6.10.2 
+0x00007f47b701e000 0x00007f47b701f000 0x1000             0x0                rw-p   
+0x00007f47b701f000 0x00007f47b7038000 0x19000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0 
+0x00007f47b7038000 0x00007f47b70cd000 0x95000            0x19000            r-xp  /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0 
+0x00007f47b70cd000 0x00007f47b715c000 0x8f000            0xae000            r--p  /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0 
+0x00007f47b715c000 0x00007f47b715d000 0x1000             0x13d000           r--p  /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0 
+0x00007f47b715d000 0x00007f47b7161000 0x4000             0x13e000           rw-p  /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0 
+0x00007f47b7161000 0x00007f47b7169000 0x8000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.16.1 
+0x00007f47b7169000 0x00007f47b719a000 0x31000            0x8000             r-xp  /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.16.1 
+0x00007f47b719a000 0x00007f47b71b1000 0x17000            0x39000            r--p  /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.16.1 
+0x00007f47b71b1000 0x00007f47b71b3000 0x2000             0x50000            r--p  /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.16.1 
+0x00007f47b71b3000 0x00007f47b71b4000 0x1000             0x52000            rw-p  /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.16.1 
+0x00007f47b71b4000 0x00007f47b71b7000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0 
+0x00007f47b71b7000 0x00007f47b71c1000 0xa000             0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0 
+0x00007f47b71c1000 0x00007f47b71c5000 0x4000             0xd000             r--p  /usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0 
+0x00007f47b71c5000 0x00007f47b71c6000 0x1000             0x10000            r--p  /usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0 
+0x00007f47b71c6000 0x00007f47b71c7000 0x1000             0x11000            rw-p  /usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0 
+0x00007f47b71c7000 0x00007f47b71ed000 0x26000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6OpenGL.so.6.10.2 
+0x00007f47b71ed000 0x00007f47b7247000 0x5a000            0x26000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6OpenGL.so.6.10.2 
+0x00007f47b7247000 0x00007f47b7269000 0x22000            0x80000            r--p  /usr/lib/x86_64-linux-gnu/libQt6OpenGL.so.6.10.2 
+0x00007f47b7269000 0x00007f47b726c000 0x3000             0xa1000            r--p  /usr/lib/x86_64-linux-gnu/libQt6OpenGL.so.6.10.2 
+0x00007f47b726c000 0x00007f47b726d000 0x1000             0xa4000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6OpenGL.so.6.10.2 
+0x00007f47b726d000 0x00007f47b7270000 0x3000             0x0                rw-p   
+0x00007f47b7270000 0x00007f47b72ca000 0x5a000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Network.so.6.10.2 
+0x00007f47b72ca000 0x00007f47b73f6000 0x12c000           0x5a000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6Network.so.6.10.2 
+0x00007f47b73f6000 0x00007f47b744e000 0x58000            0x186000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Network.so.6.10.2 
+0x00007f47b744e000 0x00007f47b7459000 0xb000             0x1dd000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Network.so.6.10.2 
+0x00007f47b7459000 0x00007f47b745e000 0x5000             0x1e8000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6Network.so.6.10.2 
+0x00007f47b745e000 0x00007f47b7460000 0x2000             0x0                rw-p   
+0x00007f47b7460000 0x00007f47b7497000 0x37000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlModels.so.6.10.2 
+0x00007f47b7497000 0x00007f47b754f000 0xb8000            0x37000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6QmlModels.so.6.10.2 
+0x00007f47b754f000 0x00007f47b7573000 0x24000            0xef000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlModels.so.6.10.2 
+0x00007f47b7573000 0x00007f47b757c000 0x9000             0x112000           r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlModels.so.6.10.2 
+0x00007f47b757c000 0x00007f47b7581000 0x5000             0x11b000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6QmlModels.so.6.10.2 
+0x00007f47b7581000 0x00007f47b758d000 0xc000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlMeta.so.6.10.2 
+0x00007f47b758d000 0x00007f47b75a4000 0x17000            0xc000             r-xp  /usr/lib/x86_64-linux-gnu/libQt6QmlMeta.so.6.10.2 
+0x00007f47b75a4000 0x00007f47b75a9000 0x5000             0x23000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlMeta.so.6.10.2 
+0x00007f47b75a9000 0x00007f47b75ab000 0x2000             0x28000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QmlMeta.so.6.10.2 
+0x00007f47b75ab000 0x00007f47b75ac000 0x1000             0x2a000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6QmlMeta.so.6.10.2 
+0x00007f47b75ac000 0x00007f47b75b0000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 
+0x00007f47b75b0000 0x00007f47b75d4000 0x24000            0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 
+0x00007f47b75d4000 0x00007f47b75d8000 0x4000             0x28000            r--p  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 
+0x00007f47b75d8000 0x00007f47b75d9000 0x1000             0x2c000            r--p  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 
+0x00007f47b75d9000 0x00007f47b75da000 0x1000             0x2d000            rw-p  /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 
+0x00007f47b75da000 0x00007f47b75ec000 0x12000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libm.so.6 
+0x00007f47b75ec000 0x00007f47b768c000 0xa0000            0x12000            r-xp  /usr/lib/x86_64-linux-gnu/libm.so.6 
+0x00007f47b768c000 0x00007f47b76fe000 0x72000            0xb2000            r--p  /usr/lib/x86_64-linux-gnu/libm.so.6 
+0x00007f47b76fe000 0x00007f47b76ff000 0x1000             0x123000           r--p  /usr/lib/x86_64-linux-gnu/libm.so.6 
+0x00007f47b76ff000 0x00007f47b7700000 0x1000             0x124000           rw-p  /usr/lib/x86_64-linux-gnu/libm.so.6 
+0x00007f47b7700000 0x00007f47b7702000 0x2000             0x0                rw-p   
+0x00007f47b7702000 0x00007f47b7706000 0x4000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 
+0x00007f47b7706000 0x00007f47b77b6000 0xb0000            0x4000             r-xp  /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 
+0x00007f47b77b6000 0x00007f47b77c3000 0xd000             0xb4000            r--p  /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 
+0x00007f47b77c3000 0x00007f47b77c4000 0x1000             0xc1000            r--p  /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 
+0x00007f47b77c4000 0x00007f47b77c5000 0x1000             0xc2000            rw-p  /usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7 
+0x00007f47b77c5000 0x00007f47b77c7000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.14.0 
+0x00007f47b77c7000 0x00007f47b7836000 0x6f000            0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.14.0 
+0x00007f47b7836000 0x00007f47b7860000 0x2a000            0x71000            r--p  /usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.14.0 
+0x00007f47b7860000 0x00007f47b7861000 0x1000             0x9b000            r--p  /usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.14.0 
+0x00007f47b7861000 0x00007f47b7862000 0x1000             0x9c000            rw-p  /usr/lib/x86_64-linux-gnu/libpcre2-16.so.0.14.0 
+0x00007f47b7862000 0x00007f47b7865000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libb2.so.1.0.4 
+0x00007f47b7865000 0x00007f47b787c000 0x17000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libb2.so.1.0.4 
+0x00007f47b787c000 0x00007f47b787e000 0x2000             0x1a000            r--p  /usr/lib/x86_64-linux-gnu/libb2.so.1.0.4 
+0x00007f47b787e000 0x00007f47b787f000 0x1000             0x1c000            r--p  /usr/lib/x86_64-linux-gnu/libb2.so.1.0.4 
+0x00007f47b787f000 0x00007f47b7880000 0x1000             0x1d000            rw-p  /usr/lib/x86_64-linux-gnu/libb2.so.1.0.4 
+0x00007f47b7880000 0x00007f47b7882000 0x2000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.3.1 
+0x00007f47b7882000 0x00007f47b788f000 0xd000             0x2000             r-xp  /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.3.1 
+0x00007f47b788f000 0x00007f47b7894000 0x5000             0xf000             r--p  /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.3.1 
+0x00007f47b7894000 0x00007f47b7895000 0x1000             0x13000            r--p  /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.3.1 
+0x00007f47b7895000 0x00007f47b7896000 0x1000             0x14000            rw-p  /usr/lib/x86_64-linux-gnu/libdouble-conversion.so.3.1 
+0x00007f47b7896000 0x00007f47b7899000 0x3000             0x0                r--p  /usr/lib/x86_64-linux-gnu/libz.so.1.3.1 
+0x00007f47b7899000 0x00007f47b78ac000 0x13000            0x3000             r-xp  /usr/lib/x86_64-linux-gnu/libz.so.1.3.1 
+0x00007f47b78ac000 0x00007f47b78b2000 0x6000             0x16000            r--p  /usr/lib/x86_64-linux-gnu/libz.so.1.3.1 
+0x00007f47b78b2000 0x00007f47b78b3000 0x1000             0x1c000            r--p  /usr/lib/x86_64-linux-gnu/libz.so.1.3.1 
+0x00007f47b78b3000 0x00007f47b78b4000 0x1000             0x1d000            rw-p  /usr/lib/x86_64-linux-gnu/libz.so.1.3.1 
+0x00007f47b78b4000 0x00007f47b78d3000 0x1f000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8800.0 
+0x00007f47b78d3000 0x00007f47b7979000 0xa6000            0x1f000            r-xp  /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8800.0 
+0x00007f47b7979000 0x00007f47b7a09000 0x90000            0xc5000            r--p  /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8800.0 
+0x00007f47b7a09000 0x00007f47b7a0a000 0x1000             0x155000           r--p  /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8800.0 
+0x00007f47b7a0a000 0x00007f47b7a0b000 0x1000             0x156000           rw-p  /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8800.0 
+0x00007f47b7a0b000 0x00007f47b7a0e000 0x3000             0x0                rw-p   
+0x00007f47b7a0e000 0x00007f47b7a77000 0x69000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libicuuc.so.78.2 
+0x00007f47b7a77000 0x00007f47b7b91000 0x11a000           0x69000            r-xp  /usr/lib/x86_64-linux-gnu/libicuuc.so.78.2 
+0x00007f47b7b91000 0x00007f47b7c24000 0x93000            0x183000           r--p  /usr/lib/x86_64-linux-gnu/libicuuc.so.78.2 
+0x00007f47b7c24000 0x00007f47b7c37000 0x13000            0x216000           r--p  /usr/lib/x86_64-linux-gnu/libicuuc.so.78.2 
+0x00007f47b7c37000 0x00007f47b7c38000 0x1000             0x229000           rw-p  /usr/lib/x86_64-linux-gnu/libicuuc.so.78.2 
+0x00007f47b7c38000 0x00007f47b7c3a000 0x2000             0x0                rw-p   
+0x00007f47b7c3a000 0x00007f47b7d3e000 0x104000           0x0                r--p  /usr/lib/x86_64-linux-gnu/libicui18n.so.78.2 
+0x00007f47b7d3e000 0x00007f47b7f41000 0x203000           0x104000           r-xp  /usr/lib/x86_64-linux-gnu/libicui18n.so.78.2 
+0x00007f47b7f41000 0x00007f47b7fd4000 0x93000            0x307000           r--p  /usr/lib/x86_64-linux-gnu/libicui18n.so.78.2 
+0x00007f47b7fd4000 0x00007f47b7fe7000 0x13000            0x399000           r--p  /usr/lib/x86_64-linux-gnu/libicui18n.so.78.2 
+0x00007f47b7fe7000 0x00007f47b7fe8000 0x1000             0x3ac000           rw-p  /usr/lib/x86_64-linux-gnu/libicui18n.so.78.2 
+0x00007f47b7fe8000 0x00007f47b7fe9000 0x1000             0x0                rw-p   
+0x00007f47b7fe9000 0x00007f47b808c000 0xa3000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 
+0x00007f47b808c000 0x00007f47b81e7000 0x15b000           0xa3000            r-xp  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 
+0x00007f47b81e7000 0x00007f47b8273000 0x8c000            0x1fe000           r--p  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 
+0x00007f47b8273000 0x00007f47b8282000 0xf000             0x28a000           r--p  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 
+0x00007f47b8282000 0x00007f47b8285000 0x3000             0x299000           rw-p  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35 
+0x00007f47b8285000 0x00007f47b8289000 0x4000             0x0                rw-p   
+0x00007f47b8289000 0x00007f47b829b000 0x12000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Test.so.6.10.2 
+0x00007f47b829b000 0x00007f47b82e4000 0x49000            0x12000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6Test.so.6.10.2 
+0x00007f47b82e4000 0x00007f47b82f8000 0x14000            0x5b000            r--p  /usr/lib/x86_64-linux-gnu/libQt6Test.so.6.10.2 
+0x00007f47b82f8000 0x00007f47b82fa000 0x2000             0x6f000            r--p  /usr/lib/x86_64-linux-gnu/libQt6Test.so.6.10.2 
+0x00007f47b82fa000 0x00007f47b82fb000 0x1000             0x71000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6Test.so.6.10.2 
+0x00007f47b82fb000 0x00007f47b83db000 0xe0000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6.10.2 
+0x00007f47b83db000 0x00007f47b87cc000 0x3f1000           0xe0000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6.10.2 
+0x00007f47b87cc000 0x00007f47b88a5000 0xd9000            0x4d1000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6.10.2 
+0x00007f47b88a5000 0x00007f47b88c8000 0x23000            0x5aa000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6.10.2 
+0x00007f47b88c8000 0x00007f47b88d3000 0xb000             0x5cd000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6.10.2 
+0x00007f47b88d3000 0x00007f47b88d7000 0x4000             0x0                rw-p   
+0x00007f47b88d7000 0x00007f47b89ff000 0x128000           0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.10.2 
+0x00007f47b89ff000 0x00007f47b8fcd000 0x5ce000           0x128000           r-xp  /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.10.2 
+0x00007f47b8fcd000 0x00007f47b90e4000 0x117000           0x6f6000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.10.2 
+0x00007f47b90e4000 0x00007f47b9100000 0x1c000            0x80c000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.10.2 
+0x00007f47b9100000 0x00007f47b910d000 0xd000             0x828000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.10.2 
+0x00007f47b910d000 0x00007f47b9121000 0x14000            0x0                rw-p   
+0x00007f47b9121000 0x00007f47b92c0000 0x19f000           0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.10.2 
+0x00007f47b92c0000 0x00007f47b9704000 0x444000           0x19f000           r-xp  /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.10.2 
+0x00007f47b9704000 0x00007f47b9867000 0x163000           0x5e3000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.10.2 
+0x00007f47b9867000 0x00007f47b98a6000 0x3f000            0x746000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.10.2 
+0x00007f47b98a6000 0x00007f47b98c2000 0x1c000            0x785000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.10.2 
+0x00007f47b98c2000 0x00007f47b98c5000 0x3000             0x0                rw-p   
+0x00007f47b98c5000 0x00007f47b98ed000 0x28000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007f47b98ed000 0x00007f47b9a85000 0x198000           0x28000            r-xp  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007f47b9a85000 0x00007f47b9ad3000 0x4e000            0x1c0000           r--p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007f47b9ad3000 0x00007f47b9ad7000 0x4000             0x20e000           r--p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007f47b9ad7000 0x00007f47b9ad9000 0x2000             0x212000           rw-p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007f47b9ad9000 0x00007f47b9ae6000 0xd000             0x0                rw-p   
+0x00007f47b9ae6000 0x00007f47b9ba4000 0xbe000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.10.2 
+0x00007f47b9ba4000 0x00007f47b9f15000 0x371000           0xbe000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.10.2 
+0x00007f47b9f15000 0x00007f47ba0ae000 0x199000           0x42f000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.10.2 
+0x00007f47ba0ae000 0x00007f47ba0be000 0x10000            0x5c7000           r--p  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.10.2 
+0x00007f47ba0be000 0x00007f47ba0c6000 0x8000             0x5d7000           rw-p  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.10.2 
+0x00007f47ba0c6000 0x00007f47ba0cb000 0x5000             0x0                rw-p   
+0x00007f47ba0cb000 0x00007f47ba0dd000 0x12000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickTest.so.6.10.2 
+0x00007f47ba0dd000 0x00007f47ba0fc000 0x1f000            0x12000            r-xp  /usr/lib/x86_64-linux-gnu/libQt6QuickTest.so.6.10.2 
+0x00007f47ba0fc000 0x00007f47ba117000 0x1b000            0x31000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickTest.so.6.10.2 
+0x00007f47ba117000 0x00007f47ba11a000 0x3000             0x4c000            r--p  /usr/lib/x86_64-linux-gnu/libQt6QuickTest.so.6.10.2 
+0x00007f47ba11a000 0x00007f47ba11b000 0x1000             0x4f000            rw-p  /usr/lib/x86_64-linux-gnu/libQt6QuickTest.so.6.10.2 
+0x00007f47ba11b000 0x00007f47ba11c000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_MONETARY 
+0x00007f47ba11c000 0x00007f47ba11d000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES 
+0x00007f47ba11d000 0x00007f47ba11e000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_PAPER 
+0x00007f47ba11e000 0x00007f47ba11f000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_NAME 
+0x00007f47ba11f000 0x00007f47ba120000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_ADDRESS 
+0x00007f47ba120000 0x00007f47ba121000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_TELEPHONE 
+0x00007f47ba121000 0x00007f47ba122000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_MEASUREMENT 
+0x00007f47ba122000 0x00007f47ba129000 0x7000             0x0                r--s  /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache 
+0x00007f47ba129000 0x00007f47ba12a000 0x1000             0x0                r--p  /usr/lib/locale/C.utf8/LC_IDENTIFICATION 
+0x00007f47ba12a000 0x00007f47ba12b000 0x1000             0x0                rw-p   
+0x00007f47ba12b000 0x00007f47ba12c000 0x1000             0x0                rw-p   
+0x00007f47ba12c000 0x00007f47ba12e000 0x2000             0x0                rw-p   
+0x00007f47ba12e000 0x00007f47ba132000 0x4000             0x0                r--p  [vvar] 
+0x00007f47ba132000 0x00007f47ba134000 0x2000             0x0                r--p  [vvar_vclock] 
+0x00007f47ba134000 0x00007f47ba136000 0x2000             0x0                r-xp  [vdso] 
+0x00007f47ba136000 0x00007f47ba137000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007f47ba137000 0x00007f47ba166000 0x2f000            0x1000             r-xp  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007f47ba166000 0x00007f47ba171000 0xb000             0x30000            r--p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007f47ba171000 0x00007f47ba173000 0x2000             0x3b000            r--p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007f47ba173000 0x00007f47ba174000 0x1000             0x3d000            rw-p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007f47ba174000 0x00007f47ba175000 0x1000             0x0                rw-p   
+0x00007ffd8fe1e000 0x00007ffd8fe3f000 0x21000            0x0                rw-p  [stack] 
+0xffffffffff600000 0xffffffffff601000 0x1000             0x0                --xp  [vsyscall] 
+[Inferior 1 (process 14300) detached]
+=== End of stack trace ===

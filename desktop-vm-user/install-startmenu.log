@@ -1,0 +1,5 @@
+[32m==>[0m [1mInstalling Start Menu applet...[0m
+[36m  >>[0m Installing new package
+Successfully installed /home/runner/.local/share/plasma/plasmoids/org.kde.windowsmodern.startmenu/
+[32m==>[0m [1mStart Menu installed.[0m
+[33m==>[0m Plasma Shell not running — Start Menu will load on next session.

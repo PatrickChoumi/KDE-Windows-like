@@ -1,0 +1,71 @@
+== plugins krunner
+/usr/lib/x86_64-linux-gnu/qt6/plugins/kf6/krunner:
+calculator.so
+helprunner.so
+kcms
+krunner_appstream.so
+krunner_bookmarksrunner.so
+krunner_keys.so
+krunner_kill.so
+krunner_kwin.so
+krunner_placesrunner.so
+krunner_plasma-desktop.so
+krunner_recentdocuments.so
+krunner_services.so
+krunner_sessions.so
+krunner_shell.so
+krunner_systemsettings.so
+krunner_webshortcuts.so
+locations.so
+
+/usr/share/krunner/dbusplugins:
+kwin-runner-windows-x11.desktop
+kwin-runner-windows.desktop
+plasma-runner-baloosearch.desktop
+plasma-runnners-activities.desktop
+== konsole .desktop
+org.kde.dolphin.desktop
+org.kde.konsole.desktop
+== sycoca
+-rw-r--r-- 1 root root 339464 Nov 21 16:32 /root/.cache/ksycoca6_en-POSIX_ZO9BCAqxRsYOeb+jgSNOcFvO9+Y=
+== journal milou/krunner
+kf.runner: Loading runner:  "krunner_keys"
+kf.runner: Loading runner:  "krunner_systemsettings"
+kf.runner: Loaded: "krunner_systemsettings"
+kf.runner: Loading runner:  "krunner_sessions"
+kf.runner: Loaded: "krunner_sessions"
+kf.runner: Loading runner:  "krunner_shell"
+kf.runner: Loaded: "krunner_shell"
+kf.runner: Loading runner:  "krunner_bookmarksrunner"
+kf.runner: Loaded: "krunner_bookmarksrunner"
+kf.runner: Loading runner:  "helprunner"
+kf.runner: Loaded: "helprunner"
+kf.runner: Loading runner:  "calculator"
+kf.runner: Loaded: "calculator"
+kf.runner: Loading runner:  "krunner_webshortcuts"
+kf.runner: Loaded: "krunner_webshortcuts"
+kf.runner: Loading runner:  "krunner_kill"
+kf.runner: Loaded: "krunner_kill"
+kf.runner: Loading runner:  "krunner_appstream"
+kf.runner: Loaded: "krunner_appstream"
+kf.runner: Loading runner:  "krunner_placesrunner"
+kf.runner: Loaded: "krunner_placesrunner"
+kf.runner: Loading runner:  "locations"
+kf.runner: Loaded: "locations"
+kf.runner: Loading runner:  "krunner_plasma-desktop"
+kf.runner: Loaded: "krunner_plasma-desktop"
+kf.runner: Loading runner:  "krunner_recentdocuments"
+kf.runner: Loaded: "krunner_recentdocuments"
+kf.runner: Loading runner:  "krunner_services"
+kf.runner: Loaded: "krunner_services"
+kf.runner: Loading runner:  "krunner_kwin"
+kf.runner: Loaded: "krunner_kwin"
+kf.runner: Loading runner:  "org.kde.activities2"
+kf.runner: Loaded: "org.kde.activities2"
+kf.runner: Loading runner:  "baloosearch"
+kf.runner: Loaded: "baloosearch"
+kf.runner: Loading runner:  "windows"
+kf.runner: Loaded: "windows"
+kf.runner: All runners loaded, total: 18
+kf.runner: SystemsettingsRunner(0x5ebeb68a8cb0, name = "krunner_systemsettings") was not scheduled for current query
+kf.runner: SessionRunner(0x5ebeb6840de0, name = "krunner_sessions") was not scheduled for current query

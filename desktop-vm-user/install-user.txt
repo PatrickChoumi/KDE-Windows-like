@@ -1,0 +1,42 @@
+installateurs executes par runner uid=1001 HOME=/home/runner
+OK   install-themes
+OK   install-icons
+OK   install-icontasks
+OK   install-showdesk
+OK   install-shortcuts
+OK   install-notifybutton
+OK   install-quicksettings
+OK   install-startmenu
+OK   install-digitalclock
+OK   install-lookfeel
+OK   install-layout
+== chemins utilisateur
+-- ~/.local/share/plasma/plasmoids
+org.kde.windowsmodern.digitalclock
+org.kde.windowsmodern.notifybutton
+org.kde.windowsmodern.quicksettings
+org.kde.windowsmodern.shortcutbutton
+org.kde.windowsmodern.showdesktop
+org.kde.windowsmodern.startmenu
+-- ~/.local/share/plasma/desktoptheme
+Windows-modern-dark
+Windows-modern-light
+-- ~/.local/share/plasma/look-and-feel
+org.kde.windowsmodern.dark
+org.kde.windowsmodern.light
+-- ~/.local/share/aurorae/themes
+windows-modern-dark-aurorae
+windows-modern-light-aurorae
+-- ~/.local/share/icons
+windows-modern
+-- ~/.local/share/wallpapers
+Windows-modern
+-- ~/.config/Kvantum
+Windows-modern
+kvantum.kvconfig
+== kdeglobals
+[Icons]
+Theme=windows-modern
+
+[KDE]
+widgetStyle=kvantum-dark

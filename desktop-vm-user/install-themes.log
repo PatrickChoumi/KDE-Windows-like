@@ -1,0 +1,13 @@
+[32m==>[0m [1mInstalling themes...[0m
+[36m  >>[0m Window decorations (Aurorae)
+[36m  >>[0m Color schemes
+[36m  >>[0m Kvantum themes
+[36m  >>[0m Kvantum theme selection
+[36m  >>[0m Plasma desktop themes
+[36m  >>[0m Wallpapers
+[32m==>[0m [1mThemes installed.[0m
+[36m  >>[0m Applying Kvantum engine & desktop theme
+[36m  >>[0m Setting Application Style → kvantum-dark
+scripts/install-themes.sh: line 65:  9392 Aborted                    (core dumped) plasma-apply-desktoptheme Windows-modern 2> /dev/null
+An error occurred while attempting to set the Plasma wallpaper:
+The name org.kde.plasmashell was not provided by any .service files

@@ -1,0 +1,1 @@
+ci/screenshot.sh: line 159: gdbus: command not found

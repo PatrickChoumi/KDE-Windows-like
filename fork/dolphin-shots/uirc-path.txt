@@ -1,0 +1,3 @@
+== dolphinui.rc
+/root/.local/share/kxmlgui5/dolphin/dolphinui.rc
+/__w/KDE-Windows-like/KDE-Windows-like/config/dolphin/dolphinui.rc

@@ -1,0 +1,51 @@
+compositingType: string "gl2" 
+utilisateur: root uid=0 HOME=/root
+kactivitymanagerd: /usr/lib/x86_64-linux-gnu/libexec/kactivitymanagerd
+fond d'ecran trouve : /usr/share/wallpapers/Windows-modern/contents/images_dark/2560x1440.png
+== coins 02-fenetres-ouvertes (cadre 919x504+52+108)
+haut-gauche=srgb(55,55,55) haut-droit=srgb(55,55,55) bas-gauche=srgb(55,55,55) bas-droit=srgb(55,55,55)
+== effet avant install : boolean false 
+== coins 03-coins-apres (cadre 919x504+52+108)
+haut-gauche=srgb(255,255,255) haut-droit=srgb(255,255,255) bas-gauche=srgb(255,255,255) bas-droit=srgb(255,255,255)
+RADIUS OK : mesure=7.0px (ajustement rms=0.16) cible=8px±1 ligne_bord=4 profil=[4, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+== verdict coins
+avant=srgb(55,55,55)|srgb(55,55,55)|srgb(55,55,55)|srgb(55,55,55)
+apres=srgb(255,255,255)|srgb(255,255,255)|srgb(255,255,255)|srgb(255,255,255)
+effet charge=boolean true 
+VERDICT coins: OK
+== coins 06-clair-bureau-complet (cadre 919x504+52+108)
+haut-gauche=srgb(32,38,50) haut-droit=srgb(31,35,46) bas-gauche=srgb(194,116,110) bas-droit=srgb(30,24,34)
+clair: RADIUS OK : mesure=7.0px (ajustement rms=0.16) cible=8px±1 ligne_bord=4 profil=[4, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+== effets (blur, shapecorners, translucency, ...)
+blur : boolean true 
+contrast : boolean false 
+kwin4_effect_shapecorners : boolean true 
+slidingpopups : boolean false 
+fade : boolean false 
+== panneau (script Plasma)
+panel id=17 location=bottom height=48 floating=false opacity=translucent alignment=center lengthMode=fill hiding=none
+
+== applets du panneau
+widget org.kde.plasma.panelspacer
+widget org.kde.windowsmodern.startmenu
+widget org.kde.windowsmodern.shortcutbutton
+widget org.kde.windowsmodern.shortcutbutton
+widget org.kde.windowsmodern.icontasks
+widget org.kde.plasma.panelspacer
+widget org.kde.plasma.systemtray
+widget org.kde.windowsmodern.digitalclock
+widget org.kde.windowsmodern.notifybutton
+widget org.kde.windowsmodern.quicksettings
+widget org.kde.windowsmodern.showdesktop
+VERDICT icontasks-fork: OK
+== écran 1024x768
+barre x=20 y=762 : srgb(35,30,30)
+barre x=120 y=762 : srgb(35,31,31)
+barre x=220 y=762 : srgb(36,32,34)
+barre x=804 y=762 : srgb(37,35,39)
+barre x=904 y=762 : srgb(36,34,38)
+barre x=1004 y=762 : srgb(35,33,37)
+== barre sur fond blanc (01b) vs fond sombre (01)
+x=20 sombre=srgb(35,30,30) blanc=srgb(66,66,66)
+x=220 sombre=srgb(36,32,34) blanc=srgb(66,66,66)
+x=804 sombre=srgb(37,35,39) blanc=srgb(66,66,66)

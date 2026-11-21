@@ -1,0 +1,53 @@
+SO=
+total 11204
+drwxr-xr-x 17 1001 1001    4096 Nov 21 16:30 .
+drwxr-xr-x  3 1001 1001    4096 Nov 21 16:29 ..
+drwxr-xr-x  7 root root    4096 Nov 21 16:30 .git
+-rw-r--r--  1 root root     131 Nov 21 16:30 .gitattributes
+drwxr-xr-x  3 root root    4096 Nov 21 16:30 .github
+-rw-r--r--  1 root root     526 Nov 21 16:30 .gitignore
+-rw-r--r--  1 root root     171 Nov 21 16:30 .gitmodules
+-rw-r--r--  1 root root    1281 Nov 21 16:30 AGENTS.md
+-rw-r--r--  1 root root    4871 Nov 21 16:30 ATTRIBUTION.md
+-rwxr-xr-x  1 root root     766 Nov 21 16:30 AUTHORS
+drwxr-xr-x  3 root root    4096 Nov 21 16:30 Kvantum
+-rwxr-xr-x  1 root root   35149 Nov 21 16:30 LICENSE
+-rwxr-xr-x  1 root root   20420 Nov 21 16:30 README.md
+-rw-r--r--  1 root root  707109 Nov 21 16:30 View-1.png
+-rw-r--r--  1 root root 1024935 Nov 21 16:30 View-10.png
+-rw-r--r--  1 root root  954283 Nov 21 16:30 View-11.png
+-rw-r--r--  1 root root  799339 Nov 21 16:30 View-12.png
+-rw-r--r--  1 root root 1083340 Nov 21 16:30 View-13.png
+-rw-r--r--  1 root root  905299 Nov 21 16:30 View-2.png
+-rw-r--r--  1 root root  779852 Nov 21 16:30 View-3.png
+-rw-r--r--  1 root root  665952 Nov 21 16:30 View-4.png
+-rw-r--r--  1 root root  848619 Nov 21 16:30 View-5.png
+-rw-r--r--  1 root root  949157 Nov 21 16:30 View-6.png
+-rw-r--r--  1 root root  779126 Nov 21 16:30 View-7.png
+-rw-r--r--  1 root root  833843 Nov 21 16:30 View-8.png
+-rw-r--r--  1 root root  927761 Nov 21 16:30 View-9.png
+drwxr-xr-x  3 root root    4096 Nov 21 16:30 app-decorations
+drwxr-xr-x  4 root root    4096 Nov 21 16:30 aurorae
+drwxr-xr-x  3 root root    4096 Nov 21 16:30 ci
+drwxr-xr-x  2 root root    4096 Nov 21 16:30 color-schemes
+drwxr-xr-x  3 root root    4096 Nov 21 16:30 config
+drwxr-xr-x  4 root root    4096 Nov 21 16:30 docs
+drwxr-xr-x  3 root root    4096 Nov 21 16:30 icons
+-rwxr-xr-x  1 root root    9747 Nov 21 16:30 install.sh
+drwxr-xr-x  7 root root    4096 Nov 21 16:30 plasma
+drwxr-xr-x  2 root root    4096 Nov 21 16:30 scripts
+drwxr-xr-x  2 root root    4096 Nov 21 16:32 shots
+drwxr-xr-x  3 root root    4096 Nov 21 16:30 third_party
+-rwxr-xr-x  1 root root    9566 Nov 21 16:30 uninstall.sh
+--- ldd
+ldd: rien de manquant
+--- metadonnees (chaines)
+grep: : No such file or directory
+--- versions
+dpkg-query: no packages found matching kwin-effect-roundcorners
+kwin-common=4:6.6.7-0ubuntu0.1
+kwin-wayland=4:6.6.7-0ubuntu0.1
+kwin-x11=4:6.6.4-0ubuntu1
+libkwin6=4:6.6.7-0ubuntu0.1
+--- dossiers effets
+ls: cannot access '/usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins': No such file or directory

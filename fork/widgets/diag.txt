@@ -1,0 +1,6 @@
+== themes installes
+Windows-modern
+kvantum.kvconfig
+== kvantum.kvconfig
+[General]
+theme=Windows-modern

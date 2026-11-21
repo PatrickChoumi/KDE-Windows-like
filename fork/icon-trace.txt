@@ -1,0 +1,7 @@
+apres-01: [windows-modern] kdeglobals=29
+apres-colorscheme-ET-avant-desktoptheme-sera-mesure-ici: [windows-modern] kdeglobals=2770
+apres-desktoptheme: [windows-modern] kdeglobals=2770
+apres-kwriteconfig-icons: [windows-modern] kdeglobals=2795
+apres-02: [windows-modern] kdeglobals=2795
+apres-lookandfeel: [] kdeglobals=2745
+apres-remise-du-theme-icones: [windows-modern] kdeglobals=2775

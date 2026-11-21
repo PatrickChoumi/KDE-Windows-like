@@ -1,0 +1,6 @@
+Failed to gain real time thread priority (See CAP_SYS_NICE in the capabilities(7) man page). error: Operation not permitted
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland-org.kde.kwin.qpa" in "" even though it was found.
+This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+Available platform plugins are: wayland-brcm, wayland-egl, wayland, minimal, xcb, linuxfb, eglfs, minimalegl, vkkhrdisplay, offscreen, wayland-org.kde.kwin.qpa.
+

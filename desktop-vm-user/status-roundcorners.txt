@@ -1,0 +1,4 @@
+paquet      : installé (0.11.0.1.6.6.7~kubuntu26041)
+fichier .so : /usr/lib/x86_64-linux-gnu/qt6/plugins/kwin/effects/plugins/kwin4_effect_shapecorners.so
+effet       : activé dans kwinrc
+sauvegarde  : /home/runner/backup-kde-roundcorners-20261121-163307
