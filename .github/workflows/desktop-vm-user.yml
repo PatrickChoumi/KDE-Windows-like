@@ -69,3 +69,4 @@ jobs:
           ! grep -q '^ECHEC' shots/install-user.txt || { echo '::error::un installateur a echoue en utilisateur normal'; grep '^ECHEC' shots/install-user.txt; exit 1; }
           grep -q 'uid=0' shots/etat.txt && { echo '::error::la session a tourne en root, test invalide'; exit 1; }
           grep -q 'VERDICT coins: OK' shots/etat.txt || { echo '::error::coins arrondis non constates, voir ci-out/desktop-vm-user/etat.txt'; grep -A5 '== verdict' shots/etat.txt; exit 1; }
+          grep -q 'VERDICT icontasks-fork: OK' shots/etat.txt || { echo '::error::applet Icon Tasks du fork absent du panneau (voir etat.txt, section applets du panneau)'; exit 1; }

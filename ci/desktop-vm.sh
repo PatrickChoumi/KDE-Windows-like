@@ -126,6 +126,11 @@ shot 07-clair-dolphin
   for e in blur contrast kwin4_effect_shapecorners slidingpopups fade; do echo "$e : $(kw /Effects org.kde.kwin.Effects.isEffectLoaded string:$e | tr -s ' \n' ' ' | sed 's/.*boolean/boolean/')"; done
   echo "== panneau (script Plasma)"
   qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'var out=""; for (var p of panels()) { out += "panel id="+p.id+" location="+p.location+" height="+p.height+" floating="+p.floating+" opacity="+p.opacity+" alignment="+p.alignment+" lengthMode="+p.lengthMode+" hiding="+p.hiding+"\n"; } print(out)' 2>&1 | head -10
+  # Applets réellement chargés dans le panneau : le fork d'Icon Tasks doit y figurer (sinon barre native, ou applet en erreur)
+  echo "== applets du panneau"
+  WIDGETS=$(qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'var out=""; for (var p of panels()) { for (var w of p.widgets()) { out += "widget "+w.type+"\n"; } } print(out)' 2>&1 | head -30)
+  echo "$WIDGETS"
+  if echo "$WIDGETS" | grep -q "widget org.kde.windowsmodern.icontasks"; then echo "VERDICT icontasks-fork: OK"; else echo "VERDICT icontasks-fork: KO (applet du fork absent du panneau)"; fi
 } >> "$OUT/etat.txt"
 # Translucidité : la barre est translucide si sa couleur de fond suit le fond d'écran en dessous (pixels éloignés différents) — échantillons dans la barre, hors icônes.
 W=$(identify -format %w "$OUT/01-bureau.png" 2>/dev/null); H=$(identify -format %h "$OUT/01-bureau.png" 2>/dev/null)
