@@ -47,4 +47,10 @@ check opensuse-tumbleweed "opensuse suse" suse    0 1
 ( export DISTRO_OS_RELEASE="$(mkrel fedora "")" PATH="$T/min"; source scripts/distro-lib.sh
   [ "$(distro_family)" = fedora ] || exit 10
   rc=0; pkg_owner /usr/share/x/owned >/dev/null || rc=$?; [ "$rc" = 2 ] ) && ok "fedora sans rpm -> code 2" || ko "fedora sans rpm"
+# Coins arrondis hors famille Debian : message explicite, code 0, AUCUN appel à apt/sudo (faux apt-get qui échoue s'il est appelé)
+printf '#!/bin/sh\necho APPEL-INTERDIT >> "%s/appel.txt"; exit 1\n' "$T" > "$T/bin/apt-get"; cp "$T/bin/apt-get" "$T/bin/sudo"; chmod +x "$T/bin/apt-get" "$T/bin/sudo"
+for fam in fedora arch; do
+    out="$(DISTRO_OS_RELEASE="$(mkrel $fam "")" PATH="$T/bin:/usr/bin:/bin" HOME="$T" RC_YES=1 bash scripts/install-roundcorners.sh install 2>&1)"; rc=$?
+    if [ "$rc" = 0 ] && grep -q "NON installés" <<<"$out" && [ ! -e "$T/appel.txt" ]; then ok "coins arrondis sur $fam : refus explicite, rien modifié"; else ko "coins arrondis sur $fam (rc=$rc)"; fi
+done
 exit $fail

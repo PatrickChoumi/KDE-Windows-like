@@ -18,10 +18,21 @@
 # ───────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+# Portabilité : ce script ne sait installer que par apt/PPA (famille Debian). Ailleurs : message clair, aucune modification.
+source "$(dirname "${BASH_SOURCE[0]}")/distro-lib.sh"
+FAMILY="$(distro_family)"
+unsupported_family() {
+    echo "==> Coins arrondis NON installés : famille « $FAMILY » pas encore prise en charge (seul apt/PPA l'est)." >&2
+    echo "==> Aucun fichier modifié. Piste (non testée) : compiler https://github.com/matinlotfali/KDE-Rounded-Corners" >&2
+    echo "==> (cmake + en-têtes de développement de KWin de la distribution) ou utiliser son paquet COPR/AUR/OBS s'il existe." >&2
+}
+
+# (famille Debian uniquement) installé = Status « install ok installed », pas simplement « présent dans la base dpkg »
+pkg_installed() { local o; o="$(dpkg -s "$1" 2>/dev/null || true)"; grep -q '^Status: install ok installed' <<<"$o"; }
+
 # Le PPA publie deux paquets : kwin-effect-roundcorners (KWin Wayland) et kwin-effect-roundcorners-x11 (KWin X11, autre dossier de plugins).
 # Choix : RC_PKG (forcé) > paquet déjà installé > session X11 (XDG_SESSION_TYPE=x11) > Wayland (défaut).
 PKG_WAYLAND="kwin-effect-roundcorners"; PKG_X11="kwin-effect-roundcorners-x11"
-pkg_installed() { local o; o="$(dpkg -s "$1" 2>/dev/null || true)"; grep -q '^Status: install ok installed' <<<"$o"; }
 if [ -n "${RC_PKG:-}" ]; then PKG="$RC_PKG"
 elif pkg_installed "$PKG_X11"; then PKG="$PKG_X11"
 elif pkg_installed "$PKG_WAYLAND"; then PKG="$PKG_WAYLAND"
@@ -244,6 +255,12 @@ do_undo() {
     info "Retour arrière terminé (le PPA reste dans les sources apt : ppa-purge ou add-apt-repository -r $PPA pour l'enlever)."
 }
 
+if [ "$FAMILY" != "debian" ]; then
+    case "${1:-install}" in
+        install|undo) unsupported_family; exit 0 ;;
+        status) echo "famille     : $FAMILY (non prise en charge : état non vérifié)"; exit 0 ;;
+    esac
+fi
 case "${1:-install}" in
     install) do_install ;;
     undo)    do_undo ;;
