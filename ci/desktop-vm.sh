@@ -28,7 +28,16 @@ for d in /usr/libexec/kactivitymanagerd /usr/bin/kactivitymanagerd /usr/lib/x86_
   [ -x "$d" ] && { "$d" > "$OUT/kactivities.log" 2>&1 & echo "kactivitymanagerd: $d" >> "$OUT/etat.txt"; break; }
 done
 sleep 3
-plasmashell > "$OUT/plasmashell.log" 2>&1 &
+# En utilisateur normal, comme sur une vraie session : plasmashell tourne sous son service systemd utilisateur, qui doit recevoir
+# l'environnement graphique (sinon « could not connect to display » + core dump a chaque redemarrage par les installateurs).
+PLASMA_UNIT=0
+if [ "$(id -u)" != 0 ] && systemctl --user show-environment >/dev/null 2>&1; then
+  systemctl --user import-environment XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP KDE_FULL_SESSION XDG_SESSION_TYPE WAYLAND_DISPLAY QT_QPA_PLATFORM DBUS_SESSION_BUS_ADDRESS LC_ALL LIBGL_ALWAYS_SOFTWARE QT_QUICK_BACKEND >> "$OUT/apply.log" 2>&1
+  systemctl --user unset-environment DISPLAY >> "$OUT/apply.log" 2>&1
+  systemctl --user start plasma-plasmashell.service >> "$OUT/apply.log" 2>&1 && PLASMA_UNIT=1
+  echo "plasmashell via service systemd: $PLASMA_UNIT" >> "$OUT/etat.txt"
+fi
+[ "$PLASMA_UNIT" = 1 ] || plasmashell > "$OUT/plasmashell.log" 2>&1 &
 sleep 25
 plasma-apply-colorscheme WindowsModernDark >> "$OUT/apply.log" 2>&1
 plasma-apply-desktoptheme Windows-modern-dark >> "$OUT/apply.log" 2>&1
@@ -132,4 +141,5 @@ W=$(identify -format %w "$OUT/01-bureau.png" 2>/dev/null); H=$(identify -format 
 { echo "== écran ${W}x${H}"; for x in 20 120 220 $((W-220)) $((W-120)) $((W-20)); do echo "barre x=$x y=$((H-6)) : $(convert "$OUT/01-bureau.png" -format "%[pixel:p{$x,$((H-6))}]" info:)"; done; } >> "$OUT/etat.txt"
 { echo "== barre sur fond blanc (01b) vs fond sombre (01)"; for x in 20 220 $((W-220)); do echo "x=$x sombre=$(convert "$OUT/01-bureau.png" -format "%[pixel:p{$x,$((H-6))}]" info:) blanc=$(convert "$OUT/01b-fond-blanc.png" -format "%[pixel:p{$x,$((H-6))}]" info:)"; done; } >> "$OUT/etat.txt"
 convert "$OUT/01-bureau.png" -gravity south -crop "${W}x80+0+0" +repage "$OUT/01-barre-recadree.png" 2>/dev/null
+[ "$PLASMA_UNIT" = 1 ] && journalctl --user -u plasma-plasmashell.service --no-pager > "$OUT/plasmashell.log" 2>&1
 ps aux | grep -E "kwin|plasmashell|konsole|dolphin" | grep -v grep | cut -c1-140 > "$OUT/ps.txt"
