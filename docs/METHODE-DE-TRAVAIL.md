@@ -3,7 +3,7 @@
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ».
-> Dernière mise à jour : 2026-11-20 (version 40).
+> Dernière mise à jour : 2026-11-21 (version 42).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -29,7 +29,8 @@
 6. Quand la cause n'est pas évidente : instrumenter la CI (trace par étape, test isolé) plutôt que deviner.
 7. **Mesurer avant de corriger un écart visuel** : analyser les pixels de la capture (PIL) pour obtenir hauteur de barre, taille des éléments, position de l'indicateur, puis comparer aux valeurs Windows 11 du plan.
 8. Après chaque correctif validé : envoyer les captures à l'utilisateur (recadrées, zoom si utile), mettre à jour ce fichier (§5 leçons, §6 état) et la copie du projet, puis proposer la prochaine étape du plan.
-9. Fin de réponse : court. Ce qui est fait et vérifié, ce qui reste non testé, une prochaine étape.
+9. **Auto-contrôle obligatoire (v42, demande de Patrick 2026-11-21 : « pixel perfect », et « tu ne remarques pas toi-même les écarts »)** : ne jamais juger « conforme » à l'œil. Tout écart de style se détecte par un script de mesure qui échoue (rouge) quand la valeur sort de la cible Windows 11 : exemple `ci/measure-corner.py` (rayon des coins, cible 8 px ±1) branché sur le verdict de `desktop-vm.sh`. Avant de dire « validé » : (a) lister les valeurs cibles du plan, (b) les mesurer sur la capture, (c) comparer aussi aux références `docs/reference-win11/` en mettant à l'échelle (ex. bouton fermer 46 px) et en regardant le détail (zoom x8), (d) vérifier les DEUX modes, sombre et clair. Un réglage d'un plugin tiers se lit dans ses sources (`options.kcfg` au tag du paquet installé), pas de mémoire. Fin de réponse inchangée (point 10).
+10. Fin de réponse : court. Ce qui est fait et vérifié, ce qui reste non testé, une prochaine étape.
 
 ## 4. Outils et accès
 - Clonage et push : `gh`/`git` via le proxy ; le dépôt est ajouté à la session avec droit d'écriture. Avant de pousser : `git fetch origin dev`.
@@ -92,6 +93,9 @@
 - Milou.ResultsView (Plasma 6) : laisser `queryField: null` et piloter `queryString` explicitement (`Connections` sur `textChanged` du champ). Avec `queryField: champ`, KRunner charge les runners mais la requête reste vide (journal : « was not scheduled for current query »), résultats vides. Constaté en CI : run 44386700272 (vide) puis 44388402800 (résultats).
 
 ## 6. État et prochaine étape
+- **v42 (2026-11-21)** : coins arrondis corrigés. Mesure initiale (run 44743603651) : rayon 10,5 px, forme squircle, contour noir 1 px (défauts de l'effet : `Size=20`, `UseSquircleShape=true`) au lieu des 8 px circulaires de Windows 11. `install-roundcorners.sh` écrit maintenant `[Round-Corners]` (`Size=8`, `InactiveCornerRadius=8`, `UseSquircleShape=false`, contours à 0), relu et restauré par `undo` (commit `71fff51`). Run 44868857907 (`desktop-vm`, root) : `RADIUS OK` 7,0 px (cible 8 ±1), verdict coins OK. À affiner : 7,0 px mesuré (légèrement sous 8) ; ombre et liseré non comparés.
+- **Mode clair** : bloc ajouté à `ci/desktop-vm.sh` (captures 06/07). Rendu OK mais écarts vus : sélection du volet gauche de Dolphin en bleu vif (Win11 : gris clair + pastille), fond d'écran resté sombre (mesure du rayon clair peu fiable : fond non uni). À corriger.
+- **`desktop-vm-user` rouge depuis le 2026-11-19** (avant ces commits) : `install-icontasks` (code 1, build impossible hors root) et `install-startmenu` (code 134, plasmashell abort) échouent en utilisateur normal. Les captures de ce banc n'ont donc pas l'Icon Tasks du fork ; à traiter (cela touche le cas réel de Patrick).
 - Menu Démarrer : écart de 12 px au-dessus de la barre validé (`f2033c8`). Focus de Patrick (2026-11-19) : fidélité visuelle pixel perfect uniquement ; envoyer des images (captures + comparaison avec `docs/reference-win11/`) après chaque correctif.
 - Kvantum (2026-11-19) : thème installé et rendu en CI (captures 26-30, run 44453814919). Boutons 28 px → 32 px validés (`9c709f5`, run 44456694351). Ensuite : mesurer cases/toggles (27), champs (28), curseurs (29), menu (30) ; rayon 4 px des contrôles, rayon 8 px des menus, focus ring accent 2 px ; puis cocher 8.5, 8.6, 11.5. Après : 2.8 (calendrier + centre de notifications) ou GTK (11.7). Reste côté Patrick : test réel des coins arrondis en Wayland.
 - Les copies du projet l'assistant (`methode.md`, `kde-windows-like.md`) étaient en v3 / 10-11 : à remplacer par ce fichier et `PLAN-WINDOWS11-PIXEL-PERFECT.md`.
