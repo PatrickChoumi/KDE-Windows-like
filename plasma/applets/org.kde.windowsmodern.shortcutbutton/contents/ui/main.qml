@@ -66,8 +66,8 @@ PlasmoidItem {
             anchors.centerIn: parent
             width: 24; height: 24
             // Recherche : deux SVG blanc/noir (le masque de couleur rend noir en représentation compacte).
-            source: Qt.resolvedUrl("../icons/" + (root.isTaskView ? "taskview.svg" : (root.lightText ? "search-light.svg" : "search-dark.svg")))
-            isMask: root.isTaskView
+            source: Qt.resolvedUrl("../icons/" + ((root.isTaskView ? "taskview" : "search") + (root.lightText ? "-light.svg" : "-dark.svg")))
+            isMask: false
             color: Kirigami.Theme.textColor
         }
     } }
