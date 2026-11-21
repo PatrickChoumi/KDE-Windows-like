@@ -50,7 +50,7 @@ shot 01b-fond-blanc
 konsole -e bash > "$OUT/konsole.log" 2>&1 &
 # Dolphin comme sur le banc 1 (barre de commandes Win11, dossiers de test) pour comparer a [Z29] [Z30] avec les coins arrondis
 for d in Documents Downloads Music Pictures Videos; do mkdir -p "$HOME/$d"; done
-mkdir -p ~/.local/share/kxmlgui5/dolphin && cp config/dolphin/dolphinui.rc ~/.local/share/kxmlgui5/dolphin/dolphinui.rc
+bash scripts/install-dolphin.sh   # le vrai installateur (barre + menu contextuel), pas une copie a la main
 kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key ToolButtonStyle IconOnly
 kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key IconSize 16
 dolphin > "$OUT/dolphin.log" 2>&1 &

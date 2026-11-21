@@ -213,7 +213,7 @@ for d in Documents Downloads Music Pictures Videos Desktop; do mkdir -p "$HOME/$
 echo "note" > "$HOME/Documents/notes.txt"
 # Diagnostic (6.x) : modules du menu contextuel (rangee « couleur de dossier » absente de Win11) -> identifiant a desactiver dans kservicemenurc
 { echo "== kfileitemaction"; ls /usr/lib/*/qt6/plugins/kf6/kfileitemaction/ 2>&1; echo "== kservicemenurc"; cat ~/.config/kservicemenurc 2>&1; echo "== servicemenus"; ls /usr/share/kio/servicemenus 2>&1; } > "$OUT/dolphin-shots/menu-modules.txt"
-mkdir -p ~/.local/share/kxmlgui5/dolphin && cp config/dolphin/dolphinui.rc ~/.local/share/kxmlgui5/dolphin/dolphinui.rc
+bash scripts/install-dolphin.sh   # le vrai installateur (barre + menu contextuel), pas une copie a la main
 kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key ToolButtonStyle IconOnly
 kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key IconSize 16
 pkill -x dolphin 2>/dev/null; sleep 1
