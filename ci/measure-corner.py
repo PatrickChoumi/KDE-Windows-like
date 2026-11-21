@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 """Mesure le rayon d'un coin de fenetre (haut-gauche) sur une capture a fond clair uni.
-Usage : measure-corner.py capture.png x y rayon_attendu [tolerance_px]
-(x, y) = coin haut-gauche du cadre de la fenetre. Sortie : une ligne 'RADIUS ...' ; code 0 si OK, 1 sinon.
+Usage : measure-corner.py capture.png x y rayon_attendu [tolerance_px] [tl|tr]
+(x, y) = pixel du coin du cadre de la fenetre : haut-gauche (tl, defaut) ou haut-droit (tr). Sortie : une ligne 'RADIUS ...' ; code 0 si OK, 1 sinon.
 Methode : pour chaque ligne du coin, decalage horizontal du premier pixel different du fond ;
 on ajuste le rayon R d'un arc circulaire (moindres carres) et on compare a la cible (Windows 11 : 8 px)."""
 import sys, math
 from PIL import Image
 png, x0, y0, want = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4])
 tol = float(sys.argv[5]) if len(sys.argv) > 5 else 1.0
+side = sys.argv[6] if len(sys.argv) > 6 else 'tl'
+sg = 1 if side == 'tl' else -1
 im = Image.open(png).convert('RGB')
-bg = im.getpixel((max(x0 - 8, 0), max(y0 - 8, 0)))
+bg = im.getpixel((min(max(x0 - sg * 8, 0), im.width - 1), max(y0 - 8, 0)))
 def diff(p): return sum(abs(a - b) for a, b in zip(p, bg))
 prof = []
 for j in range(0, 24):
     off = None
     for i in range(0, 30):
-        if diff(im.getpixel((x0 - 2 + i, y0 + j))) > 60:
+        if diff(im.getpixel((min(max(x0 + sg * (i - 2), 0), im.width - 1), y0 + j))) > 60:
             off = i - 2; break
     prof.append(off)
 # rayon apparent = premiere ligne ou le bord est atteint (decalage <= 0)
