@@ -93,7 +93,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 6.4 | Volet gauche : Accueil, Galerie, OneDrive-like, Épinglés avec punaise, Ce PC, Réseau ; chevrons d'expansion ; sélection par pastille à gauche | ⬜ |
 | 6.5 | Volet principal : sections repliables (« Dossiers », « Périphériques et lecteurs »), grandes icônes de dossiers colorées | ⬜ ; icônes de dossiers colorées vues dans le pack (rendu cairosvg 96 px, 2026-11-20) — sections repliables non faites |
 | 6.6 | Lecteurs avec barre d'utilisation (accent bleu, rouge si > 90 %) et « X Go libres sur Y Go » | ⬜ |
-| 6.7 | Barre d'état : « N éléments » à gauche, boutons liste/grandes icônes à droite | ⬜ |
+| 6.7 | Barre d'état : « N éléments » à gauche, boutons liste/grandes icônes à droite | 🟡 barre pleine largeur avec le nombre à gauche (contrôle automatique 6.7 PASS, run 44886183409, `ShowStatusBar=FullWidth`). Reste : à droite Dolphin affiche l'espace disque (barre bleue + texte) au lieu des boutons de vue ; clé de désactivation introuvable dans le kcfg, à chercher |
 | 6.8 | Volet de détails/aperçu à droite (réf. [21]) | 🟡 |
 | 6.9 | Icônes de dossiers et types de fichiers de style Fluent (pack d'icônes complet) | 🟡 pack : 64 lieux, 518 types MIME, 1046 applis, 92 périphériques ; dossiers Bureau/Téléchargements/Documents/Images/Musique/Vidéos, corbeille, disque conformes au style Win11 (comparaison visuelle, pas de mesure pixel) ; icône « Accueil » = dossier à maison, Win11 = maison seule |
 
