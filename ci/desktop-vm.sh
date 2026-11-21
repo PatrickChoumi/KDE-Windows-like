@@ -72,7 +72,7 @@ JS
 px() { convert "$OUT/$1.png" -format "%[pixel:p{$2,$3}]" info: 2>/dev/null; }
 analyse() {  # $1 = capture ; écrit les pixels des 4 coins exacts et recadre x8
   local g fx fy fw fh
-  g=$(geom); read -r fx fy fw fh _ <<<"$g"
+  g=$(geom); read -r fx fy fw fh _ <<<"$g"; CORNER_X=$fx; CORNER_Y=$fy
   [ -n "${fw:-}" ] || { echo "$1 : fenêtre Konsole introuvable" >> "$OUT/etat.txt"; return 1; }
   { echo "== coins $1 (cadre ${fw}x${fh}+${fx}+${fy})"
     echo "haut-gauche=$(px $1 $fx $fy) haut-droit=$(px $1 $((fx+fw-1)) $fy) bas-gauche=$(px $1 $fx $((fy+fh-1))) bas-droit=$(px $1 $((fx+fw-1)) $((fy+fh-1)))"
@@ -87,6 +87,8 @@ RC_YES=1 bash scripts/install-roundcorners.sh install > "$OUT/install-roundcorne
 sleep 8
 bash scripts/install-roundcorners.sh status > "$OUT/status-roundcorners.txt" 2>&1
 shot 03-coins-apres; analyse 03-coins-apres; APRES="$CORNERS"
+# Mesure automatique du rayon (cible Windows 11 : 8 px) : l'oeil ne suffit pas, le script doit signaler l'ecart tout seul
+RADIUS=$(python3 ci/measure-corner.py "$OUT/03-coins-apres.png" "$CORNER_X" "$CORNER_Y" 8 1 2>&1 || true); echo "$RADIUS" >> "$OUT/etat.txt"
 CHARGE=$(kw /Effects org.kde.kwin.Effects.isEffectLoaded string:kwin4_effect_shapecorners | tr -s ' \n' ' ' | sed 's/.*boolean/boolean/')
 # Même bureau avec le fond d'écran Windows 11 (rendu final)
 [ -n "$WP" ] || echo "ATTENTION : fond Windows 11 introuvable, capture 04 sur fond blanc" >> "$OUT/etat.txt"
@@ -101,7 +103,22 @@ RSID=$(kw /Scripting org.kde.kwin.Scripting.loadScript string:"$OUT/raise.js" st
 kw /Scripting/Script$RSID org.kde.kwin.Script.run >/dev/null; sleep 3
 shot 05-dolphin-avant-plan
 { echo "== verdict coins"; echo "avant=$AVANT"; echo "apres=$APRES"; echo "effet charge=$CHARGE"
-  if [ "$AVANT" != "$APRES" ] && echo "$CHARGE" | grep -q true; then echo "VERDICT coins: OK"; else echo "VERDICT coins: KO"; fi; } >> "$OUT/etat.txt"
+  if [ "$AVANT" != "$APRES" ] && echo "$CHARGE" | grep -q true && echo "$RADIUS" | grep -q '^RADIUS OK'; then echo "VERDICT coins: OK"; else echo "VERDICT coins: KO"; fi; } >> "$OUT/etat.txt"
+
+# --- MODE CLAIR (meme bureau, memes fenetres) : jamais teste avant ; captures + mesure des coins ---
+plasma-apply-colorscheme WindowsModernLight >> "$OUT/apply.log" 2>&1
+plasma-apply-desktoptheme Windows-modern-light >> "$OUT/apply.log" 2>&1
+kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle kvantum
+plasma-apply-lookandfeel -a org.kde.windowsmodern.light >> "$OUT/apply.log" 2>&1; echo "lookandfeel clair exit=$?" >> "$OUT/apply.log"
+( source scripts/install-lib.sh; ensure_icon_theme windows-modern; ensure_window_decoration light ) >> "$OUT/apply.log" 2>&1
+kw /KWin org.kde.KWin.reconfigure >/dev/null
+sleep 20
+shot 06-clair-bureau-complet
+analyse 06-clair-bureau-complet || true
+RADIUS_L=$(python3 ci/measure-corner.py "$OUT/06-clair-bureau-complet.png" "$CORNER_X" "$CORNER_Y" 8 1 2>&1 || true); echo "clair: $RADIUS_L" >> "$OUT/etat.txt"
+RSID=$(kw /Scripting org.kde.kwin.Scripting.loadScript string:"$OUT/raise.js" string:ci-raise$RANDOM | awk '/int32/{print $2}')
+kw /Scripting/Script$RSID org.kde.kwin.Script.run >/dev/null; sleep 3
+shot 07-clair-dolphin
 
 # --- Mesures : effets chargés, état du panneau ---
 {

@@ -115,6 +115,18 @@ set_effect() {   # $1 = true|false
     kwriteconfig6 --file kwinrc --group Plugins --key "${EFFECT_ID}Enabled" "$1"
 }
 
+# Style Windows 11 (clés vérifiées dans src/kcm/options.kcfg du tag v0.11.0, groupe [Round-Corners] de kwinrc).
+# Défauts de l'effet : rayon 20, forme « squircle », contour noir 1 px + contour blanc : ce n'est pas Windows 11 (rayon 8 px, arc circulaire).
+# Les contours sont à 0 : le liseré 1 px est déjà dessiné par le décor Aurorae. Restauré par `undo` (copie de kwinrc).
+set_style() {
+    local k v
+    for kv in Size=8 InactiveCornerRadius=8 UseSquircleShape=false OutlineThickness=0 InactiveOutlineThickness=0 SecondOutlineThickness=0 InactiveSecondOutlineThickness=0; do
+        k="${kv%%=*}"; v="${kv#*=}"
+        kwriteconfig6 --file kwinrc --group Round-Corners --key "$k" "$v"
+        [ "$(kreadconfig6 --file kwinrc --group Round-Corners --key "$k")" = "$v" ] || die "le réglage $k=$v n'a pas été relu dans kwinrc"
+    done
+}
+
 do_status() {
     if is_installed; then
         echo "paquet      : installé ($(dpkg-query -W -f='${Version}' "$PKG"))"
@@ -189,6 +201,7 @@ do_install() {
     check_kwin_versions "$so"
 
     # 6. Activation + rechargement ; retour arrière si l'écriture n'est pas relue
+    set_style
     set_effect true
     if ! effect_enabled; then
         [ -f "$bdir/kwinrc" ] && cp -a "$bdir/kwinrc" "$KWINRC"
