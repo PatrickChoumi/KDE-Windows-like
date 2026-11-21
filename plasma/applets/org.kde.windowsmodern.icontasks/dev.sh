@@ -50,13 +50,26 @@ sleep 1
 
 # ── Garde-fou : l'identifiant ne doit jamais être celui d'un paquet natif ──
 # (collision = Plasma lit les métadonnées du paquet et ignore notre .so)
-for p in "/usr/share/plasma/plasmoids/${APP_ID}" "/usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/${APP_ID}.so" "/usr/lib64/qt6/plugins/plasma/applets/${APP_ID}.so"; do
-    if [ -e "$p" ] && owner=$(dpkg -S "$p" 2>/dev/null); then
+# Indépendant de la distribution : dpkg, rpm ou pacman selon /etc/os-release (scripts/distro-lib.sh).
+DISTRO_LIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)/scripts/distro-lib.sh"
+[ -r "$DISTRO_LIB" ] || { err "scripts/distro-lib.sh introuvable : garde-fou impossible, abandon (rien n'a été modifié)."; exit 1; }
+source "$DISTRO_LIB"
+detect_paths   # définit PLUGIN_DST (le garde-fou le contrôle aussi)
+GUARD_UNKNOWN=0
+for p in "/usr/share/plasma/plasmoids/${APP_ID}" "${PLUGIN_DST}/${APP_ID}.so" \
+         "/usr/lib/x86_64-linux-gnu/qt6/plugins/plasma/applets/${APP_ID}.so" "/usr/lib64/qt6/plugins/plasma/applets/${APP_ID}.so" \
+         "/usr/lib/qt6/plugins/plasma/applets/${APP_ID}.so"; do
+    [ -e "$p" ] || continue
+    rc=0; owner="$(pkg_owner "$p")" || rc=$?
+    if [ "$rc" = 0 ]; then
         err "L'identifiant ${APP_ID} appartient déjà à un paquet : $owner"
         err "Abandon : aucun fichier système n'a été modifié."
         exit 1
+    elif [ "$rc" = 2 ]; then
+        GUARD_UNKNOWN=1
     fi
 done
+[ "$GUARD_UNKNOWN" = 0 ] || warn "Distribution « $(distro_family) » : propriétaire des fichiers non vérifiable (aucun gestionnaire de paquets reconnu). Garde-fou NON appliqué."
 
 # ── Fix layout if corrupted ───────────────────────────────────────
 if grep -q "plugin=metadata" "$LAYOUT_FILE" 2>/dev/null; then
@@ -100,7 +113,11 @@ if [ "${WM_BATCH:-0}" = "1" ]; then
 fi
 
 info "Restarting plasmashell..."
-systemctl --user start plasma-plasmashell.service
+if ! systemctl --user start plasma-plasmashell.service; then
+    err "Le .so est installé, mais plasmashell ne redémarre pas (plantage au démarrage)."
+    journalctl --user -u plasma-plasmashell.service -n 40 --no-pager 2>/dev/null | cut -c1-220 || true
+    exit 3
+fi
 sleep 3
 
 info "Done. If the taskbar is blank, check System Settings → Add Widgets."

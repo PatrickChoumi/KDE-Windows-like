@@ -10,10 +10,14 @@ dir="$SRC_DIR/plasma/applets/org.kde.windowsmodern.icontasks"
 info "Installing Icon Tasks (C++)..."
 
 if [ -x "$dir/dev.sh" ]; then
-    if ! ( cd "$dir" && bash dev.sh ); then
-        err "Icon Tasks build failed — missing build dependencies or compiler."
-        warn "The panel will use the stock Plasma task manager instead."
-        warn "To install build deps and retry, see the README (System Tray section)."
+    rc=0; ( cd "$dir" && bash dev.sh ) || rc=$?
+    if [ "$rc" != 0 ]; then
+        if [ "$rc" = 3 ]; then
+            err "Icon Tasks compilé et installé, mais plasmashell n'a pas redémarré (code $rc) : voir le journal ci-dessus."
+        else
+            err "Icon Tasks : échec de dev.sh (code $rc) — compilation, droits (pkexec/sudo) ou garde-fou : voir le journal ci-dessus."
+            warn "Dépendances de compilation par distribution : README (section System Tray)."
+        fi
         exit 1
     fi
 else

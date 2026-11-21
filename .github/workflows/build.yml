@@ -140,3 +140,5 @@ jobs:
             [ -f "$f" ] && ! bash -n "$f" && { echo "::error file=$f::erreur de syntaxe"; fail=1; }
           done
           exit $fail
+      - name: Test de distro-lib (debian, fedora, arch, suse, inconnue) avec faux gestionnaires de paquets
+        run: bash ci/test-distro-lib.sh
