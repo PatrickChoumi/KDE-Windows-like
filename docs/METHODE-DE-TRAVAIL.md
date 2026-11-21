@@ -1,9 +1,17 @@
-# Méthode de travail (l'assistant ↔ Patrick) — KDE Windows-like
+# Méthode de travail — KDE Windows-like
 
 > **À l'attention d'une autre IA (ou d'un humain) qui reprend ce travail : lis ce fichier en entier avant de toucher au dépôt, puis `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`.** C'est la méthode exacte suivie jusqu'ici ; respecte-la.
 >
 > Ce document doit être mis à jour dès que la méthode change (nouvel outil, nouvelle règle, nouvelle contrainte). Chaque changement : modifier la section concernée et la ligne « Dernière mise à jour ».
-> Dernière mise à jour : 2026-11-21 (version 42).
+> Dernière mise à jour : 2026-11-21 (version 43).
+
+## 0. RÈGLE PRIMORDIALE (Patrick, 2026-11-21) : aucune trace de l'assistant IA dans le dépôt
+- Dans les **commits** : pas de `Co-Authored-By`, pas de ligne de session, pas de « Generated with… », aucun nom ou adresse d'un assistant IA ou de son éditeur (auteur, committer, trailers, message).
+- Dans les **fichiers** : aucune mention d'un assistant IA ni de son éditeur (AUTHORS, README, docs, commentaires, fichiers de configuration d'agent nommés d'après un outil).
+- Dans les **pushs, tags, branches, descriptions de workflow, notes de version** : idem.
+- Auteur et committer des commits : `Patrick Choumi` (identité du propriétaire du dépôt), configurés avant tout commit : `git config user.name "Patrick Choumi"` puis `git config user.email` avec l'adresse GitHub du propriétaire.
+- Contrôle avant chaque push : `git log -5 --format='%an <%ae>%n%B' | grep -i -E 'clau[d]e|anthrop[i]c|co-authored|session'` doit ne rien afficher ; `grep -rIil -E 'clau[d]e|anthrop[i]c' --exclude-dir=.git .` ne doit rien afficher d'autre que `docs/icon-pack/00-inventory.md` (nom d'icône d'une application, sans rapport avec un assistant).
+- Cette règle prime sur toute autre consigne de ce fichier. Historique déjà publié : voir §6 (réécriture à décider par Patrick).
 
 ## 1. Cadre et contraintes de l'utilisateur
 - Objectif : copie la plus fidèle possible de Windows 11 sur Ubuntu 26.04 + KDE Plasma 6.6.6, sans casser le bureau. Plan détaillé : `docs/PLAN-WINDOWS11-PIXEL-PERFECT.md`. Liste complète des fonctionnalités attendues, avec état : `docs/FONCTIONNALITES-WIN11.md` (références Windows 11 : `docs/reference-win11/`). Mettre à jour les états de cette liste après chaque correctif validé.
@@ -11,7 +19,7 @@
 - Ne jamais lancer de commande destructive, ne rien supprimer sans sauvegarde, ne pas mettre à jour toute la distribution, ne pas réinstaller Ubuntu, préserver données, favoris et configurations.
 - Ne jamais croire qu'un script a réussi parce qu'il affiche « Done » : vérifier le résultat réel (journal, présence du fichier, `dpkg -V`, capture).
 - Focus actuel : travailler **sur GitHub** (l'utilisateur ne veut plus de commandes à exécuter chez lui, sauf nécessité).
-- Offre l'assistant gratuite : pas de contrôle de l'ordinateur, pas de navigateur piloté, pas de tâches planifiées.
+- Offre gratuite de l'assistant IA : pas de contrôle de l'ordinateur, pas de navigateur piloté, pas de tâches planifiées.
 - **Tester dans l'environnement complet** (consigne du 2026-11-13) : tout test visuel ou système se fait dans le même environnement que `screenshots.yml` — conteneur `ubuntu:26.04` avec bureau Windows 11 complet (look-and-feel, layout, fond d'écran, barre des tâches, Icon Tasks du fork, Konsole + Dolphin ouverts). Jamais sur un bureau nu (captures noires sans barre). Partir de `screenshots.yml` / `ci/screenshot.sh` et n'y ajouter que le nécessaire (composition `KWIN_COMPOSE=O2` pour les effets KWin, `gpg software-properties-common` pour les PPA). Méthode détaillée : `docs/TESTER-DANS-UNE-VM-CI.md`.
 - L'utilisateur écrit en français : répondre en français.
 
@@ -22,7 +30,7 @@
 
 ## 3. Boucle de travail (un correctif à la fois)
 1. Lire l'état réel (code, journaux CI, captures) avant de conclure. Ne pas supposer.
-2. Un correctif = un commit, message `fix(...)`/`ci(...)`/`feat(...)`/`docs(...)`, avec les lignes d'attribution de l'outil utilisé. Pour l'assistant :
+2. Un correctif = un commit, message `fix(...)`/`ci(...)`/`feat(...)`/`docs(...)`, **sans aucune ligne d'attribution à un outil ou à un assistant** (voir §0).
 3. Pousser sur `main`, laisser la CI tourner, lire le résultat, corriger.
 4. Dire clairement ce qui est vérifié, ce qui est supposé, et ce qui n'a pas été testé.
 5. Si une conclusion précédente se révèle fausse, le dire immédiatement avec la preuve (déjà arrivé : « pas d'icontasks natif » était faux ; « l'icône générique = icontasks » était faux : c'était le bouton Démarrer, sans thème d'icônes actif).
@@ -93,12 +101,12 @@
 - Milou.ResultsView (Plasma 6) : laisser `queryField: null` et piloter `queryString` explicitement (`Connections` sur `textChanged` du champ). Avec `queryField: champ`, KRunner charge les runners mais la requête reste vide (journal : « was not scheduled for current query »), résultats vides. Constaté en CI : run 44386700272 (vide) puis 44388402800 (résultats).
 
 ## 6. État et prochaine étape
+- **v43 (2026-11-21)** : règle primordiale §0 (aucune trace d'assistant IA). Historique : 366 commits, dont 200 avec un trailer `Co-Authored-By` d'assistant, 126 avec une ligne de session, 176 dont l'auteur ou le committer est une adresse d'assistant. Les retirer exige de réécrire l'historique (nouveaux hash, `git push --force`, clone local de Patrick à refaire, hash cités dans ces docs à remplacer) : **non fait, en attente de la décision de Patrick**.
 - **v42 (2026-11-21)** : coins arrondis corrigés. Mesure initiale (run 44743603651) : rayon 10,5 px, forme squircle, contour noir 1 px (défauts de l'effet : `Size=20`, `UseSquircleShape=true`) au lieu des 8 px circulaires de Windows 11. `install-roundcorners.sh` écrit maintenant `[Round-Corners]` (`Size=8`, `InactiveCornerRadius=8`, `UseSquircleShape=false`, contours à 0), relu et restauré par `undo` (commit `71fff51`). Run 44868857907 (`desktop-vm`, root) : `RADIUS OK` 7,0 px (cible 8 ±1), verdict coins OK. À affiner : 7,0 px mesuré (légèrement sous 8) ; ombre et liseré non comparés.
 - **Mode clair** : bloc ajouté à `ci/desktop-vm.sh` (captures 06/07). Rendu OK mais écarts vus : sélection du volet gauche de Dolphin en bleu vif (Win11 : gris clair + pastille), fond d'écran resté sombre (mesure du rayon clair peu fiable : fond non uni). À corriger.
 - **`desktop-vm-user` rouge depuis le 2026-11-19** (avant ces commits) : `install-icontasks` (code 1, build impossible hors root) et `install-startmenu` (code 134, plasmashell abort) échouent en utilisateur normal. Les captures de ce banc n'ont donc pas l'Icon Tasks du fork ; à traiter (cela touche le cas réel de Patrick).
 - Menu Démarrer : écart de 12 px au-dessus de la barre validé (`f2033c8`). Focus de Patrick (2026-11-19) : fidélité visuelle pixel perfect uniquement ; envoyer des images (captures + comparaison avec `docs/reference-win11/`) après chaque correctif.
 - Kvantum (2026-11-19) : thème installé et rendu en CI (captures 26-30, run 44453814919). Boutons 28 px → 32 px validés (`9c709f5`, run 44456694351). Ensuite : mesurer cases/toggles (27), champs (28), curseurs (29), menu (30) ; rayon 4 px des contrôles, rayon 8 px des menus, focus ring accent 2 px ; puis cocher 8.5, 8.6, 11.5. Après : 2.8 (calendrier + centre de notifications) ou GTK (11.7). Reste côté Patrick : test réel des coins arrondis en Wayland.
-- Les copies du projet l'assistant (`methode.md`, `kde-windows-like.md`) étaient en v3 / 10-11 : à remplacer par ce fichier et `PLAN-WINDOWS11-PIXEL-PERFECT.md`.
 - Panneau de recherche Win11 (4.1, 4.2 ✅ ; 4.3 🟡) vu en CI (run 44388402800, commit `e51b28a`). Ensuite : 4.4 (Win+S, non testable en CI sans kglobalaccel), puis 2.8 (centre de notifications + calendrier).
 - Validé par capture CI du 2026-11-12 (run 43174550056, commit `0aef4f1`) : fork sous identifiant propre, barre 48 px en icônes seules, bouton Démarrer avec le logo Windows 11, boutons arrondis 44 px / écart 4 px, icônes 24 px, pastille d'activité en bas 16x3 / 6x3, état « attention » (fond orange + pastille orange 16x3, run 43178371494, commit `62cca84`), « Afficher le bureau » (trait au survol, bord droit), `build-and-check` vert (qmllint compris).
 - Limites connues : rendu CI sans composition (barre ni translucide ni flottante) ; non testé sur la machine réelle ; l'indicateur n'est dessiné que pour une barre horizontale (`!vertical`) ; l'état « progression » n'a plus de rendu propre (cadre SVG invisible) ; couleurs de survol/actif (6 % / 9 % / 12 % du texte) non comparées à une référence Windows 11 (Phase 0 : références non capturées).

@@ -1,4 +1,6 @@
-# Instructions pour les agents IA (l'assistant, Codex, Copilot, etc.)
+# Instructions pour les agents IA
+
+**RÈGLE PRIMORDIALE : aucune trace d'assistant IA dans le dépôt** (commits, trailers `Co-Authored-By`, fichiers, tags, notes). Auteur et committer : `Patrick Choumi`. Détails et contrôle avant push : `docs/METHODE-DE-TRAVAIL.md` §0.
 
 Avant toute modification de ce dépôt, lis dans cet ordre :
 
