@@ -51,20 +51,20 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | 3.1 | Fenêtre flottante centrée au-dessus de la barre, rayon 8 px, ombre, fond translucide (clair et sombre) | 🟡 centré, 640×720 px, fond sombre (CI 43193526420) ; rayon 8 px / ombre / translucidité non mesurés (pas de composition en CI) |
 | 3.2 | Champ de recherche en haut (« Search for apps, settings, and documents ») avec liseré d'accent en bas quand actif | ✅ en haut, rayon 4 px, liseré d'accent 2 px au focus (CI 43217058274) |
 | 3.3 | Section **Épinglé** : grille 6 colonnes × 3 lignes, icône 32 px + libellé sous l'icône, bouton « Toutes les applications > » | ✅ 6 colonnes (pas 96 px), icône 32 px + libellé, « All apps » ; 3 lignes et glisser-déposer non testés |
-| 3.4 | Section **Recommandés** | ⛔ supprimée volontairement (décision Patrick 2026-11-19, `b8d2a03`) : pas de récents, pas de pubs ni suggestions |
+| 3.4 | Section **Recommandés** | ⛔ supprimée volontairement (décision Patrick 2026-11-19, `3828632`) : pas de récents, pas de pubs ni suggestions |
 | 3.5 | Pied de menu : avatar + nom d'utilisateur à gauche, bouton alimentation à droite | ✅ avatar + nom, bouton alimentation icône seule (avatar vide en CI : pas d'image de compte) |
-| 3.6 | Vue « Toutes les applications » (réf. [08]) : liste alphabétique avec en-têtes de lettre, grille de l'alphabet au clic sur une lettre, saut vers la section, bouton « Retour » | ✅ en-têtes, grille (lettres sans application grisées), saut, Back (CI 43203472481 et 43204388588, commits `f0fdb3a`, `38e1ed9`) ; défilement réel du saut non vu (la liste de la CI tient à l'écran) |
-| 3.7 | Menu d'alimentation : Suspendre / Arrêter / Redémarrer avec icônes fines (réf. [07]) | 🟡 ordre Win11, lignes 36 px, icônes 16 px, coins 8 px (CI 43202074169, commit `ca96b8f`) ; Lock / Log out gardés sous un séparateur ; actions grisées en CI (pas de logind), non testées ; pas d'ombre ni d'animation |
+| 3.6 | Vue « Toutes les applications » (réf. [08]) : liste alphabétique avec en-têtes de lettre, grille de l'alphabet au clic sur une lettre, saut vers la section, bouton « Retour » | ✅ en-têtes, grille (lettres sans application grisées), saut, Back (CI 43203472481 et 43204388588, commits `a6045cc`, `ad5e102`) ; défilement réel du saut non vu (la liste de la CI tient à l'écran) |
+| 3.7 | Menu d'alimentation : Suspendre / Arrêter / Redémarrer avec icônes fines (réf. [07]) | 🟡 ordre Win11, lignes 36 px, icônes 16 px, coins 8 px (CI 43202074169, commit `e01e9f5`) ; Lock / Log out gardés sous un séparateur ; actions grisées en CI (pas de logind), non testées ; pas d'ombre ni d'animation |
 | 3.8 | Épingler / désépingler, réorganiser par glisser-déposer, dossiers d'épinglés | ⬜ |
 | 3.9 | Recherche immédiate en tapant dès l'ouverture ; touche Windows (Meta) ouvre/ferme | 🟡 |
-| 3.10 | Animation d'ouverture (glissement vers le haut + fondu, ~200 ms) | ✅ trace CI (run 43380171516, commit `dc4ccfc`) : glissement 32 px → 0 et opacité 0 → 1 en 197 ms ; image à 106 ms différente de l'état final (21 635 px), images suivantes identiques |
+| 3.10 | Animation d'ouverture (glissement vers le haut + fondu, ~200 ms) | ✅ trace CI (run 43380171516, commit `9a48183`) : glissement 32 px → 0 et opacité 0 → 1 en 197 ms ; image à 106 ms différente de l'état final (21 635 px), images suivantes identiques |
 | 3.11 | Fermeture au clic extérieur et à `Échap` | 🟡 |
 | 3.12 | Clic droit sur le bouton Démarrer : menu « Power User » (Win+X) | 🟡 15 entrées au clic droit (CI 43214957855) ; menu Qt natif avec entrées Plasma en plus, sans séparateurs ni sous-menu ; clics non testés |
 
 ## 4. Recherche (réf. [12])
 | # | Fonctionnalité | État |
 |---|---|---|
-| 4.1 | Panneau de recherche : champ en haut, colonne « Suggérés » (applications/paramètres récents) à gauche | ✅ champ en haut + colonne « Suggérés » (4 apps), CI 44388402800, commit `e51b28a` (labels de catégorie non conformes à Win11 : fournis par Milou) |
+| 4.1 | Panneau de recherche : champ en haut, colonne « Suggérés » (applications/paramètres récents) à gauche | ✅ champ en haut + colonne « Suggérés » (4 apps), CI 44388402800, commit `f84ad73` (labels de catégorie non conformes à Win11 : fournis par Milou) |
 | 4.2 | « Recherches rapides » (tuiles de paramètres) et « Applications principales » (grille de tuiles) à droite | ✅ « Quick searches » 2×2 et « Top apps » 3×2, CI 44388402800 ; clic sur une tuile non testé en CI |
 | 4.3 | Résultats groupés (applications, documents, paramètres ; JAMAIS de web/Bing, décision Patrick 2026-11-19) avec aperçu à droite | 🟡 résultats Milou affichés (Applications / System Settings / Windows pour « konsole », CI 44388402800) ; pas d'aperçu à droite, pas de catégories web |
 | 4.4 | Raccourci Win+S | ⬜ |
@@ -72,9 +72,9 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 ## 5. Fenêtres (réf. [06] [16] [17] [18] [21])
 | # | Fonctionnalité | État |
 |---|---|---|
-| 5.1 | Coins arrondis 8 px sur les 4 angles, liseré 1 px, ombre douce | 🟡 (19/11 : le plugin est validé seul, sur bureau NU noir ; sur le bureau Windows 11 COMPLET, `desktop-vm` run 44380274916 montre des coins CARRÉS, effet non installé ; test bureau complet en cours, `ci/desktop-vm.sh`) en CI sur VM réelle Ubuntu 26.04 (run 43423785978, commit `0368a00`, KWin Wayland 6.6.6 sur DRM, compositing `gl2`) : coins carrés avant (pixel exact des 4 coins = srgb(55,55,55), la bordure), arrondis après installation (4 coins = srgb(0,0,0), fond), carrés de nouveau après `undo`. Reste à confirmer sur la machine de Patrick en session Wayland (en session X11 : refus, KWin 6.6.4) |
+| 5.1 | Coins arrondis 8 px sur les 4 angles, liseré 1 px, ombre douce | 🟡 (19/11 : le plugin est validé seul, sur bureau NU noir ; sur le bureau Windows 11 COMPLET, `desktop-vm` run 44380274916 montre des coins CARRÉS, effet non installé ; test bureau complet en cours, `ci/desktop-vm.sh`) en CI sur VM réelle Ubuntu 26.04 (run 43423785978, commit `0e34390`, KWin Wayland 6.6.6 sur DRM, compositing `gl2`) : coins carrés avant (pixel exact des 4 coins = srgb(55,55,55), la bordure), arrondis après installation (4 coins = srgb(0,0,0), fond), carrés de nouveau après `undo`. Reste à confirmer sur la machine de Patrick en session Wayland (en session X11 : refus, KWin 6.6.4) |
 | 5.2 | Barre de titre 32 px, titre aligné à gauche avec icône 16 px | ✅ 32 px, titre à gauche, icône (CI 43228942810) ; nécessite le paquet `kwin-style-aurorae` |
-| 5.3 | Boutons réduire / agrandir / fermer : 46×32 px, glyphes fins, fond de survol, fermeture en rouge `#C42B1C` | ✅ vérifié par capture CI (run 43232159100, commit `843ac40`) : 46×32 px, glyphes fins, survol de fermeture `#C42B1C` mesuré sur 46×32 px |
+| 5.3 | Boutons réduire / agrandir / fermer : 46×32 px, glyphes fins, fond de survol, fermeture en rouge `#C42B1C` | ✅ vérifié par capture CI (run 43232159100, commit `10e4ed7`) : 46×32 px, glyphes fins, survol de fermeture `#C42B1C` mesuré sur 46×32 px |
 | 5.4 | Fenêtre inactive : titre et glyphes atténués | 🟡 |
 | 5.5 | Mica sur la barre de titre (teinte du fond d'écran) | ❌ (approximation par couleur unie) |
 | 5.6 | **Snap Layouts** au survol du bouton agrandir (réf. [16]) | ❌ |
@@ -101,7 +101,7 @@ Les références `[nn]` renvoient aux captures. Les phases `P0…P9` renvoient �
 | # | Fonctionnalité | État |
 |---|---|---|
 | 7.1 | Menu contextuel du bureau : Afficher ▸, Trier par ▸, Actualiser, Nouveau ▸, Paramètres d'affichage, Personnaliser — icônes fines à gauche, séparateurs, rayon 8 px, ombre, fond acrylique | ⬜ (P5 Kvantum + thème Plasma) |
-| 7.2 | Hauteur d'entrée 32 px, chevrons de sous-menu, raccourcis clavier alignés à droite | 🟡 hauteur 32 px mesurée en CI sur Kvantum (`2cb79b3`, run 44661644949) ; chevrons et raccourcis vus ; icônes à gauche non vérifiées |
+| 7.2 | Hauteur d'entrée 32 px, chevrons de sous-menu, raccourcis clavier alignés à droite | 🟡 hauteur 32 px mesurée en CI sur Kvantum (`0e367f0`, run 44661644949) ; chevrons et raccourcis vus ; icônes à gauche non vérifiées |
 | 7.3 | Boîtes « Enregistrer sous / Ouvrir » avec la même mise en page que l'Explorateur | ⬜ |
 | 7.4 | Boîtes de message : boutons arrondis 4 px, bouton principal en accent | ⬜ (P5) |
 | 7.5 | Menus des applications (Konsole, Dolphin) au même style | ⬜ |
