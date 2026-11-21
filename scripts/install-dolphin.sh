@@ -42,6 +42,8 @@ cp -f "$src" "$dst"
 if command -v kwriteconfig6 >/dev/null 2>&1; then
     kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key ToolButtonStyle IconOnly
     kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key IconSize 16
+    # Barre d'etat pleine largeur (« N elements » comme l'Explorateur), au lieu de la pastille « Small » de KDE.
+    kwriteconfig6 --file dolphinrc --group General --key ShowStatusBar FullWidth
     # Menu contextuel : retire la rangee « couleur de dossier » propre a KDE (absente de l'Explorateur Win11).
     kwriteconfig6 --file kservicemenurc --group Show --key setfoldericonitemaction false
 else
