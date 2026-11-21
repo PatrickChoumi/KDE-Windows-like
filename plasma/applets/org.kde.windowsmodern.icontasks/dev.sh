@@ -45,7 +45,11 @@ cmake --build "$BUILD_DIR" --parallel "$(nproc)" 2>&1 | tail -3
 
 # ── Stop plasmashell ──────────────────────────────────────────────
 info "Stopping plasmashell..."
-systemctl --user stop plasma-plasmashell.service 2>/dev/null || true
+# plasmashell peut tourner sous son service systemd (session normale) ou lancé à la main (banc de test, session minimale) :
+# on le redémarre de la même façon qu'on l'a arrêté.
+UNIT_ACTIVE=0; systemctl --user is-active --quiet plasma-plasmashell.service 2>/dev/null && UNIT_ACTIVE=1
+MANUAL_SHELL=0; [ "$UNIT_ACTIVE" = 0 ] && pgrep -x plasmashell >/dev/null 2>&1 && MANUAL_SHELL=1
+if [ "$MANUAL_SHELL" = 1 ]; then pkill -x plasmashell 2>/dev/null || true; else systemctl --user stop plasma-plasmashell.service 2>/dev/null || true; fi
 sleep 1
 
 # ── Garde-fou : l'identifiant ne doit jamais être celui d'un paquet natif ──
@@ -113,7 +117,11 @@ if [ "${WM_BATCH:-0}" = "1" ]; then
 fi
 
 info "Restarting plasmashell..."
-if ! systemctl --user start plasma-plasmashell.service; then
+if [ "$MANUAL_SHELL" = 1 ]; then
+    setsid -f plasmashell >/dev/null 2>&1 || true
+    sleep 3
+    pgrep -x plasmashell >/dev/null 2>&1 || { err "Le .so est installé, mais plasmashell ne redémarre pas (lancement direct)."; exit 3; }
+elif ! systemctl --user start plasma-plasmashell.service; then
     err "Le .so est installé, mais plasmashell ne redémarre pas (plantage au démarrage)."
     journalctl --user -u plasma-plasmashell.service -n 40 --no-pager 2>/dev/null | cut -c1-220 || true
     exit 3

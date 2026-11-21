@@ -108,7 +108,7 @@ restart_plasmashell() {
     local kstart
     kstart="$(_kstart_cmd)"
     if [ -n "$kstart" ]; then
-        $kstart plasmashell >/dev/null 2>&1
+        $kstart plasmashell >/dev/null 2>&1 || { warn "$kstart a échoué (code $?) : lancement direct de plasmashell."; setsid -f plasmashell >/dev/null 2>&1 || true; }
     else
         warn "kstart not found; launching plasmashell directly..."
         plasmashell >/dev/null 2>&1 &
@@ -119,7 +119,7 @@ restart_plasmashell() {
     if ! pgrep -x plasmashell >/dev/null 2>&1; then
         warn "Plasma Shell did not restart; trying once more..."
         if [ -n "$kstart" ]; then
-            $kstart plasmashell >/dev/null 2>&1
+            $kstart plasmashell >/dev/null 2>&1 || { setsid -f plasmashell >/dev/null 2>&1 || true; }
         else
             plasmashell >/dev/null 2>&1 &
         fi

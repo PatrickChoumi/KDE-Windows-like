@@ -28,20 +28,7 @@ for d in /usr/libexec/kactivitymanagerd /usr/bin/kactivitymanagerd /usr/lib/x86_
   [ -x "$d" ] && { "$d" > "$OUT/kactivities.log" 2>&1 & echo "kactivitymanagerd: $d" >> "$OUT/etat.txt"; break; }
 done
 sleep 3
-# En utilisateur normal, comme sur une vraie session : plasmashell tourne sous son service systemd utilisateur, qui doit recevoir
-# l'environnement graphique (sinon « could not connect to display » + core dump a chaque redemarrage par les installateurs).
-PLASMA_UNIT=0
-if [ "$(id -u)" != 0 ]; then
-  # le gestionnaire systemd utilisateur vit dans le VRAI /run/user/UID ; XDG_RUNTIME_DIR vaut /tmp/xdg dans ce banc
-  SC() { XDG_RUNTIME_DIR="/run/user/$(id -u)" DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" systemctl --user "$@"; }
-  SC show-environment > "$OUT/systemd-env-avant.txt" 2>&1; echo "systemctl --user show-environment: code $?" >> "$OUT/etat.txt"
-  SC set-environment XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true XDG_SESSION_TYPE=wayland WAYLAND_DISPLAY=wayland-0 QT_QPA_PLATFORM=wayland DBUS_SESSION_BUS_ADDRESS="$DBUS_SESSION_BUS_ADDRESS" LC_ALL=C.UTF-8 LIBGL_ALWAYS_SOFTWARE=1 QT_QUICK_BACKEND=software >> "$OUT/apply.log" 2>&1
-  SC unset-environment DISPLAY >> "$OUT/apply.log" 2>&1
-  SC start plasma-plasmashell.service >> "$OUT/apply.log" 2>&1 && PLASMA_UNIT=1
-  echo "plasmashell via service systemd: $PLASMA_UNIT" >> "$OUT/etat.txt"
-  SC show-environment > "$OUT/systemd-env-apres.txt" 2>&1
-fi
-[ "$PLASMA_UNIT" = 1 ] || plasmashell > "$OUT/plasmashell.log" 2>&1 &
+plasmashell > "$OUT/plasmashell.log" 2>&1 &
 sleep 25
 plasma-apply-colorscheme WindowsModernDark >> "$OUT/apply.log" 2>&1
 plasma-apply-desktoptheme Windows-modern-dark >> "$OUT/apply.log" 2>&1
@@ -145,5 +132,4 @@ W=$(identify -format %w "$OUT/01-bureau.png" 2>/dev/null); H=$(identify -format 
 { echo "== écran ${W}x${H}"; for x in 20 120 220 $((W-220)) $((W-120)) $((W-20)); do echo "barre x=$x y=$((H-6)) : $(convert "$OUT/01-bureau.png" -format "%[pixel:p{$x,$((H-6))}]" info:)"; done; } >> "$OUT/etat.txt"
 { echo "== barre sur fond blanc (01b) vs fond sombre (01)"; for x in 20 220 $((W-220)); do echo "x=$x sombre=$(convert "$OUT/01-bureau.png" -format "%[pixel:p{$x,$((H-6))}]" info:) blanc=$(convert "$OUT/01b-fond-blanc.png" -format "%[pixel:p{$x,$((H-6))}]" info:)"; done; } >> "$OUT/etat.txt"
 convert "$OUT/01-bureau.png" -gravity south -crop "${W}x80+0+0" +repage "$OUT/01-barre-recadree.png" 2>/dev/null
-[ "$PLASMA_UNIT" = 1 ] && XDG_RUNTIME_DIR="/run/user/$(id -u)" journalctl --user -u plasma-plasmashell.service --no-pager > "$OUT/plasmashell.log" 2>&1
 ps aux | grep -E "kwin|plasmashell|konsole|dolphin" | grep -v grep | cut -c1-140 > "$OUT/ps.txt"
