@@ -49,6 +49,7 @@ info "Stopping plasmashell..."
 # on le redémarre de la même façon qu'on l'a arrêté.
 UNIT_ACTIVE=0; systemctl --user is-active --quiet plasma-plasmashell.service 2>/dev/null && UNIT_ACTIVE=1
 MANUAL_SHELL=0; [ "$UNIT_ACTIVE" = 0 ] && pgrep -x plasmashell >/dev/null 2>&1 && MANUAL_SHELL=1
+SHELL_WAS_RUNNING=0; { [ "$UNIT_ACTIVE" = 1 ] || [ "$MANUAL_SHELL" = 1 ]; } && SHELL_WAS_RUNNING=1
 if [ "$MANUAL_SHELL" = 1 ]; then pkill -x plasmashell 2>/dev/null || true; else systemctl --user stop plasma-plasmashell.service 2>/dev/null || true; fi
 sleep 1
 
@@ -116,6 +117,11 @@ if [ "${WM_BATCH:-0}" = "1" ]; then
     exit 0
 fi
 
+if [ "$SHELL_WAS_RUNNING" = 0 ]; then
+    # même règle que install-lib.sh : pas de plasmashell en cours => rien à redémarrer (le .so sera chargé au prochain démarrage)
+    info "plasmashell n'était pas lancé : rien à redémarrer. Le .so est installé."
+    exit 0
+fi
 info "Restarting plasmashell..."
 if [ "$MANUAL_SHELL" = 1 ]; then
     setsid -f plasmashell >/dev/null 2>&1 || true
