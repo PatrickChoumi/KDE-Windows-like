@@ -215,6 +215,8 @@ echo "note" > "$HOME/Documents/notes.txt"
 { echo "== kfileitemaction"; ls /usr/lib/*/qt6/plugins/kf6/kfileitemaction/ 2>&1; echo "== kservicemenurc"; cat ~/.config/kservicemenurc 2>&1; echo "== servicemenus"; ls /usr/share/kio/servicemenus 2>&1; } > "$OUT/dolphin-shots/menu-modules.txt"
 bash scripts/install-dolphin.sh   # le vrai installateur (barre + menu contextuel), pas une copie a la main
 cat ~/.config/kservicemenurc > "$OUT/dolphin-shots/kservicemenurc-apres.txt" 2>&1
+# Diagnostic 6.7 : cles reelles de la barre d'etat de Dolphin (a lire avant de les regler, pas de devinette)
+grep -i -n -B1 -A4 "statusbar\|zoomslider" /usr/share/config.kcfg/dolphin_generalsettings.kcfg > "$OUT/dolphin-shots/kcfg-statusbar.txt" 2>&1 || true
 kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key ToolButtonStyle IconOnly
 kwriteconfig6 --file dolphinrc --group MainWindow --group "Toolbar mainToolBar" --key IconSize 16
 pkill -x dolphin 2>/dev/null; sleep 1
