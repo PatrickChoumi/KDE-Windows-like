@@ -133,6 +133,15 @@ def f32():
     return (PASS if n >= 400 else FAIL), f'{n} px de liseré accent sous le champ de recherche (>= 400)'
 check('3.2', 'liseré d\'accent du champ de recherche', f32)
 
+def f67():
+    rc = os.path.join(F, 'dolphin-shots', 'dolphinrc-apres.txt')
+    cfg = open(rc, errors='ignore').read() if os.path.exists(rc) else ''
+    full = 'ShowStatusBar=FullWidth' in cfg
+    im = img(F, '31-dolphin-avant-plan.png')
+    n = sum(1 for y in range(856, 874) for x in range(458, 520) if bright(im.getpixel((x, y))) or sum(im.getpixel((x, y))) > 300)
+    return (PASS if full and n >= 30 else FAIL), f'ShowStatusBar=FullWidth={full} ; texte « N dossiers » a gauche : {n} px clairs (>= 30)'
+check('6.7', 'barre d\'etat Dolphin pleine largeur avec nombre d\'elements', f67)
+
 def f55():
     # banc 2 : le rayon est mesure par ci/measure-corner.py ; on lit ses lignes dans les journaux
     if not A.vm: return SKIP, 'dossier du banc 2 non fourni'
