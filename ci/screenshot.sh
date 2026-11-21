@@ -1,5 +1,6 @@
 #!/bin/bash
 # Session Plasma virtuelle X11 (Xvfb + kwin_x11) + captures ImageMagick. Usage : ci/screenshot.sh <dossier_sortie>
+# (relance : barre d etat Dolphin pleine largeur)
 set -u
 OUT="${1:-shots}"; mkdir -p "$OUT"
 export XDG_RUNTIME_DIR=/tmp/xdg; mkdir -p $XDG_RUNTIME_DIR; chmod 700 $XDG_RUNTIME_DIR
